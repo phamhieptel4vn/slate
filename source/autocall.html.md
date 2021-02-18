@@ -2,7 +2,7 @@
 title: PBX API Reference
 
 language_tabs:
-  - shell: cURL
+  - shell
 
 toc_footers:
   - <p>If any problem please contact us</p>
@@ -23,6 +23,8 @@ Xin chào! Đây là bộ API tích hợp tổng đài VoIP - PBX vào các hệ
 Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: support@tel4vn.com.
 
 Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.
+
+Trân thành cảm ơn!
 
 # Authentication
 
@@ -107,7 +109,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 | --------- | -------------------------------------- |
 | api_key   | api_key có trong thông tin của account |
 
-# Event
+# Events
 
 ## Get Events
 
@@ -119,17 +121,7 @@ curl -L -X GET 'http://{API_HOST}/v1/event' \
 
 ```json
 {
-  "data": [
-    {
-      "event_domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
-      "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-      "domain_name": "test.tel4vn.com",
-      "event_name": "hangup",
-      "callback_url": "https://webhook.demo/",
-      "callback_apikey": "foo"
-    },
-    ...
-  ]
+  "data": []
 }
 ```
 
@@ -212,20 +204,6 @@ API dùng để xoá một event_domain.
 | --------- | ------------ |
 | ID        | ID của event |
 
-## Event Hook Data
-
-> Response trả về:
-
-```json
-{
-  "call_id": "112233aabbccddee..",
-  "domain": "test.tel4vn.com",
-  "direction": "outbound",
-  "extension": "101",
-  "phone": "0899888999",
-  "event": "hangup"
-}
-```
 
 # CDRs - Call Detail Records
 
