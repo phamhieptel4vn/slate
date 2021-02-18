@@ -292,7 +292,7 @@
     <link href="images/favicon-639cf3ec.ico" rel="icon" type="image/ico" />
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="autocall" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -302,7 +302,7 @@
     <div class="toc-wrapper">
       <img src="images/logo-4a7690d9.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -324,7 +324,7 @@
               </ul>
           </li>
           <li>
-            <a href="#event" class="toc-h1 toc-link" data-title="Event">Event</a>
+            <a href="#events" class="toc-h1 toc-link" data-title="Events">Events</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-events" class="toc-h2 toc-link" data-title="Get Events">Get Events</a>
@@ -334,9 +334,6 @@
                   </li>
                   <li>
                     <a href="#delete-event" class="toc-h2 toc-link" data-title="Delete Event">Delete Event</a>
-                  </li>
-                  <li>
-                    <a href="#event-hook-data" class="toc-h2 toc-link" data-title="Event Hook Data">Event Hook Data</a>
                   </li>
               </ul>
           </li>
@@ -372,6 +369,8 @@
 <p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: support@tel4vn.com.</p>
 
 <p>Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.</p>
+
+<p>Trân thành cảm ơn!</p>
 <h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -452,24 +451,14 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>api_key có trong thông tin của account</td>
 </tr>
 </tbody></table>
-<h1 id='event'>Event</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/event'</span> <span class="se">\</span>
+<h1 id='events'>Events</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"event_domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.tel4vn.com"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hangup"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://webhook.demo/"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="err">...</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Trả về các call events của tenant.</p>
@@ -563,19 +552,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>ID của event</td>
 </tr>
 </tbody></table>
-<h2 id='event-hook-data'>Event Hook Data</h2>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233aabbccddee.."</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.tel4vn.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outbound"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hangup"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
+<h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
 <p>Lịch sử cuộc gọi</p>
 <h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/cdr?'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
@@ -801,7 +778,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
