@@ -231,6 +231,25 @@ API dùng để xoá một event_domain.
 
 Lịch sử cuộc gọi
 
+### Attributes
+
+| Attribute     | Description                                                                                 |
+| ------------- | ------------------------------------------------------------------------------------------- |
+| id            | Id của CDR                                                                                  |
+| sip_call_id   | call_id trong bản tin SIP                                                                   |
+| cause         | Trạng thái cuộc gọi dựa theo mã phản hồi giao thức SIP. Vd: NORMAL_CLEARING, NO_ANSWER, ... |
+| duration      | Thời hạn thực hiện cuộc gọi                                                                 |
+| direction     | Chiều cuộc gọi (inbound, outbound, local)                                                   |
+| recording_url | Đường dẫn file ghi âm cuộc gọi                                                              |
+| extension     | Extension nhận hoặc thực hiện cuộc gọi                                                      |
+| from_number   | Cuộc gọi từ số nào                                                                          |
+| to_number     | Cuộc gọi đến số nào                                                                         |
+| receive_dest  | Ringroup hoặc queue của extension nhận cuộc gọi                                             |
+| time_started  | Thời gian bắt đầu cuộc gọi                                                                  |
+| time_answered | Thời gian khi cuộc gọi kết nối                                                              |
+| time_ended    | Thời gian kết thúc cuộc gọi                                                                 |
+| status        | Trạng thái cuộc gọi                                                                         |
+
 ## Get CDRs
 
 ```shell
