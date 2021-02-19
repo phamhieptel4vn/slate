@@ -344,6 +344,9 @@
             <a href="#cdrs-call-detail-records" class="toc-h1 toc-link" data-title="CDRs - Call Detail Records">CDRs - Call Detail Records</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#attributes" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+                  <li>
                     <a href="#get-cdrs" class="toc-h2 toc-link" data-title="Get CDRs">Get CDRs</a>
                   </li>
                   <li>
@@ -577,6 +580,70 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
 <p>Lịch sử cuộc gọi</p>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id của CDR</td>
+</tr>
+<tr>
+<td>sip_call_id</td>
+<td>call_id trong bản tin SIP</td>
+</tr>
+<tr>
+<td>cause</td>
+<td>Trạng thái cuộc gọi dựa theo mã phản hồi giao thức SIP. Vd: NORMAL_CLEARING, NO_ANSWER, ...</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Thời hạn thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Chiều cuộc gọi (inbound, outbound, local)</td>
+</tr>
+<tr>
+<td>recording_url</td>
+<td>Đường dẫn file ghi âm cuộc gọi</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>Extension nhận hoặc thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>from_number</td>
+<td>Cuộc gọi từ số nào</td>
+</tr>
+<tr>
+<td>to_number</td>
+<td>Cuộc gọi đến số nào</td>
+</tr>
+<tr>
+<td>receive_dest</td>
+<td>Ringroup hoặc queue của extension nhận cuộc gọi</td>
+</tr>
+<tr>
+<td>time_started</td>
+<td>Thời gian bắt đầu cuộc gọi</td>
+</tr>
+<tr>
+<td>time_answered</td>
+<td>Thời gian khi cuộc gọi kết nối</td>
+</tr>
+<tr>
+<td>time_ended</td>
+<td>Thời gian kết thúc cuộc gọi</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Trạng thái cuộc gọi</td>
+</tr>
+</tbody></table>
 <h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/cdr?'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
 </code></pre></div>
