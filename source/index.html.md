@@ -47,7 +47,7 @@ curl -L -X POST 'http://{API_HOST}/v1/auth' \
       "username": "foo",
       "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
       "user_enabled": "true",
-      "level": "superadmin"
+      "level": "admin"
   }
 }
 ```
@@ -410,4 +410,37 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin
 
 # Click-to-call
 
-<aside class="info">Đang phát triển</aside>
+```shell
+curl -L -X GET 'http://{API_HOST}/v1/click2call?ext=101&phone=0899098899' \
+-H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+```
+
+> Response trả về:
+
+```json
+{
+  "data": {
+    "message": "success"
+  }
+}
+```
+
+API dùng để thực hiện click-to-call.
+
+Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension của domain, sau khi extension pickup cuộc gọi thì có một cuộc gọi đẩy ra số mobile dựa vào parameter của API.
+
+### HTTP Request
+
+`GET http://{API_HOST}/v1/click2call?ext=<EXTENSION>&phone=<PHONE>`
+
+### URL Parameters
+
+| Parameter       | Description                                               | Required |
+| --------------- | --------------------------------------------------------- | -------- |
+| ext             | Extension thực hiện cuộc gọi                              | true     |
+| phone           | Số điện thoại sẽ được gọi tới                             | true     |
+| src_cid_name    | Tên hiển thị trên máy extension. Default: Click2Call      | false    |
+| src_cid_number  | Số hiển thị trên máy extension. Default: Số của extension | false    |
+| dest_cid_name   | Tên của số điện thoại sẽ chèn vào bản tin SIP             | false    |
+| dest_cid_number | Số điện thoại sẽ chèn vào bản tin SIP                     | false    |
+| auto_answer     | Tự động nhấc máy phía extension. Default: false           | false    |
