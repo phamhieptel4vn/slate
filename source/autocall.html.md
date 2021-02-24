@@ -1,12 +1,12 @@
 ---
-title: PBX API Reference
+title: Autocall API Reference
 
 language_tabs:
-  - shell
+  - shell: cURL
 
 toc_footers:
   - <p>If any problem please contact us</p>
-  - <li>Email &#58; support@tel4vn.com</li>
+  - <li>Email &#58; tech@tel4vn.com</li>
 
 includes:
   - errors
@@ -18,80 +18,43 @@ code_clipboard: true
 
 # Introduction
 
-Xin chào! Đây là bộ API tích hợp tổng đài VoIP - PBX vào các hệ thống CRM, WebApp.
+Xin chào! Đây là bộ API Autocall, OTP, Voice call Text-to-speech của TEL4VN.
 
 Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: support@tel4vn.com.
 
-Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.
-
-Trân thành cảm ơn!
+Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản test sẽ được bên phía Tổng đài cung cấp.
 
 # Authentication
-
-## Login Account
-
-```shell
-curl -L -X POST 'http://{API_HOST}/v1/auth' \
--H 'Content-Type: application/json' \
---data-raw '{
-    "username" : "foo@test.tel4vn.com",
-    "password" : "foo123"
-}'
-```
-
-> Response trả về:
-
-```json
-{
-  "data": {
-      "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-      "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-      "username": "foo",
-      "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "user_enabled": "true",
-      "level": "superadmin"
-  }
-}
-```
-
-Login thành công sẽ trả về thông tin account.
-
-### HTTP Request
-
-`POST http://{API_HOST}/v1/auth`
-
-### Body
-
-| Parameter | Description        |
-| --------- | ------------------ |
-| username  | Account's username |
-| password  | Account's password |
 
 ## Get Access Token
 
 ```shell
-curl -L -X POST 'http://{API_HOST}/v1/auth/token' \
--H 'Content-Type: application/json' \
---data-raw '{
-    "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
-}'
+curl --location --request POST 'http://{API_HOST}/api/v1/users/generate_access_token' \ 
+--header 'Content-Type: application/json' \ 
+--data-raw '{ 
+"secret_key": "30511f666-f888-411b-a6e0-11111fb6gg7a"
+ }'
 ```
 
 > Response trả về:
 
 ```json
-{
-  "data": {
-      "expired": 1613636318,
-      "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
-      "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
-  }
+{ 
+  "data": { 
+  "id": "30511f666-f888-411b-a6e0-11111fb6gg7a",
+  "user_id": "f461", 
+  "access_token": "1ebe8f88MzA1MTNkZjMtZjc3My00MTmY", 
+  "refresh_token": "", 
+  "expire_at": 15552000, 
+  "token_type": "Bearer", 
+  "scope": "member"
+  } 
 }
 ```
 
-PBX API sử dụng API Token để xác thực truy cập tới API. API Token bạn lấy từ service thông qua {API_KEY} được Tổng đài cung cấp.
+Autocall API sử dụng API Token để xác thực truy cập tới API. API Token bạn lấy từ service thông qua {API_KEY} được Tổng đài cung cấp.
 
-Tất cả các API của PBX đều yêu cầu user cung cấp Token trong header giống phía dưới.
+Tất cả các API của Autocall đều yêu cầu user cung cấp Token trong header giống phía dưới.
 
 `Authorization: {TOKEN}`
 
@@ -101,272 +64,345 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 
 ### HTTP Request
 
-`POST http://{API_HOST}/v1/auth/token`
+`POST http://{API_HOST}/api/v1/users/generate_access_token`
 
 ### Body
 
-| Parameter | Description                            |
-| --------- | -------------------------------------- |
-| api_key   | api_key có trong thông tin của account |
+| Parameter  | Description         |
+| ---------- | ------------------- |
+| secret_key | Secret key được cấp |
 
-# Events
+# OTP
 
-## Get Events
-
-```shell
-curl -L -X GET 'http://{API_HOST}/v1/event' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
-```
-> Response trả về:
-
-```json
-{
-  "data": []
-}
-```
-
-Trả về các call events của tenant.
-
-### HTTP Request
-
-`GET http://{API_HOST}/v1/event`
-
-## Create Events
+## Run OTP
 
 ```shell
-curl -L -X POST 'http://{API_HOST}/v1/event' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=' \
--H 'Content-Type: application/json' \
---data-raw '{
-    "callback_url" : "https://webhook.demo/",
-    "callback_apikey" : "foo",
-    "event" : "create"
+curl --location --request POST 'http://{API_HOST}/api/v2/campaigns/1/otp' \ 
+--header 'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY' \ 
+--header 'Content-Type: application/json' \ 
+--data-raw '{ 
+    "caller": "0123456789", 
+    "callees": [ "0987654321" ], 
+    "params": { 
+    "template_name": "template_otp_1", 
+    "code_otp": "M43TUI" 
+  }, 
+  "callback_url": "https://demo.webhook.com", 
+  "callback_apikey": "api_key_123" 
 }'
 ```
-
 > Response trả về:
 
 ```json
-{
-  "created": true
+{ 
+  "data": { 
+    "campaign_id": "1",
+    "results": { 
+    "fail": [
+        { 
+        "1234567890": "Wrong Format" 
+        }
+      ], 
+    "success": [ 
+      "1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321" 
+      ] 
+    } 
+  } 
 }
 ```
 
-Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ liệu về {callback_url}.
+API thực hiện cuộc gọi OTP
 
 ### HTTP Request
 
-`POST http://{API_HOST}/v1/event`
-
-### Body
-
-| Parameter       | Description                                    |
-| --------------- | ---------------------------------------------- |
-| callback_url    | Domain Url mà tổng đài sẽ hook dữ liệu tới     |
-| callback_apikey | ApiKey hoặc access token của domain (optional) |
-| event           | SIP Call Event                                 |
-
-### SIP Call Event
-
-| Parameter | Description                        |
-| --------- | ---------------------------------- |
-| hangup    | Sự kiện khi cuộc gọi bị ngắt, huỷ  |
-| create    | Sự kiện khi cuộc gọi được khởi tạo |
-| answer    | Sự kiện khi cuộc gọi được nhấc máy |
-
-<aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
-<aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
-
-## Delete Event
-
-```shell
-curl -L -X DELETE 'http://{API_HOST}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=' 
-```
-
-> Response trả về:
-
-```json
-{
-  "deleted": true,
-}
-```
-
-API dùng để xoá một event_domain.
-
-### HTTP Request
-
-`DELETE http://{API_HOST}/v1/event/<ID>`
+`GET http://{API_HOST}/api/v2/campaigns/{campaignId}/otp`
 
 ### URL Parameters
 
-| Parameter | Description  |
-| --------- | ------------ |
-| ID        | ID của event |
+| Parameter  | Description          |
+| ---------- | -------------------- |
+| campaignId | Campaign Id được cấp |
 
+### Body
 
-# CDRs - Call Detail Records
+> Sample data:
 
-Lịch sử cuộc gọi
+```json
+{ 
+  "caller": "0123456789", 
+  "callees": [ 
+    "0987654321",
+    "1234567890"
+  ],
+  "params": {
+    "template_name": "template_otp_1", 
+    "code_otp": "M43TUI" 
+  }, 
+  "callback_url": "https://demo.webhook.com", 
+  "callback_apikey": "api_key_123" 
+}
 
-## Get CDRs
+```
+
+| Parameter            | Description                                |
+| -------------------- | ------------------------------------------ |
+| caller               | Domain Url mà tổng đài sẽ hook dữ liệu tới |
+| callees              | Số điện thoại nhận cuộc gọi                |
+| params               |                                            |
+| params.template_name | Kịch bản đọc code OTP                      |
+| params.code_otp      | Code OTP                                   |
+| callback_url         | SIP Call Event                             |
+| callback_apikey      | API Key của webhook (optional)             |
+
+# Text-To-Speech
+
+## Import TTS Voice
 
 ```shell
-curl -L -X GET 'http://{API_HOST}/v1/cdr?' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+curl --location --request POST 'http://{API_HOST}/api/v2/campaigns/1/voice/import' \
+--header 'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name": "thong_bao_no_cuoc_01",
+    "content": "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"
+}'
 ```
-
-> Pagination response trả về:
+> Response trả về:
 
 ```json
-{
-  "data": [
-    {
-      "id": "ad4c9b90-c071-405a-9723-980d2e5e1623",
-      "sip_call_id": "112233aabbccddee..",
-      "cause": "NORMAL_CLEARING",
-      "duration": 11,
-      "direction": 3,
-      "recording_url": "http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav",
-      "extension": "101",
-      "from_number": "19001919",
-      "to_number": "0899888999",
-      "receive_dest": "",
-      "time_started": "2021-02-17 17:30:35",
-      "time_answered": "2021-02-17 17:30:43",
-      "time_ended": "2021-02-17 17:30:46",
-      "status": "ANSWERED"
-    },
-    {
-      "id": "01b7d166-b564-42ec-80a1-4ad343225934 ",
-      "sip_call_id": "aabbccddee112233..",
-      "cause": "NORMAL_CLEARING",
-      "duration": 7,
-      "direction": 3,
-      "recording_url": "",
-      "extension": "101",
-      "from_number": "19001919",
-      "to_number": "0899888999",
-      "receive_dest": "",
-      "time_started": "2021-02-18 17:20:58",
-      "time_answered": "",
-      "time_ended": "2021-02-18 17:21:05",
-      "status": "BUSY"
-    },
-    ...
-  ],
-  "limit": 10,
-  "page": 1,
-  "total": 22
-}
-```
-> Scroll response trả về:
-
-```json
-{
-  "data": [
-    {
-      "id": "ad4c9b90-c071-405a-9723-980d2e5e1623",
-      "sip_call_id": "112233aabbccddee..",
-      "cause": "NORMAL_CLEARING",
-      "duration": 11,
-      "direction": 3,
-      "recording_url": "http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav",
-      "extension": "101",
-      "from_number": "19001919",
-      "to_number": "0899888999",
-      "receive_dest": "",
-      "time_started": "2021-02-17 17:30:35",
-      "time_answered": "2021-02-17 17:30:43",
-      "time_ended": "2021-02-17 17:30:46",
-      "status": "ANSWERED"
-    },
-    {
-      "id": "01b7d166-b564-42ec-80a1-4ad343225934",
-      "sip_call_id": "aabbccddee112233..",
-      "cause": "NORMAL_CLEARING",
-      "duration": 7,
-      "direction": 3,
-      "recording_url": "",
-      "extension": "101",
-      "from_number": "19001919",
-      "to_number": "0899888999",
-      "receive_dest": "",
-      "time_started": "2021-02-18 17:20:58",
-      "time_answered": "",
-      "time_ended": "2021-02-18 17:21:05",
-      "status": "BUSY"
-    },
-    ...
-  ],
-  "scroll_id": "111222333444aaabbbcccddd=="
+{ 
+  "data": { 
+    "campaign_id": "1",
+    "results": { 
+    "fail": [
+        { 
+        "1234567890": "Wrong Format" 
+        }
+      ], 
+    "success": [ 
+      "1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321" 
+      ] 
+    } 
+  } 
 }
 ```
 
-Trả về danh sách lịch sử cuộc gọi.
-API CDRs sử dụng 2 cơ chế để trả về dữ liệu.
-Pagination: Phân trang.
-Scroll: Cuộn trang. (Mặc định)
-
-Nếu user cung cấp trong param: page - Số trang, limit - số lượng trả về thì API sẽ trả về dữ liêu theo cơ chế Pagination.
+Tạo kịch bản Text-To-Speech
 
 ### HTTP Request
 
-`GET http://{API_HOST}/v1/cdr`
+`GET http://{API_HOST}/api/v2/campaigns/{campaignId}/voice/import`
 
-### Query Parameters
+### URL Parameters
 
-| Parameter     | Description                               | Example                             |
-| ------------- | ----------------------------------------- | ----------------------------------- |
-| calldate      | Thời gian bắt đầu cuộc gọi                | 2021-02-18 hoặc 2021-02-18 17:20:58 |
-| duration      | Thời hạn của cuộc gọi                     | 10                                  |
-| extension     | Cuộc gọi từ extension nào                 | 101                                 |
-| recordingfile | File recording của cuộc gọi               | abcd.mp3                            |
-| status        | Trạng thái cuộc gọi                       | ANSWERED                            |
-| phone         | Từ hoặc tới số điện thoại nào             | 0899888999                          |
-| direction     | Chiều cuộc gọi (inbound, outbound, local) | outbound                            |
+| Parameter  | Description          |
+| ---------- | -------------------- |
+| campaignId | Campaign Id được cấp |
+
+### Body
+
+> Sample data:
+
+```json
+{
+    "name": "thong_bao_no_cuoc_01",
+    "content": "Chào bạn {{key_field_1}} vui lòng thanh toán khoản nợ {{key_field_2}} trước ngày {{key_field_3}}"
+}
+```
+
+| Parameter       | Description                               |
+| --------------- | ----------------------------------------- |
+| name            | Tên kịch bản muốn tạo. (Phải là duy nhất) |
+| content         | Nội dung của kịch bản                     |
+| key_field_1,2,3 | Các từ khoả trong kịch bản                |
+
+
+key_field: tương ứng với đoạn text import vào campaign người dùng định nghĩa.
+
+Ví dụ:
+<ul>
+	<li>key_field_1 là {{customer_name}}</li>
+	<li>key_field_2 là {{due_amount}}</li>
+	<li>key_field_3 là {{due_date}}</li>
+</ul>
+
+Đoạn content sẽ là : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"
+
+## Run TTS
+
+```shell
+curl --location --request POST 'http://{API_HOST}/api/v2/campaigns/1/voice/import' \
+--header 'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "caller": "1234567890",
+    "callees": [
+        "0987654321",
+        "1234567890"
+    ],
+    "params": {
+        "template_name": "thong_bao_no_cuoc_1",
+        "customer_name": "Nguyễn Văn A",
+        "due_amount": "10.410.000",
+        "due_days": "#15"
+    },
+    "callback_url": "https://demo.webhook.com",
+    "callback_apikey": "api_key_123"
+}
+```
+> Response trả về:
+
+```json
+{ 
+"data": { 
+    "campaign_id": "1",
+    "results": { 
+    "fail": [
+      { 
+      "1234567890": "Wrong Format" 
+      }
+    ], 
+    "success": [ 
+      "1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321" 
+      ] 
+    } 
+  } 
+}
+
+```
+
+API thực hiện cuộc gọi Text-To-Speech
+
+### HTTP Request
+
+`GET http://{API_HOST}/api/v2/campaigns/{campaignId}/voice`
+
+### URL Parameters
+
+| Parameter  | Description          |
+| ---------- | -------------------- |
+| campaignId | Campaign Id được cấp |
+
+### Body
+
+> Sample data:
+
+```json
+{
+    "caller": "1234567890",
+    "callees": [
+        "0987654321",
+        "1234567890"
+    ],
+    "params": {
+        "template_name": "thong_bao_no_cuoc_1",
+        "customer_name": "Nguyễn Văn A",
+        "due_amount": "10.410.000",
+        "due_date": "30/1/2021"
+    },
+    "callback_url": "https://demo.webhook.com",
+    "callback_apikey": "api_key_123"
+}
+```
+
+| Parameter            | Description                                                         |
+| -------------------- | ------------------------------------------------------------------- |
+| caller               | Domain Url mà tổng đài sẽ hook dữ liệu tới                          |
+| callees              | Số điện thoại nhận cuộc gọi                                         |
+| params               |                                                                     |
+| params.template_name | Kịch bản đọc code OTP                                               |
+| params.customer_name | Các thông tin sẽ được đọc dựa vào từ khoá bạn đã tạo trong kịch bản |
+| callback_url         | SIP Call Event                                                      |
+| callback_apikey      | API Key của webhook (optional)                                      |
+
+
+Một số lưu ý:
+<ul>
+  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10.410.000”</li>
+  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 123456789 hoặc “0987654321”</li>
+  <li>Nếu muốn đọc thành số (Ví dụ 15 - mười lăm) - truyền dữ liệu theo format: “#15”</li>
+  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy”, ví dụ: “30/01/2021”</li>
+</ul>
+
+params.key_field: tương ứng với đoạn text import vào campaign người dùng đã định nghĩa.
+
+Ví dụ:
+<ul>
+  <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
+  <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
+</ul>
+
+# Call Detail Report
+
+Lịch sử cuộc gọi
+
+## Attributes
+
+| Attribute    | Description                             | Type     |
+| ------------ | --------------------------------------- | -------- |
+| id           | Call Id                                 | string   |
+| campaign_id  | Campaign Id                             | string   |
+| code_otp     | Code OTP - Null with failed calls       | object   |
+| created_at   | Initiate the call at                    | datetime |
+| started_at   | The time that callee has picked up call | datetime |
+| ended_at     | The time that callee has hang up call   | datetime |
+| duration     | Call duration                           | int      |
+| keypress     | Keypress. Default: 127 - Hangup         | string   |
+| phone_number | Phone numbers was received              | string   |
+| user_id      | User Id                                 | string   |
+| param        | Param that api call is received         | string   |
+| type         | Call Type: OTP,TTS,DEFAULT              | string   |
+| status       | Call Disposition.                       | string   |
+
+
+| Call Type     | Description                                                                   |
+| ------------- | ----------------------------------------------------------------------------- |
+| FAIL          | Mã lỗi mặc định                                                               |
+| ANSWERED      | Cuộc gọi thành công và được người dùng nhấc máy                               |
+| NOANWSER      | Người dùng gác máy hoặc không nhấc máy                                        |
+| BUSY          | Cuộc gọi bị báo bận                                                           |
+| CONGESTION    | Cuộc gọi bị nghẽn                                                             |
+| INVALIDNUMBER | Số điện thoại gọi ra không phù hợp                                            |
+| ERROR         | Máy chủ nhận được yêu cầu không khớp với bất kỳ hộp thoại hoặc giao dịch nào. |
+| CANCEL        | Người dùng gác máy (Trường hợp riêng của nhà mạng Mobiphone gọi Mobiphone)    |
 
 ## Get a Specific CDR
 
 ```shell
-curl -L -X GET 'http://{API_HOST}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+curl --location --request GET 'http://{API_HOST}/api/v2/report/1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321' \ 
+--header 'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'
 ```
 
 > Response trả về:
 
 ```json
-{
-  "id": "01b7d166-b564-42ec-80a1-4ad343225934",
-  "sip_call_id": "aabbccddee112233..",
-  "cause": "NORMAL_CLEARING",
-  "duration": 7,
-  "direction": 3,
-  "recording_url": "",
-  "extension": "101",
-  "from_number": "19001919",
-  "to_number": "0899888999",
-  "receive_dest": "",
-  "time_started": "2021-02-18 17:20:58",
-  "time_answered": "",
-  "time_ended": "2021-02-18 17:21:05",
-  "status": "BUSY"
+{ 
+  "data": { 
+    "campaign_id": "1", 
+    "code_otp": "M43TUI", 
+    "created_at": "2021-01-11 11:28:45", 
+    "duration": 15, 
+    "ended_at": "2021-01-11 11:29:09", 
+    "id": "1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321", 
+    "keypress": "127", 
+    "param": "{\"customer_name\":\"Nguyễn Văn A\",\"due_amount\":\"10.410.000\",\"due_days\":\"#15\",\"template_name\":\"thong_bao_no_cuoc_1\"}",
+    "phone_number": "0987654321", 
+    "started_at": "2021-01-11 11:28:54", 
+    "status": "ANSWERED", 
+    "type": "TTS",
+    "user_id": "5" 
+  } 
 }
 ```
 
 API dùng để lấy một cdr cụ thể.
-Id có thể id của CDR hoặc sip_call_id trong bản tin
 
 ### HTTP Request
 
-`GET http://{API_HOST}/v1/cdr/<ID>`
+`GET http://{API_HOST}/api/v2/report/{callId}`
 
 ### URL Parameters
 
-| Parameter | Description                               |
-| --------- | ----------------------------------------- |
-| ID        | Id của CDR hoặc sip_call_id trong bản tin |
-
-# Click-to-call
-
-<aside class="info">Đang phát triển</aside>
+| Parameter | Description               |
+| --------- | ------------------------- |
+| ID        | Call_id trong data trả về |

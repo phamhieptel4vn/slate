@@ -6,7 +6,7 @@ language_tabs:
 
 toc_footers:
   - <p>If any problem please contact us</p>
-  - <li>Email &#58; support@tel4vn.com</li>
+  - <li>Email &#58; tech@tel4vn.com</li>
 
 includes:
   - errors
