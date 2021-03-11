@@ -444,7 +444,7 @@
 
 <p>Tất cả các API của PBX đều yêu cầu user cung cấp Token trong header giống phía dưới.</p>
 
-<p><code>Authorization: {TOKEN}</code></p>
+<p><code>Authorization: Bearer {TOKEN}</code></p>
 
 <aside class="notice">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
@@ -758,9 +758,14 @@ Scroll: Cuộn trang. (Mặc định)</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>calldate</td>
-<td>Thời gian bắt đầu cuộc gọi</td>
+<td>start_date</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian</td>
 <td>2021-02-18 hoặc 2021-02-18 17:20:58</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian</td>
+<td>2021-02-19 hoặc 2021-02-19 00:00:00</td>
 </tr>
 <tr>
 <td>duration</td>
