@@ -56,7 +56,7 @@ Autocall API sử dụng API Token để xác thực truy cập tới API. API T
 
 Tất cả các API của Autocall đều yêu cầu user cung cấp Token trong header giống phía dưới.
 
-`Authorization: {TOKEN}`
+`Authorization: Bearer {TOKEN}`
 
 <aside class="notice">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.

@@ -91,7 +91,7 @@ PBX API sử dụng API Token để xác thực truy cập tới API. API Token 
 
 Tất cả các API của PBX đều yêu cầu user cung cấp Token trong header giống phía dưới.
 
-`Authorization: {TOKEN}`
+`Authorization: Bearer {TOKEN}`
 
 <aside class="notice">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
@@ -359,7 +359,8 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 
 | Parameter     | Description                               | Example                             |
 | ------------- | ----------------------------------------- | ----------------------------------- |
-| calldate      | Thời gian bắt đầu cuộc gọi                | 2021-02-18 hoặc 2021-02-18 17:20:58 |
+| start_date    | Tìm kiếm cdrs theo khoảng thời gian       | 2021-02-18 hoặc 2021-02-18 17:20:58 |
+| end_date      | Tìm kiếm cdrs theo khoảng thời gian       | 2021-02-19 hoặc 2021-02-19 00:00:00 |
 | duration      | Thời hạn của cuộc gọi                     | 10                                  |
 | extension     | Cuộc gọi từ extension nào                 | 101                                 |
 | recordingfile | File recording của cuộc gọi               | abcd.mp3                            |
