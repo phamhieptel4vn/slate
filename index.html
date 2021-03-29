@@ -579,14 +579,60 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <p>Response trả về:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233aabbccddee.."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.tel4vn.com"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outbound"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hangup"</span><span class="w">
+  </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"hotline"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hangup"</span><span class="p">,</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
+</span></code></pre></div><h3 id='description'>Description</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>call_id</td>
+<td>Id định danh cuộc gọi</td>
+</tr>
+<tr>
+<td>sip_call_id</td>
+<td>SIP Call Id</td>
+</tr>
+<tr>
+<td>domain</td>
+<td>Domain nhận hoặc thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Hướng cuộc gọi (inbound / outbound)</td>
+</tr>
+<tr>
+<td>from_number</td>
+<td>Số gọi. Sẽ là số ext nếu cuộc gọi là outbound</td>
+</tr>
+<tr>
+<td>to_number</td>
+<td>Số nhận. Sẽ là số ext nếu cuộc gọi là inbound</td>
+</tr>
+<tr>
+<td>state</td>
+<td>ringing / answered / hangup</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Tổng thời lượng cuộc gọi. (Riêng sự kiện hangup)</td>
+</tr>
+<tr>
+<td>billsec</td>
+<td>Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup)</td>
+</tr>
+</tbody></table>
+<h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
 <p>Lịch sử cuộc gọi</p>
 <h3 id='attributes'>Attributes</h3>
 <table><thead>
