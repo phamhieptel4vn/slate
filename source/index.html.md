@@ -218,14 +218,30 @@ API dùng để xoá một event_domain.
 
 ```json
 {
-  "call_id": "112233aabbccddee..",
+  "call_id": "avavavav-1111-2222-3333-eeeeeeee",
+  "sip_call_id": "dddddddd-1111-2222-3333-eeeeeeee",
   "domain": "test.tel4vn.com",
   "direction": "outbound",
-  "extension": "101",
-  "phone": "0899888999",
-  "event": "hangup"
+  "from_number": "0899888999",
+  "to_number": "101",
+  "hotline": "19001919",
+  "state": "hangup",
 }
 ```
+
+### Description
+
+| Parameter   | Description                                                     |
+| ----------- | --------------------------------------------------------------- |
+| call_id     | Id định danh cuộc gọi                                           |
+| sip_call_id | SIP Call Id                                                     |
+| domain      | Domain nhận hoặc thực hiện cuộc gọi                             |
+| direction   | Hướng cuộc gọi (inbound / outbound)                             |
+| from_number | Số gọi. Sẽ là số ext nếu cuộc gọi là outbound                   |
+| to_number   | Số nhận. Sẽ là số ext nếu cuộc gọi là inbound                   |
+| state       | ringing / answered / hangup                                     |
+| duration    | Tổng thời lượng cuộc gọi. (Riêng sự kiện hangup)                |
+| billsec     | Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup) |
 
 # CDRs - Call Detail Records
 
