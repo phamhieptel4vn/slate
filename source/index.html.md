@@ -444,10 +444,8 @@ curl -L -X GET 'http://{API_HOST}/v1/click2call?ext=101&phone=0899098899' \
 
 ```json
 {
-  "data": {
-    "status": "success",
-    "call_id": "01b7d166-b564-42ec-80a1-4ad343225934"
-  }
+  "status": "success",
+  "call_id": "01b7d166-b564-42ec-80a1-4ad343225934"
 }
 ```
 
@@ -493,10 +491,8 @@ curl -L -X GET 'http://{API_HOST}/v1/click2call/async?ext=101&phone=0899098899' 
 
 ```json
 {
-  "data": {
-    "status": "success",
-    "call_id": "01b7d166-b564-42ec-80a1-4ad343225934"
-  }
+  "status": "success",
+  "call_id": "01b7d166-b564-42ec-80a1-4ad343225934"
 }
 ```
 
@@ -549,11 +545,18 @@ curl -L -X POST 'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/
 
 ```json
 {
-  "data": {
-    "message": "success",
-    "call_id": "01b7d166-b564-42ec-80a1-4ad343225934",
-    "ext": "101"
-  }
+  "status": "success",
+  "call_id": "01b7d166-b564-42ec-80a1-4ad343225934",
+  "ext": "101"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "status": "fail",
+  "error": "USER_NOT_REGISTERED"
 }
 ```
 
