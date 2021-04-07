@@ -358,10 +358,18 @@
             <a href="#click-to-call" class="toc-h1 toc-link" data-title="Click-to-call">Click-to-call</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request-8" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
+                    <a href="#synchronous" class="toc-h2 toc-link" data-title="Synchronous">Synchronous</a>
                   </li>
                   <li>
-                    <a href="#url-parameters-3" class="toc-h2 toc-link" data-title="URL Parameters">URL Parameters</a>
+                    <a href="#asynchronous" class="toc-h2 toc-link" data-title="Asynchronous">Asynchronous</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#call" class="toc-h1 toc-link" data-title="Call">Call</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#transfer-a-call" class="toc-h2 toc-link" data-title="Transfer a call">Transfer a call</a>
                   </li>
               </ul>
           </li>
@@ -898,7 +906,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Id của CDR hoặc sip_call_id trong bản tin</td>
 </tr>
 </tbody></table>
-<h1 id='click-to-call'>Click-to-call</h1><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
+<h1 id='click-to-call'>Click-to-call</h1><h2 id='synchronous'>Synchronous</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
 </code></pre></div>
 <blockquote>
@@ -906,13 +914,24 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="w">
   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER_NOT_REGISTERED"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện click-to-call.</p>
 
 <p>Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension của domain, sau khi extension pickup cuộc gọi thì có một cuộc gọi đẩy ra số mobile dựa vào parameter của API.</p>
+
+<p>Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới khi extension nhấc máy hoặc ngắt máy.</p>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -957,6 +976,112 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>auto_answer</td>
 <td>Tự động nhấc máy phía extension. Default: false</td>
 <td>false</td>
+</tr>
+</tbody></table>
+<h2 id='asynchronous'>Asynchronous</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not registered extension with Softphone or IP Phone"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USER_NOT_REGISTERED"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để thực hiện click-to-call.</p>
+
+<p>Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension của domain, sau khi extension pickup cuộc gọi thì có một cuộc gọi đẩy ra số mobile dựa vào parameter của API.</p>
+
+<p>API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET http://{API_HOST}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ext</td>
+<td>Extension thực hiện cuộc gọi</td>
+<td>true</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Số điện thoại sẽ được gọi tới</td>
+<td>true</td>
+</tr>
+<tr>
+<td>src_cid_name</td>
+<td>Tên hiển thị trên máy extension. Default: Click2Call</td>
+<td>false</td>
+</tr>
+<tr>
+<td>src_cid_number</td>
+<td>Số hiển thị trên máy extension. Default: Số của extension</td>
+<td>false</td>
+</tr>
+<tr>
+<td>dest_cid_name</td>
+<td>Tên của số điện thoại sẽ chèn vào bản tin SIP</td>
+<td>false</td>
+</tr>
+<tr>
+<td>dest_cid_number</td>
+<td>Số điện thoại sẽ chèn vào bản tin SIP</td>
+<td>false</td>
+</tr>
+<tr>
+<td>auto_answer</td>
+<td>Tự động nhấc máy phía extension. Default: false</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<h1 id='call'>Call</h1><h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "ext" : "101"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để thực hiện chuyển cuộc gọi sang extension khác.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/call/&lt;CALL_ID&gt;/transfer</code></p>
+<h3 id='body-4'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ext</td>
+<td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
