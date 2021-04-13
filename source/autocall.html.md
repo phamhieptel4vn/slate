@@ -56,7 +56,7 @@ Autocall API sử dụng API Token để xác thực truy cập tới API. API T
 
 Tất cả các API của Autocall đều yêu cầu user cung cấp Token trong header giống phía dưới.
 
-`Authorization: Bearer {TOKEN}`
+`Authorization: {TOKEN}`
 
 <aside class="notice">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
@@ -231,7 +231,7 @@ Ví dụ:
 ## Run TTS
 
 ```shell
-curl --location --request POST 'http://{API_HOST}/api/v2/campaigns/1/voice/import' \
+curl --location --request POST 'http://{API_HOST}/api/v2/campaigns/1/voice' \
 --header 'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY' \
 --header 'Content-Type: application/json' \
 --data-raw '{

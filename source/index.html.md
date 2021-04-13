@@ -464,6 +464,10 @@ Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension
 
 Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới khi extension nhấc máy hoặc ngắt máy.
 
+<aside class="notice">
+Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
+</aside>
+
 ### HTTP Request
 
 `GET http://{API_HOST}/v1/click2call?ext=<EXTENSION>&phone=<PHONE>`
@@ -479,6 +483,7 @@ Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới k
 | dest_cid_name   | Tên của số điện thoại sẽ chèn vào bản tin SIP             | false    |
 | dest_cid_number | Số điện thoại sẽ chèn vào bản tin SIP                     | false    |
 | auto_answer     | Tự động nhấc máy phía extension. Default: false           | false    |
+| hotline         | Đầu số hotline để thực hiện cuộc gọi ra ngoài             | false    |
 
 ## Asynchronous
 
@@ -512,6 +517,10 @@ Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension
 
 API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.
 
+<aside class="notice">
+Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
+</aside>
+
 ### HTTP Request
 
 `GET http://{API_HOST}/v1/click2call/async?ext=<EXTENSION>&phone=<PHONE>`
@@ -527,6 +536,14 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 | dest_cid_name   | Tên của số điện thoại sẽ chèn vào bản tin SIP             | false    |
 | dest_cid_number | Số điện thoại sẽ chèn vào bản tin SIP                     | false    |
 | auto_answer     | Tự động nhấc máy phía extension. Default: false           | false    |
+| hotline         | Đầu số hotline để thực hiện cuộc gọi ra ngoài             | false    |
+
+## Error
+
+| Parameter           | Description                                   |
+| ------------------- | --------------------------------------------- |
+| USER_BUSY           | Người dùng hiện tại đang bận                  |
+| USER_NOT_REGISTERED | Người dùng chưa login Softphone hoặc IP Phone |
 
 # Call
 
