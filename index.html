@@ -363,6 +363,9 @@
                   <li>
                     <a href="#asynchronous" class="toc-h2 toc-link" data-title="Asynchronous">Asynchronous</a>
                   </li>
+                  <li>
+                    <a href="#error" class="toc-h2 toc-link" data-title="Error">Error</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -930,6 +933,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <p>Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension của domain, sau khi extension pickup cuộc gọi thì có một cuộc gọi đẩy ra số mobile dựa vào parameter của API.</p>
 
 <p>Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới khi extension nhấc máy hoặc ngắt máy.</p>
+
+<aside class="notice">
+Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
+</aside>
 <h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
@@ -975,6 +982,11 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Tự động nhấc máy phía extension. Default: false</td>
 <td>false</td>
 </tr>
+<tr>
+<td>hotline</td>
+<td>Đầu số hotline để thực hiện cuộc gọi ra ngoài</td>
+<td>false</td>
+</tr>
 </tbody></table>
 <h2 id='asynchronous'>Asynchronous</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
@@ -1001,6 +1013,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <p>Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension của domain, sau khi extension pickup cuộc gọi thì có một cuộc gọi đẩy ra số mobile dựa vào parameter của API.</p>
 
 <p>API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.</p>
+
+<aside class="notice">
+Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
+</aside>
 <h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
@@ -1045,6 +1061,27 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>auto_answer</td>
 <td>Tự động nhấc máy phía extension. Default: false</td>
 <td>false</td>
+</tr>
+<tr>
+<td>hotline</td>
+<td>Đầu số hotline để thực hiện cuộc gọi ra ngoài</td>
+<td>false</td>
+</tr>
+</tbody></table>
+<h2 id='error'>Error</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>USER_BUSY</td>
+<td>Người dùng hiện tại đang bận</td>
+</tr>
+<tr>
+<td>USER_NOT_REGISTERED</td>
+<td>Người dùng chưa login Softphone hoặc IP Phone</td>
 </tr>
 </tbody></table>
 <h1 id='call'>Call</h1><h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>

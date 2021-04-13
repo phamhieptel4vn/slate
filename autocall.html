@@ -393,7 +393,7 @@
 
 <p>Tất cả các API của Autocall đều yêu cầu user cung cấp Token trong header giống phía dưới.</p>
 
-<p><code>Authorization: Bearer {TOKEN}</code></p>
+<p><code>Authorization: {TOKEN}</code></p>
 
 <aside class="notice">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
@@ -595,7 +595,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </ul></p>
 
 <p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
-<h2 id='run-tts'>Run TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v2/campaigns/1/voice/import'</span> <span class="se">\</span>
+<h2 id='run-tts'>Run TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v2/campaigns/1/voice'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
