@@ -1,0 +1,1233 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>PBX API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-2ede71d7.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-e033bdd3.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+    <link href="images/favicon-639cf3ec.ico" rel="icon" type="image/ico" />
+  </head>
+
+  <body class="autocallv3" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-4a7690d9.png" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#login-account" class="toc-h2 toc-link" data-title="Login Account">Login Account</a>
+                  </li>
+                  <li>
+                    <a href="#get-access-token" class="toc-h2 toc-link" data-title="Get Access Token">Get Access Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#template-k-ch-b-n" class="toc-h1 toc-link" data-title="Template - Kịch bản">Template - Kịch bản</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#k-ch-b-n-otp" class="toc-h2 toc-link" data-title="Kịch bản OTP">Kịch bản OTP</a>
+                  </li>
+                  <li>
+                    <a href="#k-ch-b-n-tts" class="toc-h2 toc-link" data-title="Kịch bản TTS">Kịch bản TTS</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#autocall" class="toc-h1 toc-link" data-title="Autocall">Autocall</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#run-otp" class="toc-h2 toc-link" data-title="Run OTP">Run OTP</a>
+                  </li>
+                  <li>
+                    <a href="#run-tts" class="toc-h2 toc-link" data-title="Run TTS">Run TTS</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#audio-file" class="toc-h1 toc-link" data-title="Audio File">Audio File</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#upload-audio-file" class="toc-h2 toc-link" data-title="Upload audio file">Upload audio file</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#call-detail-report" class="toc-h1 toc-link" data-title="Call Detail Report">Call Detail Report</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#attributes" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
+                  </li>
+                  <li>
+                    <a href="#get-cdrs" class="toc-h2 toc-link" data-title="Get CDRs">Get CDRs</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-cdr" class="toc-h2 toc-link" data-title="Get a Specific CDR">Get a Specific CDR</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><p>If any problem please contact us</p></li>
+            <li><li>Email &#58; tech@tel4vn.com</li></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Xin chào! Đây là bộ API Autocall, OTP, Voice call Text-to-speech của TEL4VN.</p>
+
+<p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: support@tel4vn.com.</p>
+
+<p>Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản test sẽ được bên phía Tổng đài cung cấp.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "username" : "foo@test.tel4vn.com",
+    "password" : "foo123"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Login thành công sẽ trả về thông tin account.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/auth</code></p>
+<h3 id='body'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>Account&#39;s username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Account&#39;s password</td>
+</tr>
+</tbody></table>
+<h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth/token'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abeb99ea-7879-43ce-8d4e-a46ec0aca9ff"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613636318</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>PBX API sử dụng API Token để xác thực truy cập tới API. API Token bạn lấy từ service thông qua {API_KEY} được Tổng đài cung cấp.</p>
+
+<p>Tất cả các API của PBX đều yêu cầu user cung cấp Token trong header giống phía dưới.</p>
+
+<p><code>Authorization: Bearer {TOKEN}</code></p>
+
+<aside class="notice">
+Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/auth/token</code></p>
+<h3 id='body-2'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>api_key</td>
+<td>api_key có trong thông tin của account</td>
+</tr>
+</tbody></table>
+<h1 id='template-k-ch-b-n'>Template - Kịch bản</h1>
+<p>Tốc độ đọc tăng dần từ 0 đến 2. Với 1 là tốc độ đọc bình thường và 2 là tốc độ đọc nhanh nhất.</p>
+
+<p>Các giọng đọc kịch bản đang hỗ trợ</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>north-m-01</td>
+<td>Miền Bắc 1 - Giọng nam</td>
+</tr>
+<tr>
+<td>north-f-01</td>
+<td>Miền Bắc 1 - Giọng nữ</td>
+</tr>
+<tr>
+<td>north-m-02</td>
+<td>Miền Bắc 2 - Giọng nam</td>
+</tr>
+<tr>
+<td>north-f-02</td>
+<td>Miền Bắc 2 - Giọng nữ</td>
+</tr>
+<tr>
+<td>south-m-03</td>
+<td>Miền Nam 1 - Giọng nam</td>
+</tr>
+<tr>
+<td>south-f-03</td>
+<td>Miền Nam 1 - Giọng nữ</td>
+</tr>
+</tbody></table>
+<h2 id='k-ch-b-n-otp'>Kịch bản OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/campaign/1/otp'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "otp_demo",
+    "voice_tts" : "south-f-03",
+    "speed_tts" : 1.2,
+    "content": "Mã xác nhận của bạn là {{code_otp}} xin nhắc lại mã xác nhận của bạn là {{code_otp}}"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Tạo kịch bản OTP</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/campaign/{campaignId}/otp</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaignId</td>
+<td>Campaign Id được cấp</td>
+</tr>
+</tbody></table>
+<h3 id='body-3'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otp_demo"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_tts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"south-f-03"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"speed_tts"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mã xác nhận của bạn là {{code_otp}} xin nhắc lại mã xác nhận của bạn là {{code_otp}}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Tên kịch bản muốn tạo. (Phải là duy nhất)</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Nội dung của kịch bản</td>
+</tr>
+<tr>
+<td>code_otp</td>
+<td>Là vị trí mã OTP sẽ đọc khi thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>voice_tts</td>
+<td>Giọng đọc kịch bản</td>
+</tr>
+<tr>
+<td>speed_tts</td>
+<td>Tốc độ đọc kịch bản</td>
+</tr>
+</tbody></table>
+<h2 id='k-ch-b-n-tts'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' http://{API_HOST}/v1/campaign/1/template'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "thong_bao_no_cuoc_01",
+    "content": "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}, vui lòng bấm phím 1 nếu bạn đã thanh toán",
+    "voice_type": "tts",
+    "enable_option": true,
+    "voice_tts": "south-f-03",
+    "speed_tts": 1.2,
+    "press_options": [
+      {
+        "press_num": 1,
+        "type": "tts",
+        "content": "Cám ơn {{customer_name}} đã thanh toán"
+      }
+    ],
+    "exit_sound":{
+        "enable": true,
+        "voice_type":"tts",
+        "content":"Cám ơn {{customer_name}} đã sử dụng"
+    },
+    "invalid_sound":{
+        "enable": true,
+        "voice_type":"tts",
+        "content":"{{customer_name}} đã nhập sai"
+    }
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Tạo kịch bản Text-To-Speech</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/campaign/{campaignId}/template</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaignId</td>
+<td>Campaign Id được cấp</td>
+</tr>
+</tbody></table>
+<h3 id='body-4'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chào bạn {{key_field_1}} vui lòng thanh toán khoản nợ {{key_field_2}} trước ngày {{key_field_3}}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_tts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"south-f-03"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"speed_tts"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enable_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"press_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"press_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{key_field_1}} đã bấm phím một"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"press_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{key_field_1}} đã bấm phím hai"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"exit_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cám ơn {{key_field_1}} đã sử dụng"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"invalid_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{key_field_1}} đã nhập sai"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Tên kịch bản muốn tạo. (Phải là duy nhất)</td>
+</tr>
+<tr>
+<td>key_field_1,2,3</td>
+<td>Các từ khoả trong kịch bản</td>
+</tr>
+<tr>
+<td>voice_type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>voice_tts</td>
+<td>Giọng đọc kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>speed_tts</td>
+<td>Tốc độ đọc kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
+</tr>
+<tr>
+<td>enable_option</td>
+<td>Xử lý kịch bản kèm phím bấm</td>
+</tr>
+<tr>
+<td>press_options</td>
+<td>Danh sách các phím bấm cần xử lý</td>
+</tr>
+<tr>
+<td>press_options.press_num</td>
+<td>Phím bấm cần xử lý</td>
+</tr>
+<tr>
+<td>press_options.type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>press_options.type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>exit_sound</td>
+<td>Xử lý khi kết thúc kịch bản</td>
+</tr>
+<tr>
+<td>exit_sound.enable</td>
+<td>Bật xử lý khi kết thúc kịch bản</td>
+</tr>
+<tr>
+<td>exit_sound.voice_type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>exit_sound.content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>exit_sound.audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
+</tr>
+<tr>
+<td>invalid_sound</td>
+<td>Xử lý khi bấm sai phím trong kịch bản</td>
+</tr>
+<tr>
+<td>invalid_sound.enable</td>
+<td>Bật xử lý khi bấm sai phím trong kịch bản</td>
+</tr>
+<tr>
+<td>invalid_sound.voice_type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>invalid_sound.content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>invalid_sound.audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
+</tr>
+</tbody></table>
+
+<p>key_field: tương ứng với đoạn text import vào campaign người dùng định nghĩa.</p>
+
+<p>Ví dụ:</p>
+
+<ul>
+    <li>key_field_1 là {{customer_name}}</li>
+    <li>key_field_2 là {{due_amount}}</li>
+    <li>key_field_3 là {{due_date}}</li>
+</ul>
+
+<p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
+<h1 id='autocall'>Autocall</h1>
+<p>API xử lý autocall.</p>
+
+<p>Lưu ý:</p>
+
+<p>Mỗi user tuỳ theo gói sử dụng mà có số lượng cuộc gọi đồng thời khác nhau.</p>
+
+<p>Nếu cuộc gọi tiếp theo quá số lượng cuộc gọi đồng thời của gói, bạn có thể set <code>&quot;queue&quot; : true</code> để cuộc gọi đó được đẩy vào queue và tự động make call sau đó.</p>
+<h2 id='run-otp'>Run OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/autocall/otp'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+    "caller": "0123456789",
+    "callee": "0987654321",
+    "param": {
+        "template_name": "otp_demo",
+        "code_otp": "123ABC"
+    },
+    "callback_url": "https://demo.webhook.com",
+    "callback_apikey": "api_key_123"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API thực hiện cuộc gọi OTP</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/autocall/otp</code></p>
+<h3 id='body-5'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"param"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"otp_demo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code_otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123ABC"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.webhook.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_key_123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"queue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaignId</td>
+<td>Campaign Id được cấp</td>
+</tr>
+<tr>
+<td>caller</td>
+<td>Domain Url mà tổng đài sẽ hook dữ liệu tới</td>
+</tr>
+<tr>
+<td>callee</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+</tr>
+<tr>
+<td>param</td>
+<td></td>
+</tr>
+<tr>
+<td>param.template_name</td>
+<td>Kịch bản đọc code OTP</td>
+</tr>
+<tr>
+<td>param.code_otp</td>
+<td>Code OTP</td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>SIP Call Event</td>
+</tr>
+<tr>
+<td>callback_apikey</td>
+<td>API Key của webhook (optional)</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>Đẩy cuộc gọi vào queue</td>
+</tr>
+</tbody></table>
+<h2 id='run-tts'>Run TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/autocall/voice'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+    "caller": "0123456789",
+    "callee": "0987654321",
+    "param": {
+        "template_name": "thong_bao_no_cuoc_01",
+        "customer_name": "Nguyễn Văn A",
+        "due_amount": "10.410.000",
+        "due_date": "30/1/2021"
+    },
+    "callback_url": "https://demo.webhook.com",
+    "callback_apikey": "api_key_123"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API thực hiện cuộc gọi Text-To-Speech</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/autocall/voice</code></p>
+<h3 id='body-6'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"param"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nguyễn Văn A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"due_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.410.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30/1/2021"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.webhook.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_key_123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"queue"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaignId</td>
+<td>Campaign Id được cấp</td>
+</tr>
+<tr>
+<td>caller</td>
+<td>Domain Url mà tổng đài sẽ hook dữ liệu tới</td>
+</tr>
+<tr>
+<td>callee</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+</tr>
+<tr>
+<td>param</td>
+<td></td>
+</tr>
+<tr>
+<td>param.template_name</td>
+<td>Kịch bản đọc code OTP</td>
+</tr>
+<tr>
+<td>param.customer_name</td>
+<td>Các thông tin sẽ được đọc dựa vào từ khoá bạn đã tạo trong kịch bản</td>
+</tr>
+<tr>
+<td>callback_url</td>
+<td>SIP Call Event</td>
+</tr>
+<tr>
+<td>callback_apikey</td>
+<td>API Key của webhook (optional)</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>Đẩy cuộc gọi vào queue</td>
+</tr>
+</tbody></table>
+
+<p>Một số lưu ý:</p>
+
+<ul>
+  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10.410.000”</li>
+  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 123456789 hoặc “0987654321”</li>
+  <li>Nếu muốn đọc thành số (Ví dụ 15 - mười lăm) - truyền dữ liệu theo format: “#15”</li>
+  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy”, ví dụ: “30/01/2021”</li>
+</ul>
+
+<p>params.key_field: tương ứng với đoạn text import vào campaign người dùng đã định nghĩa.</p>
+
+<p>Ví dụ:</p>
+
+<ul>
+  <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
+  <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
+</ul>
+<h1 id='audio-file'>Audio File</h1><h2 id='upload-audio-file'>Upload audio file</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/audio'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
+<span class="nt">--form</span> <span class="s1">'file=@"/audio_folders/AUDIO_1.wav"'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API Upload file audio</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/audio</code></p>
+<h3 id='form-data'>Form Data</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>File Audio</td>
+</tr>
+</tbody></table>
+<h1 id='call-detail-report'>Call Detail Report</h1>
+<p>Lịch sử cuộc gọi</p>
+<h2 id='attributes'>Attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>call_id</td>
+<td>Call Id - Id cuộc gọi</td>
+<td>string</td>
+</tr>
+<tr>
+<td>caller</td>
+<td>Số điện thoại thực hiện cuộc gọi</td>
+<td>string</td>
+</tr>
+<tr>
+<td>callee</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+<td>string</td>
+</tr>
+<tr>
+<td>campaign_id</td>
+<td>Campaign Id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>create_time</td>
+<td>Thời gian khởi tạo cuộc gọi</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>Thời gian cuộc gọi bắt đầu</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>ThờI gian cuộc gọi kết thúc</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>answer_time</td>
+<td>ThờI gian cuộc gọi nhấc máy</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Thời lượng cuộc gọi</td>
+<td>int</td>
+</tr>
+<tr>
+<td>billsec</td>
+<td>Thời lượng tính từ khi người nhận nhấc máy</td>
+<td>int</td>
+</tr>
+<tr>
+<td>keypress</td>
+<td>Phím bấm . Default: NULL</td>
+<td>string</td>
+</tr>
+<tr>
+<td>user_id</td>
+<td>User Id</td>
+<td>string</td>
+</tr>
+<tr>
+<td>param</td>
+<td>Các tham số nhận từ API</td>
+<td>string</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Call Type: OTP, Voice</td>
+<td>string</td>
+</tr>
+<tr>
+<td>hangup_cause</td>
+<td>Trạng thái cuộc gọi</td>
+<td>string</td>
+</tr>
+<tr>
+<td>call_time</td>
+<td>Số lần thực hiện</td>
+<td>string</td>
+</tr>
+</tbody></table>
+<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/v1/report?limit=10&amp;offset=0'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"answer_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:40Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"callee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eeeeeeee-dddd-cccc-bbbb-aaaaaaaa"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"create_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:34Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:43Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hangup_cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"keypress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">customer_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Van A</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">template_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">thong_bao</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:34Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VOICE"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111-bbbb-cccc-dddd-22222222"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy một cdr cụ thể.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET http://{API_HOST}/v1/report</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí record bắt đầu</td>
+</tr>
+<tr>
+<td>caller</td>
+<td>Số điện thoại thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>callee</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/v1/report/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"answer_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:40Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"call_time"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"callee"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eeeeeeee-dddd-cccc-bbbb-aaaaaaaa"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"create_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:34Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:43Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"hangup_cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"keypress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">customer_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Van A</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">template_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">thong_bao</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-05T08:12:34Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VOICE"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11111111-bbbb-cccc-dddd-22222222"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy một cdr cụ thể.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET http://{API_HOST}/v1/report/{call_id}</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>call_id</td>
+<td>call_id trong data trả về</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>PBX API sử dụng các mã lỗi sau</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden -- Your permission is not allow to access environment.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified kitten could not be found.</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access a API with an invalid method.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
