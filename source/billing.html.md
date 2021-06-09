@@ -26,45 +26,6 @@ Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản SIP
 
 # Authentication
 
-## Login Account
-
-```shell
-curl -L -X POST 'http://{API_HOST}/v1/auth' \
--H 'Content-Type: application/json' \
---data-raw '{
-    "username" : "foo@test.tel4vn.com",
-    "password" : "foo123"
-}'
-```
-
-> Response trả về:
-
-```json
-{
-  "data": {
-      "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-      "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-      "username": "foo",
-      "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "user_enabled": "true",
-      "level": "admin"
-  }
-}
-```
-
-Login thành công sẽ trả về thông tin account.
-
-### HTTP Request
-
-`POST http://{API_HOST}/v1/auth`
-
-### Body
-
-| Parameter | Description        |
-| --------- | ------------------ |
-| username  | Account's username |
-| password  | Account's password |
-
 ## Get Access Token
 
 ```shell
