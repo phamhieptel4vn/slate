@@ -854,12 +854,12 @@ Scroll: Cuộn trang. (Mặc định)</p>
 </thead><tbody>
 <tr>
 <td>start_date</td>
-<td>Tìm kiếm cdrs theo khoảng thời gian</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)</td>
 <td>2021-02-18 hoặc 2021-02-18 17:20:58</td>
 </tr>
 <tr>
 <td>end_date</td>
-<td>Tìm kiếm cdrs theo khoảng thời gian</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)</td>
 <td>2021-02-19 hoặc 2021-02-19 00:00:00</td>
 </tr>
 <tr>
@@ -891,6 +891,36 @@ Scroll: Cuộn trang. (Mặc định)</p>
 <td>direction</td>
 <td>Chiều cuộc gọi (inbound, outbound, local)</td>
 <td>outbound</td>
+</tr>
+<tr>
+<td>start_date_ended</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)</td>
+<td>2021-02-18 hoặc 2021-02-18 17:20:58</td>
+</tr>
+<tr>
+<td>end_date_ended</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)</td>
+<td>2021-02-19 hoặc 2021-02-19 00:00:00</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Trang. (Pagination)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>scroll_id</td>
+<td>Truyền vào sau lần query đầu tiên. (Scroll)</td>
+<td>abc123efsds...</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
