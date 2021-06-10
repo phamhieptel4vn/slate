@@ -87,17 +87,21 @@ curl -L -X GET 'http://{API_HOST}/v1/call/log?end_date=2021-06-01%2000:00:00&sta
             "amount": 285,
             "destination": "0123456789",
             "duration": 38,
-            "end_time": "2021-06-04T12:13:37Z",
+            "end_time": "2021-06-04T21:13:37Z",
+            "id": 42,
             "source": "0899123456",
-            "start_time": "2021-06-04T12:12:59Z"
+            "start_time": "2021-06-04T21:12:59Z",
+            "uniqueid": "1622815952.3252"
         },
         {
             "amount": 1600,
             "destination": "0123456789",
             "duration": 120,
-            "end_time": "2021-06-01T13:04:13Z",
+            "end_time": "2021-06-01T22:04:13Z",
+            "id": 29,
             "source": "0899123456",
-            "start_time": "2021-06-01T13:02:13Z"
+            "start_time": "2021-06-01T22:02:13Z",
+            "uniqueid": "1622559713.3225"
         },
         ...
     ],
