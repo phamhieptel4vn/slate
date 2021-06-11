@@ -249,6 +249,18 @@ API dùng để xoá một event_domain.
 | billsec       | Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup) |
 | recording_url | URL public để play file ghi âm. (Riêng sự kiện cdr)            |
 
+
+## Note*
+
+Một số thông tin cần lưu ý khi tích hợp event:
+
+- Event ringing, answered, hangup là các event theo luồng của một cuộc gọi.
+- Event cdr là event sẽ gửi tới webhook sau khi tổng đài cập nhật CDR.
+- Đối với các case outbound: call_id của các event sẽ map giống nhau do tồn tại trên một cuộc gọi.
+- ĐốI với các case inbound:
+  - Trường hợp 1 mobile - 1 extension: call_id của các event sẽ map giống nhau do tồn tại trên một cuộc gọi.
+  - Trường hợp 1 mobile - nhiều extension (Ringing, Queue, IVR): call_id của các event ringing, answered, hangup sẽ giống nhau. call_id của event cdr sẽ khác nhau. Do call_id của các event ringing, answered, hangup là call_id xử lý của cuộc gọi trên từng extension, call_id của event cdr là call_id của cả một luồng inbound (Ringing, Queue, IVR).
+
 # CDRs - Call Detail Records
 
 Lịch sử cuộc gọi
