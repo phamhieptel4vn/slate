@@ -272,7 +272,8 @@ Lịch sử cuộc gọi
 | id            | Id của CDR                                                                                  |
 | sip_call_id   | call_id trong bản tin SIP                                                                   |
 | cause         | Trạng thái cuộc gọi dựa theo mã phản hồi giao thức SIP. Vd: NORMAL_CLEARING, NO_ANSWER, ... |
-| duration      | Thời hạn thực hiện cuộc gọi                                                                 |
+| duration      | Thời hạn thực hiện cuộc gọi.                                                                |
+| min_duration  | Thời hạn thực hiện cuộc gọi ít nhất. (Ví dụ: 5 - sẽ lấy CDR có duration lớn hơn 5 giây)     |
 | direction     | Chiều cuộc gọi (inbound, outbound, local)                                                   |
 | recording_url | Đường dẫn file ghi âm cuộc gọi                                                              |
 | extension     | Extension nhận hoặc thực hiện cuộc gọi                                                      |
@@ -406,7 +407,7 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 | limit            | Số lượng record trả về                                                       | 50                                  |
 | page             | Trang. (Pagination)                                                          | 1                                   |
 | offset           | Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination) | 0                                   |
-| scroll_id        | Truyền vào sau lần query đầu tiên. (Scroll)                                  | abc123efsds...                                   |
+| scroll_id        | Truyền vào sau lần query đầu tiên. (Scroll)                                  | abc123efsds...                      |
 
 ## Get a Specific CDR
 
