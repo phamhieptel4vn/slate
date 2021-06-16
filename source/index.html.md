@@ -273,7 +273,6 @@ Lịch sử cuộc gọi
 | sip_call_id   | call_id trong bản tin SIP                                                                   |
 | cause         | Trạng thái cuộc gọi dựa theo mã phản hồi giao thức SIP. Vd: NORMAL_CLEARING, NO_ANSWER, ... |
 | duration      | Thời hạn thực hiện cuộc gọi.                                                                |
-| min_duration  | Thời hạn thực hiện cuộc gọi ít nhất. (Ví dụ: 5 - sẽ lấy CDR có duration lớn hơn 5 giây)     |
 | direction     | Chiều cuộc gọi (inbound, outbound, local)                                                   |
 | recording_url | Đường dẫn file ghi âm cuộc gọi                                                              |
 | extension     | Extension nhận hoặc thực hiện cuộc gọi                                                      |
@@ -392,22 +391,23 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 
 ### Query Parameters
 
-| Parameter        | Description                                                                  | Example                             |
-| ---------------- | ---------------------------------------------------------------------------- | ----------------------------------- |
-| start_date       | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-18 hoặc 2021-02-18 17:20:58 |
-| end_date         | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-19 hoặc 2021-02-19 00:00:00 |
-| duration         | Thời hạn của cuộc gọi                                                        | 10                                  |
-| extension        | Cuộc gọi từ extension nào                                                    | 101                                 |
-| recordingfile    | File recording của cuộc gọi                                                  | abcd.mp3                            |
-| status           | Trạng thái cuộc gọi                                                          | ANSWERED                            |
-| phone            | Từ hoặc tới số điện thoại nào                                                | 0899888999                          |
-| direction        | Chiều cuộc gọi (inbound, outbound, local)                                    | outbound                            |
-| start_date_ended | Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)                      | 2021-02-18 hoặc 2021-02-18 17:20:58 |
-| end_date_ended   | Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)                      | 2021-02-19 hoặc 2021-02-19 00:00:00 |
-| limit            | Số lượng record trả về                                                       | 50                                  |
-| page             | Trang. (Pagination)                                                          | 1                                   |
-| offset           | Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination) | 0                                   |
-| scroll_id        | Truyền vào sau lần query đầu tiên. (Scroll)                                  | abc123efsds...                      |
+| Parameter        | Description                                                                  | Example                                   |
+| ---------------- | ---------------------------------------------------------------------------- | ----------------------------------------- |
+| start_date       | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-18 hoặc 2021-02-18 17:20:58       |
+| end_date         | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-19 hoặc 2021-02-19 00:00:00       |
+| duration         | Thời hạn của cuộc gọi                                                        | 10                                        |
+| min_duration     | Thời hạn thực hiện cuộc gọi ít nhất.                                         | 5 - sẽ lấy CDR có duration lớn hơn 5 giây |
+| extension        | Cuộc gọi từ extension nào                                                    | 101                                       |
+| recordingfile    | File recording của cuộc gọi                                                  | abcd.mp3                                  |
+| status           | Trạng thái cuộc gọi                                                          | ANSWERED                                  |
+| phone            | Từ hoặc tới số điện thoại nào                                                | 0899888999                                |
+| direction        | Chiều cuộc gọi (inbound, outbound, local)                                    | outbound                                  |
+| start_date_ended | Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)                      | 2021-02-18 hoặc 2021-02-18 17:20:58       |
+| end_date_ended   | Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)                      | 2021-02-19 hoặc 2021-02-19 00:00:00       |
+| limit            | Số lượng record trả về                                                       | 50                                        |
+| page             | Trang. (Pagination)                                                          | 1                                         |
+| offset           | Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination) | 0                                         |
+| scroll_id        | Truyền vào sau lần query đầu tiên. (Scroll)                                  | abc123efsds...                            |
 
 ## Get a Specific CDR
 
