@@ -42,12 +42,12 @@ curl -L -X POST 'http://{API_HOST}/v1/auth' \
 ```json
 {
   "data": {
-      "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-      "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-      "username": "foo",
-      "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "user_enabled": "true",
-      "level": "admin"
+    "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+    "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
+    "username": "foo",
+    "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+    "user_enabled": "true",
+    "level": "admin"
   }
 }
 ```
@@ -80,9 +80,9 @@ curl -L -X POST 'http://{API_HOST}/v1/auth/token' \
 ```json
 {
   "data": {
-      "expired": 1613636318,
-      "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
-      "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
+    "expired": 1613636318,
+    "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
+    "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
   }
 }
 ```
@@ -113,8 +113,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 
 ```shell
 curl -L -X GET 'http://{API_HOST}/v1/event' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
+
 > Response trả về:
 
 ```json
@@ -143,7 +144,7 @@ Trả về các call events của tenant.
 
 ```shell
 curl -L -X POST 'http://{API_HOST}/v1/event' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=' \
+-H 'Authorization: Bearer {{TOKEN}}' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "callback_url" : "https://webhook.demo/",
@@ -190,14 +191,14 @@ Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ
 
 ```shell
 curl -L -X DELETE 'http://{API_HOST}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=' 
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
 
 > Response trả về:
 
 ```json
 {
-  "deleted": true,
+  "deleted": true
 }
 ```
 
@@ -249,8 +250,7 @@ API dùng để xoá một event_domain.
 | billsec       | Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup) |
 | recording_url | URL public để play file ghi âm. (Riêng sự kiện cdr)            |
 
-
-## Note*
+## Note\*
 
 Một số thông tin cần lưu ý khi tích hợp event:
 
@@ -287,7 +287,6 @@ Lịch sử cuộc gọi
 | status        | Trạng thái cuộc gọi                                                                         |
 | customer_id   | Mã khách hàng                                                                               |
 
-
 ### Flex Mapping
 
 | Thông tin   | Mô tả                                                |
@@ -306,7 +305,6 @@ Lịch sử cuộc gọi
 | direction   | Chiều cuộc gọi (inbound, outbound, local)            |
 | status      | Trạng thái cuộc gọi                                  |
 
-
 | Status      | Mô tả                                       |
 | ----------- | ------------------------------------------- |
 | answered    | Có kết nối và nói chuyện với khách hàng     |
@@ -320,7 +318,7 @@ Lịch sử cuộc gọi
 
 ```shell
 curl -L -X GET 'http://{API_HOST}/v2/cdr?' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
 
 > Default response trả về:
@@ -443,7 +441,7 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 
 ```shell
 curl -L -X GET 'http://{API_HOST}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
 
 > Default Response trả về:
@@ -508,7 +506,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin
 
 ```shell
 curl -L -X GET 'http://{API_HOST}/v1/click2call?ext=101&phone=0899098899' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
 
 > Response trả về:
@@ -561,7 +559,7 @@ Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới k
 
 ```shell
 curl -L -X GET 'http://{API_HOST}/v1/click2call/async?ext=101&phone=0899098899' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
 
 > Response trả về:
@@ -615,7 +613,7 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 
 ```shell
 curl -L -X POST 'http://{API_HOST}/v2/click2call' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json' \
 --data-raw '{
   "id": "KH1",
@@ -676,7 +674,7 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 
 ```shell
 curl -L -X GET 'http://{API_HOST}/v1/report/call_id?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json'
 ```
 
@@ -707,12 +705,11 @@ API dùng để lấy danh sách các cuộc gọi theo thời gian thực.
 
 `GET http://{API_HOST}/v1/call`
 
-
 ## Transfer a call
 
 ```shell
 curl -L -X POST 'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json' \
 --data-raw '{
     "ext" : "101"
@@ -754,7 +751,7 @@ API dùng để thực hiện chuyển cuộc gọi sang extension khác.
 
 ```shell
 curl -L -X POST 'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json' \
 --data-raw '{
     "ext" : "101"
@@ -796,7 +793,7 @@ API dùng để thực hiện nghe lén cuộc gọi của một extension khác
 
 ```shell
 curl -L -X POST 'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json' \
 --data-raw '{
     "ext" : "101"
@@ -838,7 +835,7 @@ API dùng để thực hiện cuộc gọi với extension, mobile sẽ không n
 
 ```shell
 curl -L -X POST 'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
+-H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json' \
 --data-raw '{
     "ext" : "101"
@@ -884,6 +881,265 @@ API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.
 
 # Autocall
 
-<aside class="notice">
-Đang trong quá trình phát triển. Sẽ cập nhật trong thời gian tới.
-</aside>
+## Nhận dữ liệu queue
+
+```shell
+curl --location --request POST 'http://{API_HOST}/v2/autocall/queue' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autocall-Q1",
+    "template": "IVR-1",
+    "concurrent_call" : "5",
+    "customers": [
+        {
+            "id": "TEL4VN_Test",
+            "mobiles": [
+                "0982596021"
+            ],
+            "contract_number": "HD123456",
+            "upcoming_due_date": "2021-07-13",
+            "upcoming_amount": 5000000,
+            "due_date": "2021-07-13",
+            "dpd": 5,
+            "number_of_ovd_inst": 6,
+            "total_ovd_amount": 3211100
+        }
+    ]
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "code": 200,
+  "content": "successfully",
+  "data": {
+    "fail": [],
+    "success": ["TEL4VN_Test"]
+  }
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "code": 400,
+  "content": "import fail",
+  "data": {
+    "fail": [],
+    "success": []
+  }
+}
+```
+
+API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.
+
+### HTTP Request
+
+`POST http://{API_HOST}/v2/autocall/queue`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autocall-Q1",
+  "template": "IVR-1",
+  "concurrent_call": "5",
+  "customers": [
+    {
+      "id": "TEL4VN_Test",
+      "mobiles": ["0982596021"],
+      "contract_number": "HD123456",
+      "upcoming_due_date": "2021-07-13",
+      "upcoming_amount": 5000000,
+      "due_date": "2021-07-13",
+      "dpd": 5,
+      "number_of_ovd_inst": 6,
+      "total_ovd_amount": 3211100
+    }
+  ]
+}
+```
+
+| Parameter         | Description                                | Required |
+| ----------------- | ------------------------------------------ | -------- |
+| queue_code        | Mã queue                                   | x        |
+| template          | Kịch bản dùng để                           | x        |
+| concurrent_call   | Số lượng cuộc gọi đồng thời                |          |
+| customers.id      | ID của khách hàng                          | x        |
+| customers.mobiles | Danh sách các số điện thoại của khách hàng | x        |
+
+## Import danh sách chặn
+
+```shell
+curl --location --request POST 'http://{API_HOST}/v2/autocall/queue/dnc' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autocall-Q1",
+    "customers": [
+        {
+          "id": "KH_01"
+        },
+        {
+          "id": "KH_02"
+        },
+        {
+          "id": "KH_03"
+        }
+    ]
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "code": 200,
+  "content": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "code": 404,
+  "content": "queue not found"
+}
+```
+
+API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.
+
+### HTTP Request
+
+`POST http://{API_HOST}/v2/autocall/queue/dnc`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autocall-Q1",
+  "customers": [
+    {
+      "id": "KH_01"
+    },
+    {
+      "id": "KH_02"
+    },
+    {
+      "id": "KH_03"
+    }
+  ]
+}
+```
+
+| Parameter    | Description       | Required |
+| ------------ | ----------------- | -------- |
+| queue_code   | Mã queue          | x        |
+| customers.id | ID của khách hàng | x        |
+
+## Stop Queue
+
+```shell
+curl --location --request POST 'http://{API_HOST}/v2/autocall/queue/stop' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autocall-Q1"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "code": 200,
+  "content": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "code": 404,
+  "content": "queue not found"
+}
+```
+
+API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.
+
+### HTTP Request
+
+`POST http://{API_HOST}/v2/autocall/queue/stop`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autocall-Q1"
+}
+```
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| queue_code | Mã queue    | x        |
+
+## Start Queue
+
+```shell
+curl --location --request POST 'http://{API_HOST}/v2/autocall/queue/start' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autocall-Q1"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "code": 200,
+  "content": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "code": 404,
+  "content": "queue not found"
+}
+```
+
+API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.
+
+### HTTP Request
+
+`POST http://{API_HOST}/v2/autocall/queue/start`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autocall-Q1"
+}
+```
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| queue_code | Mã queue    | x        |
