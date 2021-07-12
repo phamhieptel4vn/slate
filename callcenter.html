@@ -399,6 +399,20 @@
           </li>
           <li>
             <a href="#autocall" class="toc-h1 toc-link" data-title="Autocall">Autocall</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#nh-n-d-li-u-queue" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
+                  </li>
+                  <li>
+                    <a href="#import-danh-sach-ch-n" class="toc-h2 toc-link" data-title="Import danh sách chặn">Import danh sách chặn</a>
+                  </li>
+                  <li>
+                    <a href="#stop-queue" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
+                  </li>
+                  <li>
+                    <a href="#start-queue" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -430,12 +444,12 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"user_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w">
+    </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -469,9 +483,9 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"expired"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613636318</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE="</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="w">
+    </span><span class="nl">"expired"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613636318</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -499,7 +513,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 </tbody></table>
 <h1 id='event'>Event</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/event'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
@@ -522,7 +536,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/event</code></p>
 <h2 id='create-events'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/event'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "callback_url" : "https://webhook.demo/",
@@ -589,13 +603,13 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 
 <aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
 <h2 id='delete-event'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'http://{API_HOST}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span> 
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để xoá một event_domain.</p>
@@ -859,7 +873,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 </tbody></table>
 <h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v2/cdr?'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
 <p>Default response trả về:</p>
@@ -1009,7 +1023,7 @@ Scroll: Cuộn trang. (Mặc định)</p>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
 <p>Default Response trả về:</p>
@@ -1069,7 +1083,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h1 id='click-to-call'>Click-to-call</h1><h2 id='synchronous-get'>Synchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
@@ -1153,7 +1167,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h2 id='asynchronous-get'>Asynchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
@@ -1238,7 +1252,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h2 id='asynchronous-post'>Asynchronous - POST</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v2/click2call'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
   "id": "KH1",
@@ -1309,7 +1323,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/report/call_id?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
 <blockquote>
@@ -1336,7 +1350,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <h3 id='http-request-11'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/call</code></p>
 <h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "ext" : "101"
@@ -1375,7 +1389,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "ext" : "101"
@@ -1414,7 +1428,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "ext" : "101"
@@ -1453,7 +1467,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "ext" : "101"
@@ -1495,10 +1509,281 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <aside class="notice">
 Đang trong quá trình phát triển. Sẽ cập nhật trong thời gian tới.
 </aside>
-<h1 id='autocall'>Autocall</h1>
-<aside class="notice">
-Đang trong quá trình phát triển. Sẽ cập nhật trong thời gian tới.
-</aside>
+<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autocall-Q1",
+    "template": "IVR-1",
+    "concurrent_call" : "5",
+    "customers": [
+        {
+            "id": "TEL4VN_Test",
+            "mobiles": [
+                "0982596021"
+            ],
+            "contract_number": "HD123456",
+            "upcoming_due_date": "2021-07-13",
+            "upcoming_amount": 5000000,
+            "due_date": "2021-07-13",
+            "dpd": 5,
+            "number_of_ovd_inst": 6,
+            "total_ovd_amount": 3211100
+        }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"TEL4VN_Test"</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"import fail"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v2/autocall/queue</code></p>
+<h3 id='body-9'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall-Q1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IVR-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEL4VN_Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mobiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0982596021"</span><span class="p">],</span><span class="w">
+      </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HD123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"upcoming_due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-13"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"upcoming_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-13"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dpd"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"number_of_ovd_inst"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"total_ovd_amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">3211100</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Kịch bản dùng để</td>
+<td>x</td>
+</tr>
+<tr>
+<td>concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời</td>
+<td></td>
+</tr>
+<tr>
+<td>customers.id</td>
+<td>ID của khách hàng</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.mobiles</td>
+<td>Danh sách các số điện thoại của khách hàng</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue/dnc'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autocall-Q1",
+    "customers": [
+        {
+          "id": "KH_01"
+        },
+        {
+          "id": "KH_02"
+        },
+        {
+          "id": "KH_03"
+        }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v2/autocall/queue/dnc</code></p>
+<h3 id='body-10'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall-Q1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH_01"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH_02"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH_03"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.id</td>
+<td>ID của khách hàng</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue/stop'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autocall-Q1"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v2/autocall/queue/stop</code></p>
+<h3 id='body-11'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall-Q1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue/start'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autocall-Q1"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
+<h3 id='http-request-19'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v2/autocall/queue/start</code></p>
+<h3 id='body-12'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall-Q1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
 <h1 id='errors'>Errors</h1>
 <p>PBX API sử dụng các mã lỗi sau</p>
 
