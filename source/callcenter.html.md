@@ -41,13 +41,16 @@ curl -L -X POST 'http://{{API_HOST}}/v1/auth' \
 
 ```json
 {
+  "code": 200,
+  "content": "successfully",
   "data": {
-    "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-    "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-    "username": "foo",
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-    "user_enabled": "true",
-    "level": "admin"
+    "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
+    "enabled": "true",
+    "extension": "110",
+    "level": "admin",
+    "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+    "username": "adminfortest"
   }
 }
 ```
@@ -68,7 +71,7 @@ Login thành công sẽ trả về thông tin account.
 ## Get Access Token
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/auth/token' \
+curl -L -X POST 'http://{{API_HOST}}/v2/auth/token' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -79,10 +82,16 @@ curl -L -X POST 'http://{{API_HOST}}/v1/auth/token' \
 
 ```json
 {
+  "code": 200,
+  "content": "successfully",
   "data": {
-    "expired": 1613636318,
-    "token": "{{TOKEN}}",
-    "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
+    "client_id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+    "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
+    "expired_in": 14763877,
+    "refresh_token": "",
+    "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
+    "token_type": "Bearer",
+    "user_id": "avavavav-1111-2222-3333-eeeeeeee"
   }
 }
 ```
@@ -99,7 +108,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/auth/token`
+`POST http://{{API_HOST}}/v2/auth/token`
 
 ### Body
 
@@ -1182,6 +1191,17 @@ curl -L -X GET 'http://{{API_HOST}}/v2/user/{{user_id}}/status' \
 
 API dùng để lấy trạng thái của người dùng trên hệ thống.
 
+| Thông tin         | Mô tả                                            |
+| ----------------- | ------------------------------------------------ |
+| code              | Mã code HTTP trả về                              |
+| content           | Thông báo                                        |
+| data              | Data trả về                                      |
+| data.agent_name   | Tên agent                                        |
+| data.extension    | Extension của user                               |
+| data.ext_loggedin | Extension này có đang được log in trên softphone |
+| data.user_uuid    | Id của user                                      |
+| data.username     | Username của user                                |
+
 ### HTTP Request
 
 `GET http://{{API_HOST}}/v2/customer/user/{{user_id}}/status`
@@ -1238,6 +1258,32 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer' \
 
 API dùng để lấy danh sách khách hàng đã upload.
 
+| Thông tin            | Mô tả                            |
+| -------------------- | -------------------------------- |
+| code                 | Mã code HTTP trả về              |
+| content              | Thông báo                        |
+| data                 | Data trả về                      |
+| data.campaign_id     | Id của chiến dịch                |
+| data.contract_number | Mã hợp đồng                      |
+| data.customer_code   | Mã khách hàng                    |
+| data.customer_id     | Id khách hàng                    |
+| data.customer_name   | Tên khách hàng                   |
+| data.phone_number    | Số điện thoại khách hàng         |
+| data.status          | Trạng thái khách hàng            |
+| data.created_at      | Thời gian khởi tạo               |
+| data.updated_at      | Thời gian được cập nhật gần nhất |
+
+| Status      | Mô tả                                       |
+| ----------- | ------------------------------------------- |
+| new         | Khách hàng vừa được khởi tạo mới            |
+| queue       | Đã được đưa vào hàng chờ để tiến hành gọi   |
+| answered    | Có kết nối và nói chuyện với khách hàng     |
+| busy        | Máy bận hoặc khách hàng bấm từ chối trả lời |
+| no-answered | Khách hàng không nghe máy, để hết chuông    |
+| cancel      | Phía extension, agent chủ động ngắt máy     |
+| fail        | Khi tổng đài nhận mã lỗi từ telco           |
+| unknown     | Trạng thái lỗi không xác định               |
+
 ### HTTP Request
 
 `GET http://{{API_HOST}}/v2/customer`
@@ -1289,6 +1335,32 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer/dddddddd-1111-2222-3333-eeeeeeee
 ```
 
 API dùng để lấy thông tin của một khách hàng cụ thể.
+
+| Thông tin            | Mô tả                            |
+| -------------------- | -------------------------------- |
+| code                 | Mã code HTTP trả về              |
+| content              | Thông báo                        |
+| data                 | Data trả về                      |
+| data.campaign_id     | Id của chiến dịch                |
+| data.contract_number | Mã hợp đồng                      |
+| data.customer_code   | Mã khách hàng                    |
+| data.customer_id     | Id khách hàng                    |
+| data.customer_name   | Tên khách hàng                   |
+| data.phone_number    | Số điện thoại khách hàng         |
+| data.status          | Trạng thái khách hàng            |
+| data.created_at      | Thời gian khởi tạo               |
+| data.updated_at      | Thời gian được cập nhật gần nhất |
+
+| Status      | Mô tả                                       |
+| ----------- | ------------------------------------------- |
+| new         | Khách hàng vừa được khởi tạo mới            |
+| queue       | Đã được đưa vào hàng chờ để tiến hành gọi   |
+| answered    | Có kết nối và nói chuyện với khách hàng     |
+| busy        | Máy bận hoặc khách hàng bấm từ chối trả lời |
+| no-answered | Khách hàng không nghe máy, để hết chuông    |
+| cancel      | Phía extension, agent chủ động ngắt máy     |
+| fail        | Khi tổng đài nhận mã lỗi từ telco           |
+| unknown     | Trạng thái lỗi không xác định               |
 
 ### HTTP Request
 
