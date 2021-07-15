@@ -415,6 +415,28 @@
               </ul>
           </li>
           <li>
+            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-user-status" class="toc-h2 toc-link" data-title="Get User Status">Get User Status</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#customer" class="toc-h1 toc-link" data-title="Customer">Customer</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-list-customers" class="toc-h2 toc-link" data-title="Get List Customers">Get List Customers</a>
+                  </li>
+                  <li>
+                    <a href="#get-specific-customer" class="toc-h2 toc-link" data-title="Get Specific Customer">Get Specific Customer</a>
+                  </li>
+                  <li>
+                    <a href="#post-customer" class="toc-h2 toc-link" data-title="Post Customer">Post Customer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -431,8 +453,8 @@
 
 <p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: tech@tel4vn.com.</p>
 
-<p>Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.</p>
-<h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth'</span> <span class="se">\</span>
+<p>Các thông tin như {{API_HOST}}, {{API_KEY}}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.</p>
+<h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/auth'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "username" : "foo@test.tel4vn.com",
@@ -455,7 +477,7 @@
 </span></code></pre></div>
 <p>Login thành công sẽ trả về thông tin account.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/auth</code></p>
+<p><code>POST http://{{API_HOST}}/v1/auth</code></p>
 <h3 id='body'>Body</h3>
 <table><thead>
 <tr>
@@ -472,7 +494,7 @@
 <td>Account&#39;s password</td>
 </tr>
 </tbody></table>
-<h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth/token'</span> <span class="se">\</span>
+<h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/auth/token'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -484,12 +506,12 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"expired"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613636318</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{TOKEN}}"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>PBX API sử dụng API Token để xác thực truy cập tới API. API Token bạn lấy từ service thông qua {API_KEY} được Tổng đài cung cấp.</p>
+<p>PBX API sử dụng API Token để xác thực truy cập tới API. API Token bạn lấy từ service thông qua {{API_KEY}} được Tổng đài cung cấp.</p>
 
 <p>Tất cả các API của PBX đều yêu cầu user cung cấp Token trong header giống phía dưới.</p>
 
@@ -499,7 +521,7 @@
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
 </aside>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/auth/token</code></p>
+<p><code>POST http://{{API_HOST}}/v1/auth/token</code></p>
 <h3 id='body-2'>Body</h3>
 <table><thead>
 <tr>
@@ -512,7 +534,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>api_key có trong thông tin của account</td>
 </tr>
 </tbody></table>
-<h1 id='event'>Event</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/event'</span> <span class="se">\</span>
+<h1 id='event'>Event</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -534,8 +556,8 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span></code></pre></div>
 <p>Trả về các call events của tenant.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET http://{API_HOST}/v1/event</code></p>
-<h2 id='create-events'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/event'</span> <span class="se">\</span>
+<p><code>GET http://{{API_HOST}}/v1/event</code></p>
+<h2 id='create-events'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -553,7 +575,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span></code></pre></div>
 <p>Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ liệu về {callback_url}.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/event</code></p>
+<p><code>POST http://{{API_HOST}}/v1/event</code></p>
 <h3 id='body-3'>Body</h3>
 <table><thead>
 <tr>
@@ -602,7 +624,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
 
 <aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
-<h2 id='delete-event'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'http://{API_HOST}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
+<h2 id='delete-event'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'http://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -614,7 +636,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span></code></pre></div>
 <p>API dùng để xoá một event_domain.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE http://{API_HOST}/v1/event/&lt;ID&gt;</code></p>
+<p><code>DELETE http://{{API_HOST}}/v1/event/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -872,7 +894,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Trạng thái lỗi không xác định</td>
 </tr>
 </tbody></table>
-<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v2/cdr?'</span> <span class="se">\</span>
+<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr?'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -972,7 +994,7 @@ Scroll: Cuộn trang. (Mặc định)</p>
 
 <p>Nếu user cung cấp trong param: page - Số trang, limit - số lượng trả về thì API sẽ trả về dữ liêu theo cơ chế Pagination.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET http://{API_HOST}/v2/cdr</code></p>
+<p><code>GET http://{{API_HOST}}/v2/cdr</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1022,7 +1044,7 @@ Scroll: Cuộn trang. (Mặc định)</p>
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
+<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1069,7 +1091,7 @@ Scroll: Cuộn trang. (Mặc định)</p>
 <p>API dùng để lấy một cdr cụ thể.
 Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET http://{API_HOST}/v2/cdr/&lt;ID&gt;</code></p>
+<p><code>GET http://{{API_HOST}}/v2/cdr/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1082,7 +1104,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Id của CDR hoặc sip_call_id trong bản tin</td>
 </tr>
 </tbody></table>
-<h1 id='click-to-call'>Click-to-call</h1><h2 id='synchronous-get'>Synchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
+<h1 id='click-to-call'>Click-to-call</h1><h2 id='synchronous-get'>Synchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1111,7 +1133,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </aside>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET http://{API_HOST}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
+<p><code>GET http://{{API_HOST}}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1166,7 +1188,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>false</td>
 </tr>
 </tbody></table>
-<h2 id='asynchronous-get'>Asynchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
+<h2 id='asynchronous-get'>Asynchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1196,7 +1218,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </aside>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>GET http://{API_HOST}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
+<p><code>GET http://{{API_HOST}}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1251,7 +1273,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>false</td>
 </tr>
 </tbody></table>
-<h2 id='asynchronous-post'>Asynchronous - POST</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v2/click2call'</span> <span class="se">\</span>
+<h2 id='asynchronous-post'>Asynchronous - POST</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/click2call'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1285,7 +1307,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 
 <p>API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v2/click2call</code></p>
+<p><code>POST http://{{API_HOST}}/v2/click2call</code></p>
 <h3 id='body-4'>Body</h3>
 <table><thead>
 <tr>
@@ -1322,7 +1344,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Người dùng chưa login Softphone hoặc IP Phone</td>
 </tr>
 </tbody></table>
-<h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/report/call_id?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
+<h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -1348,8 +1370,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi theo thời gian thực.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET http://{API_HOST}/v1/call</code></p>
-<h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
+<p><code>GET http://{{API_HOST}}/v1/call</code></p>
+<h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1375,7 +1397,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện chuyển cuộc gọi sang extension khác.</p>
 <h3 id='http-request-12'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/call/&lt;CALL_ID&gt;/transfer</code></p>
+<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/transfer</code></p>
 <h3 id='body-5'>Body</h3>
 <table><thead>
 <tr>
@@ -1388,7 +1410,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
+<h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1414,7 +1436,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện nghe lén cuộc gọi của một extension khác.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/call/&lt;CALL_ID&gt;/listen</code></p>
+<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/listen</code></p>
 <h3 id='body-6'>Body</h3>
 <table><thead>
 <tr>
@@ -1427,7 +1449,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi</td>
 </tr>
 </tbody></table>
-<h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
+<h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1453,7 +1475,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi với extension, mobile sẽ không nghe được.</p>
 <h3 id='http-request-14'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/call/&lt;CALL_ID&gt;/whisper</code></p>
+<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/whisper</code></p>
 <h3 id='body-7'>Body</h3>
 <table><thead>
 <tr>
@@ -1466,7 +1488,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
+<h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1492,7 +1514,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/call/&lt;CALL_ID&gt;/barge</code></p>
+<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/barge</code></p>
 <h3 id='body-8'>Body</h3>
 <table><thead>
 <tr>
@@ -1509,7 +1531,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <aside class="notice">
 Đang trong quá trình phát triển. Sẽ cập nhật trong thời gian tới.
 </aside>
-<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue'</span> <span class="se">\</span>
+<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1559,7 +1581,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
 <h3 id='http-request-16'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v2/autocall/queue</code></p>
+<p><code>POST http://{{API_HOST}}/v2/autocall/queue</code></p>
 <h3 id='body-9'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -1616,7 +1638,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue/dnc'</span> <span class="se">\</span>
+<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/dnc'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1652,7 +1674,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
 <h3 id='http-request-17'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v2/autocall/queue/dnc</code></p>
+<p><code>POST http://{{API_HOST}}/v2/autocall/queue/dnc</code></p>
 <h3 id='body-10'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -1690,7 +1712,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1715,7 +1737,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
 <h3 id='http-request-18'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v2/autocall/queue/stop</code></p>
+<p><code>POST http://{{API_HOST}}/v2/autocall/queue/stop</code></p>
 <h3 id='body-11'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -1737,7 +1759,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v2/autocall/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1762,7 +1784,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
 <h3 id='http-request-19'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v2/autocall/queue/start</code></p>
+<p><code>POST http://{{API_HOST}}/v2/autocall/queue/start</code></p>
 <h3 id='body-12'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -1781,6 +1803,247 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>queue_code</td>
 <td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h1 id='user'>User</h1><h2 id='get-user-status'>Get User Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/user/{{user_id}}/status'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"agent_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test User 01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ext_loggedin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.user01"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user is not existed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy trạng thái của người dùng trên hệ thống.</p>
+<h3 id='http-request-20'>HTTP Request</h3>
+<p><code>GET http://{{API_HOST}}/v2/customer/user/{{user_id}}/status</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>Id người dùng</td>
+<td>test.user01 hoặc aaaaaaaa-1111-2222-3333-eeeeeeee</td>
+</tr>
+</tbody></table>
+<h1 id='customer'>Customer</h1><h2 id='get-list-customers'>Get List Customers</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/customer'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-15T12:50:23.805319Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888998"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEF456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-15T12:50:24.565573Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gggggggg-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy danh sách khách hàng đã upload.</p>
+<h3 id='http-request-21'>HTTP Request</h3>
+<p><code>GET http://{{API_HOST}}/v2/customer</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id Chiến dịch khách hàng thuộc về</td>
+<td>aaaaaaaa-1111-2222-3333-eeeeeeee</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-specific-customer'>Get Specific Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/customer/dddddddd-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-15T12:50:23.805319Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 01"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888998"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error response:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Found"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not Found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy thông tin của một khách hàng cụ thể.</p>
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>GET http://{{API_HOST}}/v2/customer/{{customer_id}}</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Id khách hàng</td>
+<td>aaaaaaaa-1111-2222-3333-eeeeeeee</td>
+</tr>
+</tbody></table>
+<h2 id='post-customer'>Post Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+    "customer_name": "Khach Hang 01",
+    "customer_code": "KH01",
+    "phone_number": "0899888998",
+    "contract_number": "ABC123"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">201</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Does not match pattern '^(84|0[3|5|7|8|9])+([0-9]{8})$'"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Request"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để nhận thông tin của một khách hàng cụ thể. 7 ngày tính từ ngày thông tin được gửi sang, hệ thông sẽ thực hiện autodialer khách hàng cho agent.</p>
+<h3 id='http-request-23'>HTTP Request</h3>
+<p><code>POST http://{{API_HOST}}/v2/customer</code></p>
+<h3 id='body-13'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888998"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id chiến dịch</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customer_name</td>
+<td>Tên khách hàng</td>
+<td></td>
+</tr>
+<tr>
+<td>customer_code</td>
+<td>Mã khách hàng</td>
+<td>x</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>Số điện thoại của khách hàng</td>
+<td>x</td>
+</tr>
+<tr>
+<td>contract_number</td>
+<td>Mã hợp đồng</td>
 <td>x</td>
 </tr>
 </tbody></table>
