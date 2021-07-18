@@ -29,7 +29,7 @@ Các thông tin như {{API_HOST}}, {{API_KEY}}, tài khoản admin, tài khoản
 ## Login Account
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/auth' \
+curl -L -X POST 'https://{{API_HOST}}/v1/auth' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "username" : "foo@test.tel4vn.com",
@@ -42,12 +42,12 @@ curl -L -X POST 'http://{{API_HOST}}/v1/auth' \
 ```json
 {
   "data": {
-      "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-      "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-      "username": "foo",
-      "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "user_enabled": "true",
-      "level": "admin"
+    "user_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+    "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
+    "username": "foo",
+    "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+    "user_enabled": "true",
+    "level": "admin"
   }
 }
 ```
@@ -56,7 +56,7 @@ Login thành công sẽ trả về thông tin account.
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/auth`
+`POST https://{{API_HOST}}/v1/auth`
 
 ### Body
 
@@ -68,7 +68,7 @@ Login thành công sẽ trả về thông tin account.
 ## Get Access Token
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/auth/token' \
+curl -L -X POST 'https://{{API_HOST}}/v1/auth/token' \
 -H 'Content-Type: application/json' \
 --data-raw '{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -80,9 +80,9 @@ curl -L -X POST 'http://{{API_HOST}}/v1/auth/token' \
 ```json
 {
   "data": {
-      "expired": 1613636318,
-      "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
-      "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
+    "expired": 1613636318,
+    "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
+    "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
   }
 }
 ```
@@ -99,7 +99,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/auth/token`
+`POST https://{{API_HOST}}/v1/auth/token`
 
 ### Body
 
@@ -112,9 +112,10 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 ## Get Events
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/event' \
+curl -L -X GET 'https://{{API_HOST}}/v1/event' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 ```
+
 > Response trả về:
 
 ```json
@@ -137,12 +138,12 @@ Trả về các call events của tenant.
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/event`
+`GET https://{{API_HOST}}/v1/event`
 
 ## Create Events
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/event' \
+curl -L -X POST 'https://{{API_HOST}}/v1/event' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=' \
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -164,7 +165,7 @@ Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/event`
+`POST https://{{API_HOST}}/v1/event`
 
 ### Body
 
@@ -189,15 +190,15 @@ Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ
 ## Delete Event
 
 ```shell
-curl -L -X DELETE 'http://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee' \
--H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=' 
+curl -L -X DELETE 'https://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee' \
+-H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 ```
 
 > Response trả về:
 
 ```json
 {
-  "deleted": true,
+  "deleted": true
 }
 ```
 
@@ -205,7 +206,7 @@ API dùng để xoá một event_domain.
 
 ### HTTP Request
 
-`DELETE http://{{API_HOST}}/v1/event/<ID>`
+`DELETE https://{{API_HOST}}/v1/event/<ID>`
 
 ### URL Parameters
 
@@ -229,7 +230,7 @@ API dùng để xoá một event_domain.
   "state": "hangup",
   "duration": 10,
   "billsec": 5,
-  "recording_url": "http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"
+  "recording_url": "https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"
 }
 ```
 
@@ -249,8 +250,7 @@ API dùng để xoá một event_domain.
 | billsec       | Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup) |
 | recording_url | URL public để play file ghi âm. (Riêng sự kiện cdr)            |
 
-
-## Note*
+## Note\*
 
 Một số thông tin cần lưu ý khi tích hợp event:
 
@@ -287,7 +287,7 @@ Lịch sử cuộc gọi
 ## Get CDRs
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/cdr?' \
+curl -L -X GET 'https://{{API_HOST}}/v1/cdr?' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 ```
 
@@ -302,7 +302,7 @@ curl -L -X GET 'http://{{API_HOST}}/v1/cdr?' \
       "cause": "NORMAL_CLEARING",
       "duration": 11,
       "direction": 3,
-      "recording_url": "http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623",
+      "recording_url": "https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623",
       "extension": "101",
       "from_number": "19001919",
       "to_number": "0899888999",
@@ -335,6 +335,7 @@ curl -L -X GET 'http://{{API_HOST}}/v1/cdr?' \
   "total": 22
 }
 ```
+
 > Scroll response trả về:
 
 ```json
@@ -346,7 +347,7 @@ curl -L -X GET 'http://{{API_HOST}}/v1/cdr?' \
       "cause": "NORMAL_CLEARING",
       "duration": 11,
       "direction": 3,
-      "recording_url": "http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav",
+      "recording_url": "https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav",
       "extension": "101",
       "from_number": "19001919",
       "to_number": "0899888999",
@@ -387,7 +388,7 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/cdr`
+`GET https://{{API_HOST}}/v1/cdr`
 
 ### Query Parameters
 
@@ -412,7 +413,7 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 ## Get a Specific CDR
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934' \
+curl -L -X GET 'https://{{API_HOST}}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 ```
 
@@ -442,7 +443,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/cdr/<ID>`
+`GET https://{{API_HOST}}/v1/cdr/<ID>`
 
 ### URL Parameters
 
@@ -455,7 +456,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin
 ## Synchronous
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/click2call?ext=101&phone=0899098899' \
+curl -L -X GET 'https://{{API_HOST}}/v1/click2call?ext=101&phone=0899098899' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 ```
 
@@ -489,7 +490,7 @@ Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới k
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/click2call?ext=<EXTENSION>&phone=<PHONE>`
+`GET https://{{API_HOST}}/v1/click2call?ext=<EXTENSION>&phone=<PHONE>`
 
 ### URL Parameters
 
@@ -507,7 +508,7 @@ Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới k
 ## Asynchronous
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/click2call/async?ext=101&phone=0899098899' \
+curl -L -X GET 'https://{{API_HOST}}/v1/click2call/async?ext=101&phone=0899098899' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 ```
 
@@ -542,7 +543,7 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/click2call/async?ext=<EXTENSION>&phone=<PHONE>`
+`GET https://{{API_HOST}}/v1/click2call/async?ext=<EXTENSION>&phone=<PHONE>`
 
 ### URL Parameters
 
@@ -569,7 +570,7 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 ## List Calls
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
+curl -L -X GET 'https://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json'
 ```
@@ -599,13 +600,12 @@ API dùng để lấy danh sách các cuộc gọi theo thời gian thực.
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/call`
-
+`GET https://{{API_HOST}}/v1/call`
 
 ## Transfer a call
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer' \
+curl -L -X POST 'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -636,7 +636,7 @@ API dùng để thực hiện chuyển cuộc gọi sang extension khác.
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/call/<CALL_ID>/transfer`
+`POST https://{{API_HOST}}/v1/call/<CALL_ID>/transfer`
 
 ### Body
 
@@ -647,7 +647,7 @@ API dùng để thực hiện chuyển cuộc gọi sang extension khác.
 ## Listen a call
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen' \
+curl -L -X POST 'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -678,7 +678,7 @@ API dùng để thực hiện nghe lén cuộc gọi của một extension khác
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/call/<CALL_ID>/listen`
+`POST https://{{API_HOST}}/v1/call/<CALL_ID>/listen`
 
 ### Body
 
@@ -689,7 +689,7 @@ API dùng để thực hiện nghe lén cuộc gọi của một extension khác
 ## Whisper a call
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper' \
+curl -L -X POST 'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -720,7 +720,7 @@ API dùng để thực hiện cuộc gọi với extension, mobile sẽ không n
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/call/<CALL_ID>/whisper`
+`POST https://{{API_HOST}}/v1/call/<CALL_ID>/whisper`
 
 ### Body
 
@@ -731,7 +731,7 @@ API dùng để thực hiện cuộc gọi với extension, mobile sẽ không n
 ## Barge a call
 
 ```shell
-curl -L -X POST 'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge' \
+curl -L -X POST 'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json' \
 --data-raw '{
@@ -762,7 +762,7 @@ API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/call/<CALL_ID>/barge`
+`POST https://{{API_HOST}}/v1/call/<CALL_ID>/barge`
 
 ### Body
 
@@ -775,7 +775,7 @@ API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.
 ## List Call Id
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
+curl -L -X GET 'https://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json'
 ```
@@ -811,7 +811,7 @@ API dùng để lấy danh sách các call_id và sip_call_id trong khoảng th�
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/report/call_id`
+`GET https://{{API_HOST}}/v1/report/call_id`
 
 ### Query Parameters
 
@@ -823,7 +823,7 @@ API dùng để lấy danh sách các call_id và sip_call_id trong khoảng th�
 ## List Call Status
 
 ```shell
-curl -L -X GET 'http://{{API_HOST}}/v1/report/call_status?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
+curl -L -X GET 'https://{{API_HOST}}/v1/report/call_status?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
 -H 'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='
 -H 'Content-Type: application/json'
 ```
@@ -833,26 +833,26 @@ curl -L -X GET 'http://{{API_HOST}}/v1/report/call_status?end_date=2021-06-01%20
 ```json
 {
   "data": [
-      {
-          "count": 15225,
-          "status": "ANSWERED"
-      },
-      {
-          "count": 7161,
-          "status": "BUSY"
-      },
-      {
-          "count": 1515,
-          "status": "FAILED"
-      },
-      {
-          "count": 59,
-          "status": "UNKNOWN"
-      },
-      {
-          "count": 700,
-          "status": "NO ANSWER"
-      }
+    {
+      "count": 15225,
+      "status": "ANSWERED"
+    },
+    {
+      "count": 7161,
+      "status": "BUSY"
+    },
+    {
+      "count": 1515,
+      "status": "FAILED"
+    },
+    {
+      "count": 59,
+      "status": "UNKNOWN"
+    },
+    {
+      "count": 700,
+      "status": "NO ANSWER"
+    }
   ],
   "total": 24660
 }
@@ -870,7 +870,7 @@ API dùng để lấy danh sách các call_id và sip_call_id trong khoảng th�
 
 ### HTTP Request
 
-`GET http://{{API_HOST}}/v1/report/call_status`
+`GET https://{{API_HOST}}/v1/report/call_status`
 
 ### Query Parameters
 
@@ -878,3 +878,175 @@ API dùng để lấy danh sách các call_id và sip_call_id trong khoảng th�
 | ---------- | ----------------------------------- | ------------------- |
 | start_date | Tìm kiếm cdrs theo khoảng thời gian | 2021-02-18 17:20:58 |
 | end_date   | Tìm kiếm cdrs theo khoảng thời gian | 2021-02-19 00:00:00 |
+
+# Tenant
+
+## Create Tenant
+
+```shell
+curl -L -X POST 'https://{{API_HOST}}/v1/tenant' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'
+--data-raw '{
+  "tenant_id" : test01"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "created": true,
+  "data": {
+    "domain": "test01.tel4vn.com",
+    "tenant_url": "https://{{API_HOST}}/v1/tenant/41d0f364-79f8-4abb-9834-ee803320ea8d",
+    "outbound_proxy": "pbx01.tel4vn.com:50061",
+    "port": "50061",
+    "transports": "both",
+    "wss": "wss://pbx01.tel4vn.com",
+    "user": {
+      "api_key": "5294243b-1ace-45a9-b2ef-d66222cb1729",
+      "enabled": "true",
+      "group": "admin",
+      "password": "abcabc123321",
+      "user_id": "938b4d25-4b25-4f32-9169-7411734ef990",
+      "username": "admin"
+    }
+  }
+}
+```
+
+### HTTP Request
+
+`POST https://{{API_HOST}}/v1/tenant`
+
+### Body
+
+| Parameter | Description |
+| --------- | ----------- |
+| tenant_id | Tenant'id   |
+
+## Get Tenant By ID
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "domain": "test01.tel4vn.com",
+  "tenant_url": "https://{{API_HOST}}/v1/tenant/41d0f364-79f8-4abb-9834-ee803320ea8d",
+  "outbound_proxy": "pbx01.tel4vn.com:50061",
+  "port": "50061",
+  "transports": "both",
+  "wss": "wss://pbx01.tel4vn.com"
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}`
+
+### Query Parameters
+
+| Parameter | Description | Example |
+| --------- | ----------- | ------- |
+| tenant_id | Tenant'id   | test01  |
+
+## Update Tenant
+
+```shell
+curl -L -X PUT 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'\
+--data-raw '{
+    "enable" : false
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "message": "update successfully"
+}
+```
+
+### HTTP Request
+
+`PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}`
+
+### Body
+
+| Parameter | Description               | Example       |
+| --------- | ------------------------- | ------------- |
+| enable    | Active or Deactive tenant | true of false |
+
+## Create Extension
+
+```shell
+curl -L -X POST 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'
+--data-raw '{
+    "ext" : "101",
+    "pwd" : "123Abc!@#"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "created": true,
+  "data": {
+    "enabled": "true",
+    "ext": "104",
+    "pwd": "123Abc!@#"
+  }
+}
+```
+
+### HTTP Request
+
+`POST https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension`
+
+### Body
+
+| Parameter | Description |
+| --------- | ----------- |
+| ext       | Extension   |
+| pwd       | Password    |
+
+## Get Extension By Ext
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/extension/{{ext}}' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "ext": "104",
+  "pwd": "123Abc!@#",
+  "enabled": "true"
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}`
+
+### Query Parameters
+
+| Parameter | Description | Example |
+| --------- | ----------- | ------- |
+| tenant_id | Tenant'id   | test01  |
+| ext       | Extension   | 101     |
