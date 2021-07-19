@@ -930,7 +930,7 @@ curl -L -X GET 'https://{{API_HOST}}/v1/monitor/agent' \
     },
     ...
   ],
-  "total": 1
+  "total": 2
 }
 ```
 
