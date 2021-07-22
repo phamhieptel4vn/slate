@@ -1183,7 +1183,7 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
 | limit     | Số lượng record trả về   | 50       |
 | offset    | Vị trí bắt đầu khi query | 0        |
 
-## Get Campaigns
+## Get a Specific Campaign
 
 ```shell
 curl -L -X GET 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee' \
@@ -1215,12 +1215,12 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeee
 | ----------- | --------------- |
 | campaign_id | Id của campaign |
 
-## Create Extension
+## Create Campaign
 
 ```shell
 curl -L -X POST 'https://{{API_HOST}}/v1/campaign' \
 -H 'Content-Type: application/json' \
--H 'Authorization: Bearer {{SECRET_TOKEN}}'
+-H 'Authorization: Bearer {{TOKEN}}'
 --data-raw '{
     "campaign_name" : "Autodial",
     "type" : "autodialer"
