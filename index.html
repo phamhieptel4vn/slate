@@ -437,10 +437,10 @@
                     <a href="#get-campaigns" class="toc-h2 toc-link" data-title="Get Campaigns">Get Campaigns</a>
                   </li>
                   <li>
-                    <a href="#get-campaigns-2" class="toc-h2 toc-link" data-title="Get Campaigns">Get Campaigns</a>
+                    <a href="#get-a-specific-campaign" class="toc-h2 toc-link" data-title="Get a Specific Campaign">Get a Specific Campaign</a>
                   </li>
                   <li>
-                    <a href="#create-extension-2" class="toc-h2 toc-link" data-title="Create Extension">Create Extension</a>
+                    <a href="#create-campaign" class="toc-h2 toc-link" data-title="Create Campaign">Create Campaign</a>
                   </li>
               </ul>
           </li>
@@ -1890,7 +1890,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-campaigns-2'>Get Campaigns</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
+<h2 id='get-a-specific-campaign'>Get a Specific Campaign</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
@@ -1920,9 +1920,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Id của campaign</td>
 </tr>
 </tbody></table>
-<h2 id='create-extension-2'>Create Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
+<h2 id='create-campaign'>Create Campaign</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "campaign_name" : "Autodial",
     "type" : "autodialer"
