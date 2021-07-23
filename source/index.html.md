@@ -1396,6 +1396,7 @@ curl --location --request POST 'http://{{API_HOST}}/v1/autocall/queue' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "queue_code": "Autocall",
   "template": "Test Autocall",
   "concurrent_call": "5",
@@ -1444,6 +1445,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 ```json
 {
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "queue_code": "Autocall",
   "template": "Test Autocall",
   "concurrent_call": "5",
@@ -1460,6 +1462,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 | Parameter                          | Description                                | Required |
 | ---------------------------------- | ------------------------------------------ | -------- |
+| campaign_id                        | Id của campaign                            | x        |
 | queue_code                         | Mã queue                                   | x        |
 | template                           | Kịch bản dùng để                           | x        |
 | concurrent_call                    | Số lượng cuộc gọi đồng thời                |          |
@@ -1658,6 +1661,7 @@ curl --location --request POST 'http://{{API_HOST}}/v1/autodialer/queue' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "queue_code": "Autodial",
   "precall_ratio": "150",
   "max_recall_count": "2",
@@ -1699,6 +1703,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 ```json
 {
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "queue_code": "Autodial",
   "precall_ratio": "150",
   "max_recall_count": "2",
@@ -1714,6 +1719,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 | Parameter         | Description                                | Required |
 | ----------------- | ------------------------------------------ | -------- |
+| campaign_id       | Id của campaign                            | x        |
 | queue_code        | Mã queue                                   | x        |
 | precall_ratio     | Kịch bản dùng để                           | x        |
 | max_recall_count  | Số lượng cuộc gọi đồng thời                | x        |
