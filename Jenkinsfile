@@ -9,11 +9,11 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Clone repository'
-                sh 'gem update --system'
-                sh "bundle config set deployment 'true'"
-                sh "bundle config path vendor/bundle"
-                sh "bundle install --jobs 4 --retry 3"
-                sh "bundle exec middleman build"
+                sh 'sudo gem update --system'
+                sh "sudo bundle config set deployment 'true'"
+                sh "sudo bundle config path vendor/bundle"
+                sh "sudo bundle install --jobs 4 --retry 3"
+                sh "sudo bundle exec middleman build"
             }
         }
     }
