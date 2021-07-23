@@ -2188,6 +2188,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "queue_code": "Autocall",
   "template": "Test Autocall",
   "concurrent_call": "5",
@@ -2229,6 +2230,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <p>Sample data:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Autocall"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
@@ -2249,6 +2251,11 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <th>Required</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id của campaign</td>
+<td>x</td>
+</tr>
 <tr>
 <td>queue_code</td>
 <td>Mã queue</td>
@@ -2464,6 +2471,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
   "queue_code": "Autodial",
   "precall_ratio": "150",
   "max_recall_count": "2",
@@ -2498,6 +2506,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <p>Sample data:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"precall_ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"max_recall_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
@@ -2517,6 +2526,11 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <th>Required</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id của campaign</td>
+<td>x</td>
+</tr>
 <tr>
 <td>queue_code</td>
 <td>Mã queue</td>
