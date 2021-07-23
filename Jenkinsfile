@@ -2,9 +2,6 @@ pipeline {
     agent {
         label 'node7'
     }
-    environment {
-        GIT_REPOSITORY = 'https://github.com/luandnh/slate.git'
-    }
     stages {
         stage('Build') {
             steps {
