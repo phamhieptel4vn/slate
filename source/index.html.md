@@ -1353,7 +1353,7 @@ Tạo kịch bản Text-To-Speech
 | ------------------------ | ------------------------------------------------- |
 | campaign_id              | Kịch bản được gán vào campaign                    |
 | name                     | Tên kịch bản muốn tạo. (Phải là duy nhất)         |
-| key_field_1,2,3          | Các từ khoả trong kịch bản                        |
+| key_field_1,2,3          | Các từ khoá trong kịch bản                        |
 | voice_type               | Loại autocall : tts, audio_file                   |
 | voice_tts                | Giọng đọc kịch bản (Đối với voice_type là tts)    |
 | speed_tts                | Tốc độ đọc kịch bản (Đối với voice_type là tts)   |
