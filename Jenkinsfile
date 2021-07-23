@@ -14,5 +14,10 @@ pipeline {
                 sh "bundle exec middleman build"
             }
         }
+        stage('Deploy') {
+            steps {
+                sh "cp -r build/* /var/www/html/docs/"
+            }
+        }
     }
 }

@@ -570,7 +570,7 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 ## List Calls
 
 ```shell
-curl -L -X GET 'https://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&start_date=2021-06-01%2023:59:59' \
+curl -L -X GET 'https://{{API_HOST}}/v1/call' \
 -H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json'
 ```
