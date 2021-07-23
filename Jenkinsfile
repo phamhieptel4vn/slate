@@ -9,7 +9,6 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Clone repository'
-                git GIT_REPOSITORY
                 sh 'gem update --system'
                 sh "bundle config set deployment 'true'"
                 sh "bundle config path vendor/bundle"
