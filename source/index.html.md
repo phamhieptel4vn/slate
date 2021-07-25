@@ -1266,7 +1266,7 @@ Các giọng đọc kịch bản đang hỗ trợ
 ## Kịch bản TTS
 
 ```shell
-curl --location --request POST ' http://{API_HOST}/v1/template' \
+curl --location --request POST ' https://{API_HOST}/v1/template' \
 --header 'Authorization: {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1309,7 +1309,7 @@ Tạo kịch bản Text-To-Speech
 
 ### HTTP Request
 
-`POST http://{API_HOST}/v1/template`
+`POST https://{API_HOST}/v1/template`
 
 ### Body
 
@@ -1392,7 +1392,7 @@ Ví dụ:
 ## Nhận dữ liệu queue
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autocall/queue' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1437,7 +1437,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autocall/queue`
+`POST https://{{API_HOST}}/v1/autocall/queue`
 
 ### Body
 
@@ -1491,7 +1491,7 @@ Ví dụ:
 ## Import danh sách chặn
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autocall/queue/dnc' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/dnc' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1530,7 +1530,7 @@ API này nhằm mục đích cung cấp danh sách các khách hàng cần chặ
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autocall/queue/dnc`
+`POST https://{{API_HOST}}/v1/autocall/queue/dnc`
 
 ### Body
 
@@ -1561,7 +1561,7 @@ API này nhằm mục đích cung cấp danh sách các khách hàng cần chặ
 ## Stop Queue
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autocall/queue/stop' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/stop' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1589,7 +1589,7 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autocall/queue/stop`
+`POST https://{{API_HOST}}/v1/autocall/queue/stop`
 
 ### Body
 
@@ -1608,7 +1608,7 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 ## Start Queue
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autocall/queue/start' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/start' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1636,7 +1636,7 @@ API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm d�
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autocall/queue/start`
+`POST https://{{API_HOST}}/v1/autocall/queue/start`
 
 ### Body
 
@@ -1657,7 +1657,7 @@ API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm d�
 ## Nhận dữ liệu queue
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autodialer/queue' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autodialer/queue' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1695,7 +1695,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autodialer/queue`
+`POST https://{{API_HOST}}/v1/autodialer/queue`
 
 ### Body
 
@@ -1729,7 +1729,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 ## Stop Queue
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autodialer/queue/stop' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autodialer/queue/stop' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1757,7 +1757,7 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autodialer/queue/stop`
+`POST https://{{API_HOST}}/v1/autodialer/queue/stop`
 
 ### Body
 
@@ -1776,7 +1776,7 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 ## Start Queue
 
 ```shell
-curl --location --request POST 'http://{{API_HOST}}/v1/autodialer/queue/start' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autodialer/queue/start' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1804,7 +1804,7 @@ API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm d�
 
 ### HTTP Request
 
-`POST http://{{API_HOST}}/v1/autodialer/queue/start`
+`POST https://{{API_HOST}}/v1/autodialer/queue/start`
 
 ### Body
 
