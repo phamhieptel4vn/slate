@@ -1997,7 +1997,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Miền Nam 1 - Giọng nữ</td>
 </tr>
 </tbody></table>
-<h2 id='k-ch-b-n-tts'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' http://{API_HOST}/v1/template'</span> <span class="se">\</span>
+<h2 id='k-ch-b-n-tts'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' https://{API_HOST}/v1/template'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2036,7 +2036,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
 <h3 id='http-request-26'>HTTP Request</h3>
-<p><code>POST http://{API_HOST}/v1/template</code></p>
+<p><code>POST https://{API_HOST}/v1/template</code></p>
 <h3 id='body-12'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2184,7 +2184,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </ul>
 
 <p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
-<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autocall/queue'</span> <span class="se">\</span>
+<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2224,7 +2224,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
 <h3 id='http-request-27'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autocall/queue</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autocall/queue</code></p>
 <h3 id='body-13'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2305,7 +2305,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
 </ul>
-<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autocall/queue/dnc'</span> <span class="se">\</span>
+<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/dnc'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2339,7 +2339,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
 <h3 id='http-request-28'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autocall/queue/dnc</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autocall/queue/dnc</code></p>
 <h3 id='body-14'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2377,7 +2377,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autocall/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2400,7 +2400,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
 <h3 id='http-request-29'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autocall/queue/stop</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autocall/queue/stop</code></p>
 <h3 id='body-15'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2422,7 +2422,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autocall/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2445,7 +2445,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
 <h3 id='http-request-30'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autocall/queue/start</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autocall/queue/start</code></p>
 <h3 id='body-16'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2467,7 +2467,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h1 id='autodialer'>Autodialer</h1><h2 id='nh-n-d-li-u-queue-2'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autodialer/queue'</span> <span class="se">\</span>
+<h1 id='autodialer'>Autodialer</h1><h2 id='nh-n-d-li-u-queue-2'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2500,7 +2500,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra.</p>
 <h3 id='http-request-31'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autodialer/queue</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autodialer/queue</code></p>
 <h3 id='body-17'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2557,7 +2557,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue-2'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autodialer/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue-2'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2580,7 +2580,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
 <h3 id='http-request-32'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autodialer/queue/stop</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autodialer/queue/stop</code></p>
 <h3 id='body-18'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2602,7 +2602,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue-2'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v1/autodialer/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue-2'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2625,7 +2625,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
 <h3 id='http-request-33'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/autodialer/queue/start</code></p>
+<p><code>POST https://{{API_HOST}}/v1/autodialer/queue/start</code></p>
 <h3 id='body-19'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
