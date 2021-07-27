@@ -2291,10 +2291,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <p>Một số lưu ý:</p>
 
 <ul>
-  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10.410.000”</li>
-  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 123456789 hoặc “0987654321”</li>
+  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10410000”</li>
+  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 1 2 3 4 5 6 hoặc “0 9 8 7 6 5 4 3 2 1”</li>
   <li>Nếu muốn đọc thành số (Ví dụ 15 - mười lăm) - truyền dữ liệu theo format: “#15”</li>
-  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy”, ví dụ: “30/01/2021”</li>
+  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy” hoặc “yyyy-mm-dd”, ví dụ: “30/01/2021” hoặc "2021-01-30"</li>
 </ul>
 
 <p>customers.key_field: tương ứng với đoạn text import vào campaign người dùng đã định nghĩa.</p>
@@ -2538,12 +2538,12 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 <tr>
 <td>precall_ratio</td>
-<td>Kịch bản dùng để</td>
+<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent</td>
 <td>x</td>
 </tr>
 <tr>
 <td>max_recall_count</td>
-<td>Số lượng cuộc gọi đồng thời</td>
+<td>Số lượng cuộc gọi lại nếu không thành công</td>
 <td>x</td>
 </tr>
 <tr>
