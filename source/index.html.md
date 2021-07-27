@@ -1473,10 +1473,10 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 Một số lưu ý:
 
 <ul>
-  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10.410.000”</li>
-  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 123456789 hoặc “0987654321”</li>
+  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10410000”</li>
+  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 1 2 3 4 5 6 hoặc “0 9 8 7 6 5 4 3 2 1”</li>
   <li>Nếu muốn đọc thành số (Ví dụ 15 - mười lăm) - truyền dữ liệu theo format: “#15”</li>
-  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy”, ví dụ: “30/01/2021”</li>
+  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy” hoặc “yyyy-mm-dd”, ví dụ: “30/01/2021” hoặc "2021-01-30"</li>
 </ul>
 
 customers.key_field: tương ứng với đoạn text import vào campaign người dùng đã định nghĩa.
@@ -1717,14 +1717,14 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 }
 ```
 
-| Parameter         | Description                                | Required |
-| ----------------- | ------------------------------------------ | -------- |
-| campaign_id       | Id của campaign                            | x        |
-| queue_code        | Mã queue                                   | x        |
-| precall_ratio     | Kịch bản dùng để                           | x        |
-| max_recall_count  | Số lượng cuộc gọi đồng thời                | x        |
-| customers.id      | ID của khách hàng                          | x        |
-| customers.mobiles | Danh sách các số điện thoại của khách hàng | x        |
+| Parameter         | Description                                      | Required |
+| ----------------- | ------------------------------------------------ | -------- |
+| campaign_id       | Id của campaign                                  | x        |
+| queue_code        | Mã queue                                         | x        |
+| precall_ratio     | Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent | x        |
+| max_recall_count  | Số lượng cuộc gọi lại nếu không thành công       | x        |
+| customers.id      | ID của khách hàng                                | x        |
+| customers.mobiles | Danh sách các số điện thoại của khách hàng       | x        |
 
 ## Stop Queue
 
