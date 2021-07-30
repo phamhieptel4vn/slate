@@ -333,7 +333,7 @@
                     <a href="#update-customer-credit" class="toc-h2 toc-link" data-title="Update Customer Credit">Update Customer Credit</a>
                   </li>
                   <li>
-                    <a href="#update-customer-credit-2" class="toc-h2 toc-link" data-title="Update Customer Credit">Update Customer Credit</a>
+                    <a href="#update-customer-status" class="toc-h2 toc-link" data-title="Update Customer Status">Update Customer Status</a>
                   </li>
               </ul>
           </li>
@@ -562,7 +562,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>12</td>
 </tr>
 </tbody></table>
-<h2 id='update-customer-credit-2'>Update Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/status'</span> <span class="se">\</span>
+<h2 id='update-customer-status'>Update Customer Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/status'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
