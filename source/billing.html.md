@@ -237,7 +237,7 @@ curl -L -X PUT 'http://{API_HOST}/v1/customer/{{customer_id}}/status' \
 }
 ```
 
-API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)
+API dùng để cập nhật trạng thái khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)
 
 ### HTTP Request
 
