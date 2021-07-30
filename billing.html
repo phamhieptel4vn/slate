@@ -321,6 +321,23 @@
               </ul>
           </li>
           <li>
+            <a href="#customer" class="toc-h1 toc-link" data-title="Customer">Customer</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-customers" class="toc-h2 toc-link" data-title="Get Customers">Get Customers</a>
+                  </li>
+                  <li>
+                    <a href="#get-customer-by-id" class="toc-h2 toc-link" data-title="Get Customer By Id">Get Customer By Id</a>
+                  </li>
+                  <li>
+                    <a href="#update-customer-credit" class="toc-h2 toc-link" data-title="Update Customer Credit">Update Customer Credit</a>
+                  </li>
+                  <li>
+                    <a href="#update-customer-credit-2" class="toc-h2 toc-link" data-title="Update Customer Credit">Update Customer Credit</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#call" class="toc-h1 toc-link" data-title="Call">Call</a>
               <ul class="toc-list-h2">
                   <li>
@@ -357,9 +374,12 @@
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">1613636318</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE="</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="w">
+    </span><span class="nl">"client_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82ab1e65-aaeb-4ab7-bcd1-d8e4a8aae4ed"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expired_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">15483776</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE="</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -384,6 +404,232 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <tr>
 <td>api_key</td>
 <td>api_key có trong thông tin của account</td>
+</tr>
+</tbody></table>
+<h1 id='customer'>Customer</h1><h2 id='get-customers'>Get Customers</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/customer?limit=10&amp;offset=0'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-31T17:17:35Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstusedate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-31T20:08:56Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expirationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2031-05-31T10:15:27Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enableexpire"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expiredays"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0906237580"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"useralias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345790644"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">12343</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastuse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-20T12:00:54Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creditlimit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id_group"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-05T12:59:50Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstusedate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-06-05T13:01:58Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expirationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2031-06-05T05:58:42Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enableexpire"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"expiredays"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"useralias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345790645"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastuse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-27T19:07:18Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"creditlimit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id_group"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy danh sách khách hàng.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://{API_HOST}/v1/customer</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Giới hạn số lượng record trả về</td>
+<td>10</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí record bắt đầu query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-customer-by-id'>Get Customer By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/customer/1'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"creationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-31T17:17:35Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"firstusedate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-05-31T20:08:56Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expirationdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2031-05-31T10:15:27Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enableexpire"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"expiredays"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0906237580"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"useralias"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345790644"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">12343</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"activated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastuse"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-20T12:00:54Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"creditlimit"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id_group"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy thông tin khách hàng theo id.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://{API_HOST}/v1/customer/{{customer_id}}</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Id của khách hàngngf</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h2 id='update-customer-credit'>Update Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/credit'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "credit" : 12
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/credit</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Id của khách hàng</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h3 id='body-2'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>credit</td>
+<td>Số dư mới của khách hàng</td>
+<td>12</td>
+</tr>
+</tbody></table>
+<h2 id='update-customer-credit-2'>Update Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/status'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "status" : "active"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/status</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Id của khách hàng</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<h3 id='body-3'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>status</td>
+<td>Trạng thái mới của khách hàng</td>
+<td>active</td>
+</tr>
+</tbody></table>
+<h3 id='status'>Status</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>active</td>
+<td>Được phép hoạt động</td>
+</tr>
+<tr>
+<td>expired</td>
+<td>Hết hạn</td>
+</tr>
+<tr>
+<td>cancelled</td>
+<td>Bị huỷ</td>
+</tr>
+<tr>
+<td>suspended</td>
+<td>Tạm ngưng dịch vụ</td>
 </tr>
 </tbody></table>
 <h1 id='call'>Call</h1><h2 id='call-logs'>Call Logs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/call/log?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
@@ -430,9 +676,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi và số tiền theo khoảng thời gian.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/call/log</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
