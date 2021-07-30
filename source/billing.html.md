@@ -41,9 +41,12 @@ curl -L -X POST 'http://{API_HOST}/v1/auth/token' \
 ```json
 {
   "data": {
-      "expire_at": 1613636318,
-      "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
-      "user_id": "aaaaaaaa-1111-2222-3333-eeeeeeee"
+    "client_id": "82ab1e65-aaeb-4ab7-bcd1-d8e4a8aae4ed",
+    "expired_in": 15483776,
+    "refresh_token": "",
+    "token": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE=",
+    "token_type": "Bearer",
+    "user_id": "1"
   }
 }
 ```
@@ -67,6 +70,199 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 | Parameter | Description                            |
 | --------- | -------------------------------------- |
 | api_key   | api_key có trong thông tin của account |
+
+# Customer
+
+## Get Customers
+
+```shell
+curl -L -X GET 'http://{API_HOST}/v1/customer?limit=10&offset=0' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+```
+
+> Response trả về:
+
+```json
+{
+  "data": [
+    {
+      "id": 1,
+      "creationdate": "2021-05-31T17:17:35Z",
+      "firstusedate": "2021-05-31T20:08:56Z",
+      "expirationdate": "2031-05-31T10:15:27Z",
+      "enableexpire": 0,
+      "expiredays": 0,
+      "username": "0906237580",
+      "useralias": "12345790644",
+      "credit": 12343,
+      "activated": "f",
+      "status": 1,
+      "lastuse": "2021-07-20T12:00:54Z",
+      "creditlimit": null,
+      "id_group": 2
+    },
+    {
+      "id": 2,
+      "creationdate": "2021-06-05T12:59:50Z",
+      "firstusedate": "2021-06-05T13:01:58Z",
+      "expirationdate": "2031-06-05T05:58:42Z",
+      "enableexpire": 0,
+      "expiredays": 0,
+      "username": "1234567890",
+      "useralias": "12345790645",
+      "credit": 12345,
+      "activated": "f",
+      "status": 1,
+      "lastuse": "2021-07-27T19:07:18Z",
+      "creditlimit": null,
+      "id_group": 2
+    }
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 50
+}
+```
+
+API dùng để lấy danh sách khách hàng.
+
+### HTTP Request
+
+`GET http://{API_HOST}/v1/customer`
+
+### Query Parameters
+
+| Parameter | Description                     | Example |
+| --------- | ------------------------------- | ------- |
+| limit     | Giới hạn số lượng record trả về | 10      |
+| offset    | Vị trí record bắt đầu query     | 0       |
+
+## Get Customer By Id
+
+```shell
+curl -L -X GET 'http://{API_HOST}/v1/customer/1' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+```
+
+> Response trả về:
+
+```json
+{
+  "id": 1,
+  "creationdate": "2021-05-31T17:17:35Z",
+  "firstusedate": "2021-05-31T20:08:56Z",
+  "expirationdate": "2031-05-31T10:15:27Z",
+  "enableexpire": 0,
+  "expiredays": 0,
+  "username": "0906237580",
+  "useralias": "12345790644",
+  "credit": 12343,
+  "activated": "f",
+  "status": 1,
+  "lastuse": "2021-07-20T12:00:54Z",
+  "creditlimit": null,
+  "id_group": 2
+}
+```
+
+API dùng để lấy thông tin khách hàng theo id.
+
+### HTTP Request
+
+`GET http://{API_HOST}/v1/customer/{{customer_id}}`
+
+### Query Parameters
+
+| Parameter   | Description          | Example |
+| ----------- | -------------------- | ------- |
+| customer_id | Id của khách hàngngf | 1       |
+
+## Update Customer Credit
+
+```shell
+curl -L -X PUT 'http://{API_HOST}/v1/customer/{{customer_id}}/credit' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+--data-raw '{
+    "credit" : 12
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "id": "1",
+  "message": "successfully"
+}
+```
+
+API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)
+
+### HTTP Request
+
+`PUT http://{API_HOST}/v1/customer/{{customer_id}}/credit`
+
+### Query Parameters
+
+| Parameter   | Description       | Example |
+| ----------- | ----------------- | ------- |
+| customer_id | Id của khách hàng | 1       |
+
+### Body
+
+| Parameter | Description              | Example |
+| --------- | ------------------------ | ------- |
+| credit    | Số dư mới của khách hàng | 12      |
+
+## Update Customer Credit
+
+```shell
+curl -L -X PUT 'http://{API_HOST}/v1/customer/{{customer_id}}/status' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+--data-raw '{
+    "status" : "active"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "id": "1",
+  "message": "successfully"
+}
+```
+
+API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)
+
+### HTTP Request
+
+`PUT http://{API_HOST}/v1/customer/{{customer_id}}/status`
+
+### Query Parameters
+
+| Parameter   | Description       | Example |
+| ----------- | ----------------- | ------- |
+| customer_id | Id của khách hàng | 1       |
+
+### Body
+
+| Parameter | Description                   | Example |
+| --------- | ----------------------------- | ------- |
+| status    | Trạng thái mới của khách hàng | active  |
+
+### Status
+
+| Name      | Description         |
+| --------- | ------------------- |
+| active    | Được phép hoạt động |
+| expired   | Hết hạn             |
+| cancelled | Bị huỷ              |
+| suspended | Tạm ngưng dịch vụ   |
 
 # Call
 
