@@ -217,7 +217,7 @@ API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được l
 | --------- | ------------------------ | ------- |
 | credit    | Số dư mới của khách hàng | 12      |
 
-## Update Customer Credit
+## Update Customer Status
 
 ```shell
 curl -L -X PUT 'http://{API_HOST}/v1/customer/{{customer_id}}/status' \
