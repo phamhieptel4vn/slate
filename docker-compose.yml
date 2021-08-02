@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  traefik:
+  api-document:
     image: httpd:2.4
     container_name: api-document
     restart: unless-stopped
