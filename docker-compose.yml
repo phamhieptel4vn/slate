@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  traefik:
+    image: httpd:2.4
+    container_name: api-document
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    networks:
+      - proxy
+    ports:
+      - 8081:80
+    volumes:
+      - ./build:/usr/local/apache2/htdocs
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.api-document.entrypoints=websecure-letsencrypt"
+      - "traefik.http.routers.api-document.rule=Host(`docs.tel4vn.com`)"
+      - "traefik.http.services.api-document.loadbalancer.server.port=8081"
+
+networks:
+  proxy:
+    external: true
