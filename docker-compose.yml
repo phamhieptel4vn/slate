@@ -9,8 +9,6 @@ services:
       - no-new-privileges:true
     networks:
       - proxy
-    ports:
-      - 8081:80
     volumes:
       - ./build:/usr/local/apache2/htdocs
     labels:
@@ -18,7 +16,7 @@ services:
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.api-document.entrypoints=websecure-letsencrypt"
       - "traefik.http.routers.api-document.rule=Host(`docs.tel4vn.com`)"
-      - "traefik.http.services.api-document.loadbalancer.server.port=8081"
+      - "traefik.http.services.api-document.loadbalancer.server.port=80"
 
 networks:
   proxy:
