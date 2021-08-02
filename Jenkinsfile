@@ -1,22 +1,28 @@
 pipeline {
-    agent {
-        label 'node7'
-    }
+    agent any
     stages {
-        stage('Build') {
+        stage('SSH Remote') {
             steps {
-                echo 'Clone repository'
-                sh 'sudo bash'
-                sh 'gem update --system'
-                sh "bundle config set deployment 'true'"
-                sh "bundle config path vendor/bundle"
-                sh "bundle install --jobs 4 --retry 3"
-                sh "bundle exec middleman build"
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh "cp -r build/* /var/www/html/docs/"
+                script {
+                    def remote = [:]
+                    remote.name = 'server-dev'
+                    remote.host = '113.164.246.25'
+                    remote.port = 8822
+                    remote.allowAnyHosts = true
+                    withCredentials([sshUserPrivateKey(credentialsId: 'root-tel4vn-2019', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
+                        remote.user = userName
+                        remote.identityFile = identity
+                        stage("Pull") {
+                            sshCommand remote: remote, command: 'cd /root/projects/slate && git pull'
+                        }
+                        stage("Build") {
+                            sshCommand remote: remote, command: 'cd /root/projects/slate && docker run --rm --name slate -v $(pwd)/build:/srv/slate/build -v $(pwd)/source:/srv/slate/source slatedocs/slate'
+                        }
+                        stage("Deploy") {
+                            sshCommand remote: remote, command: 'cd /root/projects/slate && docker-compose up -d'
+                        }
+                    }
+                }
             }
         }
     }
