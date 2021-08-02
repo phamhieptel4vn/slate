@@ -14,7 +14,8 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
-      - "traefik.http.routers.api-document.entrypoints=websecure-letsencrypt"
+      - "traefik.http.routers.api-document.entrypoints=websecure"
+      - "traefik.http.routers.api-document.tls=true"
       - "traefik.http.routers.api-document.rule=Host(`docs.tel4vn.com`)"
       - "traefik.http.services.api-document.loadbalancer.server.port=80"
 
