@@ -484,6 +484,23 @@
               </ul>
           </li>
           <li>
+            <a href="#blacklist" class="toc-h1 toc-link" data-title="Blacklist">Blacklist</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-blacklists" class="toc-h2 toc-link" data-title="Get Blacklists">Get Blacklists</a>
+                  </li>
+                  <li>
+                    <a href="#get-blacklist-by-id-or-phone" class="toc-h2 toc-link" data-title="Get Blacklist By Id or Phone">Get Blacklist By Id or Phone</a>
+                  </li>
+                  <li>
+                    <a href="#insert-blacklists" class="toc-h2 toc-link" data-title="Insert Blacklists">Insert Blacklists</a>
+                  </li>
+                  <li>
+                    <a href="#remove-blacklists" class="toc-h2 toc-link" data-title="Remove Blacklists">Remove Blacklists</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -2644,6 +2661,165 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>queue_code</td>
 <td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h1 id='blacklist'>Blacklist</h1><h2 id='get-blacklists'>Get Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990989"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dnc"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/blaclist</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-blacklist-by-id-or-phone'>Get Blacklist By Id or Phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist/0899990988'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/blacklist/{{id}}</code></p>
+<h3 id='query-parameters-9'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id của blacklist hoặc số điện thoại</td>
+</tr>
+</tbody></table>
+<h2 id='insert-blacklists'>Insert Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "blacklist":[
+        {
+          "phone_number": "0899990988",
+          "description": "spam"
+        },
+        {
+          "phone_number": "0899990989",
+          "description": "dnc"
+        }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"0899990988"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone_number is duplicate"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899990989"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/blacklist</code></p>
+<h3 id='body-20'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>blacklist</td>
+<td>Danh sách số điện thoại</td>
+<td>x</td>
+</tr>
+<tr>
+<td>blacklist.phone_number</td>
+<td>Số điện thoại</td>
+<td>x</td>
+</tr>
+<tr>
+<td>blacklist.description</td>
+<td>Chú thích</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='remove-blacklists'>Remove Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "blacklist":[
+      "0899990988",
+      "0899990989"
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0899990989"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
+<p><code>DELETE https://{{API_HOST}}/v1/blacklist</code></p>
+<h3 id='body-21'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>blacklist</td>
+<td>Danh sách số điện thoại</td>
 <td>x</td>
 </tr>
 </tbody></table>
