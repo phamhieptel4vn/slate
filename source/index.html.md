@@ -609,7 +609,8 @@ curl -L -X POST 'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad3432259
 -H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json' \
 --data-raw '{
-    "ext" : "101"
+    "ext" : "101",
+    "legs" : "bleg"
 }'
 ```
 
@@ -640,9 +641,10 @@ API dùng để thực hiện chuyển cuộc gọi sang extension khác.
 
 ### Body
 
-| Parameter | Description           |
-| --------- | --------------------- |
-| ext       | Ext nhận cuộc gọi mới |
+| Parameter | Description                                                                           | Required |
+| --------- | ------------------------------------------------------------------------------------- | -------- |
+| ext       | Ext nhận cuộc gọi mới                                                                 | x        |
+| legs      | aleg hoặc bleg. aleg có thể hiểu là bên thực hiện cuộc gọi, bleg là bên nhận cuộc gọi | x        |
 
 ## Listen a call
 
