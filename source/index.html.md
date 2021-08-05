@@ -1940,7 +1940,7 @@ curl -L -X POST 'https://{{API_HOST}}/v1/blacklist' \
 ## Remove Blacklists
 
 ```shell
-curl -L -X POST 'https://{{API_HOST}}/v1/blacklist' \
+curl -L -X DELETE 'https://{{API_HOST}}/v1/blacklist' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {{TOKEN}}'
 --data-raw '{
