@@ -83,6 +83,14 @@
 <td>cdr</td>
 <td>Sự kiện sau khi cdr được tạo xong</td>
 </tr>
+<tr>
+<td>missed</td>
+<td>Sự kiện khi có cuộc gọi inbound tới nhưng không có extension nào nghe máy</td>
+</tr>
+<tr>
+<td>cdr_autocall</td>
+<td>Sự kiện sau khi cdr của autocall được tạo xong</td>
+</tr>
 </tbody></table>
 
 <aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
@@ -180,6 +188,14 @@
 <tr>
 <td>recording_url</td>
 <td>URL public để play file ghi âm. (Riêng sự kiện cdr)</td>
+</tr>
+<tr>
+<td>press_key</td>
+<td>Phím bấm của mobile nếu có (Riêng sự kiện cdr_autocall)</td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>Id của customer khi import vào queue (Riêng sự kiện cdr_autocall)</td>
 </tr>
 </tbody></table>
 <h2 id='note'>Note*</h2>
