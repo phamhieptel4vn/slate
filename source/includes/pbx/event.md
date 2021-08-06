@@ -68,12 +68,14 @@ Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ
 
 ### SIP Call Event
 
-| Parameter | Description                        |
-| --------- | ---------------------------------- |
-| hangup    | Sự kiện khi cuộc gọi bị ngắt, huỷ  |
-| ringing   | Sự kiện khi cuộc gọi được khởi tạo |
-| answered  | Sự kiện khi cuộc gọi được nhấc máy |
-| cdr       | Sự kiện sau khi cdr được tạo xong  |
+| Parameter    | Description                                                               |
+| ------------ | ------------------------------------------------------------------------- |
+| hangup       | Sự kiện khi cuộc gọi bị ngắt, huỷ                                         |
+| ringing      | Sự kiện khi cuộc gọi được khởi tạo                                        |
+| answered     | Sự kiện khi cuộc gọi được nhấc máy                                        |
+| cdr          | Sự kiện sau khi cdr được tạo xong                                         |
+| missed       | Sự kiện khi có cuộc gọi inbound tới nhưng không có extension nào nghe máy |
+| cdr_autocall | Sự kiện sau khi cdr của autocall được tạo xong                            |
 
 <aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
 <aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
@@ -127,19 +129,21 @@ API dùng để xoá một event_domain.
 
 ### Description
 
-| Parameter     | Description                                                    |
-| ------------- | -------------------------------------------------------------- |
-| call_id       | Id định danh cuộc gọi                                          |
-| sip_call_id   | SIP Call Id                                                    |
-| domain        | Domain nhận hoặc thực hiện cuộc gọi                            |
-| direction     | Hướng cuộc gọi (inbound / outbound)                            |
-| from_number   | Số gọi. Sẽ là số ext nếu cuộc gọi là outbound                  |
-| to_number     | Số nhận. Sẽ là số ext nếu cuộc gọi là inbound                  |
-| hotline       | Đầu số nhận hoặc thực hiện cuộc gọi                            |
-| state         | ringing / answered / hangup / cdr                              |
-| duration      | Tổng thời lượng cuộc gọi. (Riêng sự kiện hangup)               |
-| billsec       | Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup) |
-| recording_url | URL public để play file ghi âm. (Riêng sự kiện cdr)            |
+| Parameter     | Description                                                       |
+| ------------- | ----------------------------------------------------------------- |
+| call_id       | Id định danh cuộc gọi                                             |
+| sip_call_id   | SIP Call Id                                                       |
+| domain        | Domain nhận hoặc thực hiện cuộc gọi                               |
+| direction     | Hướng cuộc gọi (inbound / outbound)                               |
+| from_number   | Số gọi. Sẽ là số ext nếu cuộc gọi là outbound                     |
+| to_number     | Số nhận. Sẽ là số ext nếu cuộc gọi là inbound                     |
+| hotline       | Đầu số nhận hoặc thực hiện cuộc gọi                               |
+| state         | ringing / answered / hangup / cdr                                 |
+| duration      | Tổng thời lượng cuộc gọi. (Riêng sự kiện hangup)                  |
+| billsec       | Thời lượng tính từ khi hai bên kết nối. (Riêng sự kiện hangup)    |
+| recording_url | URL public để play file ghi âm. (Riêng sự kiện cdr)               |
+| press_key     | Phím bấm của mobile nếu có (Riêng sự kiện cdr_autocall)           |
+| customer_id   | Id của customer khi import vào queue (Riêng sự kiện cdr_autocall) |
 
 ## Note\*
 
