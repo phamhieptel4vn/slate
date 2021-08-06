@@ -1,0 +1,123 @@
+<h1 id='monitor'>Monitor</h1><h2 id='monitor-agent'>Monitor Agent</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/monitor/agent'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"agent_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6a65480c-8bc7-4d4a-9aae-4488d67bf711"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RINGING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-01 09:30:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outbound"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9eb34970-dec2-466d-98c7-9532439be7eb"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test01.tel4vn.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"663dec3e-a405-4372-9991-8e6ae9f9788a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"network_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.0.15"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"server_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MicroSIP/3.20.6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"41d0f364-79f8-4abb-9834-ee803320ea8d"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test01"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"agent_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test 02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"faf6a9ae-c475-4980-8a85-24710ab9d6cd"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONCALL"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"call_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-01 09:31:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"destination"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899654321"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"outbound"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9eb34970-dec2-466d-98c7-9532439be7eb"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test02.tel4vn.com"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"663dec3e-a405-4372-9991-8e6ae9f9788a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"network_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.0.16"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"server_host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.0.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MicroSIP/3.20.6"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56df3364-f377-43d3-b315-db1dc011e4de"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test02"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để monitor agent đang login.</p>
+
+<table><thead>
+<tr>
+<th>Thông tin</th>
+<th>Mô tả</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data</td>
+<td>Data trả về</td>
+</tr>
+<tr>
+<td>data.user_id</td>
+<td>Id của user</td>
+</tr>
+<tr>
+<td>data.username</td>
+<td>Username của extension</td>
+</tr>
+<tr>
+<td>data.agent_name</td>
+<td>Tên của agent</td>
+</tr>
+<tr>
+<td>data.extension_id</td>
+<td>Id của extension</td>
+</tr>
+<tr>
+<td>data.extension</td>
+<td>Extension</td>
+</tr>
+<tr>
+<td>data.call_state</td>
+<td>Trạng thái cuộc gọi. (RINGING, ONCALL)</td>
+</tr>
+<tr>
+<td>data.call_id</td>
+<td>Id của cuộc gọi</td>
+</tr>
+<tr>
+<td>data.call_time</td>
+<td>Thời gian bắt đầu của cuộc gọi</td>
+</tr>
+<tr>
+<td>data.destination</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+</tr>
+<tr>
+<td>data.direction</td>
+<td>Chiều cuộc gọi. (inbound, outbound)</td>
+</tr>
+<tr>
+<td>data.user_agent</td>
+<td>Tên, Id thiết bị</td>
+</tr>
+<tr>
+<td>data.domain_id</td>
+<td>Id của domain</td>
+</tr>
+<tr>
+<td>data.domain_name</td>
+<td>Tên của domain</td>
+</tr>
+<tr>
+<td>data.network_ip</td>
+<td>IP của extension</td>
+</tr>
+<tr>
+<td>data.server_host</td>
+<td>Host của tổng đài</td>
+</tr>
+</tbody></table>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/monitor/agent</code></p>

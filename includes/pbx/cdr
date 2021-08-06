@@ -1,0 +1,286 @@
+<h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
+<p>Lịch sử cuộc gọi</p>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id của CDR</td>
+</tr>
+<tr>
+<td>sip_call_id</td>
+<td>call_id trong bản tin SIP</td>
+</tr>
+<tr>
+<td>cause</td>
+<td>Trạng thái cuộc gọi dựa theo mã phản hồi giao thức SIP. Vd: NORMAL_CLEARING, NO_ANSWER, ...</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Thời hạn thực hiện cuộc gọi.</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Chiều cuộc gọi (inbound, outbound, local)</td>
+</tr>
+<tr>
+<td>recording_url</td>
+<td>Đường dẫn file ghi âm cuộc gọi</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>Extension nhận hoặc thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>from_number</td>
+<td>Cuộc gọi từ số nào</td>
+</tr>
+<tr>
+<td>to_number</td>
+<td>Cuộc gọi đến số nào</td>
+</tr>
+<tr>
+<td>receive_dest</td>
+<td>Ringroup hoặc queue của extension nhận cuộc gọi</td>
+</tr>
+<tr>
+<td>time_started</td>
+<td>Thời gian bắt đầu cuộc gọi</td>
+</tr>
+<tr>
+<td>time_answered</td>
+<td>Thời gian khi cuộc gọi kết nối</td>
+</tr>
+<tr>
+<td>time_ended</td>
+<td>Thời gian kết thúc cuộc gọi</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Trạng thái cuộc gọi</td>
+</tr>
+</tbody></table>
+<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/cdr?'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Pagination response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233aabbccddee.."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receive_dest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:35"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:43"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:46"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANSWERED"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934 "</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aabbccddee112233.."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receive_dest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:20:58"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:21:05"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUSY"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Scroll response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233aabbccddee.."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receive_dest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:35"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:43"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:46"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANSWERED"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aabbccddee112233.."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"receive_dest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:20:58"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:21:05"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUSY"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"scroll_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111222333444aaabbbcccddd=="</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Trả về danh sách lịch sử cuộc gọi.
+API CDRs sử dụng 2 cơ chế để trả về dữ liệu.
+Pagination: Phân trang.
+Scroll: Cuộn trang. (Mặc định)</p>
+
+<p>Nếu user cung cấp trong param: page - Số trang, limit - số lượng trả về thì API sẽ trả về dữ liêu theo cơ chế Pagination.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/cdr</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_date</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)</td>
+<td>2021-02-18 hoặc 2021-02-18 17:20:58</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)</td>
+<td>2021-02-19 hoặc 2021-02-19 00:00:00</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>Thời hạn của cuộc gọi</td>
+<td>10</td>
+</tr>
+<tr>
+<td>min_duration</td>
+<td>Thời hạn thực hiện cuộc gọi ít nhất.</td>
+<td>5 - sẽ lấy CDR có duration lớn hơn 5 giây</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>Cuộc gọi từ extension nào</td>
+<td>101</td>
+</tr>
+<tr>
+<td>recordingfile</td>
+<td>File recording của cuộc gọi</td>
+<td>abcd.mp3</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Trạng thái cuộc gọi</td>
+<td>ANSWERED</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>Từ hoặc tới số điện thoại nào</td>
+<td>0899888999</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Chiều cuộc gọi (inbound, outbound, local)</td>
+<td>outbound</td>
+</tr>
+<tr>
+<td>start_date_ended</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)</td>
+<td>2021-02-18 hoặc 2021-02-18 17:20:58</td>
+</tr>
+<tr>
+<td>end_date_ended</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian (Kết thúc cuộc gọi)</td>
+<td>2021-02-19 hoặc 2021-02-19 00:00:00</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Trang. (Pagination)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination)</td>
+<td>0</td>
+</tr>
+<tr>
+<td>scroll_id</td>
+<td>Truyền vào sau lần query đầu tiên. (Scroll)</td>
+<td>abc123efsds...</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aabbccddee112233.."</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"receive_dest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_started"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:20:58"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:21:05"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUSY"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để lấy một cdr cụ thể.
+Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/cdr/&lt;ID&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Id của CDR hoặc sip_call_id trong bản tin</td>
+</tr>
+</tbody></table>

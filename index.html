@@ -389,6 +389,9 @@
                   <li>
                     <a href="#barge-a-call" class="toc-h2 toc-link" data-title="Barge a call">Barge a call</a>
                   </li>
+                  <li>
+                    <a href="#park-a-call" class="toc-h2 toc-link" data-title="Park a call">Park a call</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -473,13 +476,13 @@
             <a href="#autodialer" class="toc-h1 toc-link" data-title="Autodialer">Autodialer</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#nh-n-d-li-u-queue-2" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
+                    <a href="#nh-n-d-li-u-queue" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
                   </li>
                   <li>
-                    <a href="#stop-queue-2" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
+                    <a href="#stop-queue" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
                   </li>
                   <li>
-                    <a href="#start-queue-2" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
+                    <a href="#start-queue" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
                   </li>
               </ul>
           </li>
@@ -497,6 +500,23 @@
                   </li>
                   <li>
                     <a href="#remove-blacklists" class="toc-h2 toc-link" data-title="Remove Blacklists">Remove Blacklists</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#smart-routing" class="toc-h1 toc-link" data-title="Smart Routing">Smart Routing</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-smart-routings" class="toc-h2 toc-link" data-title="Get Smart Routings">Get Smart Routings</a>
+                  </li>
+                  <li>
+                    <a href="#get-smart-routing-by-id-or-phone" class="toc-h2 toc-link" data-title="Get Smart Routing By Id or Phone">Get Smart Routing By Id or Phone</a>
+                  </li>
+                  <li>
+                    <a href="#insert-smart-routing" class="toc-h2 toc-link" data-title="Insert Smart Routing">Insert Smart Routing</a>
+                  </li>
+                  <li>
+                    <a href="#remove-smart-routing" class="toc-h2 toc-link" data-title="Remove Smart Routing">Remove Smart Routing</a>
                   </li>
               </ul>
           </li>
@@ -619,7 +639,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Trả về các call events của tenant.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/event</code></p>
 <h2 id='create-events'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
@@ -638,9 +658,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ liệu về {callback_url}.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/event</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -699,7 +719,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để xoá một event_domain.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v1/event/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -957,7 +977,7 @@ Pagination: Phân trang.
 Scroll: Cuộn trang. (Mặc định)</p>
 
 <p>Nếu user cung cấp trong param: page - Số trang, limit - số lượng trả về thì API sẽ trả về dữ liêu theo cơ chế Pagination.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/cdr</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -1068,9 +1088,9 @@ Scroll: Cuộn trang. (Mặc định)</p>
 </span></code></pre></div>
 <p>API dùng để lấy một cdr cụ thể.
 Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/cdr/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1110,9 +1130,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <aside class="notice">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </aside>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1190,9 +1210,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <aside class="notice">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </aside>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1282,7 +1302,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi theo thời gian thực.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/call</code></p>
 <h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
@@ -1310,9 +1330,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện chuyển cuộc gọi sang extension khác.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/transfer</code></p>
-<h3 id='body-4'>Body</h3>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1356,9 +1376,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện nghe lén cuộc gọi của một extension khác.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/listen</code></p>
-<h3 id='body-5'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1395,9 +1415,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi với extension, mobile sẽ không nghe được.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/whisper</code></p>
-<h3 id='body-6'>Body</h3>
+<h3 id='body-3'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1434,9 +1454,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/barge</code></p>
-<h3 id='body-7'>Body</h3>
+<h3 id='body-4'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1446,6 +1466,45 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>ext</td>
 <td>Ext nhận cuộc gọi mới</td>
+</tr>
+</tbody></table>
+<h2 id='park-a-call'>Park a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/park'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "legs" : "aleg"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để ngắt một bên cuộc gọi và cho bên còn lại chờ tới khi có cuộc gọi transfer tới hoặc sau 10s sẽ tự động ngắt.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/park</code></p>
+<h3 id='body-5'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>legs</td>
+<td>aleg hoặc bleg. aleg có thể hiểu là bên thực hiện cuộc gọi, bleg là bên nhận cuộc gọi</td>
+<td>x</td>
 </tr>
 </tbody></table>
 <h1 id='report'>Report</h1><h2 id='list-call-id'>List Call Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
@@ -1478,9 +1537,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các call_id và sip_call_id trong khoảng thời gian.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/report/call_id</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1540,9 +1599,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các call_id và sip_call_id trong khoảng thời gian.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/report/call_status</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1682,7 +1741,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Host của tổng đài</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/monitor/agent</code></p>
 <h1 id='tenant'>Tenant</h1><h2 id='create-tenant'>Create Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -1713,9 +1772,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/tenant</code></p>
-<h3 id='body-8'>Body</h3>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1742,9 +1801,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"transports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"wss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://pbx01.tel4vn.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-19'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1771,9 +1830,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-20'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='body-9'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1806,9 +1865,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
     </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension</code></p>
-<h3 id='body-10'>Body</h3>
+<h3 id='body-3'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1836,9 +1895,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-22'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1889,9 +1948,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-23'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/campaign</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1931,9 +1990,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-21T08:45:46.910886Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-24'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1960,9 +2019,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-25'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/campaign</code></p>
-<h3 id='body-11'>Body</h3>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2060,9 +2119,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
-<h3 id='http-request-26'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://{API_HOST}/v1/template</code></p>
-<h3 id='body-12'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2248,9 +2307,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
-<h3 id='http-request-27'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue</code></p>
-<h3 id='body-13'>Body</h3>
+<h3 id='body-3'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2363,9 +2422,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
-<h3 id='http-request-28'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/dnc</code></p>
-<h3 id='body-14'>Body</h3>
+<h3 id='body-4'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2424,9 +2483,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-29'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/stop</code></p>
-<h3 id='body-15'>Body</h3>
+<h3 id='body-5'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2469,9 +2528,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-30'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/start</code></p>
-<h3 id='body-16'>Body</h3>
+<h3 id='body-6'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2492,7 +2551,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h1 id='autodialer'>Autodialer</h1><h2 id='nh-n-d-li-u-queue-2'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue'</span> <span class="se">\</span>
+<h1 id='autodialer'>Autodialer</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2524,9 +2583,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra.</p>
-<h3 id='http-request-31'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autodialer/queue</code></p>
-<h3 id='body-17'>Body</h3>
+<h3 id='body'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2582,7 +2641,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue-2'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2604,9 +2663,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-32'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autodialer/queue/stop</code></p>
-<h3 id='body-18'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2627,7 +2686,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue-2'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2649,9 +2708,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-33'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autodialer/queue/start</code></p>
-<h3 id='body-19'>Body</h3>
+<h3 id='body-3'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2696,9 +2755,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-34'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/blaclist</code></p>
-<h3 id='query-parameters-8'>Query Parameters</h3>
+<h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2729,9 +2788,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-35'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/blacklist/{{id}}</code></p>
-<h3 id='query-parameters-9'>Query Parameters</h3>
+<h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2771,9 +2830,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899990989"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-36'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/blacklist</code></p>
-<h3 id='body-20'>Body</h3>
+<h3 id='body'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2815,9 +2874,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0899990989"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-37'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v1/blacklist</code></p>
-<h3 id='body-21'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2829,6 +2888,149 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>blacklist</td>
 <td>Danh sách số điện thoại</td>
 <td>x</td>
+</tr>
+</tbody></table>
+<h1 id='smart-routing'>Smart Routing</h1><h2 id='get-smart-routings'>Get Smart Routings</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/smartrouting'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06 10:00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990989"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06 10:00:01"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/smartrouting</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-smart-routing-by-id-or-phone'>Get Smart Routing By Id or Phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/smartrouting/0899990988'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06 10:00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/smartrouting/{{id}}</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id hoặc số điện thoại</td>
+</tr>
+</tbody></table>
+<h2 id='insert-smart-routing'>Insert Smart Routing</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/smartrouting'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+  "agent" : "104",
+  "phone_number" : "0899990988"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-06 10:00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để thêm hoặc cập nhật định tuyến thông minh, cuộc gọi inbound sẽ kiểm tra nếu số điện thoại có trong API thì sẽ tự động đưa tới extension, nếu không tồn tại sẽ xử lý tiếp tục theo rule đã set.</p>
+
+<p>Nếu số điện thoại đã tồn tại thì khi gọi API sẽ tự động update.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/smartrouting</code></p>
+<h3 id='body'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>phone_number</td>
+<td>Số điện thoại</td>
+<td>x</td>
+</tr>
+<tr>
+<td>agent</td>
+<td>Extension nhận cuộc gọi gần nhất</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='remove-smart-routing'>Remove Smart Routing</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'https://{{API_HOST}}/v1/smartrouting/{{id}}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE https://{{API_HOST}}/v1/smartrouting/{{id}}</code></p>
+<h3 id='body-2'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Id hoặc số điện thoại</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
