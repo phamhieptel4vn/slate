@@ -133,7 +133,7 @@ curl -L -X DELETE 'https://{{API_HOST}}/v1/smartrouting/{{id}}' \
 
 `DELETE https://{{API_HOST}}/v1/smartrouting/{{id}}`
 
-### Body
+### Query Parameters
 
 | Parameter | Description           |
 | --------- | --------------------- |

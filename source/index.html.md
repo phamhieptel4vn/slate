@@ -21,6 +21,7 @@ includes:
   - pbx/autodialer
   - pbx/blacklist
   - pbx/smartrouting
+  - pbx/voicemail
   - errors
 
 search: true
