@@ -129,7 +129,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v1/smartrouting/{{id}}</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
