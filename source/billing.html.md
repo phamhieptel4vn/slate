@@ -100,7 +100,13 @@ curl -L -X GET 'http://{API_HOST}/v1/customer?limit=10&offset=0' \
       "status": 1,
       "lastuse": "2021-07-20T12:00:54Z",
       "creditlimit": null,
-      "id_group": 2
+      "id_group": 2,
+      "caller_ids": [
+        {
+          "cid": "0123456787",
+          "activated": "t"
+        }
+      ]
     },
     {
       "id": 2,
@@ -116,7 +122,17 @@ curl -L -X GET 'http://{API_HOST}/v1/customer?limit=10&offset=0' \
       "status": 1,
       "lastuse": "2021-07-27T19:07:18Z",
       "creditlimit": null,
-      "id_group": 2
+      "id_group": 2,
+      "caller_ids": [
+        {
+          "cid": "0123456788",
+          "activated": "t"
+        },
+        {
+          "cid": "0123456789",
+          "activated": "t"
+        }
+      ]
     }
   ],
   "limit": 10,
@@ -163,7 +179,13 @@ curl -L -X GET 'http://{API_HOST}/v1/customer/1' \
   "status": 1,
   "lastuse": "2021-07-20T12:00:54Z",
   "creditlimit": null,
-  "id_group": 2
+  "id_group": 2,
+  "caller_ids": [
+    {
+      "cid": "0123456787",
+      "activated": "t"
+    }
+  ]
 }
 ```
 
@@ -175,9 +197,9 @@ API dùng để lấy thông tin khách hàng theo id.
 
 ### Query Parameters
 
-| Parameter   | Description          | Example |
-| ----------- | -------------------- | ------- |
-| customer_id | Id của khách hàngngf | 1       |
+| Parameter   | Description                                                | Example    |
+| ----------- | ---------------------------------------------------------- | ---------- |
+| customer_id | Id hoặc username hoặc 1 trong các caller_id của khách hàng | 0906237580 |
 
 ## Update Customer Credit
 
@@ -207,9 +229,9 @@ API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được l
 
 ### Query Parameters
 
-| Parameter   | Description       | Example |
-| ----------- | ----------------- | ------- |
-| customer_id | Id của khách hàng | 1       |
+| Parameter   | Description                                                | Example    |
+| ----------- | ---------------------------------------------------------- | ---------- |
+| customer_id | Id hoặc username hoặc 1 trong các caller_id của khách hàng | 0906237580 |
 
 ### Body
 
@@ -245,9 +267,9 @@ API dùng để cập nhật trạng thái khách hàng theo id. (Log sẽ đư�
 
 ### Query Parameters
 
-| Parameter   | Description       | Example |
-| ----------- | ----------------- | ------- |
-| customer_id | Id của khách hàng | 1       |
+| Parameter   | Description                                                | Example    |
+| ----------- | ---------------------------------------------------------- | ---------- |
+| customer_id | Id hoặc username hoặc 1 trong các caller_id của khách hàng | 0906237580 |
 
 ### Body
 
