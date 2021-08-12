@@ -333,6 +333,9 @@
                     <a href="#update-customer-credit" class="toc-h2 toc-link" data-title="Update Customer Credit">Update Customer Credit</a>
                   </li>
                   <li>
+                    <a href="#add-customer-credit" class="toc-h2 toc-link" data-title="Add Customer Credit">Add Customer Credit</a>
+                  </li>
+                  <li>
                     <a href="#update-customer-status" class="toc-h2 toc-link" data-title="Update Customer Status">Update Customer Status</a>
                   </li>
               </ul>
@@ -550,7 +553,8 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)</p>
@@ -584,6 +588,53 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>12</td>
 </tr>
 </tbody></table>
+<h2 id='add-customer-credit'>Add Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/credit/add'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "credit" : 12
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"credit"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để cập nhật số dư khách hàng theo id. Khác với API Update Credit phía trên, API này sẽ cộng thêm vào số dư hiện tại của khách hàng. Ví dụ: Khách hàng đang còn 3, credit truyền vào là 12 thì số dư của khách sẽ là 15. (Log sẽ được lưu mỗi khi update thành công)</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/credit/add</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Id hoặc username hoặc 1 trong các caller_id của khách hàng</td>
+<td>0906237580</td>
+</tr>
+</tbody></table>
+<h3 id='body-3'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>credit</td>
+<td>Số tiền cộng vào số dư của khách hàng</td>
+<td>12</td>
+</tr>
+</tbody></table>
 <h2 id='update-customer-status'>Update Customer Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/status'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
@@ -600,9 +651,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để cập nhật trạng thái khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/status</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -616,7 +667,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0906237580</td>
 </tr>
 </tbody></table>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-4'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -698,9 +749,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi và số tiền theo khoảng thời gian.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/call/log</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-6'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
