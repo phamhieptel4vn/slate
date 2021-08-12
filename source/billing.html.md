@@ -217,7 +217,8 @@ curl -L -X PUT 'http://{API_HOST}/v1/customer/{{customer_id}}/credit' \
 ```json
 {
   "id": "1",
-  "message": "successfully"
+  "message": "successfully",
+  "credit": 12
 }
 ```
 
@@ -238,6 +239,45 @@ API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được l
 | Parameter | Description              | Example |
 | --------- | ------------------------ | ------- |
 | credit    | Số dư mới của khách hàng | 12      |
+
+## Add Customer Credit
+
+```shell
+curl -L -X PUT 'http://{API_HOST}/v1/customer/{{customer_id}}/credit/add' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+--data-raw '{
+    "credit" : 12
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "id": "1",
+  "message": "successfully",
+  "credit": 15
+}
+```
+
+API dùng để cập nhật số dư khách hàng theo id. Khác với API Update Credit phía trên, API này sẽ cộng thêm vào số dư hiện tại của khách hàng. Ví dụ: Khách hàng đang còn 3, credit truyền vào là 12 thì số dư của khách sẽ là 15. (Log sẽ được lưu mỗi khi update thành công)
+
+### HTTP Request
+
+`PUT http://{API_HOST}/v1/customer/{{customer_id}}/credit/add`
+
+### Query Parameters
+
+| Parameter   | Description                                                | Example    |
+| ----------- | ---------------------------------------------------------- | ---------- |
+| customer_id | Id hoặc username hoặc 1 trong các caller_id của khách hàng | 0906237580 |
+
+### Body
+
+| Parameter | Description                           | Example |
+| --------- | ------------------------------------- | ------- |
+| credit    | Số tiền cộng vào số dư của khách hàng | 12      |
 
 ## Update Customer Status
 
