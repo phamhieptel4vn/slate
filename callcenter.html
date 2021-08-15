@@ -396,21 +396,32 @@
           </li>
           <li>
             <a href="#autodialer" class="toc-h1 toc-link" data-title="Autodialer">Autodialer</a>
-          </li>
-          <li>
-            <a href="#autocall" class="toc-h1 toc-link" data-title="Autocall">Autocall</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#nh-n-d-li-u-queue" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
-                  </li>
-                  <li>
-                    <a href="#import-danh-sach-ch-n" class="toc-h2 toc-link" data-title="Import danh sách chặn">Import danh sách chặn</a>
                   </li>
                   <li>
                     <a href="#stop-queue" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
                   </li>
                   <li>
                     <a href="#start-queue" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#autocall" class="toc-h1 toc-link" data-title="Autocall">Autocall</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#nh-n-d-li-u-queue-2" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
+                  </li>
+                  <li>
+                    <a href="#import-danh-sach-ch-n" class="toc-h2 toc-link" data-title="Import danh sách chặn">Import danh sách chặn</a>
+                  </li>
+                  <li>
+                    <a href="#stop-queue-2" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
+                  </li>
+                  <li>
+                    <a href="#start-queue-2" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
                   </li>
               </ul>
           </li>
@@ -1536,17 +1547,195 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h1 id='autodialer'>Autodialer</h1>
-<aside class="notice">
-Đang trong quá trình phát triển. Sẽ cập nhật trong thời gian tới.
-</aside>
-<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
+<h1 id='autodialer'>Autodialer</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+  "queue_code": "Autodial",
+  "precall_ratio": "150",
+  "max_recall_count": "2",
+  "queue_agents": "5001",
+  "customers": [
+    {
+      "id": "TEL4VN_Test",
+      "mobiles": ["0899123456"],
+    }
+  ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign is invalid"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v2/autodialer/queue</code></p>
+<h3 id='body-9'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"precall_ratio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"150"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"max_recall_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"queue_agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEL4VN_Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mobiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899123456"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id của campaign</td>
+<td>x</td>
+</tr>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+<tr>
+<td>precall_ratio</td>
+<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent</td>
+<td>x</td>
+</tr>
+<tr>
+<td>max_recall_count</td>
+<td>Số lượng cuộc gọi lại nếu không thành công</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.id</td>
+<td>ID của khách hàng</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.mobiles</td>
+<td>Danh sách các số điện thoại của khách hàng</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/stop'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autodial"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v2/autodialer/queue/stop</code></p>
+<h3 id='body-10'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/start'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autodial"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v2/autodialer/queue/start</code></p>
+<h3 id='body-11'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue-2'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "queue_code": "Autocall-Q1",
     "template": "IVR-1",
-    "concurrent_call" : "5",
+    "concurrent_call" : 5,
+    "max_recall_count": 3,
+    "min_recall_duration": 3,
     "customers": [
         {
             "id": "TEL4VN_Test",
@@ -1589,16 +1778,18 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue</code></p>
-<h3 id='body-9'>Body</h3>
+<h3 id='body-12'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall-Q1"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"IVR-1"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"max_recall_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"min_recall_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEL4VN_Test"</span><span class="p">,</span><span class="w">
@@ -1634,6 +1825,16 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>concurrent_call</td>
 <td>Số lượng cuộc gọi đồng thời</td>
+<td></td>
+</tr>
+<tr>
+<td>max_recall_count</td>
+<td>Số lượng cuộc gọi lại nếu không thành công</td>
+<td></td>
+</tr>
+<tr>
+<td>min_recall_duration</td>
+<td>Nếu thời gian tính từ lúc nhấc máy nhỏ hơn sẽ gọi lại</td>
 <td></td>
 </tr>
 <tr>
@@ -1682,9 +1883,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/dnc</code></p>
-<h3 id='body-10'>Body</h3>
+<h3 id='body-13'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1721,7 +1922,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue-2'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1745,9 +1946,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-21'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/stop</code></p>
-<h3 id='body-11'>Body</h3>
+<h3 id='body-14'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1768,7 +1969,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue-2'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1792,9 +1993,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-22'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/start</code></p>
-<h3 id='body-12'>Body</h3>
+<h3 id='body-15'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1884,7 +2085,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Username của user</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-20'>HTTP Request</h3>
+<h3 id='http-request-23'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/customer/user/{{user_id}}/status</code></p>
 
 <table><thead>
@@ -2036,7 +2237,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Trạng thái lỗi không xác định</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/customer</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -2191,7 +2392,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Trạng thái lỗi không xác định</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-25'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/customer/{{customer_id}}</code></p>
 
 <table><thead>
@@ -2241,9 +2442,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để nhận thông tin của một khách hàng cụ thể. 7 ngày tính từ ngày thông tin được gửi sang, hệ thông sẽ thực hiện autodialer khách hàng cho agent.</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-26'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/customer</code></p>
-<h3 id='body-13'>Body</h3>
+<h3 id='body-16'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
