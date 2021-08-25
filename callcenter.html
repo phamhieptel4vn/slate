@@ -1364,7 +1364,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Người dùng chưa login Softphone hoặc IP Phone</td>
 </tr>
 </tbody></table>
-<h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/report/call_id?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
+<h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/call'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -1390,8 +1390,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi theo thời gian thực.</p>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>GET http://{{API_HOST}}/v1/call</code></p>
-<h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
+<p><code>GET http://{{API_HOST}}/v2/call</code></p>
+<h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1417,7 +1417,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện chuyển cuộc gọi sang extension khác.</p>
 <h3 id='http-request-12'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/transfer</code></p>
+<p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/transfer</code></p>
 <h3 id='body-5'>Body</h3>
 <table><thead>
 <tr>
@@ -1430,7 +1430,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
+<h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1456,7 +1456,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện nghe lén cuộc gọi của một extension khác.</p>
 <h3 id='http-request-13'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/listen</code></p>
+<p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/listen</code></p>
 <h3 id='body-6'>Body</h3>
 <table><thead>
 <tr>
@@ -1469,7 +1469,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi</td>
 </tr>
 </tbody></table>
-<h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
+<h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1495,7 +1495,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi với extension, mobile sẽ không nghe được.</p>
 <h3 id='http-request-14'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/whisper</code></p>
+<p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/whisper</code></p>
 <h3 id='body-7'>Body</h3>
 <table><thead>
 <tr>
@@ -1508,7 +1508,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
+<h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1534,7 +1534,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.</p>
 <h3 id='http-request-15'>HTTP Request</h3>
-<p><code>POST http://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/barge</code></p>
+<p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/barge</code></p>
 <h3 id='body-8'>Body</h3>
 <table><thead>
 <tr>
