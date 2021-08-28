@@ -368,25 +368,25 @@
 <p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: support@tel4vn.com.</p>
 
 <p>Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản test sẽ được bên phía Tổng đài cung cấp.</p>
-<h1 id='authentication'>Authentication</h1><h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v1/users/generate_access_token'</span> <span class="se">\ </span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\ </span>
-<span class="nt">--data-raw</span> <span class="s1">'{ 
+<h1 id='authentication'>Authentication</h1><h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v1/users/generate_access_token'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
 "secret_key": "30511f666-f888-411b-a6e0-11111fb6gg7a"
  }'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30511f666-f888-411b-a6e0-11111fb6gg7a"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f461"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ebe8f88MzA1MTNkZjMtZjc3My00MTmY"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">15552000</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member"</span><span class="w">
-  </span><span class="p">}</span><span class="w"> 
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30511f666-f888-411b-a6e0-11111fb6gg7a"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f461"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ebe8f88MzA1MTNkZjMtZjc3My00MTmY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"expire_at"</span><span class="p">:</span><span class="w"> </span><span class="mi">15552000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"member"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Autocall API sử dụng API Token để xác thực truy cập tới API. API Token bạn lấy từ service thông qua {API_KEY} được Tổng đài cung cấp.</p>
@@ -412,37 +412,35 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Secret key được cấp</td>
 </tr>
 </tbody></table>
-<h1 id='otp'>OTP</h1><h2 id='run-otp'>Run OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v2/campaigns/1/otp'</span> <span class="se">\ </span>
-<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\ </span>
-<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\ </span>
-<span class="nt">--data-raw</span> <span class="s1">'{ 
-    "caller": "0123456789", 
-    "callees": [ "0987654321" ], 
-    "params": { 
-    "template_name": "template_otp_1", 
-    "code_otp": "M43TUI" 
-  }, 
-  "callback_url": "https://demo.webhook.com", 
-  "callback_apikey": "api_key_123" 
+<h1 id='otp'>OTP</h1><h2 id='run-otp'>Run OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v2/campaigns/1/otp'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "caller": "0123456789",
+    "callees": [ "0987654321" ],
+    "params": {
+    "template_name": "template_otp_1",
+    "code_otp": "M43TUI"
+  },
+  "callback_url": "https://demo.webhook.com",
+  "callback_apikey": "api_key_123"
 }'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-    </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w"> 
-        </span><span class="nl">"1234567890"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wrong Format"</span><span class="w"> 
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"1234567890"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wrong Format"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w"> 
-    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
-      </span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="w"> 
-      </span><span class="p">]</span><span class="w"> 
-    </span><span class="p">}</span><span class="w"> 
-  </span><span class="p">}</span><span class="w"> 
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API thực hiện cuộc gọi OTP</p>
@@ -464,20 +462,16 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"callees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
-    </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"1234567890"</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">],</span><span class="w">
   </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_otp_1"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"code_otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M43TUI"</span><span class="w"> 
-  </span><span class="p">},</span><span class="w"> 
-  </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.webhook.com"</span><span class="p">,</span><span class="w"> 
-  </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_key_123"</span><span class="w"> 
+    </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_otp_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code_otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M43TUI"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.webhook.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_key_123"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre></div>
 <table><thead>
 <tr>
@@ -487,7 +481,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </thead><tbody>
 <tr>
 <td>caller</td>
-<td>Domain Url mà tổng đài sẽ hook dữ liệu tới</td>
+<td>Đầu số thực hiện cuộc gọi</td>
 </tr>
 <tr>
 <td>callees</td>
@@ -507,7 +501,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 <tr>
 <td>callback_url</td>
-<td>SIP Call Event</td>
+<td>Domain webhook mà tổng đài sẽ hook dữ liệu tới</td>
 </tr>
 <tr>
 <td>callback_apikey</td>
@@ -525,20 +519,18 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-    </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w"> 
-        </span><span class="nl">"1234567890"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wrong Format"</span><span class="w"> 
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"1234567890"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wrong Format"</span><span class="w">
         </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w"> 
-    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
-      </span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="w"> 
-      </span><span class="p">]</span><span class="w"> 
-    </span><span class="p">}</span><span class="w"> 
-  </span><span class="p">}</span><span class="w"> 
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
@@ -561,8 +553,8 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <p>Sample data:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_01"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chào bạn {{key_field_1}} vui lòng thanh toán khoản nợ {{key_field_2}} trước ngày {{key_field_3}}"</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chào bạn {{key_field_1}} vui lòng thanh toán khoản nợ {{key_field_2}} trước ngày {{key_field_3}}"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -587,12 +579,13 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 
 <p>key_field: tương ứng với đoạn text import vào campaign người dùng định nghĩa.</p>
 
-<p>Ví dụ:
+<p>Ví dụ:</p>
+
 <ul>
     <li>key_field_1 là {{customer_name}}</li>
     <li>key_field_2 là {{due_amount}}</li>
     <li>key_field_3 là {{due_date}}</li>
-</ul></p>
+</ul>
 
 <p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
 <h2 id='run-tts'>Run TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/api/v2/campaigns/1/voice'</span> <span class="se">\</span>
@@ -617,22 +610,19 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-    </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w"> 
-      </span><span class="nl">"1234567890"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wrong Format"</span><span class="w"> 
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w"> 
-    </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
-      </span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="w"> 
-      </span><span class="p">]</span><span class="w"> 
-    </span><span class="p">}</span><span class="w"> 
-  </span><span class="p">}</span><span class="w"> 
+    </span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"1234567890"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wrong Format"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre></div>
 <p>API thực hiện cuộc gọi Text-To-Speech</p>
 <h3 id='http-request-4'>HTTP Request</h3>
@@ -654,19 +644,16 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <p>Sample data:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"callees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"1234567890"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nguyễn Văn A"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"due_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.410.000"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30/1/2021"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.webhook.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_key_123"</span><span class="w">
+  </span><span class="nl">"caller"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nguyễn Văn A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"due_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10.410.000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30/1/2021"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.webhook.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"callback_apikey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"api_key_123"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -677,7 +664,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </thead><tbody>
 <tr>
 <td>caller</td>
-<td>Domain Url mà tổng đài sẽ hook dữ liệu tới</td>
+<td>Đầu số thực hiện cuộc gọi</td>
 </tr>
 <tr>
 <td>callees</td>
@@ -697,7 +684,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 <tr>
 <td>callback_url</td>
-<td>SIP Call Event</td>
+<td>Domain webhook mà tổng đài sẽ hook dữ liệu tới</td>
 </tr>
 <tr>
 <td>callback_apikey</td>
@@ -705,21 +692,23 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 </tbody></table>
 
-<p>Một số lưu ý:
+<p>Một số lưu ý:</p>
+
 <ul>
   <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10.410.000”</li>
   <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 123456789 hoặc “0987654321”</li>
   <li>Nếu muốn đọc thành số (Ví dụ 15 - mười lăm) - truyền dữ liệu theo format: “#15”</li>
   <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy”, ví dụ: “30/01/2021”</li>
-</ul></p>
+</ul>
 
 <p>params.key_field: tương ứng với đoạn text import vào campaign người dùng đã định nghĩa.</p>
 
-<p>Ví dụ:
+<p>Ví dụ:</p>
+
 <ul>
-  <li>Kịch bản : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</li>
+  <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
-</ul></p>
+</ul>
 <h1 id='call-detail-report'>Call Detail Report</h1>
 <p>Lịch sử cuộc gọi</p>
 <h2 id='attributes'>Attributes</h2>
@@ -836,28 +825,28 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Người dùng gác máy (Trường hợp riêng của nhà mạng Mobiphone gọi Mobiphone)</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/api/v2/report/1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321'</span> <span class="se">\ </span>
+<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/api/v2/report/1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> 
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> 
-    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"code_otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M43TUI"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-11 11:28:45"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-11 11:29:09"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"keypress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127"</span><span class="p">,</span><span class="w"> 
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code_otp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M43TUI"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-11 11:28:45"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ended_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-11 11:29:09"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1_1_1_5_cb76e372-b798-4a88-9c8a-410740f0300d_0987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"keypress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"param"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{</span><span class="se">\"</span><span class="s2">customer_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Nguyễn Văn A</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">due_amount</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">10.410.000</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">due_days</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">#15</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">template_name</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">thong_bao_no_cuoc_1</span><span class="se">\"</span><span class="s2">}"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-11 11:28:54"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANSWERED"</span><span class="p">,</span><span class="w"> 
+    </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"started_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-11 11:28:54"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANSWERED"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TTS"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w"> 
-  </span><span class="p">}</span><span class="w"> 
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy một cdr cụ thể.</p>
