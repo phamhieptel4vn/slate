@@ -892,7 +892,7 @@ curl --location --request POST 'https://{{API_HOST}}/v2/autodialer/queue' \
 --header 'Content-Type: application/json' \
 --data-raw '{
   "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "queue_code": "Autodial",
+  "queue_code": "Autodialer",
   "precall_ratio": "150",
   "max_recall_count": "2",
   "queue_agents": "5001",
@@ -934,7 +934,7 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 ```json
 {
   "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "queue_code": "Autodial",
+  "queue_code": "Autodialer",
   "precall_ratio": "150",
   "max_recall_count": "2",
   "queue_agents": "5001",
@@ -963,7 +963,7 @@ curl --location --request POST 'https://{{API_HOST}}/v2/autodialer/queue/stop' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "queue_code": "Autodial"
+    "queue_code": "Autodialer"
 }'
 ```
 
@@ -995,7 +995,54 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 
 ```json
 {
-  "queue_code": "Autodial"
+  "queue_code": "Autodialer"
+}
+```
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| queue_code | Mã queue    | x        |
+
+## Delete Queue
+
+```shell
+curl --location --request POST 'https://{{API_HOST}}/v2/autodialer/queue/delete' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autodialer"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "message": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "message": "queue not found"
+}
+```
+
+API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.
+
+### HTTP Request
+
+`POST https://{{API_HOST}}/v2/autodialer/queue/delete`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autodialer"
 }
 ```
 
@@ -1010,7 +1057,7 @@ curl --location --request POST 'https://{{API_HOST}}/v2/autodialer/queue/start' 
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "queue_code": "Autodial"
+    "queue_code": "Autodialer"
 }'
 ```
 
@@ -1042,7 +1089,7 @@ API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm d�
 
 ```json
 {
-  "queue_code": "Autodial"
+  "queue_code": "Autodialer"
 }
 ```
 
@@ -1257,6 +1304,55 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 ### HTTP Request
 
 `POST http://{{API_HOST}}/v2/autocall/queue/stop`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autocall-Q1"
+}
+```
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| queue_code | Mã queue    | x        |
+
+## Delete Queue
+
+```shell
+curl --location --request POST 'http://{{API_HOST}}/v2/autocall/queue/delete' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autocall-Q1"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "code": 200,
+  "content": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "code": 404,
+  "content": "queue not found"
+}
+```
+
+API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.
+
+### HTTP Request
+
+`POST http://{{API_HOST}}/v2/autocall/queue/delete`
 
 ### Body
 
