@@ -119,6 +119,53 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 | ---------- | ----------- | -------- |
 | queue_code | Mã queue    | x        |
 
+## Delete Queue
+
+```shell
+curl --location --request POST 'https://{{API_HOST}}/v1/autodialer/queue/delete' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autodialer"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "message": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "message": "queue not found"
+}
+```
+
+API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.
+
+### HTTP Request
+
+`POST https://{{API_HOST}}/v1/autodialer/queue/delete`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autodialer"
+}
+```
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| queue_code | Mã queue    | x        |
+
 ## Start Queue
 
 ```shell

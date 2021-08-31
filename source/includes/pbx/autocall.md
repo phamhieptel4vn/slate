@@ -1,120 +1,3 @@
-# Campaign
-
-## Get Campaigns
-
-```shell
-curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer {{TOKEN}}'
-```
-
-> Response trả về:
-
-```json
-{
-  "data": [
-    {
-      "domain_id": "dddddddd-1111-2222-3333-eeeeeeee",
-      "campaign_id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-      "campaign_name": "Autodial",
-      "type": "autodialer",
-      "description": "Autodial",
-      "status": "active",
-      "created_at": "2021-07-22T09:56:08.411641Z"
-    },
-    {
-      "domain_id": "dddddddd-1111-2222-3333-eeeeeeee",
-      "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "campaign_name": "Autocall",
-      "type": "autocall",
-      "description": "Autocall",
-      "status": "active",
-      "created_at": "2021-07-21T08:45:46.910886Z"
-    }
-  ],
-  "limit": 10,
-  "offset": 0,
-  "total": 2
-}
-```
-
-### HTTP Request
-
-`GET https://{{API_HOST}}/v1/campaign`
-
-### Query Parameters
-
-| Parameter | Description              | Example  |
-| --------- | ------------------------ | -------- |
-| type      | Loại                     | autocall |
-| limit     | Số lượng record trả về   | 50       |
-| offset    | Vị trí bắt đầu khi query | 0        |
-
-## Get a Specific Campaign
-
-```shell
-curl -L -X GET 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer {{TOKEN}}'
-```
-
-> Response trả về:
-
-```json
-{
-  "domain_id": "dddddddd-1111-2222-3333-eeeeeeee",
-  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "campaign_name": "Autocall",
-  "type": "autocall",
-  "description": "Autocall",
-  "status": "active",
-  "created_at": "2021-07-21T08:45:46.910886Z"
-}
-```
-
-### HTTP Request
-
-`GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}`
-
-### Query Parameters
-
-| Parameter   | Description     |
-| ----------- | --------------- |
-| campaign_id | Id của campaign |
-
-## Create Campaign
-
-```shell
-curl -L -X POST 'https://{{API_HOST}}/v1/campaign' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer {{TOKEN}}'
---data-raw '{
-    "campaign_name" : "Autodial",
-    "type" : "autodialer"
-}'
-```
-
-> Response trả về:
-
-```json
-{
-  "created": true,
-  "id": "dddddddd-1111-2222-3333-eeeeeeee"
-}
-```
-
-### HTTP Request
-
-`POST https://{{API_HOST}}/v1/campaign`
-
-### Body
-
-| Parameter     | Description                 | Required |
-| ------------- | --------------------------- | -------- |
-| campaign_name | Tên campaign                | x        |
-| type          | Loại (autocall, autodialer) | x        |
-| description   | Mô tả                       |          |
-
 # Template
 
 Tốc độ đọc tăng dần từ 0 đến 2. Với 1 là tốc độ đọc bình thường và 2 là tốc độ đọc nhanh nhất.
@@ -457,6 +340,55 @@ API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hi
 ### HTTP Request
 
 `POST https://{{API_HOST}}/v1/autocall/queue/stop`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "queue_code": "Autocall-Q1"
+}
+```
+
+| Parameter  | Description | Required |
+| ---------- | ----------- | -------- |
+| queue_code | Mã queue    | x        |
+
+## Delete Queue
+
+```shell
+curl --location --request POST 'http://{{API_HOST}}/v2/autocall/queue/delete' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "queue_code": "Autocall-Q1"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "code": 200,
+  "content": "successfully"
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "code": 404,
+  "content": "queue not found"
+}
+```
+
+API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.
+
+### HTTP Request
+
+`POST http://{{API_HOST}}/v2/autocall/queue/delete`
 
 ### Body
 
