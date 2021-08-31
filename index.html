@@ -445,6 +445,9 @@
                   <li>
                     <a href="#create-campaign" class="toc-h2 toc-link" data-title="Create Campaign">Create Campaign</a>
                   </li>
+                  <li>
+                    <a href="#update-campaign" class="toc-h2 toc-link" data-title="Update Campaign">Update Campaign</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -468,6 +471,9 @@
                     <a href="#stop-queue" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
                   </li>
                   <li>
+                    <a href="#delete-queue" class="toc-h2 toc-link" data-title="Delete Queue">Delete Queue</a>
+                  </li>
+                  <li>
                     <a href="#start-queue" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
                   </li>
               </ul>
@@ -480,6 +486,9 @@
                   </li>
                   <li>
                     <a href="#stop-queue" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
+                  </li>
+                  <li>
+                    <a href="#delete-queue" class="toc-h2 toc-link" data-title="Delete Queue">Delete Queue</a>
                   </li>
                   <li>
                     <a href="#start-queue" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
@@ -1968,7 +1977,21 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autodialer"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-22T09:56:08.411641Z"</span><span class="w">
+      </span><span class="nl">"max_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_queue_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"queue_agent_next_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"scheduled_recall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recall_hours_block"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"answer_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"local_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"local_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:59:59"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T02:36:29.509713+07:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
@@ -1977,7 +2000,21 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-21T08:45:46.910886Z"</span><span class="w">
+      </span><span class="nl">"max_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"default_queue_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"queue_agent_next_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"scheduled_recall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"recall_hours_block"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"answer_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"local_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"local_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:59:59"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T02:36:29.509713+07:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -2023,8 +2060,21 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-21T08:45:46.910886Z"</span><span class="w">
+  </span><span class="nl">"max_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"default_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"default_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"default_queue_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"queue_agent_next_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scheduled_recall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"recall_hours_block"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"answer_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"local_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"local_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:59:59"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customer_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T02:36:29.509713+07:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
@@ -2045,7 +2095,18 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "campaign_name" : "Autodial",
-    "type" : "autodialer"
+    "type" : "autodialer",
+    "max_concurrent_call": 1,
+    "default_concurrent_call": 1,
+    "default_ratio": 100,
+    "max_ratio": 100,
+    "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+    "default_queue_agent": "",
+    "queue_agent_next_call": "",
+    "scheduled_recall": "default",
+    "recall_hours_block": 0,
+    "local_start_time": "00:00:00",
+    "local_end_time": "23:59:59"
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -2076,8 +2137,182 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 <tr>
+<td>status</td>
+<td>Trạng thái (active, deactive)</td>
+<td></td>
+</tr>
+<tr>
 <td>description</td>
 <td>Mô tả</td>
+<td></td>
+</tr>
+<tr>
+<td>max_concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời tối đa (áp dụng cho autocall). Mặc định: 1.</td>
+<td></td>
+</tr>
+<tr>
+<td>default_concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời mặc định (áp dụng cho autocall) . Mặc định: 1.</td>
+<td></td>
+</tr>
+<tr>
+<td>max_ratio</td>
+<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent tối đa (áp dụng cho autodialer). Mặc định: 100.</td>
+<td></td>
+</tr>
+<tr>
+<td>default_ratio</td>
+<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent mặc định (áp dụng cho autodialer). Mặc định: 100.</td>
+<td></td>
+</tr>
+<tr>
+<td>gateway_id</td>
+<td>Id gateway để thực hiện cuộc gọi. Liên hệ để được cung cấp.</td>
+<td>x</td>
+</tr>
+<tr>
+<td>default_queue_agent</td>
+<td>Nhóm agent sẽ nhận cuộc gọi mặc định.</td>
+<td></td>
+</tr>
+<tr>
+<td>scheduled_recall</td>
+<td>Lên lịch gọi lại [&#39;default&#39;,&#39;hours&#39;]</td>
+<td></td>
+</tr>
+<tr>
+<td>recall_hours_block</td>
+<td>Nếu như lên lịch gọi lại là hours, thì ứng với cách bao nhiêu giờ sẽ gọi lại</td>
+<td></td>
+</tr>
+<tr>
+<td>local_start_time</td>
+<td>Thời gian hoạt động (bắt đầu). Format : HH:MM:SS</td>
+<td></td>
+</tr>
+<tr>
+<td>local_end_time</td>
+<td>Thời gian hoạt động (kết thúc). Format : HH:MM:SS</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='update-campaign'>Update Campaign</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_name" : "Autodial",
+    "type" : "autodialer",
+    "max_concurrent_call": 1,
+    "default_concurrent_call": 1,
+    "default_ratio": 100,
+    "max_ratio": 100,
+    "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
+    "default_queue_agent": "",
+    "queue_agent_next_call": "",
+    "scheduled_recall": "default",
+    "recall_hours_block": 0,
+    "local_start_time": "00:00:00",
+    "local_end_time": "23:59:59"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id của campaign</td>
+</tr>
+</tbody></table>
+<h3 id='body-2'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_name</td>
+<td>Tên campaign</td>
+<td>x</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Loại (autocall, autodialer)</td>
+<td>x</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Trạng thái (active, deactive)</td>
+<td></td>
+</tr>
+<tr>
+<td>description</td>
+<td>Mô tả</td>
+<td></td>
+</tr>
+<tr>
+<td>max_concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời tối đa (áp dụng cho autocall). Mặc định: 1.</td>
+<td></td>
+</tr>
+<tr>
+<td>default_concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời mặc định (áp dụng cho autocall) . Mặc định: 1.</td>
+<td></td>
+</tr>
+<tr>
+<td>max_ratio</td>
+<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent tối đa (áp dụng cho autodialer). Mặc định: 100.</td>
+<td></td>
+</tr>
+<tr>
+<td>default_ratio</td>
+<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent mặc định (áp dụng cho autodialer). Mặc định: 100.</td>
+<td></td>
+</tr>
+<tr>
+<td>gateway_id</td>
+<td>Id gateway để thực hiện cuộc gọi. Liên hệ để được cung cấp.</td>
+<td>x</td>
+</tr>
+<tr>
+<td>default_queue_agent</td>
+<td>Nhóm agent sẽ nhận cuộc gọi mặc định.</td>
+<td></td>
+</tr>
+<tr>
+<td>scheduled_recall</td>
+<td>Lên lịch gọi lại [&#39;default&#39;,&#39;hours&#39;]</td>
+<td></td>
+</tr>
+<tr>
+<td>recall_hours_block</td>
+<td>Nếu như lên lịch gọi lại là hours, thì ứng với cách bao nhiêu giờ sẽ gọi lại</td>
+<td></td>
+</tr>
+<tr>
+<td>local_start_time</td>
+<td>Thời gian hoạt động (bắt đầu). Format : HH:MM:SS</td>
+<td></td>
+</tr>
+<tr>
+<td>local_end_time</td>
+<td>Thời gian hoạt động (kết thúc). Format : HH:MM:SS</td>
 <td></td>
 </tr>
 </tbody></table>
@@ -2155,9 +2390,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://{API_HOST}/v1/template</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2343,9 +2578,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-2'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2458,9 +2693,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/dnc</code></p>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-3'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2519,8 +2754,55 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/stop</code></p>
+<h3 id='body-4'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall-Q1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
+<h2 id='delete-queue'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/delete'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autocall-Q1"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://{{API_HOST}}/v2/autocall/queue/delete</code></p>
 <h3 id='body-5'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
@@ -2564,7 +2846,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/start</code></p>
 <h3 id='body-6'>Body</h3>
 <blockquote>
@@ -2722,6 +3004,51 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
+<h2 id='delete-queue'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/delete'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autodialer"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/autodialer/queue/delete</code></p>
+<h3 id='body-3'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodialer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
 <h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -2744,9 +3071,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autodialer/queue/start</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-4'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>

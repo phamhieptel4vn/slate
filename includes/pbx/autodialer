@@ -133,6 +133,51 @@
 <td>x</td>
 </tr>
 </tbody></table>
+<h2 id='delete-queue'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/delete'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "queue_code": "Autodialer"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"queue not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/autodialer/queue/delete</code></p>
+<h3 id='body-3'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"queue_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodialer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>queue_code</td>
+<td>Mã queue</td>
+<td>x</td>
+</tr>
+</tbody></table>
 <h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodialer/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -155,9 +200,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autodialer/queue/start</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-4'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
