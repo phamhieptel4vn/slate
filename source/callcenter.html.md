@@ -315,14 +315,14 @@ Lịch sử cuộc gọi
 | direction   | Chiều cuộc gọi (inbound, outbound, local)            |
 | status      | Trạng thái cuộc gọi                                  |
 
-| Status      | Mô tả                                       |
-| ----------- | ------------------------------------------- |
-| answered    | Có kết nối và nói chuyện với khách hàng     |
-| busy        | Máy bận hoặc khách hàng bấm từ chối trả lời |
-| no-answered | Khách hàng không nghe máy, để hết chuông    |
-| cancel      | Phía extension, agent chủ động ngắt máy     |
-| fail        | Khi tổng đài nhận mã lỗi từ telco           |
-| unknown     | Trạng thái lỗi không xác định               |
+| Status        | Mô tả                                                                                |
+| ------------- | ------------------------------------------------------------------------------------ |
+| answered      | Có kết nối và nói chuyện với khách hàng                                              |
+| busy          | Máy bận hoặc khách hàng bấm từ chối trả lời                                          |
+| no-answered   | Outbound - Khách hàng không nghe máy, để hết chuông. Inbound - agent để hết chuông   |
+| cancel        | Outbound - agent ngắt máy trước khi kết nối. Inbound - agent ngắt máy                |
+| not-available | Cuộc gọi báo thuê bao không liên lạc được, chế độ máy bay                            |
+| invalid       | Không hợp lệ, cuộc gọi bị lỗi, (Ví dụ: click-to-call agent không nghe máy, ngắt máy) |
 
 ## Get CDRs
 
