@@ -197,3 +197,85 @@ curl -L -X DELETE 'https://{{API_HOST}}/v1/voicemail/{{id}}' \
 | Parameter | Description       |
 | --------- | ----------------- |
 | id        | Id hoặc Extension |
+
+## Get Voicemail Messages
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/voicemail/message' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "data": [
+    {
+      "id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+      "created_at": "2021-08-27T11:13:44+07:00",
+      "caller_id_name": "0891234567",
+      "caller_id_number": "0891234567",
+      "duration": 7,
+      "extension": "101",
+      "download_url": "https://pbx01.tel4vn.com/v1/voicemail/message/aaaaaaaa-1111-2222-3333-eeeeeeee/download"
+    },
+    {
+      "id": "aaaaaaaa-2222-2222-3333-ffffffff",
+      "created_at": "2021-08-27T15:13:44+07:00",
+      "caller_id_name": "0891234567",
+      "caller_id_number": "0891234567",
+      "duration": 120,
+      "extension": "102",
+      "download_url": "https://pbx01.tel4vn.com/v1/voicemail/message/aaaaaaaa-2222-2222-3333-ffffffff/download"
+    }
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 10
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/voicemail/message`
+
+### Query Parameters
+
+| Parameter | Description              | Example |
+| --------- | ------------------------ | ------- |
+| limit     | Số lượng record trả về   | 50      |
+| offset    | Vị trí bắt đầu khi query | 0       |
+| extension | Tìm theo extension       | 101     |
+
+## Get Voicemail Message By Id
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/voicemail/message/aaaaaaaa-1111-2222-3333-eeeeeeee' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+  "created_at": "2021-08-27T11:13:44+07:00",
+  "caller_id_name": "0891234567",
+  "caller_id_number": "0891234567",
+  "duration": 120,
+  "extension": "102",
+  "download_url": "https://pbx01.tel4vn.com/v1/voicemail/message/aaaaaaaa-1111-2222-3333-ffffffff/download"
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/voicemail/message/{{id}}`
+
+### Query Parameters
+
+| Parameter | Description       |
+| --------- | ----------------- |
+| id        | Id hoặc Extension |
