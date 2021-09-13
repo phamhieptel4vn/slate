@@ -909,19 +909,19 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 <tr>
 <td>no-answered</td>
-<td>Khách hàng không nghe máy, để hết chuông</td>
+<td>Outbound - Khách hàng không nghe máy, để hết chuông. Inbound - agent để hết chuông</td>
 </tr>
 <tr>
 <td>cancel</td>
-<td>Phía extension, agent chủ động ngắt máy</td>
+<td>Outbound - agent ngắt máy trước khi kết nối. Inbound - agent ngắt máy</td>
 </tr>
 <tr>
-<td>fail</td>
-<td>Khi tổng đài nhận mã lỗi từ telco</td>
+<td>not-available</td>
+<td>Cuộc gọi báo thuê bao không liên lạc được, chế độ máy bay</td>
 </tr>
 <tr>
-<td>unknown</td>
-<td>Trạng thái lỗi không xác định</td>
+<td>invalid</td>
+<td>Không hợp lệ, cuộc gọi bị lỗi, (Ví dụ: click-to-call agent không nghe máy, ngắt máy)</td>
 </tr>
 </tbody></table>
 <h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr?'</span> <span class="se">\</span>
