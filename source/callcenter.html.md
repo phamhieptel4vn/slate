@@ -1501,7 +1501,8 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer' \
       "customer_name": "Khach Hang 01",
       "phone_number": "0899888998",
       "status": "NEW",
-      "updated_at": "0001-01-01T00:00:00Z"
+      "updated_at": "0001-01-01T00:00:00Z",
+      "after_day": 7
     },
     {
       "campaign_id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
@@ -1512,7 +1513,8 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer' \
       "customer_name": "Khach Hang 02",
       "phone_number": "0899888999",
       "status": "NEW",
-      "updated_at": "0001-01-01T00:00:00Z"
+      "updated_at": "0001-01-01T00:00:00Z",
+      "after_day": 7
     }
   ],
   "limit": 10,
@@ -1523,20 +1525,21 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer' \
 
 API dùng để lấy danh sách khách hàng đã upload.
 
-| Thông tin            | Mô tả                            |
-| -------------------- | -------------------------------- |
-| code                 | Mã code HTTP trả về              |
-| content              | Thông báo                        |
-| data                 | Data trả về                      |
-| data.campaign_id     | Id của chiến dịch                |
-| data.contract_number | Mã hợp đồng                      |
-| data.customer_code   | Mã khách hàng                    |
-| data.customer_id     | Id khách hàng                    |
-| data.customer_name   | Tên khách hàng                   |
-| data.phone_number    | Số điện thoại khách hàng         |
-| data.status          | Trạng thái khách hàng            |
-| data.created_at      | Thời gian khởi tạo               |
-| data.updated_at      | Thời gian được cập nhật gần nhất |
+| Thông tin            | Mô tả                                      |
+| -------------------- | ------------------------------------------ |
+| code                 | Mã code HTTP trả về                        |
+| content              | Thông báo                                  |
+| data                 | Data trả về                                |
+| data.campaign_id     | Id của chiến dịch                          |
+| data.contract_number | Mã hợp đồng                                |
+| data.customer_code   | Mã khách hàng                              |
+| data.customer_id     | Id khách hàng                              |
+| data.customer_name   | Tên khách hàng                             |
+| data.phone_number    | Số điện thoại khách hàng                   |
+| data.status          | Trạng thái khách hàng                      |
+| data.created_at      | Thời gian khởi tạo                         |
+| data.updated_at      | Thời gian được cập nhật gần nhất           |
+| data.after_day       | Sau bao nhiêu ngày sẽ được tự động gọi lại |
 
 | Status      | Mô tả                                       |
 | ----------- | ------------------------------------------- |
@@ -1584,7 +1587,8 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer/dddddddd-1111-2222-3333-eeeeeeee
     "customer_name": "Khach Hang 01",
     "phone_number": "0899888998",
     "status": "NEW",
-    "updated_at": "0001-01-01T00:00:00Z"
+    "updated_at": "0001-01-01T00:00:00Z",
+    "after_day": 7
   }
 }
 ```
@@ -1601,20 +1605,21 @@ curl -L -X GET 'http://{{API_HOST}}/v2/customer/dddddddd-1111-2222-3333-eeeeeeee
 
 API dùng để lấy thông tin của một khách hàng cụ thể.
 
-| Thông tin            | Mô tả                            |
-| -------------------- | -------------------------------- |
-| code                 | Mã code HTTP trả về              |
-| content              | Thông báo                        |
-| data                 | Data trả về                      |
-| data.campaign_id     | Id của chiến dịch                |
-| data.contract_number | Mã hợp đồng                      |
-| data.customer_code   | Mã khách hàng                    |
-| data.customer_id     | Id khách hàng                    |
-| data.customer_name   | Tên khách hàng                   |
-| data.phone_number    | Số điện thoại khách hàng         |
-| data.status          | Trạng thái khách hàng            |
-| data.created_at      | Thời gian khởi tạo               |
-| data.updated_at      | Thời gian được cập nhật gần nhất |
+| Thông tin            | Mô tả                                      |
+| -------------------- | ------------------------------------------ |
+| code                 | Mã code HTTP trả về                        |
+| content              | Thông báo                                  |
+| data                 | Data trả về                                |
+| data.campaign_id     | Id của chiến dịch                          |
+| data.contract_number | Mã hợp đồng                                |
+| data.customer_code   | Mã khách hàng                              |
+| data.customer_id     | Id khách hàng                              |
+| data.customer_name   | Tên khách hàng                             |
+| data.phone_number    | Số điện thoại khách hàng                   |
+| data.status          | Trạng thái khách hàng                      |
+| data.created_at      | Thời gian khởi tạo                         |
+| data.updated_at      | Thời gian được cập nhật gần nhất           |
+| data.after_day       | Sau bao nhiêu ngày sẽ được tự động gọi lại |
 
 | Status      | Mô tả                                       |
 | ----------- | ------------------------------------------- |
@@ -1646,7 +1651,8 @@ curl --location --request POST 'http://{{API_HOST}}/v2/autocall/queue' \
     "customer_name": "Khach Hang 01",
     "customer_code": "KH01",
     "phone_number": "0899888998",
-    "contract_number": "ABC123"
+    "contract_number": "ABC123",
+    "after_day": 7
 }'
 ```
 
@@ -1690,14 +1696,16 @@ API dùng để nhận thông tin của một khách hàng cụ thể. 7 ngày t
   "customer_name": "Khach Hang 01",
   "customer_code": "KH01",
   "phone_number": "0899888998",
-  "contract_number": "ABC123"
+  "contract_number": "ABC123",
+  "after_day": 7
 }
 ```
 
-| Parameter       | Description                  | Required |
-| --------------- | ---------------------------- | -------- |
-| campaign_id     | Id chiến dịch                | x        |
-| customer_name   | Tên khách hàng               |          |
-| customer_code   | Mã khách hàng                | x        |
-| phone_number    | Số điện thoại của khách hàng | x        |
-| contract_number | Mã hợp đồng                  | x        |
+| Parameter       | Description                                                         | Required |
+| --------------- | ------------------------------------------------------------------- | -------- |
+| campaign_id     | Id chiến dịch                                                       | x        |
+| customer_name   | Tên khách hàng                                                      |          |
+| customer_code   | Mã khách hàng                                                       | x        |
+| phone_number    | Số điện thoại của khách hàng                                        | x        |
+| contract_number | Mã hợp đồng                                                         | x        |
+| after_day       | Sau bao nhiêu ngày sẽ được tự động gọi lại. (Mặc định sẽ là 7 ngày) |          |
