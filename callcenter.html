@@ -2223,7 +2223,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
       </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 01"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888998"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"after_day"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
@@ -2234,7 +2235,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
       </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 02"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"after_day"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -2297,6 +2299,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>data.updated_at</td>
 <td>Thời gian được cập nhật gần nhất</td>
+</tr>
+<tr>
+<td>data.after_day</td>
+<td>Sau bao nhiêu ngày sẽ được tự động gọi lại</td>
 </tr>
 </tbody></table>
 
@@ -2384,7 +2390,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
     </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 01"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888998"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NEW"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"after_day"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
@@ -2453,6 +2460,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>data.updated_at</td>
 <td>Thời gian được cập nhật gần nhất</td>
 </tr>
+<tr>
+<td>data.after_day</td>
+<td>Sau bao nhiêu ngày sẽ được tự động gọi lại</td>
+</tr>
 </tbody></table>
 
 <table><thead>
@@ -2518,7 +2529,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
     "customer_name": "Khach Hang 01",
     "customer_code": "KH01",
     "phone_number": "0899888998",
-    "contract_number": "ABC123"
+    "contract_number": "ABC123",
+    "after_day": 7
 }'</span>
 </code></pre></div>
 <blockquote>
@@ -2555,7 +2567,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Khach Hang 01"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"customer_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH01"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888998"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="w">
+  </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ABC123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"after_day"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <table><thead>
@@ -2589,6 +2602,11 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>contract_number</td>
 <td>Mã hợp đồng</td>
 <td>x</td>
+</tr>
+<tr>
+<td>after_day</td>
+<td>Sau bao nhiêu ngày sẽ được tự động gọi lại. (Mặc định sẽ là 7 ngày)</td>
+<td></td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
