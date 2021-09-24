@@ -338,6 +338,20 @@
                   <li>
                     <a href="#update-customer-status" class="toc-h2 toc-link" data-title="Update Customer Status">Update Customer Status</a>
                   </li>
+                  <li>
+                    <a href="#create-customer" class="toc-h2 toc-link" data-title="Create Customer">Create Customer</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#caller-id" class="toc-h1 toc-link" data-title="Caller ID">Caller ID</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-caller-id" class="toc-h2 toc-link" data-title="Create Caller Id">Create Caller Id</a>
+                  </li>
+                  <li>
+                    <a href="#update-caller-id-to-new-customer" class="toc-h2 toc-link" data-title="Update Caller Id To New Customer">Update Caller Id To New Customer</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -705,6 +719,159 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Tạm ngưng dịch vụ</td>
 </tr>
 </tbody></table>
+<h2 id='create-customer'>Create Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "type_paid": 0,
+    "username": "5000000000",
+    "password": "123abc123",
+    "cid": "0899999999",
+    "credit": 100
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5000000004"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"cid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sip"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"iax"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để tạo khách hàng.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/customer</code></p>
+<h3 id='body-5'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>username của customer. Dãy bao gồm 10 số</td>
+<td>5000000000</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Mật khẩu</td>
+<td>123abc123</td>
+</tr>
+<tr>
+<td>type_paid</td>
+<td>Loại thanh toán. Trả trước : 0, Trả sau : 1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>cid</td>
+<td>caller_id sẽ gắn vào cho khách hàng</td>
+<td>0899999999</td>
+</tr>
+<tr>
+<td>credit</td>
+<td>Số tiền sẽ nạp vào tài khoản khách hàng</td>
+<td>100</td>
+</tr>
+<tr>
+<td>credit_limit</td>
+<td>Số tiền sẽ giới hạn tài khoản khách hàng. Yêu cầu khi type_paid = 1</td>
+<td>100</td>
+</tr>
+</tbody></table>
+<h1 id='caller-id'>Caller ID</h1><h2 id='create-caller-id'>Create Caller Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/callerid'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "user_id" : "10",
+    "cid": "0899999999"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"cid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để tạo khách hàng.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST http://{API_HOST}/v1/callerid</code></p>
+<h3 id='body-6'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>id của khách hàng</td>
+<td>10</td>
+</tr>
+<tr>
+<td>cid</td>
+<td>caller_id sẽ gắn vào cho khách hàng</td>
+<td>0899999999</td>
+</tr>
+</tbody></table>
+<h2 id='update-caller-id-to-new-customer'>Update Caller Id To New Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/callerid/{{cid}}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "user_id" : "11"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"cid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899999999"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API dùng để cập nhật caller_id cho khách hàng mới. (Log sẽ được lưu mỗi khi update thành công)</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>PUT http://{API_HOST}/v1/callerid/{{cid}}</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>cid</td>
+<td>caller_id sẽ gắn vào cho khách hàng</td>
+<td>0899999999</td>
+</tr>
+</tbody></table>
+<h3 id='body-7'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_id</td>
+<td>id của khách hàng mới</td>
+<td>11</td>
+</tr>
+</tbody></table>
 <h1 id='call'>Call</h1><h2 id='call-logs'>Call Logs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/call/log?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
@@ -749,9 +916,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi và số tiền theo khoảng thời gian.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/call/log</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-7'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
