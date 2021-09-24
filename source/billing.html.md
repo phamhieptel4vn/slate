@@ -326,6 +326,129 @@ API dùng để cập nhật trạng thái khách hàng theo id. (Log sẽ đư�
 | cancelled | Bị huỷ              |
 | suspended | Tạm ngưng dịch vụ   |
 
+## Create Customer
+
+```shell
+curl -L -X POST 'http://{API_HOST}/v1/customer/{{customer_id}}' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+--data-raw '{
+    "type_paid": 0,
+    "username": "5000000000",
+    "password": "123abc123",
+    "cid": "0899999999",
+    "credit": 100
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "message": "successfully",
+  "id": 10,
+  "username": "5000000004",
+  "password": "123abc123",
+  "cid": "0899999999",
+  "status": 1,
+  "sip": true,
+  "iax": true
+}
+```
+
+API dùng để tạo khách hàng.
+
+### HTTP Request
+
+`POST http://{API_HOST}/v1/customer`
+
+### Body
+
+| Parameter    | Description                                                         | Example    |
+| ------------ | ------------------------------------------------------------------- | ---------- |
+| username     | username của customer. Dãy bao gồm 10 số                            | 5000000000 |
+| password     | Mật khẩu                                                            | 123abc123  |
+| type_paid    | Loại thanh toán. Trả trước : 0, Trả sau : 1                         | 1          |
+| cid          | caller_id sẽ gắn vào cho khách hàng                                 | 0899999999 |
+| credit       | Số tiền sẽ nạp vào tài khoản khách hàng                             | 100        |
+| credit_limit | Số tiền sẽ giới hạn tài khoản khách hàng. Yêu cầu khi type_paid = 1 | 100        |
+
+# Caller ID
+
+## Create Caller Id
+
+```shell
+curl -L -X POST 'http://{API_HOST}/v1/callerid' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+--data-raw '{
+    "user_id" : "10",
+    "cid": "0899999999"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "cid": "0899999999",
+  "message": "successfully",
+  "user_id": "10"
+}
+```
+
+API dùng để tạo khách hàng.
+
+### HTTP Request
+
+`POST http://{API_HOST}/v1/callerid`
+
+### Body
+
+| Parameter | Description                         | Example    |
+| --------- | ----------------------------------- | ---------- |
+| user_id   | id của khách hàng                   | 10         |
+| cid       | caller_id sẽ gắn vào cho khách hàng | 0899999999 |
+
+## Update Caller Id To New Customer
+
+```shell
+curl -L -X PUT 'http://{API_HOST}/v1/callerid/{{cid}}' \
+-H 'Authorization: Bearer {{TOKEN}}'
+-H 'Content-Type: application/json'
+--data-raw '{
+    "user_id" : "11"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "cid": "0899999999",
+  "message": "successfully",
+  "user_id": "11"
+}
+```
+
+API dùng để cập nhật caller_id cho khách hàng mới. (Log sẽ được lưu mỗi khi update thành công)
+
+### HTTP Request
+
+`PUT http://{API_HOST}/v1/callerid/{{cid}}`
+
+### Query Parameters
+
+| Parameter | Description                         | Example    |
+| --------- | ----------------------------------- | ---------- |
+| cid       | caller_id sẽ gắn vào cho khách hàng | 0899999999 |
+
+### Body
+
+| Parameter | Description           | Example |
+| --------- | --------------------- | ------- |
+| user_id   | id của khách hàng mới | 11      |
+
 # Call
 
 ## Call Logs
