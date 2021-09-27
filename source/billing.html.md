@@ -329,7 +329,7 @@ API dùng để cập nhật trạng thái khách hàng theo id. (Log sẽ đư�
 ## Create Customer
 
 ```shell
-curl -L -X POST 'http://{API_HOST}/v1/customer/{{customer_id}}' \
+curl -L -X POST 'http://{API_HOST}/v1/customer' \
 -H 'Authorization: Bearer {{TOKEN}}'
 -H 'Content-Type: application/json'
 --data-raw '{
