@@ -141,10 +141,52 @@ curl -L -X POST 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension' \
 | ext       | Extension   |
 | pwd       | Password    |
 
+## Get Extensions
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension?limit=2&offset=0' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "data": [
+    {
+      "ext": "101",
+      "pwd": "123Abc!@#",
+      "enabled": "true"
+    },
+    {
+      "ext": "102",
+      "pwd": "123Abc!@#",
+      "enabled": "true"
+    }
+  ],
+  "limit": 2,
+  "offset": 0,
+  "total": 10
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension`
+
+### Query Parameters
+
+| Parameter | Description            | Example |
+| --------- | ---------------------- | ------- |
+| tenant_id | Tenant'id              | test01  |
+| limit     | Số lượng record trả về | 50      |
+| offset    | Vị trí bắt đầu khi lấy | 0       |
+
 ## Get Extension By Ext
 
 ```shell
-curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/extension/{{ext}}' \
+curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {{SECRET_TOKEN}}'
 ```
@@ -161,7 +203,7 @@ curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/extension
 
 ### HTTP Request
 
-`GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}`
+`GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}`
 
 ### Query Parameters
 
@@ -169,3 +211,39 @@ curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/extension
 | --------- | ----------- | ------- |
 | tenant_id | Tenant'id   | test01  |
 | ext       | Extension   | 101     |
+
+## Update Extension Password
+
+```shell
+curl -L -X PUT 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{SECRET_TOKEN}}'
+--data-raw '{
+    "pwd" : "123Abc!@#"
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "message": "update successfully"
+}
+```
+
+### HTTP Request
+
+`PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}`
+
+### Query Parameters
+
+| Parameter | Description | Example |
+| --------- | ----------- | ------- |
+| tenant_id | Tenant'id   | test01  |
+| ext       | Extension   | 101     |
+
+### Body
+
+| Parameter | Description |
+| --------- | ----------- |
+| pwd       | Password    |
