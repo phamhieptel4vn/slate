@@ -429,7 +429,13 @@
                     <a href="#create-extension" class="toc-h2 toc-link" data-title="Create Extension">Create Extension</a>
                   </li>
                   <li>
+                    <a href="#get-extensions" class="toc-h2 toc-link" data-title="Get Extensions">Get Extensions</a>
+                  </li>
+                  <li>
                     <a href="#get-extension-by-ext" class="toc-h2 toc-link" data-title="Get Extension By Ext">Get Extension By Ext</a>
+                  </li>
+                  <li>
+                    <a href="#update-extension-password" class="toc-h2 toc-link" data-title="Update Extension Password">Update Extension Password</a>
                   </li>
               </ul>
           </li>
@@ -1934,7 +1940,57 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Password</td>
 </tr>
 </tbody></table>
-<h2 id='get-extension-by-ext'>Get Extension By Ext</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/extension/{{ext}}'</span> <span class="se">\</span>
+<h2 id='get-extensions'>Get Extensions</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension?limit=2&amp;offset=0'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenant_id</td>
+<td>Tenant&#39;id</td>
+<td>test01</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi lấy</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-extension-by-ext'>Get Extension By Ext</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 </code></pre></div>
@@ -1946,9 +2002,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1965,6 +2021,52 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>ext</td>
 <td>Extension</td>
 <td>101</td>
+</tr>
+</tbody></table>
+<h2 id='update-extension-password'>Update Extension Password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "pwd" : "123Abc!@#"
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tenant_id</td>
+<td>Tenant&#39;id</td>
+<td>test01</td>
+</tr>
+<tr>
+<td>ext</td>
+<td>Extension</td>
+<td>101</td>
+</tr>
+</tbody></table>
+<h3 id='body-4'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pwd</td>
+<td>Password</td>
 </tr>
 </tbody></table>
 <h1 id='campaign'>Campaign</h1><h2 id='get-campaigns'>Get Campaigns</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
