@@ -17,9 +17,9 @@ includes:
   - pbx/report
   - pbx/monitor
   - pbx/tenant
-  - pbx/campaign
-  - pbx/autocall
-  - pbx/autodialer
+  # - pbx/campaign
+  # - pbx/autocall
+  # - pbx/autodialer
   - pbx/blacklist
   - pbx/smartrouting
   - pbx/voicemail
