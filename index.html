@@ -1961,7 +1961,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>101</td>
 </tr>
 </tbody></table>
-<h2 id='update-extension-password'>Update Extension Password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}'</span> <span class="se">\</span>
+<h2 id='update-extension-password'>Update Extension Password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1975,7 +1975,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
-<p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}</code></p>
+<p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
