@@ -215,7 +215,7 @@ curl -L -X GET 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}' 
 ## Update Extension Password
 
 ```shell
-curl -L -X PUT 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}' \
+curl -L -X PUT 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {{SECRET_TOKEN}}'
 --data-raw '{
@@ -233,7 +233,7 @@ curl -L -X PUT 'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}' 
 
 ### HTTP Request
 
-`PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}`
+`PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password`
 
 ### Query Parameters
 
