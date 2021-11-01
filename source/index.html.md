@@ -29,7 +29,7 @@ includes:
 
 search: true
 
-code_clipboard: false
+code_clipboard: true
 ---
 
 # Introduction
