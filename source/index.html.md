@@ -1,5 +1,7 @@
 ---
-title: PBX API Reference
+title: PBX API
+
+version : 1.2.1
 
 language_tabs:
   - shell: cURL
@@ -27,7 +29,7 @@ includes:
 
 search: true
 
-code_clipboard: true
+code_clipboard: false
 ---
 
 # Introduction

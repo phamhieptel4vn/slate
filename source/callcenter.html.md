@@ -1,5 +1,7 @@
 ---
-title: Call Center API Reference
+title: Call Center API
+
+version : 1.0.8
 
 language_tabs:
   - shell: cURL
@@ -102,9 +104,9 @@ Tất cả các API của PBX đều yêu cầu user cung cấp Token trong head
 
 `Authorization: Bearer {TOKEN}`
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
+</div>
 
 ### HTTP Request
 
@@ -193,8 +195,8 @@ Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ
 | answered  | Sự kiện khi cuộc gọi được nhấc máy |
 | cdr       | Sự kiện sau khi cdr được tạo xong  |
 
-<aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
-<aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</div>
 
 ## Delete Event
 
@@ -543,9 +545,9 @@ Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension
 
 Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới khi extension nhấc máy hoặc ngắt máy.
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
-</aside>
+</div>
 
 ### HTTP Request
 
@@ -597,9 +599,9 @@ Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension
 
 API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
-</aside>
+</div>
 
 ### HTTP Request
 

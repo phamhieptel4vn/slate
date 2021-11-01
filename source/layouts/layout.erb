@@ -22,15 +22,16 @@ under the License.
     end
   end
 %>
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title><%= current_page.data.title || "API Documentation" %></title>
-
+    <title><%= current_page.data.title || "API Documentation" %> - TEL4VN</title>
+    <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/9216d1f7/www-widgetapi.vflset/www-widgetapi.js" async></script>
+    <%# <link rel="stylesheet" href="/css/vendor.css"> %>
+    <link rel="stylesheet" href="/css/style.css">
     <style media="screen">
       <%= Rouge::Themes::MonokaiSublimeSlate.render(:scope => '.highlight') %>
     </style>
@@ -40,90 +41,185 @@ under the License.
       }
       <%= Rouge::Themes::Base16::Solarized.render(:scope => '.highlight') %>
     </style>
-    <%= stylesheet_link_tag :screen, media: :screen %>
-    <%= stylesheet_link_tag :print, media: :print %>
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
-
     <% if current_page.data.code_clipboard %>
-    <script>
-      $(function() { setupCodeCopy(); });
-    </script>
+      <script>
+        $(function() { setupCodeCopy(); });
+      </script>
     <% end %>
     <%= favicon_tag 'images/favicon.ico' %>
   </head>
-
-  <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <%= image_tag('navbar.png') %>
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
-      <% if language_tabs.any? %>
-        <div class="lang-selector">
-          <% language_tabs.each do |lang| %>
-            <% if lang.is_a? Hash %>
-              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-            <% else %>
-              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-      <% if current_page.data.search %>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <% end %>
-      <ul id="toc" class="toc-list-h1">
-        <% toc_data(page_content).each do |h1| %>
-          <li>
-            <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:title] %>"><%= h1[:content] %></a>
-            <% if h1[:children].length > 0 %>
-              <ul class="toc-list-h2">
-                <% h1[:children].each do |h2| %>
-                  <li>
-                    <a href="#<%= h2[:id] %>" class="toc-h2 toc-link" data-title="<%= h2[:title] %>"><%= h2[:content] %></a>
-                  </li>
-                <% end %>
+  <body class="<%= page_classes %> headroom headroom--top headroom--not-bottom" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>" data-spy="scroll" data-target="#page-nav">
+    <!-- header -->
+    <header class="header header-sticky header-light" style="background-color: #3bb78f;background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#" class="navbar-brand"><%= image_tag "logo.png", class: 'logo' %></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto"></ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="https://tongdaivoip.com" target="_blank">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle active" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Documentation
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="/index.html">PBX API</a>
+                    <a class="dropdown-item" href="/autocall.html">Autocall API</a>
+                    <a class="dropdown-item" href="/billing.html">Billing API</a>
+                    <a class="dropdown-item" href="/callcenter.html">CallCenter v1 API</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SDK
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="https://portal.tel4vn.com" target="_blank">Portal</a>
+                    <a class="dropdown-item" href="https://portal.tel4vn.com/docs" target="_blank">Document</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="mailto:tech@tel4vn.com">Support</a>
+                </li>
               </ul>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-      <% if current_page.data.toc_footers %>
-        <ul class="toc-footer">
-          <% current_page.data.toc_footers.each do |footer| %>
-            <li><%= footer %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <%= page_content %>
+            </div>
+          </nav>
+        </div>
       </div>
-      <div class="dark-box">
-        <% if language_tabs.any? %>
-          <div class="lang-selector">
-            <% language_tabs.each do |lang| %>
-              <% if lang.is_a? Hash %>
-                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-              <% else %>
-                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
+    </header>
+    <!-- / header -->
+    <section class="pt-5">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <!-- navigation -->
+          <aside class="col-lg-3 col-xxl-2 p-3 doc-sidebar">
+            <div class="sticky">
+              <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
+                <div>
+                  <a href="#" class="navbar-brand">
+                    <h3><%= current_page.data.title %><span class="badge badge-green ml-2"><%= current_page.data.version %></span></h3>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul id="page-nav" class="nav flex-column nav-vertical-2">
+                    <% toc_data(page_content).each do |h1| %>
+                      <li class="nav-item">
+                        <a href="#<%= h1[:id] %>" class="nav-link" data-title="<%= h1[:title] %>" <% if h1[:children].length > 0 %> data-toggle="collapse" role="button" aria-expanded="false" aria-controls="<%= h1[:id] %>" data-target="#<%= h1[:id] %>-nav" <% end %>><%= h1[:content] %></a>
+                        <div class="collapse" id="<%= h1[:id] %>-nav" data-parent="#page-nav">
+                          <% if h1[:children].length > 0 %>
+                            <ul class="nav flex-column">
+                              <% h1[:children].each do |h2| %>
+                                <li class="nav-item">
+                                  <a href="#<%= h2[:id] %>" class="nav-link" data-title="<%= h2[:title] %>" parent-id="<%= h1[:id] %>-nav"><%= h2[:content] %></a>
+                                </li>
+                              <% end %>
+                            </ul>
+                          <% end %>
+                        </div>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </aside>
+          <!-- / navigation -->
+          <!-- content -->
+          <article class="col-lg-9 col-xxl-10 doc-content">
+            <div class="row">
+              <div class="col">
+                <div class="doc-content-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <nav aria-label="breadcrumb" class="align-items-center">
+                        <a href="index.html" class="breadcrumb-back" title="Back"></a>
+                        <ol class="breadcrumb d-none d-lg-inline-flex">
+                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page"><%= current_page.data.title %></li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between doc-content-body">
+              <article class="col-md-9 col-xxl-8">
+                <%= page_content %>
+              </article>
+            </div>
+          </article>
+          <!-- / content -->
+        </div>
       </div>
-    </div>
+    </section>
+    <script src="/js/vendor.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script>
+      jQuery(window).on('activate.bs.scrollspy', function ( e,obj) {
+        try{
+          let tmp = $(`a[href="${obj.relatedTarget}"]`)
+          parentId= tmp.attr("parent-id")
+          $(".collapse").removeClass("show")
+          $(`#${parentId}`).addClass("show")
+        } catch(error){
+          console.log(error)
+        }
+      })
+      $("table").addClass("table table-bordered")
+      $("table th").addClass("bg-white text-dark font-weight-bold")
+      $(".doc-content-body h1").addClass("text-success font-weight-bold")
+      $("blockquote").each(function(index){
+      tmp = $(this)
+      $(this).replaceWith(
+        `<blockquote><mark> > ${tmp.text()}</mark><blockquote/>`
+      )
+      })
+      $("div.highlight").each(function(index){
+      tmp = $(this)
+      content = tmp.children("pre")[0]
+      title = "Request Example"
+      if ($(content).hasClass( "json" )){
+      title = "Response Example"
+      }
+      $(this).replaceWith(
+      `
+      <div class="accordion accordion-stack mb-2" id="accordion-${index}">
+      <div class="card">
+      <div class="card-header" id="heading-${index}-1">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-${index}-1" aria-expanded="false" aria-controls="collapse-${index}-1">
+            ${title}
+          </button>
+        </h5>
+      </div>
+      
+      <div id="collapse-${index}-1" class="collapse" aria-labelledby="heading-${index}-1" data-parent="#accordion-${index}">
+        <div class="card-body bg-dark">
+        <div class="mt-2">
+        ${$(content).prop('outerHTML')}
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      `
+      )
+      })
+    </script>
   </body>
 </html>

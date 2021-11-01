@@ -1,5 +1,7 @@
 ---
-title: Autocall API Reference
+title: Autocall API
+
+version : 1.3.1
 
 language_tabs:
   - shell: cURL
@@ -58,9 +60,9 @@ Tất cả các API của Autocall đều yêu cầu user cung cấp Token trong
 
 `Authorization: {TOKEN}`
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
+</div>
 
 ### HTTP Request
 
