@@ -1,5 +1,7 @@
 ---
-title: PBX API Reference
+title: Billing API
+
+version : 1.0.3
 
 language_tabs:
   - shell: cURL
@@ -57,9 +59,9 @@ Tất cả các API của PBX đều yêu cầu user cung cấp Token trong head
 
 `Authorization: Bearer {TOKEN}`
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
+</div>
 
 ### HTTP Request
 

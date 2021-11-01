@@ -77,8 +77,8 @@ Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ
 | missed       | Sự kiện khi có cuộc gọi inbound tới nhưng không có extension nào nghe máy |
 | cdr_autocall | Sự kiện sau khi cdr của autocall được tạo xong                            |
 
-<aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
-<aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</div>
 
 ## Delete Event
 
