@@ -1,4 +1,4 @@
-<h1 id='template'>Template</h1>
+<h1 id='template' class='h1 font-weight-light'>Template</h1>
 <p>Tốc độ đọc tăng dần từ 0 đến 2. Với 1 là tốc độ đọc bình thường và 2 là tốc độ đọc nhanh nhất.</p>
 
 <p>Các giọng đọc kịch bản đang hỗ trợ</p>
@@ -34,7 +34,7 @@
 <td>Miền Nam 1 - Giọng nữ</td>
 </tr>
 </tbody></table>
-<h2 id='k-ch-b-n-tts'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' https://{API_HOST}/v1/template'</span> <span class="se">\</span>
+<h2 id='k-ch-b-n-tts' class='h2 font-weight-light'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' https://{API_HOST}/v1/template'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -72,9 +72,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{API_HOST}/v1/template</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -221,7 +221,7 @@
 </ul>
 
 <p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
-<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue'</span> <span class="se">\</span>
+<h1 id='autocall' class='h1 font-weight-light'>Autocall</h1><h2 id='nh-n-d-li-u-queue' class='h2 font-weight-light'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -260,9 +260,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -342,7 +342,7 @@
   <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
 </ul>
-<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/dnc'</span> <span class="se">\</span>
+<h2 id='import-danh-sach-ch-n' class='h2 font-weight-light'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/dnc'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -375,9 +375,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/dnc</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -414,7 +414,7 @@
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue' class='h2 font-weight-light'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -436,9 +436,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/stop</code></p>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -459,7 +459,7 @@
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='delete-queue'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/delete'</span> <span class="se">\</span>
+<h2 id='delete-queue' class='h2 font-weight-light'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/delete'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -483,9 +483,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/delete</code></p>
-<h3 id='body-5'>Body</h3>
+<h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -506,7 +506,7 @@
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue' class='h2 font-weight-light'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -528,9 +528,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/queue/start</code></p>
-<h3 id='body-6'>Body</h3>
+<h3 id='body-6' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>

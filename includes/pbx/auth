@@ -1,4 +1,4 @@
-<h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/auth'</span> <span class="se">\</span>
+<h1 id='authentication' class='h1 font-weight-light'>Authentication</h1><h2 id='login-account' class='h2 font-weight-light'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/auth'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "username" : "foo@test.tel4vn.com",
@@ -20,9 +20,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Login thành công sẽ trả về thông tin account.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/auth</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -38,7 +38,7 @@
 <td>Account&#39;s password</td>
 </tr>
 </tbody></table>
-<h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/auth/token'</span> <span class="se">\</span>
+<h2 id='get-access-token' class='h2 font-weight-light'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/auth/token'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -61,12 +61,12 @@
 
 <p><code>Authorization: Bearer {TOKEN}</code></p>
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+</div>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/auth/token</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

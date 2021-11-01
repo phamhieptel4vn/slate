@@ -1,12 +1,12 @@
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Call Center API Reference</title>
-
+    <title>Call Center API - TEL4VN</title>
+    <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/9216d1f7/www-widgetapi.vflset/www-widgetapi.js" async></script>
+    <link rel="stylesheet" href="css/style-1f587a25.css">
     <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -282,196 +282,278 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-2ede71d7.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e033bdd3.js"></script>
-
-    <script>
-      $(function() { setupCodeCopy(); });
-    </script>
+      <script>
+        $(function() { setupCodeCopy(); });
+      </script>
     <link href="images/favicon-639cf3ec.ico" rel="icon" type="image/ico" />
   </head>
-
-  <body class="callcenter" data-languages="[&quot;shell&quot;]">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="images/navbar-cad8cdcb.png" alt="" />
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <img src="images/logo-4a7690d9.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">cURL</a>
+  <body class="callcenter headroom headroom--top headroom--not-bottom" data-languages="[&quot;shell&quot;]" data-spy="scroll" data-target="#page-nav">
+    <!-- header -->
+    <header class="header header-sticky header-light" style="background-color: #3bb78f;background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#" class="navbar-brand"><img src="images/logo-4a7690d9.png" class="logo" alt="" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto"></ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="https://tongdaivoip.com" target="_blank">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle active" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Documentation
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="/index.html">PBX API</a>
+                    <a class="dropdown-item" href="/autocall.html">Autocall API</a>
+                    <a class="dropdown-item" href="/billing.html">Billing API</a>
+                    <a class="dropdown-item" href="/callcenter.html">CallCenter v1 API</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SDK
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="https://portal.tel4vn.com" target="_blank">Portal</a>
+                    <a class="dropdown-item" href="https://portal.tel4vn.com/docs" target="_blank">Document</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="mailto:tech@tel4vn.com">Support</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <ul id="toc" class="toc-list-h1">
-          <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#login-account" class="toc-h2 toc-link" data-title="Login Account">Login Account</a>
-                  </li>
-                  <li>
-                    <a href="#get-access-token" class="toc-h2 toc-link" data-title="Get Access Token">Get Access Token</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#event" class="toc-h1 toc-link" data-title="Event">Event</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-events" class="toc-h2 toc-link" data-title="Get Events">Get Events</a>
-                  </li>
-                  <li>
-                    <a href="#create-events" class="toc-h2 toc-link" data-title="Create Events">Create Events</a>
-                  </li>
-                  <li>
-                    <a href="#delete-event" class="toc-h2 toc-link" data-title="Delete Event">Delete Event</a>
-                  </li>
-                  <li>
-                    <a href="#event-hook-data" class="toc-h2 toc-link" data-title="Event Hook Data">Event Hook Data</a>
-                  </li>
-                  <li>
-                    <a href="#note" class="toc-h2 toc-link" data-title="Note*">Note*</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#cdrs-call-detail-records" class="toc-h1 toc-link" data-title="CDRs - Call Detail Records">CDRs - Call Detail Records</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#cdr-mapping" class="toc-h2 toc-link" data-title="CDR Mapping">CDR Mapping</a>
-                  </li>
-                  <li>
-                    <a href="#get-cdrs" class="toc-h2 toc-link" data-title="Get CDRs">Get CDRs</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-cdr" class="toc-h2 toc-link" data-title="Get a Specific CDR">Get a Specific CDR</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#click-to-call" class="toc-h1 toc-link" data-title="Click-to-call">Click-to-call</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#synchronous-get" class="toc-h2 toc-link" data-title="Synchronous - GET">Synchronous - GET</a>
-                  </li>
-                  <li>
-                    <a href="#asynchronous-get" class="toc-h2 toc-link" data-title="Asynchronous - GET">Asynchronous - GET</a>
-                  </li>
-                  <li>
-                    <a href="#asynchronous-post" class="toc-h2 toc-link" data-title="Asynchronous - POST">Asynchronous - POST</a>
-                  </li>
-                  <li>
-                    <a href="#error" class="toc-h2 toc-link" data-title="Error">Error</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#call" class="toc-h1 toc-link" data-title="Call">Call</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#list-calls" class="toc-h2 toc-link" data-title="List Calls">List Calls</a>
-                  </li>
-                  <li>
-                    <a href="#transfer-a-call" class="toc-h2 toc-link" data-title="Transfer a call">Transfer a call</a>
-                  </li>
-                  <li>
-                    <a href="#listen-a-call" class="toc-h2 toc-link" data-title="Listen a call">Listen a call</a>
-                  </li>
-                  <li>
-                    <a href="#whisper-a-call" class="toc-h2 toc-link" data-title="Whisper a call">Whisper a call</a>
-                  </li>
-                  <li>
-                    <a href="#barge-a-call" class="toc-h2 toc-link" data-title="Barge a call">Barge a call</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#autodialer" class="toc-h1 toc-link" data-title="Autodialer">Autodialer</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#nh-n-d-li-u-queue" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
-                  </li>
-                  <li>
-                    <a href="#stop-queue" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
-                  </li>
-                  <li>
-                    <a href="#delete-queue" class="toc-h2 toc-link" data-title="Delete Queue">Delete Queue</a>
-                  </li>
-                  <li>
-                    <a href="#start-queue" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#autocall" class="toc-h1 toc-link" data-title="Autocall">Autocall</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#nh-n-d-li-u-queue-2" class="toc-h2 toc-link" data-title="Nhận dữ liệu queue">Nhận dữ liệu queue</a>
-                  </li>
-                  <li>
-                    <a href="#import-danh-sach-ch-n" class="toc-h2 toc-link" data-title="Import danh sách chặn">Import danh sách chặn</a>
-                  </li>
-                  <li>
-                    <a href="#stop-queue-2" class="toc-h2 toc-link" data-title="Stop Queue">Stop Queue</a>
-                  </li>
-                  <li>
-                    <a href="#delete-queue-2" class="toc-h2 toc-link" data-title="Delete Queue">Delete Queue</a>
-                  </li>
-                  <li>
-                    <a href="#start-queue-2" class="toc-h2 toc-link" data-title="Start Queue">Start Queue</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#user" class="toc-h1 toc-link" data-title="User">User</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-user-status" class="toc-h2 toc-link" data-title="Get User Status">Get User Status</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#customer" class="toc-h1 toc-link" data-title="Customer">Customer</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-list-customers" class="toc-h2 toc-link" data-title="Get List Customers">Get List Customers</a>
-                  </li>
-                  <li>
-                    <a href="#get-specific-customer" class="toc-h2 toc-link" data-title="Get Specific Customer">Get Specific Customer</a>
-                  </li>
-                  <li>
-                    <a href="#post-customer" class="toc-h2 toc-link" data-title="Post Customer">Post Customer</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
-      </ul>
-        <ul class="toc-footer">
-            <li><p>If any problem please contact us</p></li>
-            <li><li>Email &#58; tech@tel4vn.com</li></li>
-        </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+      </div>
+    </header>
+    <!-- / header -->
+    <section class="pt-5">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <!-- navigation -->
+          <aside class="col-lg-3 col-xxl-2 p-3 doc-sidebar">
+            <div class="sticky">
+              <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
+                <div>
+                  <a href="#" class="navbar-brand">
+                    <h3>Call Center API<span class="badge badge-green ml-2">1.0.8</span></h3>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul id="page-nav" class="nav flex-column nav-vertical-2">
+                      <li class="nav-item">
+                        <a href="#introduction" class="nav-link" data-title="Introduction" >Introduction</a>
+                        <div class="collapse" id="introduction-nav" data-parent="#page-nav">
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#authentication" class="nav-link" data-title="Authentication"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication" data-target="#authentication-nav" >Authentication</a>
+                        <div class="collapse" id="authentication-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#login-account" class="nav-link" data-title="Login Account" parent-id="authentication-nav">Login Account</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-access-token" class="nav-link" data-title="Get Access Token" parent-id="authentication-nav">Get Access Token</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#event" class="nav-link" data-title="Event"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="event" data-target="#event-nav" >Event</a>
+                        <div class="collapse" id="event-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-events" class="nav-link" data-title="Get Events" parent-id="event-nav">Get Events</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#create-events" class="nav-link" data-title="Create Events" parent-id="event-nav">Create Events</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#delete-event" class="nav-link" data-title="Delete Event" parent-id="event-nav">Delete Event</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#event-hook-data" class="nav-link" data-title="Event Hook Data" parent-id="event-nav">Event Hook Data</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#note" class="nav-link" data-title="Note*" parent-id="event-nav">Note*</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#cdrs-call-detail-records" class="nav-link" data-title="CDRs - Call Detail Records"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="cdrs-call-detail-records" data-target="#cdrs-call-detail-records-nav" >CDRs - Call Detail Records</a>
+                        <div class="collapse" id="cdrs-call-detail-records-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#cdr-mapping" class="nav-link" data-title="CDR Mapping" parent-id="cdrs-call-detail-records-nav">CDR Mapping</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-cdrs" class="nav-link" data-title="Get CDRs" parent-id="cdrs-call-detail-records-nav">Get CDRs</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-a-specific-cdr" class="nav-link" data-title="Get a Specific CDR" parent-id="cdrs-call-detail-records-nav">Get a Specific CDR</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#click-to-call" class="nav-link" data-title="Click-to-call"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="click-to-call" data-target="#click-to-call-nav" >Click-to-call</a>
+                        <div class="collapse" id="click-to-call-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#synchronous-get" class="nav-link" data-title="Synchronous - GET" parent-id="click-to-call-nav">Synchronous - GET</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#asynchronous-get" class="nav-link" data-title="Asynchronous - GET" parent-id="click-to-call-nav">Asynchronous - GET</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#asynchronous-post" class="nav-link" data-title="Asynchronous - POST" parent-id="click-to-call-nav">Asynchronous - POST</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#error" class="nav-link" data-title="Error" parent-id="click-to-call-nav">Error</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#call" class="nav-link" data-title="Call"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="call" data-target="#call-nav" >Call</a>
+                        <div class="collapse" id="call-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#list-calls" class="nav-link" data-title="List Calls" parent-id="call-nav">List Calls</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#transfer-a-call" class="nav-link" data-title="Transfer a call" parent-id="call-nav">Transfer a call</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#listen-a-call" class="nav-link" data-title="Listen a call" parent-id="call-nav">Listen a call</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#whisper-a-call" class="nav-link" data-title="Whisper a call" parent-id="call-nav">Whisper a call</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#barge-a-call" class="nav-link" data-title="Barge a call" parent-id="call-nav">Barge a call</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#autodialer" class="nav-link" data-title="Autodialer"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="autodialer" data-target="#autodialer-nav" >Autodialer</a>
+                        <div class="collapse" id="autodialer-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#nh-n-d-li-u-queue" class="nav-link" data-title="Nhận dữ liệu queue" parent-id="autodialer-nav">Nhận dữ liệu queue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#stop-queue" class="nav-link" data-title="Stop Queue" parent-id="autodialer-nav">Stop Queue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#delete-queue" class="nav-link" data-title="Delete Queue" parent-id="autodialer-nav">Delete Queue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#start-queue" class="nav-link" data-title="Start Queue" parent-id="autodialer-nav">Start Queue</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#autocall" class="nav-link" data-title="Autocall"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="autocall" data-target="#autocall-nav" >Autocall</a>
+                        <div class="collapse" id="autocall-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#nh-n-d-li-u-queue-2" class="nav-link" data-title="Nhận dữ liệu queue" parent-id="autocall-nav">Nhận dữ liệu queue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#import-danh-sach-ch-n" class="nav-link" data-title="Import danh sách chặn" parent-id="autocall-nav">Import danh sách chặn</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#stop-queue-2" class="nav-link" data-title="Stop Queue" parent-id="autocall-nav">Stop Queue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#delete-queue-2" class="nav-link" data-title="Delete Queue" parent-id="autocall-nav">Delete Queue</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#start-queue-2" class="nav-link" data-title="Start Queue" parent-id="autocall-nav">Start Queue</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#user" class="nav-link" data-title="User"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="user" data-target="#user-nav" >User</a>
+                        <div class="collapse" id="user-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-user-status" class="nav-link" data-title="Get User Status" parent-id="user-nav">Get User Status</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#customer" class="nav-link" data-title="Customer"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="customer" data-target="#customer-nav" >Customer</a>
+                        <div class="collapse" id="customer-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-list-customers" class="nav-link" data-title="Get List Customers" parent-id="customer-nav">Get List Customers</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-specific-customer" class="nav-link" data-title="Get Specific Customer" parent-id="customer-nav">Get Specific Customer</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#post-customer" class="nav-link" data-title="Post Customer" parent-id="customer-nav">Post Customer</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#errors" class="nav-link" data-title="Errors" >Errors</a>
+                        <div class="collapse" id="errors-nav" data-parent="#page-nav">
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </aside>
+          <!-- / navigation -->
+          <!-- content -->
+          <article class="col-lg-9 col-xxl-10 doc-content">
+            <div class="row">
+              <div class="col">
+                <div class="doc-content-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <nav aria-label="breadcrumb" class="align-items-center">
+                        <a href="index.html" class="breadcrumb-back" title="Back"></a>
+                        <ol class="breadcrumb d-none d-lg-inline-flex">
+                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Call Center API</li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between doc-content-body">
+              <article class="col-md-9 col-xxl-8">
+                <h1 id='introduction' class='h1 font-weight-light'>Introduction</h1>
 <p>Xin chào! Đây là bộ API tích hợp tổng đài VoIP - Call Center vào các hệ thống CRM, WebApp.</p>
 
 <p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: tech@tel4vn.com.</p>
 
 <p>Các thông tin như {{API_HOST}}, {{API_KEY}}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.</p>
-<h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/auth'</span> <span class="se">\</span>
+<h1 id='authentication' class='h1 font-weight-light'>Authentication</h1><h2 id='login-account' class='h2 font-weight-light'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/auth'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "username" : "foo@test.tel4vn.com",
@@ -496,9 +578,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Login thành công sẽ trả về thông tin account.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v1/auth</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -514,7 +596,7 @@
 <td>Account&#39;s password</td>
 </tr>
 </tbody></table>
-<h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/auth/token'</span> <span class="se">\</span>
+<h2 id='get-access-token' class='h2 font-weight-light'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/auth/token'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -543,12 +625,12 @@
 
 <p><code>Authorization: Bearer {TOKEN}</code></p>
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+</div>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/auth/token</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -560,7 +642,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>api_key có trong thông tin của account</td>
 </tr>
 </tbody></table>
-<h1 id='event'>Event</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
+<h1 id='event' class='h1 font-weight-light'>Event</h1><h2 id='get-events' class='h2 font-weight-light'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -581,9 +663,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Trả về các call events của tenant.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v1/event</code></p>
-<h2 id='create-events'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
+<h2 id='create-events' class='h2 font-weight-light'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -600,9 +682,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ liệu về {callback_url}.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v1/event</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -622,7 +704,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>SIP Call Event</td>
 </tr>
 </tbody></table>
-<h3 id='sip-call-event'>SIP Call Event</h3>
+<h3 id='sip-call-event' class='h3 font-weight-light'>SIP Call Event</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -647,10 +729,10 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 </tbody></table>
 
-<aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</div>
 
-<aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
-<h2 id='delete-event'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'http://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</div>
+<h2 id='delete-event' class='h2 font-weight-light'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'http://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -661,9 +743,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để xoá một event_domain.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>DELETE http://{{API_HOST}}/v1/event/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -675,7 +757,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>ID của event</td>
 </tr>
 </tbody></table>
-<h2 id='event-hook-data'>Event Hook Data</h2>
+<h2 id='event-hook-data' class='h2 font-weight-light'>Event Hook Data</h2>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
@@ -692,7 +774,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
   </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
   </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='mo-t'>Mô tả</h3>
+</span></code></pre></div><h3 id='mo-t' class='h3 font-weight-light'>Mô tả</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -748,7 +830,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Trạng thái cuộc gọi. (Riêng sự kiện cdr)</td>
 </tr>
 </tbody></table>
-<h2 id='note'>Note*</h2>
+<h2 id='note' class='h2 font-weight-light'>Note*</h2>
 <p>Một số thông tin cần lưu ý khi tích hợp event:</p>
 
 <ul>
@@ -762,9 +844,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <li>Trường hợp 1 mobile - nhiều extension (Ringing, Queue, IVR): call_id của các event ringing, answered, hangup sẽ giống nhau. call_id của event cdr sẽ khác nhau. Do call_id của các event ringing, answered, hangup là call_id xử lý của cuộc gọi trên từng extension, call_id của event cdr là call_id của cả một luồng inbound (Ringing, Queue, IVR).</li>
 </ul></li>
 </ul>
-<h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
+<h1 id='cdrs-call-detail-records' class='h1 font-weight-light'>CDRs - Call Detail Records</h1>
 <p>Lịch sử cuộc gọi</p>
-<h2 id='cdr-mapping'>CDR Mapping</h2><h3 id='default-mapping'>Default Mapping</h3>
+<h2 id='cdr-mapping' class='h2 font-weight-light'>CDR Mapping</h2><h3 id='default-mapping' class='h3 font-weight-light'>Default Mapping</h3>
 <table><thead>
 <tr>
 <th>Thông tin</th>
@@ -832,7 +914,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Mã khách hàng</td>
 </tr>
 </tbody></table>
-<h3 id='flex-mapping'>Flex Mapping</h3>
+<h3 id='flex-mapping' class='h3 font-weight-light'>Flex Mapping</h3>
 <table><thead>
 <tr>
 <th>Thông tin</th>
@@ -924,7 +1006,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Không hợp lệ, cuộc gọi bị lỗi, (Ví dụ: click-to-call agent không nghe máy, ngắt máy)</td>
 </tr>
 </tbody></table>
-<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr?'</span> <span class="se">\</span>
+<h2 id='get-cdrs' class='h2 font-weight-light'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr?'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1023,9 +1105,9 @@ Pagination: Phân trang.
 Scroll: Cuộn trang. (Mặc định)</p>
 
 <p>Nếu user cung cấp trong param: page - Số trang, limit - số lượng trả về thì API sẽ trả về dữ liêu theo cơ chế Pagination.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/cdr</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1074,7 +1156,7 @@ Scroll: Cuộn trang. (Mặc định)</p>
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
+<h2 id='get-a-specific-cdr' class='h2 font-weight-light'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1120,9 +1202,9 @@ Scroll: Cuộn trang. (Mặc định)</p>
 </span></code></pre></div>
 <p>API dùng để lấy một cdr cụ thể.
 Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/cdr/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-2' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1134,7 +1216,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Id của CDR hoặc sip_call_id trong bản tin</td>
 </tr>
 </tbody></table>
-<h1 id='click-to-call'>Click-to-call</h1><h2 id='synchronous-get'>Synchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
+<h1 id='click-to-call' class='h1 font-weight-light'>Click-to-call</h1><h2 id='synchronous-get' class='h2 font-weight-light'>Synchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/click2call?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1159,12 +1241,12 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 
 <p>Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới khi extension nhấc máy hoặc ngắt máy.</p>
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
-</aside>
-<h3 id='http-request-8'>HTTP Request</h3>
+</div>
+<h3 id='http-request-8' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-3' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1218,7 +1300,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>false</td>
 </tr>
 </tbody></table>
-<h2 id='asynchronous-get'>Asynchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
+<h2 id='asynchronous-get' class='h2 font-weight-light'>Asynchronous - GET</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -1244,12 +1326,12 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 
 <p>API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.</p>
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
-</aside>
-<h3 id='http-request-9'>HTTP Request</h3>
+</div>
+<h3 id='http-request-9' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-4' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1303,7 +1385,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>false</td>
 </tr>
 </tbody></table>
-<h2 id='asynchronous-post'>Asynchronous - POST</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/click2call'</span> <span class="se">\</span>
+<h2 id='asynchronous-post' class='h2 font-weight-light'>Asynchronous - POST</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/click2call'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1336,9 +1418,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <p>Sau khi thực hiện click-to-call, hệ thống sẽ gọi vào số extension của domain, sau khi extension pickup cuộc gọi thì có một cuộc gọi đẩy ra số mobile dựa vào parameter của API.</p>
 
 <p>API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy hoặc ngắt máy, mà sẽ trả về call_id nếu extension đã login và trả về mã lỗi nếu extension không login.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-10' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/click2call</code></p>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1358,7 +1440,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Số máy lẻ của chuyên viên</td>
 </tr>
 </tbody></table>
-<h2 id='error'>Error</h2>
+<h2 id='error' class='h2 font-weight-light'>Error</h2>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1374,7 +1456,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Người dùng chưa login Softphone hoặc IP Phone</td>
 </tr>
 </tbody></table>
-<h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/call'</span> <span class="se">\</span>
+<h1 id='call' class='h1 font-weight-light'>Call</h1><h2 id='list-calls' class='h2 font-weight-light'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/call'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -1399,9 +1481,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi theo thời gian thực.</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-11' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/call</code></p>
-<h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
+<h2 id='transfer-a-call' class='h2 font-weight-light'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1426,9 +1508,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện chuyển cuộc gọi sang extension khác.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-12' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/transfer</code></p>
-<h3 id='body-5'>Body</h3>
+<h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1440,7 +1522,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
+<h2 id='listen-a-call' class='h2 font-weight-light'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1465,9 +1547,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện nghe lén cuộc gọi của một extension khác.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-13' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/listen</code></p>
-<h3 id='body-6'>Body</h3>
+<h3 id='body-6' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1479,7 +1561,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi</td>
 </tr>
 </tbody></table>
-<h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
+<h2 id='whisper-a-call' class='h2 font-weight-light'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1504,9 +1586,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi với extension, mobile sẽ không nghe được.</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-14' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/whisper</code></p>
-<h3 id='body-7'>Body</h3>
+<h3 id='body-7' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1518,7 +1600,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
+<h2 id='barge-a-call' class='h2 font-weight-light'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{{API_HOST}}/v2/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1543,9 +1625,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-15' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/call/&lt;CALL_ID&gt;/barge</code></p>
-<h3 id='body-8'>Body</h3>
+<h3 id='body-8' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1557,7 +1639,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h1 id='autodialer'>Autodialer</h1><h2 id='nh-n-d-li-u-queue'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue'</span> <span class="se">\</span>
+<h1 id='autodialer' class='h1 font-weight-light'>Autodialer</h1><h2 id='nh-n-d-li-u-queue' class='h2 font-weight-light'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1589,9 +1671,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra.</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-16' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v2/autodialer/queue</code></p>
-<h3 id='body-9'>Body</h3>
+<h3 id='body-9' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1647,7 +1729,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue' class='h2 font-weight-light'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1669,9 +1751,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-17' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v2/autodialer/queue/stop</code></p>
-<h3 id='body-10'>Body</h3>
+<h3 id='body-10' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1692,7 +1774,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='delete-queue'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/delete'</span> <span class="se">\</span>
+<h2 id='delete-queue' class='h2 font-weight-light'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/delete'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1714,9 +1796,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-18' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v2/autodialer/queue/delete</code></p>
-<h3 id='body-11'>Body</h3>
+<h3 id='body-11' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1737,7 +1819,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue' class='h2 font-weight-light'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v2/autodialer/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1759,9 +1841,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-19' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v2/autodialer/queue/start</code></p>
-<h3 id='body-12'>Body</h3>
+<h3 id='body-12' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1782,7 +1864,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h1 id='autocall'>Autocall</h1><h2 id='nh-n-d-li-u-queue-2'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
+<h1 id='autocall' class='h1 font-weight-light'>Autocall</h1><h2 id='nh-n-d-li-u-queue-2' class='h2 font-weight-light'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1833,9 +1915,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.</p>
-<h3 id='http-request-20'>HTTP Request</h3>
+<h3 id='http-request-20' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue</code></p>
-<h3 id='body-13'>Body</h3>
+<h3 id='body-13' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1903,7 +1985,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='import-danh-sach-ch-n'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/dnc'</span> <span class="se">\</span>
+<h2 id='import-danh-sach-ch-n' class='h2 font-weight-light'>Import danh sách chặn</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/dnc'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -1938,9 +2020,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.</p>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-21' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/dnc</code></p>
-<h3 id='body-14'>Body</h3>
+<h3 id='body-14' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -1977,7 +2059,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='stop-queue-2'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/stop'</span> <span class="se">\</span>
+<h2 id='stop-queue-2' class='h2 font-weight-light'>Stop Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/stop'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2001,9 +2083,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.</p>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-22' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/stop</code></p>
-<h3 id='body-15'>Body</h3>
+<h3 id='body-15' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2024,7 +2106,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='delete-queue-2'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/delete'</span> <span class="se">\</span>
+<h2 id='delete-queue-2' class='h2 font-weight-light'>Delete Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/delete'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2048,9 +2130,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-23' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/delete</code></p>
-<h3 id='body-16'>Body</h3>
+<h3 id='body-16' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2071,7 +2153,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='start-queue-2'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/start'</span> <span class="se">\</span>
+<h2 id='start-queue-2' class='h2 font-weight-light'>Start Queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue/start'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2095,9 +2177,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.</p>
-<h3 id='http-request-24'>HTTP Request</h3>
+<h3 id='http-request-24' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/autocall/queue/start</code></p>
-<h3 id='body-17'>Body</h3>
+<h3 id='body-17' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2118,7 +2200,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>x</td>
 </tr>
 </tbody></table>
-<h1 id='user'>User</h1><h2 id='get-user-status'>Get User Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/user/{{user_id}}/status'</span> <span class="se">\</span>
+<h1 id='user' class='h1 font-weight-light'>User</h1><h2 id='get-user-status' class='h2 font-weight-light'>Get User Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/user/{{user_id}}/status'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -2187,7 +2269,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Username của user</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-25'>HTTP Request</h3>
+<h3 id='http-request-25' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/customer/user/{{user_id}}/status</code></p>
 
 <table><thead>
@@ -2203,7 +2285,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>test.user01 hoặc aaaaaaaa-1111-2222-3333-eeeeeeee</td>
 </tr>
 </tbody></table>
-<h1 id='customer'>Customer</h1><h2 id='get-list-customers'>Get List Customers</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/customer'</span> <span class="se">\</span>
+<h1 id='customer' class='h1 font-weight-light'>Customer</h1><h2 id='get-list-customers' class='h2 font-weight-light'>Get List Customers</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/customer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -2345,9 +2427,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Trạng thái lỗi không xác định</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-26'>HTTP Request</h3>
+<h3 id='http-request-26' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/customer</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2371,7 +2453,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-specific-customer'>Get Specific Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/customer/dddddddd-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
+<h2 id='get-specific-customer' class='h2 font-weight-light'>Get Specific Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/customer/dddddddd-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -2505,7 +2587,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Trạng thái lỗi không xác định</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-27'>HTTP Request</h3>
+<h3 id='http-request-27' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{{API_HOST}}/v2/customer/{{customer_id}}</code></p>
 
 <table><thead>
@@ -2521,7 +2603,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>aaaaaaaa-1111-2222-3333-eeeeeeee</td>
 </tr>
 </tbody></table>
-<h2 id='post-customer'>Post Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
+<h2 id='post-customer' class='h2 font-weight-light'>Post Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{{API_HOST}}/v2/autocall/queue'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -2556,9 +2638,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để nhận thông tin của một khách hàng cụ thể. 7 ngày tính từ ngày thông tin được gửi sang, hệ thông sẽ thực hiện autodialer khách hàng cho agent.</p>
-<h3 id='http-request-28'>HTTP Request</h3>
+<h3 id='http-request-28' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{{API_HOST}}/v2/customer</code></p>
-<h3 id='body-18'>Body</h3>
+<h3 id='body-18' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -2609,7 +2691,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td></td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+<h1 id='errors' class='h1 font-weight-light'>Errors</h1>
 <p>PBX API sử dụng các mã lỗi sau</p>
 
 <table><thead>
@@ -2648,12 +2730,66 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 
+              </article>
+            </div>
+          </article>
+          <!-- / content -->
+        </div>
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">cURL</a>
-          </div>
+    </section>
+    <script src="js/vendor.min-085c5346.js"></script>
+    <script src="js/app-25d33ffd.js"></script>
+    <script>
+      jQuery(window).on('activate.bs.scrollspy', function ( e,obj) {
+        try{
+          let tmp = $(`a[href="${obj.relatedTarget}"]`)
+          parentId= tmp.attr("parent-id")
+          $(".collapse").removeClass("show")
+          $(`#${parentId}`).addClass("show")
+        } catch(error){
+          console.log(error)
+        }
+      })
+      $("table").addClass("table table-bordered")
+      $("table th").addClass("bg-white text-dark font-weight-bold")
+      $(".doc-content-body h1").addClass("text-success font-weight-bold")
+      $("blockquote").each(function(index){
+      tmp = $(this)
+      $(this).replaceWith(
+        `<blockquote><mark> > ${tmp.text()}</mark><blockquote/>`
+      )
+      })
+      $("div.highlight").each(function(index){
+      tmp = $(this)
+      content = tmp.children("pre")[0]
+      title = "Request Example"
+      if ($(content).hasClass( "json" )){
+      title = "Response Example"
+      }
+      $(this).replaceWith(
+      `
+      <div class="accordion accordion-stack mb-2" id="accordion-${index}">
+      <div class="card">
+      <div class="card-header" id="heading-${index}-1">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-${index}-1" aria-expanded="false" aria-controls="collapse-${index}-1">
+            ${title}
+          </button>
+        </h5>
       </div>
-    </div>
+      
+      <div id="collapse-${index}-1" class="collapse" aria-labelledby="heading-${index}-1" data-parent="#accordion-${index}">
+        <div class="card-body bg-dark">
+        <div class="mt-2">
+        ${$(content).prop('outerHTML')}
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      `
+      )
+      })
+    </script>
   </body>
 </html>

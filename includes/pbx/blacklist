@@ -1,4 +1,4 @@
-<h1 id='blacklist'>Blacklist</h1><h2 id='get-blacklists'>Get Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<h1 id='blacklist' class='h1 font-weight-light'>Blacklist</h1><h2 id='get-blacklists' class='h2 font-weight-light'>Get Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
@@ -22,9 +22,9 @@
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/blaclist</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -43,7 +43,7 @@
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-blacklist-by-id-or-phone'>Get Blacklist By Id or Phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist/0899990988'</span> <span class="se">\</span>
+<h2 id='get-blacklist-by-id-or-phone' class='h2 font-weight-light'>Get Blacklist By Id or Phone</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist/0899990988'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
@@ -55,9 +55,9 @@
   </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"spam"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/blacklist/{{id}}</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -69,7 +69,7 @@
 <td>Id của blacklist hoặc số điện thoại</td>
 </tr>
 </tbody></table>
-<h2 id='insert-blacklists'>Insert Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<h2 id='insert-blacklists' class='h2 font-weight-light'>Insert Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -97,9 +97,9 @@
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899990989"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/blacklist</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -123,7 +123,7 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id='remove-blacklists'>Remove Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<h2 id='remove-blacklists' class='h2 font-weight-light'>Remove Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -141,9 +141,9 @@
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"successfully"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899990988"</span><span class="p">,</span><span class="w"> </span><span class="s2">"0899990989"</span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v1/blacklist</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

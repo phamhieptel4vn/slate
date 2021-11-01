@@ -1,4 +1,4 @@
-<h1 id='call'>Call</h1><h2 id='list-calls'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/call'</span> <span class="se">\</span>
+<h1 id='call' class='h1 font-weight-light'>Call</h1><h2 id='list-calls' class='h2 font-weight-light'>List Calls</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/call'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -23,9 +23,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi theo thời gian thực.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/call</code></p>
-<h2 id='transfer-a-call'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
+<h2 id='transfer-a-call' class='h2 font-weight-light'>Transfer a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/transfer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -51,9 +51,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện chuyển cuộc gọi sang extension khác.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/transfer</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -72,7 +72,7 @@
 <td>x</td>
 </tr>
 </tbody></table>
-<h2 id='listen-a-call'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
+<h2 id='listen-a-call' class='h2 font-weight-light'>Listen a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/listen'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -97,9 +97,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện nghe lén cuộc gọi của một extension khác.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/listen</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -111,7 +111,7 @@
 <td>Ext nhận cuộc gọi</td>
 </tr>
 </tbody></table>
-<h2 id='whisper-a-call'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
+<h2 id='whisper-a-call' class='h2 font-weight-light'>Whisper a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/whisper'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -136,9 +136,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi với extension, mobile sẽ không nghe được.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/whisper</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -150,7 +150,7 @@
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='barge-a-call'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
+<h2 id='barge-a-call' class='h2 font-weight-light'>Barge a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/barge'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -175,9 +175,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để thực hiện cuộc gọi 3 bên với extension và mobile.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/barge</code></p>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -189,7 +189,7 @@
 <td>Ext nhận cuộc gọi mới</td>
 </tr>
 </tbody></table>
-<h2 id='park-a-call'>Park a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/park'</span> <span class="se">\</span>
+<h2 id='park-a-call' class='h2 font-weight-light'>Park a call</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/call/01b7d166-b564-42ec-80a1-4ad343225934/park'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -212,9 +212,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để ngắt một bên cuộc gọi và cho bên còn lại chờ tới khi có cuộc gọi transfer tới hoặc sau 10s sẽ tự động ngắt.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/call/&lt;CALL_ID&gt;/park</code></p>
-<h3 id='body-5'>Body</h3>
+<h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

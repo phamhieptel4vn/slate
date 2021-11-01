@@ -1,4 +1,4 @@
-<h1 id='tenant'>Tenant</h1><h2 id='create-tenant'>Create Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant'</span> <span class="se">\</span>
+<h1 id='tenant' class='h1 font-weight-light'>Tenant</h1><h2 id='create-tenant' class='h2 font-weight-light'>Create Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -27,9 +27,9 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/tenant</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -41,7 +41,7 @@
 <td>Tenant&#39;id</td>
 </tr>
 </tbody></table>
-<h2 id='get-tenant-by-id'>Get Tenant By ID</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}'</span> <span class="se">\</span>
+<h2 id='get-tenant-by-id' class='h2 font-weight-light'>Get Tenant By ID</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 </code></pre></div>
@@ -56,9 +56,9 @@
   </span><span class="nl">"transports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"wss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://pbx01.tel4vn.com"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -72,7 +72,7 @@
 <td>test01</td>
 </tr>
 </tbody></table>
-<h2 id='update-tenant'>Update Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}'</span> <span class="se">\</span>
+<h2 id='update-tenant' class='h2 font-weight-light'>Update Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span><span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -85,9 +85,9 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -101,7 +101,7 @@
 <td>true of false</td>
 </tr>
 </tbody></table>
-<h2 id='create-extension'>Create Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension'</span> <span class="se">\</span>
+<h2 id='create-extension' class='h2 font-weight-light'>Create Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -120,9 +120,9 @@
     </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension</code></p>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -138,7 +138,7 @@
 <td>Password</td>
 </tr>
 </tbody></table>
-<h2 id='get-extensions'>Get Extensions</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension?limit=2&amp;offset=0'</span> <span class="se">\</span>
+<h2 id='get-extensions' class='h2 font-weight-light'>Get Extensions</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension?limit=2&amp;offset=0'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 </code></pre></div>
@@ -162,9 +162,9 @@
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -188,7 +188,7 @@
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-extension-by-ext'>Get Extension By Ext</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}'</span> <span class="se">\</span>
+<h2 id='get-extension-by-ext' class='h2 font-weight-light'>Get Extension By Ext</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 </code></pre></div>
@@ -200,9 +200,9 @@
   </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -221,7 +221,7 @@
 <td>101</td>
 </tr>
 </tbody></table>
-<h2 id='update-extension-password'>Update Extension Password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password'</span> <span class="se">\</span>
+<h2 id='update-extension-password' class='h2 font-weight-light'>Update Extension Password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -234,9 +234,9 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-4' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -255,7 +255,7 @@
 <td>101</td>
 </tr>
 </tbody></table>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

@@ -1,4 +1,4 @@
-<h1 id='monitor'>Monitor</h1><h2 id='monitor-agent'>Monitor Agent</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/monitor/agent'</span> <span class="se">\</span>
+<h1 id='monitor' class='h1 font-weight-light'>Monitor</h1><h2 id='monitor-agent' class='h2 font-weight-light'>Monitor Agent</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/monitor/agent'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
@@ -119,5 +119,5 @@
 <td>Host của tổng đài</td>
 </tr>
 </tbody></table>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/monitor/agent</code></p>

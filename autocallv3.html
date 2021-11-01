@@ -1,12 +1,12 @@
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>PBX API Reference</title>
-
+    <title>PBX API Reference - TEL4VN</title>
+    <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/9216d1f7/www-widgetapi.vflset/www-widgetapi.js" async></script>
+    <link rel="stylesheet" href="css/style-1f587a25.css">
     <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -282,110 +282,184 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-2ede71d7.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e033bdd3.js"></script>
-
-    <script>
-      $(function() { setupCodeCopy(); });
-    </script>
+      <script>
+        $(function() { setupCodeCopy(); });
+      </script>
     <link href="images/favicon-639cf3ec.ico" rel="icon" type="image/ico" />
   </head>
-
-  <body class="autocallv3" data-languages="[&quot;shell&quot;]">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="images/navbar-cad8cdcb.png" alt="" />
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <img src="images/logo-4a7690d9.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">cURL</a>
+  <body class="autocallv3 headroom headroom--top headroom--not-bottom" data-languages="[&quot;shell&quot;]" data-spy="scroll" data-target="#page-nav">
+    <!-- header -->
+    <header class="header header-sticky header-light" style="background-color: #3bb78f;background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#" class="navbar-brand"><img src="images/logo-4a7690d9.png" class="logo" alt="" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto"></ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="https://tongdaivoip.com" target="_blank">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle active" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Documentation
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="/index.html">PBX API</a>
+                    <a class="dropdown-item" href="/autocall.html">Autocall API</a>
+                    <a class="dropdown-item" href="/billing.html">Billing API</a>
+                    <a class="dropdown-item" href="/callcenter.html">CallCenter v1 API</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SDK
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="https://portal.tel4vn.com" target="_blank">Portal</a>
+                    <a class="dropdown-item" href="https://portal.tel4vn.com/docs" target="_blank">Document</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="mailto:tech@tel4vn.com">Support</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <ul id="toc" class="toc-list-h1">
-          <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#login-account" class="toc-h2 toc-link" data-title="Login Account">Login Account</a>
-                  </li>
-                  <li>
-                    <a href="#get-access-token" class="toc-h2 toc-link" data-title="Get Access Token">Get Access Token</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#template-k-ch-b-n" class="toc-h1 toc-link" data-title="Template - Kịch bản">Template - Kịch bản</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#k-ch-b-n-otp" class="toc-h2 toc-link" data-title="Kịch bản OTP">Kịch bản OTP</a>
-                  </li>
-                  <li>
-                    <a href="#k-ch-b-n-tts" class="toc-h2 toc-link" data-title="Kịch bản TTS">Kịch bản TTS</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#autocall" class="toc-h1 toc-link" data-title="Autocall">Autocall</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#run-otp" class="toc-h2 toc-link" data-title="Run OTP">Run OTP</a>
-                  </li>
-                  <li>
-                    <a href="#run-tts" class="toc-h2 toc-link" data-title="Run TTS">Run TTS</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#audio-file" class="toc-h1 toc-link" data-title="Audio File">Audio File</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#upload-audio-file" class="toc-h2 toc-link" data-title="Upload audio file">Upload audio file</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#call-detail-report" class="toc-h1 toc-link" data-title="Call Detail Report">Call Detail Report</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#attributes" class="toc-h2 toc-link" data-title="Attributes">Attributes</a>
-                  </li>
-                  <li>
-                    <a href="#get-cdrs" class="toc-h2 toc-link" data-title="Get CDRs">Get CDRs</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-cdr" class="toc-h2 toc-link" data-title="Get a Specific CDR">Get a Specific CDR</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
-      </ul>
-        <ul class="toc-footer">
-            <li><p>If any problem please contact us</p></li>
-            <li><li>Email &#58; tech@tel4vn.com</li></li>
-        </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+      </div>
+    </header>
+    <!-- / header -->
+    <section class="pt-5">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <!-- navigation -->
+          <aside class="col-lg-3 col-xxl-2 p-3 doc-sidebar">
+            <div class="sticky">
+              <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
+                <div>
+                  <a href="#" class="navbar-brand">
+                    <h3>PBX API Reference<span class="badge badge-green ml-2"></span></h3>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul id="page-nav" class="nav flex-column nav-vertical-2">
+                      <li class="nav-item">
+                        <a href="#introduction" class="nav-link" data-title="Introduction" >Introduction</a>
+                        <div class="collapse" id="introduction-nav" data-parent="#page-nav">
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#authentication" class="nav-link" data-title="Authentication"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication" data-target="#authentication-nav" >Authentication</a>
+                        <div class="collapse" id="authentication-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#login-account" class="nav-link" data-title="Login Account" parent-id="authentication-nav">Login Account</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-access-token" class="nav-link" data-title="Get Access Token" parent-id="authentication-nav">Get Access Token</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#template-k-ch-b-n" class="nav-link" data-title="Template - Kịch bản"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="template-k-ch-b-n" data-target="#template-k-ch-b-n-nav" >Template - Kịch bản</a>
+                        <div class="collapse" id="template-k-ch-b-n-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#k-ch-b-n-otp" class="nav-link" data-title="Kịch bản OTP" parent-id="template-k-ch-b-n-nav">Kịch bản OTP</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#k-ch-b-n-tts" class="nav-link" data-title="Kịch bản TTS" parent-id="template-k-ch-b-n-nav">Kịch bản TTS</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#autocall" class="nav-link" data-title="Autocall"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="autocall" data-target="#autocall-nav" >Autocall</a>
+                        <div class="collapse" id="autocall-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#run-otp" class="nav-link" data-title="Run OTP" parent-id="autocall-nav">Run OTP</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#run-tts" class="nav-link" data-title="Run TTS" parent-id="autocall-nav">Run TTS</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#audio-file" class="nav-link" data-title="Audio File"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="audio-file" data-target="#audio-file-nav" >Audio File</a>
+                        <div class="collapse" id="audio-file-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#upload-audio-file" class="nav-link" data-title="Upload audio file" parent-id="audio-file-nav">Upload audio file</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#call-detail-report" class="nav-link" data-title="Call Detail Report"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="call-detail-report" data-target="#call-detail-report-nav" >Call Detail Report</a>
+                        <div class="collapse" id="call-detail-report-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#attributes" class="nav-link" data-title="Attributes" parent-id="call-detail-report-nav">Attributes</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-cdrs" class="nav-link" data-title="Get CDRs" parent-id="call-detail-report-nav">Get CDRs</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-a-specific-cdr" class="nav-link" data-title="Get a Specific CDR" parent-id="call-detail-report-nav">Get a Specific CDR</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#errors" class="nav-link" data-title="Errors" >Errors</a>
+                        <div class="collapse" id="errors-nav" data-parent="#page-nav">
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </aside>
+          <!-- / navigation -->
+          <!-- content -->
+          <article class="col-lg-9 col-xxl-10 doc-content">
+            <div class="row">
+              <div class="col">
+                <div class="doc-content-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <nav aria-label="breadcrumb" class="align-items-center">
+                        <a href="index.html" class="breadcrumb-back" title="Back"></a>
+                        <ol class="breadcrumb d-none d-lg-inline-flex">
+                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">PBX API Reference</li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between doc-content-body">
+              <article class="col-md-9 col-xxl-8">
+                <h1 id='introduction' class='h1 font-weight-light'>Introduction</h1>
 <p>Xin chào! Đây là bộ API Autocall, OTP, Voice call Text-to-speech của TEL4VN.</p>
 
 <p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: support@tel4vn.com.</p>
 
 <p>Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản test sẽ được bên phía Tổng đài cung cấp.</p>
-<h1 id='authentication'>Authentication</h1><h2 id='login-account'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth'</span> <span class="se">\</span>
+<h1 id='authentication' class='h1 font-weight-light'>Authentication</h1><h2 id='login-account' class='h2 font-weight-light'>Login Account</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "username" : "foo@test.tel4vn.com",
@@ -407,9 +481,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Login thành công sẽ trả về thông tin account.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/auth</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -425,7 +499,7 @@
 <td>Account&#39;s password</td>
 </tr>
 </tbody></table>
-<h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth/token'</span> <span class="se">\</span>
+<h2 id='get-access-token' class='h2 font-weight-light'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth/token'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -451,12 +525,12 @@
 
 <p><code>Authorization: Bearer {TOKEN}</code></p>
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
+</div>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/auth/token</code></p>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -468,7 +542,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>api_key có trong thông tin của account</td>
 </tr>
 </tbody></table>
-<h1 id='template-k-ch-b-n'>Template - Kịch bản</h1>
+<h1 id='template-k-ch-b-n' class='h1 font-weight-light'>Template - Kịch bản</h1>
 <p>Tốc độ đọc tăng dần từ 0 đến 2. Với 1 là tốc độ đọc bình thường và 2 là tốc độ đọc nhanh nhất.</p>
 
 <p>Các giọng đọc kịch bản đang hỗ trợ</p>
@@ -504,7 +578,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Miền Nam 1 - Giọng nữ</td>
 </tr>
 </tbody></table>
-<h2 id='k-ch-b-n-otp'>Kịch bản OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/campaign/1/otp'</span> <span class="se">\</span>
+<h2 id='k-ch-b-n-otp' class='h2 font-weight-light'>Kịch bản OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/campaign/1/otp'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -522,9 +596,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản OTP</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/campaign/{campaignId}/otp</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -536,7 +610,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Campaign Id được cấp</td>
 </tr>
 </tbody></table>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -574,7 +648,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Tốc độ đọc kịch bản</td>
 </tr>
 </tbody></table>
-<h2 id='k-ch-b-n-tts'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' http://{API_HOST}/v1/campaign/1/template'</span> <span class="se">\</span>
+<h2 id='k-ch-b-n-tts' class='h2 font-weight-light'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' http://{API_HOST}/v1/campaign/1/template'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -611,9 +685,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/campaign/{campaignId}/template</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-2' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -625,7 +699,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Campaign Id được cấp</td>
 </tr>
 </tbody></table>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -767,7 +841,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </ul>
 
 <p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
-<h1 id='autocall'>Autocall</h1>
+<h1 id='autocall' class='h1 font-weight-light'>Autocall</h1>
 <p>API xử lý autocall.</p>
 
 <p>Lưu ý:</p>
@@ -775,7 +849,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <p>Mỗi user tuỳ theo gói sử dụng mà có số lượng cuộc gọi đồng thời khác nhau.</p>
 
 <p>Nếu cuộc gọi tiếp theo quá số lượng cuộc gọi đồng thời của gói, bạn có thể set <code>&quot;queue&quot; : true</code> để cuộc gọi đó được đẩy vào queue và tự động make call sau đó.</p>
-<h2 id='run-otp'>Run OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/autocall/otp'</span> <span class="se">\</span>
+<h2 id='run-otp' class='h2 font-weight-light'>Run OTP</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/autocall/otp'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -799,9 +873,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API thực hiện cuộc gọi OTP</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/autocall/otp</code></p>
-<h3 id='body-5'>Body</h3>
+<h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -861,7 +935,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Đẩy cuộc gọi vào queue</td>
 </tr>
 </tbody></table>
-<h2 id='run-tts'>Run TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/autocall/voice'</span> <span class="se">\</span>
+<h2 id='run-tts' class='h2 font-weight-light'>Run TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/autocall/voice'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -887,9 +961,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API thực hiện cuộc gọi Text-To-Speech</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/autocall/voice</code></p>
-<h3 id='body-6'>Body</h3>
+<h3 id='body-6' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
@@ -968,7 +1042,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
   <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
 </ul>
-<h1 id='audio-file'>Audio File</h1><h2 id='upload-audio-file'>Upload audio file</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/audio'</span> <span class="se">\</span>
+<h1 id='audio-file' class='h1 font-weight-light'>Audio File</h1><h2 id='upload-audio-file' class='h2 font-weight-light'>Upload audio file</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'http://{API_HOST}/v1/audio'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span> <span class="se">\</span>
 <span class="nt">--form</span> <span class="s1">'file=@"/audio_folders/AUDIO_1.wav"'</span>
 </code></pre></div>
@@ -980,9 +1054,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API Upload file audio</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/audio</code></p>
-<h3 id='form-data'>Form Data</h3>
+<h3 id='form-data' class='h3 font-weight-light'>Form Data</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -994,9 +1068,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>File Audio</td>
 </tr>
 </tbody></table>
-<h1 id='call-detail-report'>Call Detail Report</h1>
+<h1 id='call-detail-report' class='h1 font-weight-light'>Call Detail Report</h1>
 <p>Lịch sử cuộc gọi</p>
-<h2 id='attributes'>Attributes</h2>
+<h2 id='attributes' class='h2 font-weight-light'>Attributes</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -1085,7 +1159,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>string</td>
 </tr>
 </tbody></table>
-<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/v1/report?limit=10&amp;offset=0'</span> <span class="se">\</span>
+<h2 id='get-cdrs' class='h2 font-weight-light'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/v1/report?limit=10&amp;offset=0'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span>
 </code></pre></div>
 <blockquote>
@@ -1115,9 +1189,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy một cdr cụ thể.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-8' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/report</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-3' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1141,7 +1215,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Số điện thoại nhận cuộc gọi</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/v1/report/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
+<h2 id='get-a-specific-cdr' class='h2 font-weight-light'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'http://{API_HOST}/v1/report/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: 1ebe8f88MzA1MTNkZjMtZjc3My00MTmY'</span>
 </code></pre></div>
 <blockquote>
@@ -1169,9 +1243,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy một cdr cụ thể.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-9' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/report/{call_id}</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
+<h3 id='url-parameters-4' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1183,7 +1257,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>call_id trong data trả về</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+<h1 id='errors' class='h1 font-weight-light'>Errors</h1>
 <p>PBX API sử dụng các mã lỗi sau</p>
 
 <table><thead>
@@ -1222,12 +1296,66 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 </tbody></table>
 
+              </article>
+            </div>
+          </article>
+          <!-- / content -->
+        </div>
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">cURL</a>
-          </div>
+    </section>
+    <script src="js/vendor.min-085c5346.js"></script>
+    <script src="js/app-25d33ffd.js"></script>
+    <script>
+      jQuery(window).on('activate.bs.scrollspy', function ( e,obj) {
+        try{
+          let tmp = $(`a[href="${obj.relatedTarget}"]`)
+          parentId= tmp.attr("parent-id")
+          $(".collapse").removeClass("show")
+          $(`#${parentId}`).addClass("show")
+        } catch(error){
+          console.log(error)
+        }
+      })
+      $("table").addClass("table table-bordered")
+      $("table th").addClass("bg-white text-dark font-weight-bold")
+      $(".doc-content-body h1").addClass("text-success font-weight-bold")
+      $("blockquote").each(function(index){
+      tmp = $(this)
+      $(this).replaceWith(
+        `<blockquote><mark> > ${tmp.text()}</mark><blockquote/>`
+      )
+      })
+      $("div.highlight").each(function(index){
+      tmp = $(this)
+      content = tmp.children("pre")[0]
+      title = "Request Example"
+      if ($(content).hasClass( "json" )){
+      title = "Response Example"
+      }
+      $(this).replaceWith(
+      `
+      <div class="accordion accordion-stack mb-2" id="accordion-${index}">
+      <div class="card">
+      <div class="card-header" id="heading-${index}-1">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-${index}-1" aria-expanded="false" aria-controls="collapse-${index}-1">
+            ${title}
+          </button>
+        </h5>
       </div>
-    </div>
+      
+      <div id="collapse-${index}-1" class="collapse" aria-labelledby="heading-${index}-1" data-parent="#accordion-${index}">
+        <div class="card-body bg-dark">
+        <div class="mt-2">
+        ${$(content).prop('outerHTML')}
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      `
+      )
+      })
+    </script>
   </body>
 </html>

@@ -1,6 +1,6 @@
-<h1 id='cdrs-call-detail-records'>CDRs - Call Detail Records</h1>
+<h1 id='cdrs-call-detail-records' class='h1 font-weight-light'>CDRs - Call Detail Records</h1>
 <p>Lịch sử cuộc gọi</p>
-<h3 id='attributes'>Attributes</h3>
+<h3 id='attributes' class='h3 font-weight-light'>Attributes</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -64,7 +64,7 @@
 <td>Trạng thái cuộc gọi</td>
 </tr>
 </tbody></table>
-<h2 id='get-cdrs'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/cdr?'</span> <span class="se">\</span>
+<h2 id='get-cdrs' class='h2 font-weight-light'>Get CDRs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/cdr?'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -159,9 +159,9 @@ Pagination: Phân trang.
 Scroll: Cuộn trang. (Mặc định)</p>
 
 <p>Nếu user cung cấp trong param: page - Số trang, limit - số lượng trả về thì API sẽ trả về dữ liêu theo cơ chế Pagination.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/cdr</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -245,7 +245,7 @@ Scroll: Cuộn trang. (Mặc định)</p>
 <td>abc123efsds...</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-cdr'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
+<h2 id='get-a-specific-cdr' class='h2 font-weight-light'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -270,9 +270,9 @@ Scroll: Cuộn trang. (Mặc định)</p>
 </span></code></pre></div>
 <p>API dùng để lấy một cdr cụ thể.
 Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/cdr/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>

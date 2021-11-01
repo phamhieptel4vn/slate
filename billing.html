@@ -1,12 +1,12 @@
-
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>PBX API Reference</title>
-
+    <title>Billing API - TEL4VN</title>
+    <script type="text/javascript" id="www-widgetapi-script" src="https://www.youtube.com/s/player/9216d1f7/www-widgetapi.vflset/www-widgetapi.js" async></script>
+    <link rel="stylesheet" href="css/style-1f587a25.css">
     <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -282,105 +282,177 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-2ede71d7.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e033bdd3.js"></script>
-
-    <script>
-      $(function() { setupCodeCopy(); });
-    </script>
+      <script>
+        $(function() { setupCodeCopy(); });
+      </script>
     <link href="images/favicon-639cf3ec.ico" rel="icon" type="image/ico" />
   </head>
-
-  <body class="billing" data-languages="[&quot;shell&quot;]">
-    <a href="#" id="nav-button">
-      <span>
-        NAV
-        <img src="images/navbar-cad8cdcb.png" alt="" />
-      </span>
-    </a>
-    <div class="toc-wrapper">
-      <img src="images/logo-4a7690d9.png" class="logo" alt="" />
-        <div class="lang-selector">
-              <a href="#" data-language-name="shell">cURL</a>
+  <body class="billing headroom headroom--top headroom--not-bottom" data-languages="[&quot;shell&quot;]" data-spy="scroll" data-target="#page-nav">
+    <!-- header -->
+    <header class="header header-sticky header-light" style="background-color: #3bb78f;background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);">
+      <div class="container">
+        <div class="row">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a href="#" class="navbar-brand"><img src="images/logo-4a7690d9.png" class="logo" alt="" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto"></ul>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="https://tongdaivoip.com" target="_blank">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle active" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Documentation
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="/index.html">PBX API</a>
+                    <a class="dropdown-item" href="/autocall.html">Autocall API</a>
+                    <a class="dropdown-item" href="/billing.html">Billing API</a>
+                    <a class="dropdown-item" href="/callcenter.html">CallCenter v1 API</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link text-light font-weight-bold dropdown-toggle" href="#" id="dropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    SDK
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-1">
+                    <a class="dropdown-item" href="https://portal.tel4vn.com" target="_blank">Portal</a>
+                    <a class="dropdown-item" href="https://portal.tel4vn.com/docs" target="_blank">Document</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-light font-weight-bold" href="mailto:tech@tel4vn.com">Support</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
-      <ul id="toc" class="toc-list-h1">
-          <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-access-token" class="toc-h2 toc-link" data-title="Get Access Token">Get Access Token</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#customer" class="toc-h1 toc-link" data-title="Customer">Customer</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-customers" class="toc-h2 toc-link" data-title="Get Customers">Get Customers</a>
-                  </li>
-                  <li>
-                    <a href="#get-customer-by-id" class="toc-h2 toc-link" data-title="Get Customer By Id">Get Customer By Id</a>
-                  </li>
-                  <li>
-                    <a href="#update-customer-credit" class="toc-h2 toc-link" data-title="Update Customer Credit">Update Customer Credit</a>
-                  </li>
-                  <li>
-                    <a href="#add-customer-credit" class="toc-h2 toc-link" data-title="Add Customer Credit">Add Customer Credit</a>
-                  </li>
-                  <li>
-                    <a href="#update-customer-status" class="toc-h2 toc-link" data-title="Update Customer Status">Update Customer Status</a>
-                  </li>
-                  <li>
-                    <a href="#create-customer" class="toc-h2 toc-link" data-title="Create Customer">Create Customer</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#caller-id" class="toc-h1 toc-link" data-title="Caller ID">Caller ID</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#create-caller-id" class="toc-h2 toc-link" data-title="Create Caller Id">Create Caller Id</a>
-                  </li>
-                  <li>
-                    <a href="#update-caller-id-to-new-customer" class="toc-h2 toc-link" data-title="Update Caller Id To New Customer">Update Caller Id To New Customer</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#call" class="toc-h1 toc-link" data-title="Call">Call</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#call-logs" class="toc-h2 toc-link" data-title="Call Logs">Call Logs</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
-      </ul>
-        <ul class="toc-footer">
-            <li><p>If any problem please contact us</p></li>
-            <li><li>Email &#58; tech@tel4vn.com</li></li>
-        </ul>
-    </div>
-    <div class="page-wrapper">
-      <div class="dark-box"></div>
-      <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+      </div>
+    </header>
+    <!-- / header -->
+    <section class="pt-5">
+      <div class="container-fluid">
+        <div class="row justify-content-between">
+          <!-- navigation -->
+          <aside class="col-lg-3 col-xxl-2 p-3 doc-sidebar">
+            <div class="sticky">
+              <nav class="navbar navbar-vertical navbar-expand-lg navbar-light">
+                <div>
+                  <a href="#" class="navbar-brand">
+                    <h3>Billing API<span class="badge badge-green ml-2">1.0.3</span></h3>
+                  </a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul id="page-nav" class="nav flex-column nav-vertical-2">
+                      <li class="nav-item">
+                        <a href="#introduction" class="nav-link" data-title="Introduction" >Introduction</a>
+                        <div class="collapse" id="introduction-nav" data-parent="#page-nav">
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#authentication" class="nav-link" data-title="Authentication"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="authentication" data-target="#authentication-nav" >Authentication</a>
+                        <div class="collapse" id="authentication-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-access-token" class="nav-link" data-title="Get Access Token" parent-id="authentication-nav">Get Access Token</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#customer" class="nav-link" data-title="Customer"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="customer" data-target="#customer-nav" >Customer</a>
+                        <div class="collapse" id="customer-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-customers" class="nav-link" data-title="Get Customers" parent-id="customer-nav">Get Customers</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-customer-by-id" class="nav-link" data-title="Get Customer By Id" parent-id="customer-nav">Get Customer By Id</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#update-customer-credit" class="nav-link" data-title="Update Customer Credit" parent-id="customer-nav">Update Customer Credit</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#add-customer-credit" class="nav-link" data-title="Add Customer Credit" parent-id="customer-nav">Add Customer Credit</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#update-customer-status" class="nav-link" data-title="Update Customer Status" parent-id="customer-nav">Update Customer Status</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#create-customer" class="nav-link" data-title="Create Customer" parent-id="customer-nav">Create Customer</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#caller-id" class="nav-link" data-title="Caller ID"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="caller-id" data-target="#caller-id-nav" >Caller ID</a>
+                        <div class="collapse" id="caller-id-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#create-caller-id" class="nav-link" data-title="Create Caller Id" parent-id="caller-id-nav">Create Caller Id</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#update-caller-id-to-new-customer" class="nav-link" data-title="Update Caller Id To New Customer" parent-id="caller-id-nav">Update Caller Id To New Customer</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#call" class="nav-link" data-title="Call"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="call" data-target="#call-nav" >Call</a>
+                        <div class="collapse" id="call-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#call-logs" class="nav-link" data-title="Call Logs" parent-id="call-nav">Call Logs</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#errors" class="nav-link" data-title="Errors" >Errors</a>
+                        <div class="collapse" id="errors-nav" data-parent="#page-nav">
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </aside>
+          <!-- / navigation -->
+          <!-- content -->
+          <article class="col-lg-9 col-xxl-10 doc-content">
+            <div class="row">
+              <div class="col">
+                <div class="doc-content-header">
+                  <div class="row align-items-center">
+                    <div class="col">
+                      <nav aria-label="breadcrumb" class="align-items-center">
+                        <a href="index.html" class="breadcrumb-back" title="Back"></a>
+                        <ol class="breadcrumb d-none d-lg-inline-flex">
+                          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Billing API</li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between doc-content-body">
+              <article class="col-md-9 col-xxl-8">
+                <h1 id='introduction' class='h1 font-weight-light'>Introduction</h1>
 <p>Xin chào! Đây là bộ API tích hợp của hệ thống billing TEL4VN.</p>
 
 <p>Nếu bạn cần thông tin để tích hợp hoặc cần hỗ trợ vui lòng liên hệ mail: tech@tel4vn.com.</p>
 
 <p>Các thông tin như {API_HOST}, {API_KEY}, tài khoản admin, tài khoản SIP test sẽ được bên phía Tổng đài cung cấp.</p>
-<h1 id='authentication'>Authentication</h1><h2 id='get-access-token'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth/token'</span> <span class="se">\</span>
+<h1 id='authentication' class='h1 font-weight-light'>Authentication</h1><h2 id='get-access-token' class='h2 font-weight-light'>Get Access Token</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/auth/token'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "api_key": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"
@@ -406,12 +478,12 @@
 
 <p><code>Authorization: Bearer {TOKEN}</code></p>
 
-<aside class="notice">
+<div class="alert alert-success alert-dismissible fade show" role="alert">
 Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy được.
-</aside>
-<h3 id='http-request'>HTTP Request</h3>
+</div>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/auth/token</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -423,7 +495,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>api_key có trong thông tin của account</td>
 </tr>
 </tbody></table>
-<h1 id='customer'>Customer</h1><h2 id='get-customers'>Get Customers</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/customer?limit=10&amp;offset=0'</span> <span class="se">\</span>
+<h1 id='customer' class='h1 font-weight-light'>Customer</h1><h2 id='get-customers' class='h2 font-weight-light'>Get Customers</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/customer?limit=10&amp;offset=0'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -487,9 +559,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách khách hàng.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/customer</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -508,7 +580,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-customer-by-id'>Get Customer By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/customer/1'</span> <span class="se">\</span>
+<h2 id='get-customer-by-id' class='h2 font-weight-light'>Get Customer By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/customer/1'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -539,9 +611,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy thông tin khách hàng theo id.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/customer/{{customer_id}}</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
+<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -555,7 +627,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0906237580</td>
 </tr>
 </tbody></table>
-<h2 id='update-customer-credit'>Update Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/credit'</span> <span class="se">\</span>
+<h2 id='update-customer-credit' class='h2 font-weight-light'>Update Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/credit'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -572,9 +644,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để cập nhật số dư khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/credit</code></p>
-<h3 id='query-parameters-3'>Query Parameters</h3>
+<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -588,7 +660,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0906237580</td>
 </tr>
 </tbody></table>
-<h3 id='body-2'>Body</h3>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -602,7 +674,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>12</td>
 </tr>
 </tbody></table>
-<h2 id='add-customer-credit'>Add Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/credit/add'</span> <span class="se">\</span>
+<h2 id='add-customer-credit' class='h2 font-weight-light'>Add Customer Credit</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/credit/add'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -619,9 +691,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để cập nhật số dư khách hàng theo id. Khác với API Update Credit phía trên, API này sẽ cộng thêm vào số dư hiện tại của khách hàng. Ví dụ: Khách hàng đang còn 3, credit truyền vào là 12 thì số dư của khách sẽ là 15. (Log sẽ được lưu mỗi khi update thành công)</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/credit/add</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
+<h3 id='query-parameters-4' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -635,7 +707,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0906237580</td>
 </tr>
 </tbody></table>
-<h3 id='body-3'>Body</h3>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -649,7 +721,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>12</td>
 </tr>
 </tbody></table>
-<h2 id='update-customer-status'>Update Customer Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/status'</span> <span class="se">\</span>
+<h2 id='update-customer-status' class='h2 font-weight-light'>Update Customer Status</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/customer/{{customer_id}}/status'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -665,9 +737,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để cập nhật trạng thái khách hàng theo id. (Log sẽ được lưu mỗi khi update thành công)</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT http://{API_HOST}/v1/customer/{{customer_id}}/status</code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-5' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -681,7 +753,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0906237580</td>
 </tr>
 </tbody></table>
-<h3 id='body-4'>Body</h3>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -695,7 +767,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>active</td>
 </tr>
 </tbody></table>
-<h3 id='status'>Status</h3>
+<h3 id='status' class='h3 font-weight-light'>Status</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -719,7 +791,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Tạm ngưng dịch vụ</td>
 </tr>
 </tbody></table>
-<h2 id='create-customer'>Create Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/customer'</span> <span class="se">\</span>
+<h2 id='create-customer' class='h2 font-weight-light'>Create Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/customer'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -745,9 +817,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để tạo khách hàng.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/customer</code></p>
-<h3 id='body-5'>Body</h3>
+<h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -786,7 +858,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>100</td>
 </tr>
 </tbody></table>
-<h1 id='caller-id'>Caller ID</h1><h2 id='create-caller-id'>Create Caller Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/callerid'</span> <span class="se">\</span>
+<h1 id='caller-id' class='h1 font-weight-light'>Caller ID</h1><h2 id='create-caller-id' class='h2 font-weight-light'>Create Caller Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'http://{API_HOST}/v1/callerid'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -804,9 +876,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để tạo khách hàng.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-8' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST http://{API_HOST}/v1/callerid</code></p>
-<h3 id='body-6'>Body</h3>
+<h3 id='body-6' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -825,7 +897,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0899999999</td>
 </tr>
 </tbody></table>
-<h2 id='update-caller-id-to-new-customer'>Update Caller Id To New Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/callerid/{{cid}}'</span> <span class="se">\</span>
+<h2 id='update-caller-id-to-new-customer' class='h2 font-weight-light'>Update Caller Id To New Customer</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'http://{API_HOST}/v1/callerid/{{cid}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -842,9 +914,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để cập nhật caller_id cho khách hàng mới. (Log sẽ được lưu mỗi khi update thành công)</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-9' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT http://{API_HOST}/v1/callerid/{{cid}}</code></p>
-<h3 id='query-parameters-6'>Query Parameters</h3>
+<h3 id='query-parameters-6' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -858,7 +930,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0899999999</td>
 </tr>
 </tbody></table>
-<h3 id='body-7'>Body</h3>
+<h3 id='body-7' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -872,7 +944,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>11</td>
 </tr>
 </tbody></table>
-<h1 id='call'>Call</h1><h2 id='call-logs'>Call Logs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/call/log?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
+<h1 id='call' class='h1 font-weight-light'>Call</h1><h2 id='call-logs' class='h2 font-weight-light'>Call Logs</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{API_HOST}/v1/call/log?end_date=2021-06-01%2000:00:00&amp;start_date=2021-06-01%2023:59:59'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNjEzNjMyNzc4fQ.dGhpcyBpcyB0ZXN0IGRhdGE='</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span>
 </code></pre></div>
@@ -916,9 +988,9 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để lấy danh sách các cuộc gọi và số tiền theo khoảng thời gian.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-10' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET http://{API_HOST}/v1/call/log</code></p>
-<h3 id='query-parameters-7'>Query Parameters</h3>
+<h3 id='query-parameters-7' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -952,7 +1024,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>0</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
+<h1 id='errors' class='h1 font-weight-light'>Errors</h1>
 <p>PBX API sử dụng các mã lỗi sau</p>
 
 <table><thead>
@@ -991,12 +1063,66 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 </tr>
 </tbody></table>
 
+              </article>
+            </div>
+          </article>
+          <!-- / content -->
+        </div>
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="shell">cURL</a>
-          </div>
+    </section>
+    <script src="js/vendor.min-085c5346.js"></script>
+    <script src="js/app-25d33ffd.js"></script>
+    <script>
+      jQuery(window).on('activate.bs.scrollspy', function ( e,obj) {
+        try{
+          let tmp = $(`a[href="${obj.relatedTarget}"]`)
+          parentId= tmp.attr("parent-id")
+          $(".collapse").removeClass("show")
+          $(`#${parentId}`).addClass("show")
+        } catch(error){
+          console.log(error)
+        }
+      })
+      $("table").addClass("table table-bordered")
+      $("table th").addClass("bg-white text-dark font-weight-bold")
+      $(".doc-content-body h1").addClass("text-success font-weight-bold")
+      $("blockquote").each(function(index){
+      tmp = $(this)
+      $(this).replaceWith(
+        `<blockquote><mark> > ${tmp.text()}</mark><blockquote/>`
+      )
+      })
+      $("div.highlight").each(function(index){
+      tmp = $(this)
+      content = tmp.children("pre")[0]
+      title = "Request Example"
+      if ($(content).hasClass( "json" )){
+      title = "Response Example"
+      }
+      $(this).replaceWith(
+      `
+      <div class="accordion accordion-stack mb-2" id="accordion-${index}">
+      <div class="card">
+      <div class="card-header" id="heading-${index}-1">
+        <h5 class="mb-0">
+          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-${index}-1" aria-expanded="false" aria-controls="collapse-${index}-1">
+            ${title}
+          </button>
+        </h5>
       </div>
-    </div>
+      
+      <div id="collapse-${index}-1" class="collapse" aria-labelledby="heading-${index}-1" data-parent="#accordion-${index}">
+        <div class="card-body bg-dark">
+        <div class="mt-2">
+        ${$(content).prop('outerHTML')}
+        </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      `
+      )
+      })
+    </script>
   </body>
 </html>

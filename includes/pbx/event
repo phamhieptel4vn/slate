@@ -1,4 +1,4 @@
-<h1 id='event'>Event</h1><h2 id='get-events'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
+<h1 id='event' class='h1 font-weight-light'>Event</h1><h2 id='get-events' class='h2 font-weight-light'>Get Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -19,9 +19,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Trả về các call events của tenant.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/event</code></p>
-<h2 id='create-events'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
+<h2 id='create-events' class='h2 font-weight-light'>Create Events</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/event'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
@@ -38,9 +38,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo Event Hook, mỗi lần bắt được {event} tổng đài sẽ hook dữ liệu về {callback_url}.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/event</code></p>
-<h3 id='body'>Body</h3>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -60,7 +60,7 @@
 <td>SIP Call Event</td>
 </tr>
 </tbody></table>
-<h3 id='sip-call-event'>SIP Call Event</h3>
+<h3 id='sip-call-event' class='h3 font-weight-light'>SIP Call Event</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -93,10 +93,10 @@
 </tr>
 </tbody></table>
 
-<aside class="danger">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</aside>
+<div class="alert alert-danger alert-dismissible fade show" role="alert">Nếu bạn tạo event nằm ngoài các event ở trên, hệ thống sẽ không nhận diện được nên sẽ không hook data về.</div>
 
-<aside class="warning">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</aside>
-<h2 id='delete-event'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'https://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">Nếu bạn cần hook event ngoài các event ở trên, vui lòng gửi mail hỗ trợ.</div>
+<h2 id='delete-event' class='h2 font-weight-light'>Delete Event</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'https://{{API_HOST}}/v1/event/eeeeeeee-1111-2222-3333-eeeeeeee'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
 <blockquote>
@@ -107,9 +107,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API dùng để xoá một event_domain.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v1/event/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters' class='h3 font-weight-light'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -121,7 +121,7 @@
 <td>ID của event</td>
 </tr>
 </tbody></table>
-<h2 id='event-hook-data'>Event Hook Data</h2>
+<h2 id='event-hook-data' class='h2 font-weight-light'>Event Hook Data</h2>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
@@ -138,7 +138,7 @@
   </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
   </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='description'>Description</h3>
+</span></code></pre></div><h3 id='description' class='h3 font-weight-light'>Description</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -198,7 +198,7 @@
 <td>Id của customer khi import vào queue (Riêng sự kiện cdr_autocall)</td>
 </tr>
 </tbody></table>
-<h2 id='note'>Note*</h2>
+<h2 id='note' class='h2 font-weight-light'>Note*</h2>
 <p>Một số thông tin cần lưu ý khi tích hợp event:</p>
 
 <ul>
