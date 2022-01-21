@@ -526,6 +526,39 @@
                         </div>
                       </li>
                       <li class="nav-item">
+                        <a href="#template" class="nav-link" data-title="Template"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="template" data-target="#template-nav" >Template</a>
+                        <div class="collapse" id="template-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#k-ch-b-n-tts" class="nav-link" data-title="Kịch bản TTS" parent-id="template-nav">Kịch bản TTS</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#autocall" class="nav-link" data-title="Autocall"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="autocall" data-target="#autocall-nav" >Autocall</a>
+                        <div class="collapse" id="autocall-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#nh-n-d-li-u-queue" class="nav-link" data-title="Nhận dữ liệu queue" parent-id="autocall-nav">Nhận dữ liệu queue</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#audio" class="nav-link" data-title="Audio"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="audio" data-target="#audio-nav" >Audio</a>
+                        <div class="collapse" id="audio-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-audios" class="nav-link" data-title="Get Audios" parent-id="audio-nav">Get Audios</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#upload-audio" class="nav-link" data-title="Upload Audio" parent-id="audio-nav">Upload Audio</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
                         <a href="#blacklist" class="nav-link" data-title="Blacklist"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="blacklist" data-target="#blacklist-nav" >Blacklist</a>
                         <div class="collapse" id="blacklist-nav" data-parent="#page-nav">
                             <ul class="nav flex-column">
@@ -2117,6 +2150,403 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>pwd</td>
 <td>Password</td>
+</tr>
+</tbody></table>
+<h1 id='template' class='h1 font-weight-light'>Template</h1>
+<p>Tốc độ đọc tăng dần từ 0 đến 2. Với 1 là tốc độ đọc bình thường và 2 là tốc độ đọc nhanh nhất.</p>
+
+<p>Các giọng đọc kịch bản đang hỗ trợ</p>
+
+<table><thead>
+<tr>
+<th>Id</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>north-m-01</td>
+<td>Miền Bắc 1 - Giọng nam</td>
+</tr>
+<tr>
+<td>north-f-01</td>
+<td>Miền Bắc 1 - Giọng nữ</td>
+</tr>
+<tr>
+<td>north-m-02</td>
+<td>Miền Bắc 2 - Giọng nam</td>
+</tr>
+<tr>
+<td>north-f-02</td>
+<td>Miền Bắc 2 - Giọng nữ</td>
+</tr>
+<tr>
+<td>south-m-03</td>
+<td>Miền Nam 1 - Giọng nam</td>
+</tr>
+<tr>
+<td>south-f-03</td>
+<td>Miền Nam 1 - Giọng nữ</td>
+</tr>
+</tbody></table>
+<h2 id='k-ch-b-n-tts' class='h2 font-weight-light'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' https://{API_HOST}/v1/template'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "name": "thong_bao_no_cuoc_01",
+    "content": "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}, vui lòng bấm phím 1 nếu bạn đã thanh toán",
+    "voice_type": "tts",
+    "enable_option": true,
+    "voice_tts": "south-f-03",
+    "speed_tts": 1.2,
+    "press_options": [
+      {
+        "press_num": 1,
+        "type": "tts",
+        "content": "Cám ơn {{customer_name}} đã thanh toán"
+      }
+    ],
+    "exit_sound":{
+        "enable": true,
+        "voice_type":"tts",
+        "content":"Cám ơn {{customer_name}} đã sử dụng"
+    },
+    "invalid_sound":{
+        "enable": true,
+        "voice_type":"tts",
+        "content":"{{customer_name}} đã nhập sai"
+    }
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Tạo kịch bản Text-To-Speech</p>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{API_HOST}/v1/template</code></p>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Chào bạn {{key_field_1}} vui lòng thanh toán khoản nợ {{key_field_2}} trước ngày {{key_field_3}}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_tts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"south-f-03"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"speed_tts"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enable_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"press_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"press_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{key_field_1}} đã bấm phím một"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"press_num"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{key_field_1}} đã bấm phím hai"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"exit_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cám ơn {{key_field_1}} đã sử dụng"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"invalid_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"enable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{{key_field_1}} đã nhập sai"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Tên kịch bản muốn tạo. (Phải là duy nhất)</td>
+</tr>
+<tr>
+<td>key_field_1,2,3</td>
+<td>Các từ khoá trong kịch bản</td>
+</tr>
+<tr>
+<td>voice_type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>voice_tts</td>
+<td>Giọng đọc kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>speed_tts</td>
+<td>Tốc độ đọc kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
+</tr>
+<tr>
+<td>enable_option</td>
+<td>Xử lý kịch bản kèm phím bấm</td>
+</tr>
+<tr>
+<td>press_options</td>
+<td>Danh sách các phím bấm cần xử lý</td>
+</tr>
+<tr>
+<td>press_options.press_num</td>
+<td>Phím bấm cần xử lý</td>
+</tr>
+<tr>
+<td>press_options.type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>press_options.type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>exit_sound</td>
+<td>Xử lý khi kết thúc kịch bản</td>
+</tr>
+<tr>
+<td>exit_sound.enable</td>
+<td>Bật xử lý khi kết thúc kịch bản</td>
+</tr>
+<tr>
+<td>exit_sound.voice_type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>exit_sound.content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>exit_sound.audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
+</tr>
+<tr>
+<td>invalid_sound</td>
+<td>Xử lý khi bấm sai phím trong kịch bản</td>
+</tr>
+<tr>
+<td>invalid_sound.enable</td>
+<td>Bật xử lý khi bấm sai phím trong kịch bản</td>
+</tr>
+<tr>
+<td>invalid_sound.voice_type</td>
+<td>Loại autocall : tts, audio_file</td>
+</tr>
+<tr>
+<td>invalid_sound.content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>invalid_sound.audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
+</tr>
+</tbody></table>
+
+<p>key_field: tương ứng với đoạn text import vào campaign người dùng định nghĩa.</p>
+
+<p>Ví dụ:</p>
+
+<ul>
+    <li>key_field_1 là {{customer_name}}</li>
+    <li>key_field_2 là {{due_amount}}</li>
+    <li>key_field_3 là {{due_date}}</li>
+</ul>
+
+<p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
+<h1 id='autocall' class='h1 font-weight-light'>Autocall</h1><h2 id='nh-n-d-li-u-queue' class='h2 font-weight-light'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/ivr'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "carrier": "mobi",
+    "template": "thong_bao_no_cuoc_01",
+    "phone_number": "0899123456",
+    "params": {
+        "customer_name" : "Nguyễn Văn A",
+        "contract_number": "HD123456",
+        "due_date": "2021-07-13"
+    }
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"missing tts key"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để nhận thông tin và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
+<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/autocall/ivr</code></p>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobi"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899123456"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nguyễn Văn A"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HD123456"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-13"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>carrier</td>
+<td>Đầu số, nhà mạng thực hiện cuộc gọi</td>
+<td>x</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Kịch bản dùng để</td>
+<td>x</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+<td></td>
+</tr>
+<tr>
+<td>params.customer_name,contract_number</td>
+<td>key_field</td>
+<td>x</td>
+</tr>
+</tbody></table>
+
+<p>Một số lưu ý:</p>
+
+<ul>
+  <li>Nếu muốn đọc đúng khoản tiền (Không đọc từng số) - truyền dữ liệu theo format: “10410000”</li>
+  <li>Nếu muốn đọc từng số (Ví dụ số điện thoại) - truyền dữ liệu theo format: 1 2 3 4 5 6 hoặc “0 9 8 7 6 5 4 3 2 1”</li>
+  <li>Nếu muốn đọc thành số (Ví dụ 15 - mười lăm) - truyền dữ liệu theo format: “#15”</li>
+  <li>Nếu giá trị của key field là ngày tháng năm - Yêu cầu format “dd/mm/yyyy” hoặc “yyyy-mm-dd”, ví dụ: “30/01/2021” hoặc "2021-01-30"</li>
+</ul>
+
+<p>customers.key_field: tương ứng với đoạn text import vào campaign người dùng đã định nghĩa.</p>
+
+<p>Ví dụ:</p>
+
+<ul>
+  <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
+  <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
+</ul>
+<h1 id='audio' class='h1 font-weight-light'>Audio</h1><h2 id='get-audios' class='h2 font-weight-light'>Get Audios</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"audio_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"793e2938-2d1e-4274-8dfd-ce6e2edbc4b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"audio_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo-01.wav"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T13:16:32Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"audio_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"793e2938-2d1e-4274-8dfd-ce6e2edbc4b0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"audio_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo-02.wav"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T14:16:32Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/audio</code></p>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='upload-audio' class='h2 font-weight-light'>Upload Audio</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://api-pbx03.tel4vn.com/v1/audio'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--form</span> <span class="s1">'file=@"/D:/tel4vn/demo.wav"'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"793e2938-2d1e-4274-8dfd-ce6e2edbc4b0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audio is existed"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để upload file audio lên server.</p>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/audio</code></p>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>file audio</td>
+<td>x</td>
 </tr>
 </tbody></table>
 <h1 id='blacklist' class='h1 font-weight-light'>Blacklist</h1><h2 id='get-blacklists' class='h2 font-weight-light'>Get Blacklists</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/blacklist'</span> <span class="se">\</span>
