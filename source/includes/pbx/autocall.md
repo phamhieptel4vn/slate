@@ -136,7 +136,7 @@ Ví dụ:
 
 # Autocall
 
-## Nhận dữ liệu queue
+## Khởi chạy autocall
 
 ```shell
 curl --location --request POST 'https://{{API_HOST}}/v1/autocall/ivr' \
