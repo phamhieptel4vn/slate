@@ -20,7 +20,6 @@ curl --location --request POST ' https://{API_HOST}/v1/template' \
 --header 'Authorization: {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "campaign_id" : "663dec3e-a405-4372-9991-8e6ae9f9788a",
     "name": "thong_bao_no_cuoc_01",
     "content": "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}, vui lòng bấm phím 1 nếu bạn đã thanh toán",
     "voice_type": "tts",
@@ -67,7 +66,6 @@ Tạo kịch bản Text-To-Speech
 
 ```json
 {
-  "campaign_id": "663dec3e-a405-4372-9991-8e6ae9f9788a",
   "name": "thong_bao_no_cuoc_01",
   "content": "Chào bạn {{key_field_1}} vui lòng thanh toán khoản nợ {{key_field_2}} trước ngày {{key_field_3}}",
   "voice_type": "tts",
@@ -101,7 +99,6 @@ Tạo kịch bản Text-To-Speech
 
 | Parameter                | Description                                       |
 | ------------------------ | ------------------------------------------------- |
-| campaign_id              | Kịch bản được gán vào campaign                    |
 | name                     | Tên kịch bản muốn tạo. (Phải là duy nhất)         |
 | key_field_1,2,3          | Các từ khoá trong kịch bản                        |
 | voice_type               | Loại autocall : tts, audio_file                   |
@@ -142,22 +139,18 @@ Ví dụ:
 ## Nhận dữ liệu queue
 
 ```shell
-curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue' \
+curl --location --request POST 'https://{{API_HOST}}/v1/autocall/ivr' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "queue_code": "Autocall",
-  "template": "Test Autocall",
-  "concurrent_call": "5",
-  "customers": [
-    {
-      "id": "TEL4VN_Test",
-      "mobiles": ["0899123456"],
-      "contract_number": "HD123456",
-      "due_date": "2021-07-13"
+    "carrier": "mobi",
+    "template": "thong_bao_no_cuoc_01",
+    "phone_number": "0899123456",
+    "params": {
+        "customer_name" : "Nguyễn Văn A",
+        "contract_number": "HD123456",
+        "due_date": "2021-07-13"
     }
-  ]
 }'
 ```
 
@@ -165,10 +158,7 @@ curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue' \
 
 ```json
 {
-  "data": {
-    "fail": [],
-    "success": ["TEL4VN_Test"]
-  }
+  "message": "success"
 }
 ```
 
@@ -176,18 +166,15 @@ curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue' \
 
 ```json
 {
-  "data": {
-    "fail": [],
-    "success": []
-  }
+  "error": "missing tts key"
 }
 ```
 
-API này nhằm mục đích nhận thông tin về queue để tiến hành tự động gọi ra theo kịch bản.
+API này dùng để nhận thông tin và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.
 
 ### HTTP Request
 
-`POST https://{{API_HOST}}/v1/autocall/queue`
+`POST https://{{API_HOST}}/v1/autocall/ivr`
 
 ### Body
 
@@ -195,30 +182,23 @@ API này nhằm mục đích nhận thông tin về queue để tiến hành t�
 
 ```json
 {
-  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "queue_code": "Autocall",
-  "template": "Test Autocall",
-  "concurrent_call": "5",
-  "customers": [
-    {
-      "id": "TEL4VN_Test",
-      "mobiles": ["0899123456"],
-      "contract_number": "HD123456",
-      "due_date": "2021-07-13"
-    }
-  ]
+  "carrier": "mobi",
+  "template": "thong_bao_no_cuoc_01",
+  "phone_number": "0899123456",
+  "params": {
+    "customer_name": "Nguyễn Văn A",
+    "contract_number": "HD123456",
+    "due_date": "2021-07-13"
+  }
 }
 ```
 
-| Parameter                          | Description                                | Required |
-| ---------------------------------- | ------------------------------------------ | -------- |
-| campaign_id                        | Id của campaign                            | x        |
-| queue_code                         | Mã queue                                   | x        |
-| template                           | Kịch bản dùng để                           | x        |
-| concurrent_call                    | Số lượng cuộc gọi đồng thời                |          |
-| customers.id                       | ID của khách hàng                          | x        |
-| customers.mobiles                  | Danh sách các số điện thoại của khách hàng | x        |
-| customers.contract_number,due_date | key_field                                  | x        |
+| Parameter                            | Description                         | Required |
+| ------------------------------------ | ----------------------------------- | -------- |
+| carrier                              | Đầu số, nhà mạng thực hiện cuộc gọi | x        |
+| template                             | Kịch bản dùng để                    | x        |
+| phone_number                         | Số điện thoại nhận cuộc gọi         |          |
+| params.customer_name,contract_number | key_field                           | x        |
 
 Một số lưu ý:
 
@@ -238,92 +218,66 @@ Ví dụ:
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
 </ul>
 
-## Import danh sách chặn
+# Audio
+
+## Get Audios
 
 ```shell
-curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/dnc' \
---header 'Authorization: Bearer {{TOKEN}}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "queue_code": "Autocall-Q1",
-    "customers": [
-        {
-          "id": "KH_01"
-        },
-        {
-          "id": "KH_02"
-        },
-        {
-          "id": "KH_03"
-        }
-    ]
-}'
+curl -L -X GET 'https://{{API_HOST}}/v1/blacklist' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
 ```
 
 > Response trả về:
 
 ```json
 {
-  "message": "successfully"
-}
-```
-
-> Error Response trả về:
-
-```json
-{
-  "message": "queue not found"
-}
-```
-
-API này nhằm mục đích cung cấp danh sách các khách hàng cần chặn cuộc gọi lên tổng đài. Tổng đài sẽ loại/bỏ qua các khách hàng này khi quay số nếu chưa quay đến. Nếu đã quay rồi hoặc đang trong cuộc gọi thì giữ nguyên.
-
-### HTTP Request
-
-`POST https://{{API_HOST}}/v1/autocall/queue/dnc`
-
-### Body
-
-> Sample data:
-
-```json
-{
-  "queue_code": "Autocall-Q1",
-  "customers": [
+  "data": [
     {
-      "id": "KH_01"
+      "domain_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+      "audio_uuid": "793e2938-2d1e-4274-8dfd-ce6e2edbc4b0",
+      "audio_name": "demo-01.wav",
+      "created_at": "2022-01-01T13:16:32Z"
     },
     {
-      "id": "KH_02"
+      "domain_uuid": "aaaaaaaa-1111-2222-3333-eeeeeeee",
+      "audio_uuid": "793e2938-2d1e-4274-8dfd-ce6e2edbc4b0",
+      "audio_name": "demo-02.wav",
+      "created_at": "2022-01-01T14:16:32Z"
     },
-    {
-      "id": "KH_03"
-    }
-  ]
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 2
 }
 ```
 
-| Parameter    | Description       | Required |
-| ------------ | ----------------- | -------- |
-| queue_code   | Mã queue          | x        |
-| customers.id | ID của khách hàng | x        |
+### HTTP Request
 
-## Stop Queue
+`GET https://{{API_HOST}}/v1/audio`
+
+### Query Parameters
+
+| Parameter | Description              | Example |
+| --------- | ------------------------ | ------- |
+| limit     | Số lượng record trả về   | 50      |
+| offset    | Vị trí bắt đầu khi query | 0       |
+
+## Upload Audio
 
 ```shell
-curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/stop' \
+curl --location --request POST 'https://api-pbx03.tel4vn.com/v1/audio' \
 --header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
---data-raw '{
-    "queue_code": "Autocall-Q1"
-}'
+--form 'file=@"/D:/tel4vn/demo.wav"'
 ```
 
 > Response trả về:
 
 ```json
 {
-  "message": "successfully"
+  "created": true,
+  "id": "793e2938-2d1e-4274-8dfd-ce6e2edbc4b0"
 }
 ```
 
@@ -331,122 +285,20 @@ curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/stop' \
 
 ```json
 {
-  "message": "queue not found"
+  "error": "audio is existed"
 }
 ```
 
-API này nhằm mục đích yêu cầu tạm dừng một queue đang thực hiện.
+API này dùng để upload file audio lên server.
 
 ### HTTP Request
 
-`POST https://{{API_HOST}}/v1/autocall/queue/stop`
+`POST https://{{API_HOST}}/v1/audio`
 
 ### Body
 
 > Sample data:
 
-```json
-{
-  "queue_code": "Autocall-Q1"
-}
-```
-
-| Parameter  | Description | Required |
-| ---------- | ----------- | -------- |
-| queue_code | Mã queue    | x        |
-
-## Delete Queue
-
-```shell
-curl --location --request POST 'http://{{API_HOST}}/v2/autocall/queue/delete' \
---header 'Authorization: Bearer {{TOKEN}}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "queue_code": "Autocall-Q1"
-}'
-```
-
-> Response trả về:
-
-```json
-{
-  "code": 200,
-  "content": "successfully"
-}
-```
-
-> Error Response trả về:
-
-```json
-{
-  "code": 404,
-  "content": "queue not found"
-}
-```
-
-API này nhằm mục đích yêu cầu thu hồi (xoá) một queue sau khi đã tạm dừng.
-
-### HTTP Request
-
-`POST http://{{API_HOST}}/v2/autocall/queue/delete`
-
-### Body
-
-> Sample data:
-
-```json
-{
-  "queue_code": "Autocall-Q1"
-}
-```
-
-| Parameter  | Description | Required |
-| ---------- | ----------- | -------- |
-| queue_code | Mã queue    | x        |
-
-## Start Queue
-
-```shell
-curl --location --request POST 'https://{{API_HOST}}/v1/autocall/queue/start' \
---header 'Authorization: Bearer {{TOKEN}}' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "queue_code": "Autocall-Q1"
-}'
-```
-
-> Response trả về:
-
-```json
-{
-  "message": "successfully"
-}
-```
-
-> Error Response trả về:
-
-```json
-{
-  "message": "queue not found"
-}
-```
-
-API này nhằm mục đích yêu cầu tiếp tục một queue đang tạm dừng.
-
-### HTTP Request
-
-`POST https://{{API_HOST}}/v1/autocall/queue/start`
-
-### Body
-
-> Sample data:
-
-```json
-{
-  "queue_code": "Autocall-Q1"
-}
-```
-
-| Parameter  | Description | Required |
-| ---------- | ----------- | -------- |
-| queue_code | Mã queue    | x        |
+| Parameter | Description | Required |
+| --------- | ----------- | -------- |
+| file      | file audio  | x        |
