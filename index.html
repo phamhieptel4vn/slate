@@ -540,7 +540,7 @@
                         <div class="collapse" id="autocall-nav" data-parent="#page-nav">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
-                                  <a href="#nh-n-d-li-u-queue" class="nav-link" data-title="Nhận dữ liệu queue" parent-id="autocall-nav">Nhận dữ liệu queue</a>
+                                  <a href="#kh-i-ch-y-autocall" class="nav-link" data-title="Khởi chạy autocall" parent-id="autocall-nav">Khởi chạy autocall</a>
                                 </li>
                             </ul>
                         </div>
@@ -2369,7 +2369,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </ul>
 
 <p>Đoạn content sẽ là : &quot;Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}&quot;</p>
-<h1 id='autocall' class='h1 font-weight-light'>Autocall</h1><h2 id='nh-n-d-li-u-queue' class='h2 font-weight-light'>Nhận dữ liệu queue</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/ivr'</span> <span class="se">\</span>
+<h1 id='autocall' class='h1 font-weight-light'>Autocall</h1><h2 id='kh-i-ch-y-autocall' class='h2 font-weight-light'>Khởi chạy autocall</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/ivr'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
