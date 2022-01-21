@@ -20,7 +20,7 @@ includes:
   - pbx/monitor
   - pbx/tenant
   # - pbx/campaign
-  # - pbx/autocall
+  - pbx/autocall
   # - pbx/autodialer
   - pbx/blacklist
   - pbx/smartrouting
