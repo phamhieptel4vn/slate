@@ -2189,7 +2189,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </tr>
 </tbody></table>
 <h2 id='k-ch-b-n-tts' class='h2 font-weight-light'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' https://{API_HOST}/v1/template'</span> <span class="se">\</span>
-<span class="nt">--header</span> <span class="s1">'Authorization: {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
     "name": "thong_bao_no_cuoc_01",
@@ -2200,8 +2200,8 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
     "speed_tts": 1.2,
     "press_options": [
       {
-        "press_num": 1,
-        "type": "tts",
+        "press_num": "1",
+        "voice_type": "tts",
         "content": "Cám ơn {{customer_name}} đã thanh toán"
       }
     ],
@@ -2309,12 +2309,16 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Phím bấm cần xử lý</td>
 </tr>
 <tr>
-<td>press_options.type</td>
+<td>press_options.voice_type</td>
 <td>Loại autocall : tts, audio_file</td>
 </tr>
 <tr>
-<td>press_options.type</td>
-<td>Loại autocall : tts, audio_file</td>
+<td>press_options.content</td>
+<td>Nội dung của kịch bản (Đối với voice_type là tts)</td>
+</tr>
+<tr>
+<td>press_options.audio_file</td>
+<td>File âm thanh (Đối với voice_type là audio_file)</td>
 </tr>
 <tr>
 <td>exit_sound</td>
@@ -2481,7 +2485,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
       </span><span class="nl">"audio_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"793e2938-2d1e-4274-8dfd-ce6e2edbc4b0"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"audio_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo-02.wav"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-01-01T14:16:32Z"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
