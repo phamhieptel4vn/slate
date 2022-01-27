@@ -17,7 +17,7 @@ Các giọng đọc kịch bản đang hỗ trợ
 
 ```shell
 curl --location --request POST ' https://{API_HOST}/v1/template' \
---header 'Authorization: {{TOKEN}}' \
+--header 'Authorization: Bearer {{TOKEN}}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "thong_bao_no_cuoc_01",
@@ -28,8 +28,8 @@ curl --location --request POST ' https://{API_HOST}/v1/template' \
     "speed_tts": 1.2,
     "press_options": [
       {
-        "press_num": 1,
-        "type": "tts",
+        "press_num": "1",
+        "voice_type": "tts",
         "content": "Cám ơn {{customer_name}} đã thanh toán"
       }
     ],
@@ -109,8 +109,9 @@ Tạo kịch bản Text-To-Speech
 | enable_option            | Xử lý kịch bản kèm phím bấm                       |
 | press_options            | Danh sách các phím bấm cần xử lý                  |
 | press_options.press_num  | Phím bấm cần xử lý                                |
-| press_options.type       | Loại autocall : tts, audio_file                   |
-| press_options.type       | Loại autocall : tts, audio_file                   |
+| press_options.voice_type | Loại autocall : tts, audio_file                   |
+| press_options.content    | Nội dung của kịch bản (Đối với voice_type là tts) |
+| press_options.audio_file | File âm thanh (Đối với voice_type là audio_file)  |
 | exit_sound               | Xử lý khi kết thúc kịch bản                       |
 | exit_sound.enable        | Bật xử lý khi kết thúc kịch bản                   |
 | exit_sound.voice_type    | Loại autocall : tts, audio_file                   |
@@ -244,7 +245,7 @@ curl -L -X GET 'https://{{API_HOST}}/v1/blacklist' \
       "audio_uuid": "793e2938-2d1e-4274-8dfd-ce6e2edbc4b0",
       "audio_name": "demo-02.wav",
       "created_at": "2022-01-01T14:16:32Z"
-    },
+    }
   ],
   "limit": 10,
   "offset": 0,
