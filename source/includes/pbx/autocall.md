@@ -224,7 +224,7 @@ Ví dụ:
 ## Get Audios
 
 ```shell
-curl -L -X GET 'https://{{API_HOST}}/v1/blacklist' \
+curl -L -X GET 'https://{{API_HOST}}/v1/audio' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {{TOKEN}}'
 ```
