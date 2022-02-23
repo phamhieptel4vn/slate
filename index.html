@@ -530,6 +530,12 @@
                         <div class="collapse" id="template-nav" data-parent="#page-nav">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
+                                  <a href="#get-templates" class="nav-link" data-title="Get Templates" parent-id="template-nav">Get Templates</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#get-template-by-id" class="nav-link" data-title="Get Template By Id" parent-id="template-nav">Get Template By Id</a>
+                                </li>
+                                <li class="nav-item">
                                   <a href="#k-ch-b-n-tts" class="nav-link" data-title="Kịch bản TTS" parent-id="template-nav">Kịch bản TTS</a>
                                 </li>
                             </ul>
@@ -2203,6 +2209,107 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Miền Nam 1 - Giọng nữ</td>
 </tr>
 </tbody></table>
+<h2 id='get-templates' class='h2 font-weight-light'>Get Templates</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/template'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đây là đì mô âu tu con, xin chào {{customer_name}}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enable_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"exit_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"invalid_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"max_timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_autocall_audio_v2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"press_timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"speed_tts"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"template_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0dfd7a67-edf6-4ba8-9414-941b0b46fa5c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"voice_tts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"south-f-03"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"audio_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bf039442-f297-476a-9d3e-7eb2fe7cdc64"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"enable_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"exit_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"invalid_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+      </span><span class="nl">"max_timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_autocall_audio_v1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="nl">"press_timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"speed_tts"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"template_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ab9e2158-3b74-4adb-a227-cc034b3e2840"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"voice_tts"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"audio_file"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/template</code></p>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-template-by-id' class='h2 font-weight-light'>Get Template By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/template/0dfd7a67-edf6-4ba8-9414-941b0b46fa5c'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Đây là đì mô âu tu con, xin chào {{customer_name}}"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enable_option"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"exit_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"invalid_sound"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="nl">"max_timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_autocall_audio_v2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"press_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"press_timeout"</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"speed_tts"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0dfd7a67-edf6-4ba8-9414-941b0b46fa5c"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_tts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"south-f-03"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"voice_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tts"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/template/{{template_id}}</code></p>
+<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>template_id</td>
+<td>Id kịch bản</td>
+</tr>
+</tbody></table>
 <h2 id='k-ch-b-n-tts' class='h2 font-weight-light'>Kịch bản TTS</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">' https://{API_HOST}/v1/template'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
 <span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -2240,7 +2347,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Tạo kịch bản Text-To-Speech</p>
-<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{API_HOST}/v1/template</code></p>
 <h3 id='body' class='h3 font-weight-light'>Body</h3>
 <blockquote>
@@ -2417,7 +2524,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này dùng để nhận thông tin và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
-<h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/ivr</code></p>
 <h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <blockquote>
@@ -2499,7 +2606,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
-<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/autocall/campaign</code></p>
 <h3 id='body-3' class='h3 font-weight-light'>Body</h3>
 <blockquote>
@@ -2602,7 +2709,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này dùng để tạo chiến dịch autocall.</p>
-<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/campaign</code></p>
 <h3 id='body-4' class='h3 font-weight-light'>Body</h3>
 <blockquote>
@@ -2665,9 +2772,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/campaign</code></p>
-<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2703,9 +2810,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-8' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
-<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
+<h3 id='query-parameters-4' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2749,9 +2856,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
-<h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-9' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/autocall/report</code></p>
-<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
+<h3 id='query-parameters-5' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2805,9 +2912,9 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-8' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-10' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/audio</code></p>
-<h3 id='query-parameters-4' class='h3 font-weight-light'>Query Parameters</h3>
+<h3 id='query-parameters-6' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2847,7 +2954,7 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này dùng để upload file audio lên server.</p>
-<h3 id='http-request-9' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-11' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/audio</code></p>
 <h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <blockquote>
