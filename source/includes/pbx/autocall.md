@@ -13,6 +13,105 @@ Các giọng đọc kịch bản đang hỗ trợ
 | south-m-03 | Miền Nam 1 - Giọng nam |
 | south-f-03 | Miền Nam 1 - Giọng nữ  |
 
+## Get Templates
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/template' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "data": [
+    {
+      "content": "Đây là đì mô âu tu con, xin chào {{customer_name}}",
+      "description": "",
+      "enable_option": false,
+      "exit_sound": {},
+      "invalid_sound": {},
+      "max_timeout": 1,
+      "name": "template_autocall_audio_v2",
+      "press_options": [],
+      "press_timeout": 1000,
+      "speed_tts": 0.9,
+      "template_uuid": "0dfd7a67-edf6-4ba8-9414-941b0b46fa5c",
+      "voice_tts": "south-f-03",
+      "voice_type": "tts"
+    },
+    {
+      "audio_file": "bf039442-f297-476a-9d3e-7eb2fe7cdc64",
+      "description": "",
+      "enable_option": false,
+      "exit_sound": {},
+      "invalid_sound": {},
+      "max_timeout": 1,
+      "name": "template_autocall_audio_v1",
+      "press_options": [],
+      "press_timeout": 1000,
+      "speed_tts": 1,
+      "template_uuid": "ab9e2158-3b74-4adb-a227-cc034b3e2840",
+      "voice_tts": "",
+      "voice_type": "audio_file"
+    }
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 2
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/template`
+
+### Query Parameters
+
+| Parameter | Description              | Example |
+| --------- | ------------------------ | ------- |
+| limit     | Số lượng record trả về   | 50      |
+| offset    | Vị trí bắt đầu khi query | 0       |
+
+## Get Template By Id
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/template/0dfd7a67-edf6-4ba8-9414-941b0b46fa5c' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "content": "Đây là đì mô âu tu con, xin chào {{customer_name}}",
+  "description": "",
+  "enable_option": false,
+  "exit_sound": {},
+  "invalid_sound": {},
+  "max_timeout": 1,
+  "name": "template_autocall_audio_v2",
+  "press_options": [],
+  "press_timeout": 1000,
+  "speed_tts": 0.9,
+  "template_uuid": "0dfd7a67-edf6-4ba8-9414-941b0b46fa5c",
+  "voice_tts": "south-f-03",
+  "voice_type": "tts"
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/template/{{template_id}}`
+
+### Query Parameters
+
+| Parameter   | Description |
+| ----------- | ----------- |
+| template_id | Id kịch bản |
+
 ## Kịch bản TTS
 
 ```shell
