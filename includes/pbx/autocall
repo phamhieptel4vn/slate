@@ -293,6 +293,104 @@
 <td>x</td>
 </tr>
 </tbody></table>
+<h2 id='kh-i-ch-y-chi-n-d-ch-autocall' class='h2 font-weight-light'>Khởi chạy chiến dịch autocall</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autocall/campaign'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+    "carrier": "mobi",
+    "template": "thong_bao_no_cuoc_01",
+    "concurrent_call": 2,
+    "customers" : [
+      {
+        "phone_number": "0899123456",
+        "params": {
+            "customer_name" : "Nguyễn Văn A",
+            "contract_number": "HD123456",
+            "due_date": "2021-07-13"
+        }
+      }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"0899123456"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign is not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/autocall/campaign</code></p>
+<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobi"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thong_bao_no_cuoc_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899123456"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"customer_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nguyễn Văn A"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"contract_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HD123456"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"due_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-07-13"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_uuid</td>
+<td>Chiến dịch</td>
+<td>x</td>
+</tr>
+<tr>
+<td>carrier</td>
+<td>Đầu số, nhà mạng thực hiện cuộc gọi</td>
+<td>x</td>
+</tr>
+<tr>
+<td>template</td>
+<td>Kịch bản dùng để</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers</td>
+<td>Danh sách khách hàng</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.phone_number</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.params.customer_name,contract_number</td>
+<td>key_field</td>
+<td>x</td>
+</tr>
+</tbody></table>
 
 <p>Một số lưu ý:</p>
 
@@ -311,6 +409,207 @@
   <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
 </ul>
+<h2 id='t-o-chi-n-d-ch-autocall' class='h2 font-weight-light'>Tạo chiến dịch autocall</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_name": "autocall_campaign",
+    "concurrent_call": 2
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign_name is already taken"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để tạo chiến dịch autocall.</p>
+<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/campaign</code></p>
+<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_campaign"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_name</td>
+<td>Tên chiến dịch</td>
+<td>x</td>
+</tr>
+<tr>
+<td>concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='get-campaigns' class='h2 font-weight-light'>Get Campaigns</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"373854ae-0169-4a1f-b71b-e145b3579233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_test_01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"384243bd-5f8f-42a4-83c7-0f88670aea12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_test_02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T17:32:15.495923Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T17:32:15.495923Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/campaign</code></p>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<h2 id='get-campaign-by-id' class='h2 font-weight-light'>Get Campaign By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign/373854ae-0169-4a1f-b71b-e145b3579233'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"373854ae-0169-4a1f-b71b-e145b3579233"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_test_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
+<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_id</td>
+<td>Id chiến dịch</td>
+</tr>
+</tbody></table>
+<h2 id='bao-cao-chi-n-d-ch-autocall' class='h2 font-weight-light'>Báo cáo chiến dịch autocall</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s1">'https://{{API_HOST}}/v1/autocall/report?campaign_uuid=avavavav-1111-2222-3333-eeeeeeee&amp;start_date=2022-01-01%2010:00:00&amp;end_date=2022-01-01%2012:00:00'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"answered"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"busy"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"not_available"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"no_answer"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"cancel"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"failed"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"total_calls"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_waitsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign is not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
+<h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/autocall/report</code></p>
+<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_uuid</td>
+<td>Chiến dịch thực hiện cuộc gọi</td>
+<td>aaaaaaaa-1111-2222-3333-eeeeeeee</td>
+<td>x</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian</td>
+<td>2021-02-18 17:20:58</td>
+<td></td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>Tìm kiếm cdrs theo khoảng thời gian</td>
+<td>2021-02-18 17:20:58</td>
+<td></td>
+</tr>
+</tbody></table>
 <h1 id='audio' class='h1 font-weight-light'>Audio</h1><h2 id='get-audios' class='h2 font-weight-light'>Get Audios</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/audio'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
@@ -337,9 +636,9 @@
   </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-8' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/audio</code></p>
-<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<h3 id='query-parameters-4' class='h3 font-weight-light'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -379,9 +678,9 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>API này dùng để upload file audio lên server.</p>
-<h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+<h3 id='http-request-9' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/audio</code></p>
-<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
+<h3 id='body-5' class='h3 font-weight-light'>Body</h3>
 <blockquote>
 <p>Sample data:</p>
 </blockquote>
