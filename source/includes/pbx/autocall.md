@@ -201,6 +201,86 @@ API này dùng để nhận thông tin và đẩy cuộc gọi autocall theo k�
 | phone_number                         | Số điện thoại nhận cuộc gọi         |          |
 | params.customer_name,contract_number | key_field                           | x        |
 
+## Khởi chạy chiến dịch autocall
+
+```shell
+curl --location --request POST 'https://{{API_HOST}}/v1/autocall/campaign' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "campaign_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+    "carrier": "mobi",
+    "template": "thong_bao_no_cuoc_01",
+    "concurrent_call": 2,
+    "customers" : [
+      {
+        "phone_number": "0899123456",
+        "params": {
+            "customer_name" : "Nguyễn Văn A",
+            "contract_number": "HD123456",
+            "due_date": "2021-07-13"
+        }
+      }
+    ]
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "fail": [],
+  "message": "success",
+  "success": ["0899123456"]
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "error": "campaign is not found"
+}
+```
+
+API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.
+
+### HTTP Request
+
+`POST https://{{API_HOST}}/v1/autocall/campaign`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "campaign_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+  "carrier": "mobi",
+  "template": "thong_bao_no_cuoc_01",
+  "concurrent_call": 2,
+  "customers": [
+    {
+      "phone_number": "0899123456",
+      "params": {
+        "customer_name": "Nguyễn Văn A",
+        "contract_number": "HD123456",
+        "due_date": "2021-07-13"
+      }
+    }
+  ]
+}
+```
+
+| Parameter                                      | Description                         | Required |
+| ---------------------------------------------- | ----------------------------------- | -------- |
+| campaign_uuid                                  | Chiến dịch                          | x        |
+| carrier                                        | Đầu số, nhà mạng thực hiện cuộc gọi | x        |
+| template                                       | Kịch bản dùng để                    | x        |
+| customers                                      | Danh sách khách hàng                | x        |
+| customers.phone_number                         | Số điện thoại nhận cuộc gọi         | x        |
+| customers.params.customer_name,contract_number | key_field                           | x        |
+
 Một số lưu ý:
 
 <ul>
@@ -218,6 +298,192 @@ Ví dụ:
   <li>Kịch bản : "Chào bạn {{customer_name}} vui lòng thanh toán khoản nợ {{due_amount}} trước ngày {{due_date}}"</li>
   <li>Nội dung kịch bản sẽ là: “Chào bạn Nguyễn Văn A vui lòng thanh toán khoản nợ mười triệu bốn trăm mười nghìn trước ngày ba mươi tháng một năm hai không hai mươi mốt”</li>
 </ul>
+
+## Tạo chiến dịch autocall
+
+```shell
+curl --location --request POST 'https://{{API_HOST}}/v1/campaign' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "campaign_name": "autocall_campaign",
+    "concurrent_call": 2
+}'
+```
+
+> Response trả về:
+
+```json
+{
+  "campaign_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+  "created": true
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "error": "campaign_name is already taken"
+}
+```
+
+API này dùng để tạo chiến dịch autocall.
+
+### HTTP Request
+
+`POST https://{{API_HOST}}/v1/campaign`
+
+### Body
+
+> Sample data:
+
+```json
+{
+  "campaign_name": "autocall_campaign",
+  "concurrent_call": 2
+}
+```
+
+| Parameter       | Description                 | Required |
+| --------------- | --------------------------- | -------- |
+| campaign_name   | Tên chiến dịch              | x        |
+| concurrent_call | Số lượng cuộc gọi đồng thời |          |
+
+## Get Campaigns
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "data": [
+    {
+      "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+      "campaign_uuid": "373854ae-0169-4a1f-b71b-e145b3579233",
+      "campaign_name": "autocall_test_01",
+      "description": "",
+      "status": true,
+      "concurrent_call": 0,
+      "created_at": "2022-02-03T12:05:00.518181Z",
+      "updated_at": "2022-02-03T12:05:00.518181Z"
+    },
+    {
+      "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+      "campaign_uuid": "384243bd-5f8f-42a4-83c7-0f88670aea12",
+      "campaign_name": "autocall_test_02",
+      "description": "",
+      "status": true,
+      "concurrent_call": 1,
+      "created_at": "2022-02-02T17:32:15.495923Z",
+      "updated_at": "2022-02-02T17:32:15.495923Z"
+    }
+  ],
+  "limit": 10,
+  "offset": 0,
+  "total": 2
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/campaign`
+
+### Query Parameters
+
+| Parameter | Description              | Example |
+| --------- | ------------------------ | ------- |
+| limit     | Số lượng record trả về   | 50      |
+| offset    | Vị trí bắt đầu khi query | 0       |
+
+## Get Campaign By Id
+
+```shell
+curl -L -X GET 'https://{{API_HOST}}/v1/campaign/373854ae-0169-4a1f-b71b-e145b3579233' \
+-H 'Content-Type: application/json' \
+-H 'Authorization: Bearer {{TOKEN}}'
+```
+
+> Response trả về:
+
+```json
+{
+  "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+  "campaign_uuid": "373854ae-0169-4a1f-b71b-e145b3579233",
+  "campaign_name": "autocall_test_01",
+  "description": "",
+  "status": true,
+  "concurrent_call": 0,
+  "created_at": "2022-02-03T12:05:00.518181Z",
+  "updated_at": "2022-02-03T12:05:00.518181Z"
+}
+```
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}`
+
+### Query Parameters
+
+| Parameter   | Description   |
+| ----------- | ------------- |
+| campaign_id | Id chiến dịch |
+
+## Báo cáo chiến dịch autocall
+
+```shell
+curl --location --request GET 'https://{{API_HOST}}/v1/autocall/report?campaign_uuid=avavavav-1111-2222-3333-eeeeeeee&start_date=2022-01-01%2010:00:00&end_date=2022-01-01%2012:00:00' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json'
+```
+
+> Response trả về:
+
+```json
+{
+  "data": {
+    "status": {
+      "answered": 3,
+      "busy": 1,
+      "not_available": 0,
+      "no_answer": 0,
+      "cancel": 0,
+      "failed": 0
+    },
+    "total_calls": 4,
+    "total_duration": 43,
+    "total_billsec": 10,
+    "total_waitsec": 0
+  }
+}
+```
+
+> Error Response trả về:
+
+```json
+{
+  "error": "campaign is not found"
+}
+```
+
+API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.
+
+### HTTP Request
+
+`GET https://{{API_HOST}}/v1/autocall/report`
+
+### Query Parameters
+
+| Parameter     | Description                         | Example                          | Required |
+| ------------- | ----------------------------------- | -------------------------------- | -------- |
+| campaign_uuid | Chiến dịch thực hiện cuộc gọi       | aaaaaaaa-1111-2222-3333-eeeeeeee | x        |
+| start_date    | Tìm kiếm cdrs theo khoảng thời gian | 2021-02-18 17:20:58              |          |
+| end_date      | Tìm kiếm cdrs theo khoảng thời gian | 2021-02-18 17:20:58              |          |
 
 # Audio
 
