@@ -89,6 +89,11 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>template_name</td>
+<td>Tên template được sử dụng</td>
+<td>template_a</td>
+</tr>
+<tr>
 <td>limit</td>
 <td>Số lượng record trả về</td>
 <td>50</td>
