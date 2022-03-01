@@ -466,6 +466,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
       "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
       "campaign_uuid": "373854ae-0169-4a1f-b71b-e145b3579233",
       "campaign_name": "autocall_test_01",
+      "template_uuid": "0dfd7a67-edf6-4ba8-9414-941b0b46fa5c",
+      "template_name": "template_autocall_audio_v2",
       "description": "",
       "status": true,
       "concurrent_call": 0,
@@ -476,6 +478,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
       "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
       "campaign_uuid": "384243bd-5f8f-42a4-83c7-0f88670aea12",
       "campaign_name": "autocall_test_02",
+      "template_uuid": "",
+      "template_name": "",
       "description": "",
       "status": true,
       "concurrent_call": 1,
@@ -515,6 +519,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign/373854ae-0169-4a1f-b71b-e145b35
   "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
   "campaign_uuid": "373854ae-0169-4a1f-b71b-e145b3579233",
   "campaign_name": "autocall_test_01",
+  "template_uuid": "0dfd7a67-edf6-4ba8-9414-941b0b46fa5c",
+  "template_name": "template_autocall_audio_v2",
   "description": "",
   "status": true,
   "concurrent_call": 0,
@@ -624,10 +630,11 @@ curl -L -X GET 'https://{{API_HOST}}/v1/audio' \
 
 ### Query Parameters
 
-| Parameter | Description              | Example |
-| --------- | ------------------------ | ------- |
-| limit     | Số lượng record trả về   | 50      |
-| offset    | Vị trí bắt đầu khi query | 0       |
+| Parameter  | Description              | Example  |
+| ---------- | ------------------------ | -------- |
+| audio_name | Tên file audio           | audio_01 |
+| limit      | Số lượng record trả về   | 50       |
+| offset     | Vị trí bắt đầu khi query | 0        |
 
 ## Upload Audio
 
