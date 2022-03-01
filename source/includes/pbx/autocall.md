@@ -69,10 +69,11 @@ curl -L -X GET 'https://{{API_HOST}}/v1/template' \
 
 ### Query Parameters
 
-| Parameter | Description              | Example |
-| --------- | ------------------------ | ------- |
-| limit     | Số lượng record trả về   | 50      |
-| offset    | Vị trí bắt đầu khi query | 0       |
+| Parameter     | Description               | Example    |
+| ------------- | ------------------------- | ---------- |
+| template_name | Tên template được sử dụng | template_a |
+| limit         | Số lượng record trả về    | 50         |
+| offset        | Vị trí bắt đầu khi query  | 0          |
 
 ## Get Template By Id
 
