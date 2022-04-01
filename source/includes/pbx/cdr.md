@@ -10,6 +10,7 @@ Lịch sử cuộc gọi
 | sip_call_id   | call_id trong bản tin SIP                                                                   |
 | cause         | Trạng thái cuộc gọi dựa theo mã phản hồi giao thức SIP. Vd: NORMAL_CLEARING, NO_ANSWER, ... |
 | duration      | Thời hạn thực hiện cuộc gọi.                                                                |
+| billsec       | Thời gian đàm thoại trong cuộc gọi.                                                               |
 | direction     | Chiều cuộc gọi (inbound, outbound, local)                                                   |
 | recording_url | Đường dẫn file ghi âm cuộc gọi                                                              |
 | extension     | Extension nhận hoặc thực hiện cuộc gọi                                                      |
@@ -37,7 +38,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/cdr?' \
       "id": "ad4c9b90-c071-405a-9723-980d2e5e1623",
       "sip_call_id": "112233aabbccddee..",
       "cause": "NORMAL_CLEARING",
-      "duration": 11,
+      "duration": 15,
+      "billsec": 11,
       "direction": 3,
       "recording_url": "https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623",
       "extension": "101",
@@ -53,7 +55,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/cdr?' \
       "id": "01b7d166-b564-42ec-80a1-4ad343225934 ",
       "sip_call_id": "aabbccddee112233..",
       "cause": "NORMAL_CLEARING",
-      "duration": 7,
+      "duration": 45,
+      "billsec": 39,
       "direction": 3,
       "recording_url": "",
       "extension": "101",
@@ -82,6 +85,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/cdr?' \
       "id": "ad4c9b90-c071-405a-9723-980d2e5e1623",
       "sip_call_id": "112233aabbccddee..",
       "cause": "NORMAL_CLEARING",
+      "duration": 15,
+      "billsec": 11,
       "duration": 11,
       "direction": 3,
       "recording_url": "https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav",
@@ -98,7 +103,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/cdr?' \
       "id": "01b7d166-b564-42ec-80a1-4ad343225934",
       "sip_call_id": "aabbccddee112233..",
       "cause": "NORMAL_CLEARING",
-      "duration": 7,
+      "duration": 45,
+      "billsec": 39,
       "direction": 3,
       "recording_url": "",
       "extension": "101",
@@ -161,7 +167,8 @@ curl -L -X GET 'https://{{API_HOST}}/v1/cdr/01b7d166-b564-42ec-80a1-4ad343225934
   "id": "01b7d166-b564-42ec-80a1-4ad343225934",
   "sip_call_id": "aabbccddee112233..",
   "cause": "NORMAL_CLEARING",
-  "duration": 7,
+  "duration": 45,
+  "billsec": 39,
   "direction": 3,
   "recording_url": "",
   "extension": "101",
