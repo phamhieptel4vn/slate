@@ -24,6 +24,10 @@
 <td>Thời hạn thực hiện cuộc gọi.</td>
 </tr>
 <tr>
+<td>billsec</td>
+<td>Thời gian đàm thoại trong cuộc gọi.</td>
+</tr>
+<tr>
 <td>direction</td>
 <td>Chiều cuộc gọi (inbound, outbound, local)</td>
 </tr>
@@ -76,7 +80,8 @@
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233aabbccddee.."</span><span class="p">,</span><span class="w">
       </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
@@ -92,7 +97,8 @@
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934 "</span><span class="p">,</span><span class="w">
       </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aabbccddee112233.."</span><span class="p">,</span><span class="w">
       </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
       </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
@@ -120,6 +126,8 @@
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"112233aabbccddee.."</span><span class="p">,</span><span class="w">
       </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623.wav"</span><span class="p">,</span><span class="w">
@@ -136,7 +144,8 @@
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aabbccddee112233.."</span><span class="p">,</span><span class="w">
       </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
       </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
@@ -255,7 +264,8 @@ Scroll: Cuộn trang. (Mặc định)</p>
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"sip_call_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aabbccddee112233.."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"cause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NORMAL_CLEARING"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"billsec"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
   </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
