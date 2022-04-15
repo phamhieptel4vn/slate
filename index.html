@@ -1301,6 +1301,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <div class="alert alert-success alert-dismissible fade show" role="alert">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </div>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã được encode Base64 tới API, API sẽ decode và thực hiện cuộc gọi.
+</div>
 <h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/click2call?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
 <h3 id='url-parameters' class='h3 font-weight-light'>URL Parameters</h3>
@@ -1351,6 +1355,11 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <td>Đầu số hotline để thực hiện cuộc gọi ra ngoài</td>
 <td>false</td>
 </tr>
+<tr>
+<td>is_encode</td>
+<td>Mã hoá số điện thoại đầu vào</td>
+<td>false</td>
+</tr>
 </tbody></table>
 <h2 id='asynchronous' class='h2 font-weight-light'>Asynchronous</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/click2call/async?ext=101&amp;phone=0899098899'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
@@ -1380,6 +1389,10 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 
 <div class="alert alert-success alert-dismissible fade show" role="alert">
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
+</div>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã được encode Base64 tới API, API sẽ decode và thực hiện cuộc gọi.
 </div>
 <h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/click2call/async?ext=&lt;EXTENSION&gt;&amp;phone=&lt;PHONE&gt;</code></p>
@@ -1429,6 +1442,11 @@ Id có thể id của CDR hoặc sip_call_id trong bản tin</p>
 <tr>
 <td>hotline</td>
 <td>Đầu số hotline để thực hiện cuộc gọi ra ngoài</td>
+<td>false</td>
+</tr>
+<tr>
+<td>is_encode</td>
+<td>Mã hoá số điện thoại đầu vào</td>
 <td>false</td>
 </tr>
 </tbody></table>
