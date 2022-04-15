@@ -307,44 +307,44 @@ h1, h2, h3, h4, h5, h6,
   color: #000; }
 
 h1, .h1 {
-  font-size: 3.125rem; }
+  font-size: 2.925rem; }
 
 h2, .h2 {
-  font-size: 2.5rem; }
+  font-size: 2.3rem; }
 
 h3, .h3 {
-  font-size: 1.875rem; }
+  font-size: 1.675rem; }
 
 h4, .h4 {
-  font-size: 1.5rem; }
+  font-size: 1.3rem; }
 
 h5, .h5 {
-  font-size: 1.25rem; }
+  font-size: 1.05rem; }
 
 h6, .h6 {
-  font-size: 1rem; }
+  font-size: 0.8rem; }
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 300; }
 
 .display-1 {
-  font-size: 6rem;
+  font-size: 5.8rem;
   font-weight: 300;
   line-height: 1.4; }
 
 .display-2 {
-  font-size: 5.5rem;
+  font-size: 5.3rem;
   font-weight: 300;
   line-height: 1.4; }
 
 .display-3 {
-  font-size: 4.5rem;
+  font-size: 4.3rem;
   font-weight: 300;
   line-height: 1.4; }
 
 .display-4 {
-  font-size: 3.5rem;
+  font-size: 3.3rem;
   font-weight: 300;
   line-height: 1.4; }
 
@@ -352,11 +352,11 @@ hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); }
+  border-top: 2px solid rgba(0, 0, 0, 0.1); }
 
 small,
 .small {
-  font-size: 0.875rem;
+  font-size: 0.675rem;
   font-weight: 400; }
 
 mark,
@@ -13614,7 +13614,7 @@ article > section > .row {
     color: #000;
     display: block;
     border-right: 2px solid transparent;
-    padding: 15px 30px; }
+    padding: 10px 30px; }
     .nav-vertical-2 .nav-link:hover {
       background: rgba(0, 0, 0, 0.05); }
     .nav-vertical-2 .nav-link.active {
