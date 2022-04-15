@@ -35,6 +35,10 @@ Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới k
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </div>
 
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã được encode Base64 tới API, API sẽ decode và thực hiện cuộc gọi.
+</div>
+
 ### HTTP Request
 
 `GET https://{{API_HOST}}/v1/click2call?ext=<EXTENSION>&phone=<PHONE>`
@@ -51,6 +55,7 @@ Nếu Extension đã login thì API Click-to-call Synchronous sẽ chờ tới k
 | dest_cid_number | Số điện thoại sẽ chèn vào bản tin SIP                     | false    |
 | auto_answer     | Tự động nhấc máy phía extension. Default: false           | false    |
 | hotline         | Đầu số hotline để thực hiện cuộc gọi ra ngoài             | false    |
+| is_encode       | Mã hoá số điện thoại đầu vào                              | false    |
 
 ## Asynchronous
 
@@ -88,6 +93,10 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 Đầu số hotline dùng để gọi ra ngoài bạn vui lòng liên hệ team TEL4VN để được cung cấp và cài đặt.
 </div>
 
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã được encode Base64 tới API, API sẽ decode và thực hiện cuộc gọi.
+</div>
+
 ### HTTP Request
 
 `GET https://{{API_HOST}}/v1/click2call/async?ext=<EXTENSION>&phone=<PHONE>`
@@ -104,6 +113,7 @@ API Click-to-call Asynchronous sẽ không chờ tới khi extension nhấc máy
 | dest_cid_number | Số điện thoại sẽ chèn vào bản tin SIP                     | false    |
 | auto_answer     | Tự động nhấc máy phía extension. Default: false           | false    |
 | hotline         | Đầu số hotline để thực hiện cuộc gọi ra ngoài             | false    |
+| is_encode       | Mã hoá số điện thoại đầu vào                              | false    |
 
 ## Error
 
