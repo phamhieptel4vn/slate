@@ -1,7 +1,7 @@
 ---
 title: PBX API
 
-version : 1.2.1
+version : 1.2.3
 
 language_tabs:
   - shell: cURL
