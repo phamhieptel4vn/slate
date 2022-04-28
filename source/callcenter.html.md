@@ -1,7 +1,7 @@
 ---
 title: Call Center API
 
-version : 1.0.8
+version: 1.0.8
 
 language_tabs:
   - shell: cURL
@@ -294,10 +294,17 @@ Lịch sử cuộc gọi
 | to_number     | Cuộc gọi đến số nào                                                                         |
 | receive_dest  | Ringroup hoặc queue của extension nhận cuộc gọi                                             |
 | time_started  | Thời gian bắt đầu cuộc gọi                                                                  |
+| time_ringing  | Thời gian khi cuộc gọi ring.                                                                |
 | time_answered | Thời gian khi cuộc gọi kết nối                                                              |
 | time_ended    | Thời gian kết thúc cuộc gọi                                                                 |
 | status        | Trạng thái cuộc gọi                                                                         |
-| customer_id   | Mã khách hàng                                                                               |
+| app           | Ứng dụng được sử dụng. (dial, autocall, autodialer)                                         |
+| press_key     | Object lưu trữ phím cuộc gọi                                                                |
+| lead_id       | Id khách hàng                                                                               |
+| username      | Username agent nhận hoặc thực hiện cuộc gọi                                                 |
+| firstname     | Tên agent nhận hoặc thực hiện cuộc gọi                                                      |
+| middlename    | Tên lót agent nhận hoặc thực hiện cuộc gọi                                                  |
+| lastname      | Họ agent nhận hoặc thực hiện cuộc gọi                                                       |
 
 ### Flex Mapping
 
@@ -345,7 +352,7 @@ curl -L -X GET 'http://{{API_HOST}}/v2/cdr?' \
       "duration": 11,
       "direction": 3,
       "recording_url": "http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623",
-      "extension": "101",
+      "extension": "",
       "from_number": "19001919",
       "to_number": "0899888999",
       "receive_dest": "",
@@ -353,7 +360,13 @@ curl -L -X GET 'http://{{API_HOST}}/v2/cdr?' \
       "time_answered": "2021-02-17 17:30:43",
       "time_ended": "2021-02-17 17:30:46",
       "status": "ANSWERED",
-      "customer_id": "KH1"
+      "app": "autocall",
+      "press_key": "{}",
+      "lead_id": "c1450608-098e-413d-9e2c-66333b79afe1",
+      "username": "",
+      "firstname": "",
+      "middlename": "",
+      "lastname": ""
     },
     {
       "id": "01b7d166-b564-42ec-80a1-4ad343225934 ",
@@ -370,7 +383,13 @@ curl -L -X GET 'http://{{API_HOST}}/v2/cdr?' \
       "time_answered": "",
       "time_ended": "2021-02-18 17:21:05",
       "status": "BUSY",
-      "customer_id": "KH1"
+      "app": "dial",
+      "press_key": "",
+      "customer_id": "c1450608-098e-413d-9e2c-66333b79afe1",
+      "username": "agent101",
+      "firstname": "A",
+      "middlename": "Van",
+      "lastname": "Nguyen"
     },
     ...
   ],
@@ -438,16 +457,17 @@ Nếu user cung cấp trong param: page - Số trang, limit - số lượng tr�
 
 ### Query Parameters
 
-| Parameter  | Mô tả                                                                        | Example                             |
-| ---------- | ---------------------------------------------------------------------------- | ----------------------------------- |
-| start_date | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-18 hoặc 2021-02-18 17:20:58 |
-| end_date   | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-19 hoặc 2021-02-19 00:00:00 |
-| duration   | Thời hạn của cuộc gọi                                                        | 10                                  |
-| extension  | Cuộc gọi từ extension nào                                                    | 101                                 |
-| phone      | Từ hoặc tới số điện thoại nào                                                | 0899888999                          |
-| direction  | Chiều cuộc gọi (inbound, outbound, local)                                    | outbound                            |
-| limit      | Số lượng record trả về                                                       | 50                                  |
-| offset     | Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination) | 0                                   |
+| Parameter   | Mô tả                                                                        | Example                             |
+| ----------- | ---------------------------------------------------------------------------- | ----------------------------------- |
+| start_date  | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-18 hoặc 2021-02-18 17:20:58 |
+| end_date    | Tìm kiếm cdrs theo khoảng thời gian (Khởi tạo cuộc gọi)                      | 2021-02-19 hoặc 2021-02-19 00:00:00 |
+| duration    | Thời hạn của cuộc gọi                                                        | 10                                  |
+| extension   | Cuộc gọi từ extension nào                                                    | 101                                 |
+| phone       | Từ hoặc tới số điện thoại nào                                                | 0899888999                          |
+| direction   | Chiều cuộc gọi (inbound, outbound, local)                                    | outbound                            |
+| limit       | Số lượng record trả về                                                       | 50                                  |
+| offset      | Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination) | 0                                   |
+| application | Ứng dụng được sử dụng. (dial, autocall, autodialer)                          | autocall                            |
 
 ## Get a Specific CDR
 
