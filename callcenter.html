@@ -924,6 +924,10 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Thời gian bắt đầu cuộc gọi</td>
 </tr>
 <tr>
+<td>time_ringing</td>
+<td>Thời gian khi cuộc gọi ring.</td>
+</tr>
+<tr>
 <td>time_answered</td>
 <td>Thời gian khi cuộc gọi kết nối</td>
 </tr>
@@ -936,8 +940,32 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
 <td>Trạng thái cuộc gọi</td>
 </tr>
 <tr>
-<td>customer_id</td>
-<td>Mã khách hàng</td>
+<td>app</td>
+<td>Ứng dụng được sử dụng. (dial, autocall, autodialer)</td>
+</tr>
+<tr>
+<td>press_key</td>
+<td>Object lưu trữ phím cuộc gọi</td>
+</tr>
+<tr>
+<td>lead_id</td>
+<td>Id khách hàng</td>
+</tr>
+<tr>
+<td>username</td>
+<td>Username agent nhận hoặc thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>Tên agent nhận hoặc thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>middlename</td>
+<td>Tên lót agent nhận hoặc thực hiện cuộc gọi</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>Họ agent nhận hoặc thực hiện cuộc gọi</td>
 </tr>
 </tbody></table>
 <h3 id='flex-mapping' class='h3 font-weight-light'>Flex Mapping</h3>
@@ -1047,7 +1075,7 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
       </span><span class="nl">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
       </span><span class="nl">"direction"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
       </span><span class="nl">"recording_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://recording.demo/ad4c9b90-c071-405a-9723-980d2e5e1623"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"from_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"19001919"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"to_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899888999"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"receive_dest"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1055,7 +1083,13 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
       </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:43"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-17 17:30:46"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ANSWERED"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH1"</span><span class="w">
+      </span><span class="nl">"app"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{}"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lead_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1450608-098e-413d-9e2c-66333b79afe1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"middlename"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01b7d166-b564-42ec-80a1-4ad343225934 "</span><span class="p">,</span><span class="w">
@@ -1072,7 +1106,13 @@ Bạn vui lòng thay đổi <code>{TOKEN}</code> bằng token đã lấy đượ
       </span><span class="nl">"time_answered"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
       </span><span class="nl">"time_ended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-02-18 17:21:05"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BUSY"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KH1"</span><span class="w">
+      </span><span class="nl">"app"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"press_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c1450608-098e-413d-9e2c-66333b79afe1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agent101"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"middlename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Van"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nguyen"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="err">...</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -1180,6 +1220,11 @@ Scroll: Cuộn trang. (Mặc định)</p>
 <td>offset</td>
 <td>Vị trí bắt đầu khi query. (offset sẽ thay thế page nếu có data) (Pagination)</td>
 <td>0</td>
+</tr>
+<tr>
+<td>application</td>
+<td>Ứng dụng được sử dụng. (dial, autocall, autodialer)</td>
+<td>autocall</td>
 </tr>
 </tbody></table>
 <h2 id='get-a-specific-cdr' class='h2 font-weight-light'>Get a Specific CDR</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'http://{{API_HOST}}/v2/cdr/01b7d166-b564-42ec-80a1-4ad343225934'</span> <span class="se">\</span>
