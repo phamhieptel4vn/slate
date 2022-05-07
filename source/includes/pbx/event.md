@@ -13,15 +13,14 @@ curl -L -X GET 'https://{{API_HOST}}/v1/event' \
 {
   "data": [
     {
-      "event_domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
-      "domain_uuid": "dddddddd-1111-2222-3333-eeeeeeee",
-      "domain_name": "test.tel4vn.com",
-      "event_name": "hangup",
+      "id": "avavavav-1111-2222-3333-eeeeeeee",
+      "event": "hangup",
       "callback_url": "https://webhook.demo/",
       "callback_apikey": "foo"
     },
     ...
-  ]
+  ],
+  "total": 1
 }
 ```
 
@@ -48,7 +47,8 @@ curl -L -X POST 'https://{{API_HOST}}/v1/event' \
 
 ```json
 {
-  "created": true
+  "created": true,
+  "id": "avavavav-1111-2222-3333-eeeeeeee"
 }
 ```
 
