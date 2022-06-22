@@ -14,50 +14,32 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
 {
   "data": [
     {
-      "domain_id": "dddddddd-1111-2222-3333-eeeeeeee",
-      "campaign_id": "aaaaaaaa-1111-2222-3333-eeeeeeee",
-      "campaign_name": "Autodial",
-      "type": "autodialer",
-      "description": "Autodial",
-      "status": "active",
-      "max_concurrent_call": 1,
-      "default_concurrent_call": 1,
-      "default_ratio": 100,
-      "max_ratio": 100,
-      "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "default_queue_agent": "",
-      "queue_agent_next_call": "",
-      "scheduled_recall": "default",
-      "recall_hours_block": 0,
-      "answer_callback_url": "",
-      "local_start_time": "00:00:00",
-      "local_end_time": "23:59:59",
-      "customer_order": "id",
-      "created_at": "2021-08-01T02:36:29.509713+07:00",
-      "updated_at": "0001-01-01T00:00:00Z"
+      "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+      "campaign_uuid": "373854ae-0169-4a1f-b71b-e145b3579233",
+      "campaign_name": "autocall_test_01",
+      "template_uuid": "0dfd7a67-edf6-4ba8-9414-941b0b46fa5c",
+      "template_name": "template_autocall_audio_v2",
+      "dial_method": "autocall",
+      "description": "",
+      "status": true,
+      "concurrent_call": 1,
+      "ratio": 0,
+      "created_at": "2022-02-03T12:05:00.518181Z",
+      "updated_at": "2022-02-03T12:05:00.518181Z"
     },
     {
-      "domain_id": "dddddddd-1111-2222-3333-eeeeeeee",
-      "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "campaign_name": "Autocall",
-      "type": "autocall",
-      "description": "Autocall",
-      "status": "active",
-      "max_concurrent_call": 1,
-      "default_concurrent_call": 1,
-      "default_ratio": 100,
-      "max_ratio": 100,
-      "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-      "default_queue_agent": "",
-      "queue_agent_next_call": "",
-      "scheduled_recall": "default",
-      "recall_hours_block": 0,
-      "answer_callback_url": "",
-      "local_start_time": "00:00:00",
-      "local_end_time": "23:59:59",
-      "customer_order": "id",
-      "created_at": "2021-08-01T02:36:29.509713+07:00",
-      "updated_at": "0001-01-01T00:00:00Z"
+      "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+      "campaign_uuid": "384243bd-5f8f-42a4-83c7-0f88670aea12",
+      "campaign_name": "autodial_test_02",
+      "template_uuid": "",
+      "template_name": "",
+      "dial_method": "autodial",
+      "description": "",
+      "status": true,
+      "concurrent_call": 1,
+      "ratio": 1,
+      "created_at": "2022-02-02T17:32:15.495923Z",
+      "updated_at": "2022-02-02T17:32:15.495923Z"
     }
   ],
   "limit": 10,
@@ -72,16 +54,17 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign' \
 
 ### Query Parameters
 
-| Parameter | Description              | Example  |
-| --------- | ------------------------ | -------- |
-| type      | Loại                     | autocall |
-| limit     | Số lượng record trả về   | 50       |
-| offset    | Vị trí bắt đầu khi query | 0        |
+| Parameter     | Description               | Example    |
+| ------------- | ------------------------- | ---------- |
+| campaign_name | Tên chiến dịch            | campaign_a |
+| template_name | Tên template được sử dụng | template_a |
+| limit         | Số lượng record trả về    | 50         |
+| offset        | Vị trí bắt đầu khi query  | 0          |
 
-## Get a Specific Campaign
+## Get Campaign By Id
 
 ```shell
-curl -L -X GET 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee' \
+curl -L -X GET 'https://{{API_HOST}}/v1/campaign/373854ae-0169-4a1f-b71b-e145b3579233' \
 -H 'Content-Type: application/json' \
 -H 'Authorization: Bearer {{TOKEN}}'
 ```
@@ -90,26 +73,18 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeee
 
 ```json
 {
-  "domain_id": "dddddddd-1111-2222-3333-eeeeeeee",
-  "campaign_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "campaign_name": "Autocall",
-  "type": "autocall",
-  "description": "Autocall",
-  "max_concurrent_call": 1,
-  "default_concurrent_call": 1,
-  "default_ratio": 100,
-  "max_ratio": 100,
-  "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-  "default_queue_agent": "",
-  "queue_agent_next_call": "",
-  "scheduled_recall": "default",
-  "recall_hours_block": 0,
-  "answer_callback_url": "",
-  "local_start_time": "00:00:00",
-  "local_end_time": "23:59:59",
-  "customer_order": "id",
-  "created_at": "2021-08-01T02:36:29.509713+07:00",
-  "updated_at": "0001-01-01T00:00:00Z"
+  "domain_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+  "campaign_uuid": "373854ae-0169-4a1f-b71b-e145b3579233",
+  "campaign_name": "autocall_test_01",
+  "template_uuid": "0dfd7a67-edf6-4ba8-9414-941b0b46fa5c",
+  "template_name": "template_autocall_audio_v2",
+  "dial_method": "autocall",
+  "description": "",
+  "status": true,
+  "concurrent_call": 1,
+  "ratio": 0,
+  "created_at": "2022-02-03T12:05:00.518181Z",
+  "updated_at": "2022-02-03T12:05:00.518181Z"
 }
 ```
 
@@ -119,30 +94,19 @@ curl -L -X GET 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeee
 
 ### Query Parameters
 
-| Parameter   | Description     |
-| ----------- | --------------- |
-| campaign_id | Id của campaign |
+| Parameter   | Description   |
+| ----------- | ------------- |
+| campaign_id | Id chiến dịch |
 
-## Create Campaign
+## Tạo chiến dịch
 
 ```shell
-curl -L -X POST 'https://{{API_HOST}}/v1/campaign' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer {{TOKEN}}'
+curl --location --request POST 'https://{{API_HOST}}/v1/campaign' \
+--header 'Authorization: Bearer {{TOKEN}}' \
+--header 'Content-Type: application/json' \
 --data-raw '{
-    "campaign_name" : "Autodial",
-    "type" : "autodialer",
-    "max_concurrent_call": 1,
-    "default_concurrent_call": 1,
-    "default_ratio": 100,
-    "max_ratio": 100,
-    "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-    "default_queue_agent": "",
-    "queue_agent_next_call": "",
-    "scheduled_recall": "default",
-    "recall_hours_block": 0,
-    "local_start_time": "00:00:00",
-    "local_end_time": "23:59:59"
+    "campaign_name": "autocall_campaign",
+    "concurrent_call": 2
 }'
 ```
 
@@ -150,10 +114,20 @@ curl -L -X POST 'https://{{API_HOST}}/v1/campaign' \
 
 ```json
 {
-  "created": true,
-  "id": "dddddddd-1111-2222-3333-eeeeeeee"
+  "campaign_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+  "created": true
 }
 ```
+
+> Error Response trả về:
+
+```json
+{
+  "error": "campaign_name is already taken"
+}
+```
+
+API này dùng để tạo chiến dịch autocall.
 
 ### HTTP Request
 
@@ -161,80 +135,16 @@ curl -L -X POST 'https://{{API_HOST}}/v1/campaign' \
 
 ### Body
 
-| Parameter               | Description                                                                                        | Required |
-| ----------------------- | -------------------------------------------------------------------------------------------------- | -------- |
-| campaign_name           | Tên campaign                                                                                       | x        |
-| type                    | Loại (autocall, autodialer)                                                                        | x        |
-| status                  | Trạng thái (active, deactive)                                                                      |          |
-| description             | Mô tả                                                                                              |          |
-| max_concurrent_call     | Số lượng cuộc gọi đồng thời tối đa (áp dụng cho autocall). Mặc định: 1.                            |          |
-| default_concurrent_call | Số lượng cuộc gọi đồng thời mặc định (áp dụng cho autocall) . Mặc định: 1.                         |          |
-| max_ratio               | Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent tối đa (áp dụng cho autodialer). Mặc định: 100.   |          |
-| default_ratio           | Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent mặc định (áp dụng cho autodialer). Mặc định: 100. |          |
-| gateway_id              | Id gateway để thực hiện cuộc gọi. Liên hệ để được cung cấp.                                        | x        |
-| default_queue_agent     | Nhóm agent sẽ nhận cuộc gọi mặc định.                                                              |          |
-| scheduled_recall        | Lên lịch gọi lại ['default','hours']                                                               |          |
-| recall_hours_block      | Nếu như lên lịch gọi lại là hours, thì ứng với cách bao nhiêu giờ sẽ gọi lại                       |          |
-| local_start_time        | Thời gian hoạt động (bắt đầu). Format : HH:MM:SS                                                   |          |
-| local_end_time          | Thời gian hoạt động (kết thúc). Format : HH:MM:SS                                                  |          |
-
-## Update Campaign
-
-```shell
-curl -L -X PUT 'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee' \
--H 'Content-Type: application/json' \
--H 'Authorization: Bearer {{TOKEN}}'
---data-raw '{
-    "campaign_name" : "Autodial",
-    "type" : "autodialer",
-    "max_concurrent_call": 1,
-    "default_concurrent_call": 1,
-    "default_ratio": 100,
-    "max_ratio": 100,
-    "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-    "default_queue_agent": "",
-    "queue_agent_next_call": "",
-    "scheduled_recall": "default",
-    "recall_hours_block": 0,
-    "local_start_time": "00:00:00",
-    "local_end_time": "23:59:59"
-}'
-```
-
-> Response trả về:
+> Sample data:
 
 ```json
 {
-  "created": true,
-  "id": "dddddddd-1111-2222-3333-eeeeeeee"
+  "campaign_name": "autocall_campaign",
+  "concurrent_call": 2
 }
 ```
 
-### HTTP Request
-
-`PUT https://{{API_HOST}}/v1/campaign/{{campaign_id}}`
-
-### Query Parameters
-
-| Parameter   | Description     |
-| ----------- | --------------- |
-| campaign_id | Id của campaign |
-
-### Body
-
-| Parameter               | Description                                                                                        | Required |
-| ----------------------- | -------------------------------------------------------------------------------------------------- | -------- |
-| campaign_name           | Tên campaign                                                                                       | x        |
-| type                    | Loại (autocall, autodialer)                                                                        | x        |
-| status                  | Trạng thái (active, deactive)                                                                      |          |
-| description             | Mô tả                                                                                              |          |
-| max_concurrent_call     | Số lượng cuộc gọi đồng thời tối đa (áp dụng cho autocall). Mặc định: 1.                            |          |
-| default_concurrent_call | Số lượng cuộc gọi đồng thời mặc định (áp dụng cho autocall) . Mặc định: 1.                         |          |
-| max_ratio               | Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent tối đa (áp dụng cho autodialer). Mặc định: 100.   |          |
-| default_ratio           | Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent mặc định (áp dụng cho autodialer). Mặc định: 100. |          |
-| gateway_id              | Id gateway để thực hiện cuộc gọi. Liên hệ để được cung cấp.                                        | x        |
-| default_queue_agent     | Nhóm agent sẽ nhận cuộc gọi mặc định.                                                              |          |
-| scheduled_recall        | Lên lịch gọi lại ['default','hours']                                                               |          |
-| recall_hours_block      | Nếu như lên lịch gọi lại là hours, thì ứng với cách bao nhiêu giờ sẽ gọi lại                       |          |
-| local_start_time        | Thời gian hoạt động (bắt đầu). Format : HH:MM:SS                                                   |          |
-| local_end_time          | Thời gian hoạt động (kết thúc). Format : HH:MM:SS                                                  |          |
+| Parameter       | Description                 | Required |
+| --------------- | --------------------------- | -------- |
+| campaign_name   | Tên chiến dịch              | x        |
+| concurrent_call | Số lượng cuộc gọi đồng thời |          |
