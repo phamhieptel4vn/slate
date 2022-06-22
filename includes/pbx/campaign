@@ -8,50 +8,32 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autodialer"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autodial"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"max_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_queue_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"queue_agent_next_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"scheduled_recall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recall_hours_block"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"answer_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"local_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"local_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:59:59"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"customer_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T02:36:29.509713+07:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"373854ae-0169-4a1f-b71b-e145b3579233"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_test_01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"template_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0dfd7a67-edf6-4ba8-9414-941b0b46fa5c"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_autocall_audio_v2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dial_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"max_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"default_queue_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"queue_agent_next_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"scheduled_recall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"recall_hours_block"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"answer_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"local_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"local_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:59:59"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"customer_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T02:36:29.509713+07:00"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+      </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"384243bd-5f8f-42a4-83c7-0f88670aea12"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autodial_test_02"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"template_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"dial_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autodial"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T17:32:15.495923Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-02T17:32:15.495923Z"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -69,9 +51,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
-<td>Loại</td>
-<td>autocall</td>
+<td>campaign_name</td>
+<td>Tên chiến dịch</td>
+<td>campaign_a</td>
+</tr>
+<tr>
+<td>template_name</td>
+<td>Tên template được sử dụng</td>
+<td>template_a</td>
 </tr>
 <tr>
 <td>limit</td>
@@ -84,7 +71,7 @@
 <td>0</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-campaign' class='h2 font-weight-light'>Get a Specific Campaign</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
+<h2 id='get-campaign-by-id' class='h2 font-weight-light'>Get Campaign By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign/373854ae-0169-4a1f-b71b-e145b3579233'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
 </code></pre></div>
@@ -92,26 +79,18 @@
 <p>Response trả về:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"domain_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"campaign_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Autocall"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"max_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"default_concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"default_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"max_ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"gateway_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aaaaaaaa-bbbb-cccc-dddd-eeeeeeee"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"default_queue_agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"queue_agent_next_call"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"scheduled_recall"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"recall_hours_block"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"answer_callback_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"local_start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00:00:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"local_end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"23:59:59"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"customer_order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-08-01T02:36:29.509713+07:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0001-01-01T00:00:00Z"</span><span class="w">
+  </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"373854ae-0169-4a1f-b71b-e145b3579233"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_test_01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0dfd7a67-edf6-4ba8-9414-941b0b46fa5c"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"template_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"template_autocall_audio_v2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dial_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-03T12:05:00.518181Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
@@ -124,157 +103,44 @@
 </thead><tbody>
 <tr>
 <td>campaign_id</td>
-<td>Id của campaign</td>
+<td>Id chiến dịch</td>
 </tr>
 </tbody></table>
-<h2 id='create-campaign' class='h2 font-weight-light'>Create Campaign</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<h2 id='t-o-chi-n-d-ch' class='h2 font-weight-light'>Tạo chiến dịch</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">--data-raw</span> <span class="s1">'{
-    "campaign_name" : "Autodial",
-    "type" : "autodialer",
-    "max_concurrent_call": 1,
-    "default_concurrent_call": 1,
-    "default_ratio": 100,
-    "max_ratio": 100,
-    "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-    "default_queue_agent": "",
-    "queue_agent_next_call": "",
-    "scheduled_recall": "default",
-    "recall_hours_block": 0,
-    "local_start_time": "00:00:00",
-    "local_end_time": "23:59:59"
+    "campaign_name": "autocall_campaign",
+    "concurrent_call": 2
 }'</span>
 </code></pre></div>
 <blockquote>
 <p>Response trả về:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="w">
+  </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign_name is already taken"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để tạo chiến dịch autocall.</p>
+<h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v1/campaign</code></p>
 <h3 id='body' class='h3 font-weight-light'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>campaign_name</td>
-<td>Tên campaign</td>
-<td>x</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Loại (autocall, autodialer)</td>
-<td>x</td>
-</tr>
-<tr>
-<td>status</td>
-<td>Trạng thái (active, deactive)</td>
-<td></td>
-</tr>
-<tr>
-<td>description</td>
-<td>Mô tả</td>
-<td></td>
-</tr>
-<tr>
-<td>max_concurrent_call</td>
-<td>Số lượng cuộc gọi đồng thời tối đa (áp dụng cho autocall). Mặc định: 1.</td>
-<td></td>
-</tr>
-<tr>
-<td>default_concurrent_call</td>
-<td>Số lượng cuộc gọi đồng thời mặc định (áp dụng cho autocall) . Mặc định: 1.</td>
-<td></td>
-</tr>
-<tr>
-<td>max_ratio</td>
-<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent tối đa (áp dụng cho autodialer). Mặc định: 100.</td>
-<td></td>
-</tr>
-<tr>
-<td>default_ratio</td>
-<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent mặc định (áp dụng cho autodialer). Mặc định: 100.</td>
-<td></td>
-</tr>
-<tr>
-<td>gateway_id</td>
-<td>Id gateway để thực hiện cuộc gọi. Liên hệ để được cung cấp.</td>
-<td>x</td>
-</tr>
-<tr>
-<td>default_queue_agent</td>
-<td>Nhóm agent sẽ nhận cuộc gọi mặc định.</td>
-<td></td>
-</tr>
-<tr>
-<td>scheduled_recall</td>
-<td>Lên lịch gọi lại [&#39;default&#39;,&#39;hours&#39;]</td>
-<td></td>
-</tr>
-<tr>
-<td>recall_hours_block</td>
-<td>Nếu như lên lịch gọi lại là hours, thì ứng với cách bao nhiêu giờ sẽ gọi lại</td>
-<td></td>
-</tr>
-<tr>
-<td>local_start_time</td>
-<td>Thời gian hoạt động (bắt đầu). Format : HH:MM:SS</td>
-<td></td>
-</tr>
-<tr>
-<td>local_end_time</td>
-<td>Thời gian hoạt động (kết thúc). Format : HH:MM:SS</td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id='update-campaign' class='h2 font-weight-light'>Update Campaign</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/campaign/aaaaaaaa-bbbb-cccc-dddd-eeeeeeee'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "campaign_name" : "Autodial",
-    "type" : "autodialer",
-    "max_concurrent_call": 1,
-    "default_concurrent_call": 1,
-    "default_ratio": 100,
-    "max_ratio": 100,
-    "gateway_id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee",
-    "default_queue_agent": "",
-    "queue_agent_next_call": "",
-    "scheduled_recall": "default",
-    "recall_hours_block": 0,
-    "local_start_time": "00:00:00",
-    "local_end_time": "23:59:59"
-}'</span>
-</code></pre></div>
 <blockquote>
-<p>Response trả về:</p>
+<p>Sample data:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddddddd-1111-2222-3333-eeeeeeee"</span><span class="w">
+  </span><span class="nl">"campaign_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"autocall_campaign"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"concurrent_call"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>PUT https://{{API_HOST}}/v1/campaign/{{campaign_id}}</code></p>
-<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>campaign_id</td>
-<td>Id của campaign</td>
-</tr>
-</tbody></table>
-<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
+</span></code></pre></div>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -284,72 +150,12 @@
 </thead><tbody>
 <tr>
 <td>campaign_name</td>
-<td>Tên campaign</td>
+<td>Tên chiến dịch</td>
 <td>x</td>
 </tr>
 <tr>
-<td>type</td>
-<td>Loại (autocall, autodialer)</td>
-<td>x</td>
-</tr>
-<tr>
-<td>status</td>
-<td>Trạng thái (active, deactive)</td>
-<td></td>
-</tr>
-<tr>
-<td>description</td>
-<td>Mô tả</td>
-<td></td>
-</tr>
-<tr>
-<td>max_concurrent_call</td>
-<td>Số lượng cuộc gọi đồng thời tối đa (áp dụng cho autocall). Mặc định: 1.</td>
-<td></td>
-</tr>
-<tr>
-<td>default_concurrent_call</td>
-<td>Số lượng cuộc gọi đồng thời mặc định (áp dụng cho autocall) . Mặc định: 1.</td>
-<td></td>
-</tr>
-<tr>
-<td>max_ratio</td>
-<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent tối đa (áp dụng cho autodialer). Mặc định: 100.</td>
-<td></td>
-</tr>
-<tr>
-<td>default_ratio</td>
-<td>Tỉ lệ thực hiện cuộc gọi đựa trên số lượng agent mặc định (áp dụng cho autodialer). Mặc định: 100.</td>
-<td></td>
-</tr>
-<tr>
-<td>gateway_id</td>
-<td>Id gateway để thực hiện cuộc gọi. Liên hệ để được cung cấp.</td>
-<td>x</td>
-</tr>
-<tr>
-<td>default_queue_agent</td>
-<td>Nhóm agent sẽ nhận cuộc gọi mặc định.</td>
-<td></td>
-</tr>
-<tr>
-<td>scheduled_recall</td>
-<td>Lên lịch gọi lại [&#39;default&#39;,&#39;hours&#39;]</td>
-<td></td>
-</tr>
-<tr>
-<td>recall_hours_block</td>
-<td>Nếu như lên lịch gọi lại là hours, thì ứng với cách bao nhiêu giờ sẽ gọi lại</td>
-<td></td>
-</tr>
-<tr>
-<td>local_start_time</td>
-<td>Thời gian hoạt động (bắt đầu). Format : HH:MM:SS</td>
-<td></td>
-</tr>
-<tr>
-<td>local_end_time</td>
-<td>Thời gian hoạt động (kết thúc). Format : HH:MM:SS</td>
+<td>concurrent_call</td>
+<td>Số lượng cuộc gọi đồng thời</td>
 <td></td>
 </tr>
 </tbody></table>

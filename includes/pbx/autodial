@@ -1,0 +1,78 @@
+<h1 id='autodial' class='h1 font-weight-light'>Autodial</h1><h2 id='kh-i-ch-y-chi-n-d-ch-autodial' class='h2 font-weight-light'>Khởi chạy chiến dịch autodial</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> POST <span class="s1">'https://{{API_HOST}}/v1/autodial/campaign'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span> <span class="se">\</span>
+<span class="nt">--header</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "campaign_uuid": "avavavav-1111-2222-3333-eeeeeeee",
+    "carrier": "mobi",
+    "ratio": 2,
+    "customers" : [
+      {
+        "phone_number": "0899123456"
+      }
+    ]
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"fail"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"success"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"0899123456"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fae84fef-bdf4-42b0-a64a-d623b707c550"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>Error Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"campaign is not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>API này dùng để nhận thông tin chiến dịch và đẩy cuộc gọi autocall theo kịch bản và thông tin được truyền.</p>
+<h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v1/autocall/campaign</code></p>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
+<blockquote>
+<p>Sample data:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"campaign_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avavavav-1111-2222-3333-eeeeeeee"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mobi"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"ratio"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"customers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0899123456"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>campaign_uuid</td>
+<td>Chiến dịch</td>
+<td>x</td>
+</tr>
+<tr>
+<td>carrier</td>
+<td>Đầu số, nhà mạng thực hiện cuộc gọi</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers</td>
+<td>Danh sách khách hàng</td>
+<td>x</td>
+</tr>
+<tr>
+<td>customers.phone_number</td>
+<td>Số điện thoại nhận cuộc gọi</td>
+<td>x</td>
+</tr>
+</tbody></table>

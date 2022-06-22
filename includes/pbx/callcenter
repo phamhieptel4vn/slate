@@ -1,0 +1,42 @@
+<h1 id='callcenter' class='h1 font-weight-light'>CallCenter</h1><h2 id='get-callcenter-queues' class='h2 font-weight-light'>Get CallCenter Queues</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/callcenter/queue'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"call_center_queue_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7a514f33-f5f0-426a-97e7-c6cbe372b7a3"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"26c3dd3e-4279-43e9-b122-51871b445306"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"queue_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CALL_CENTER"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"queue_extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3333"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"queue_strategy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ring-all"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v1/callcenter/queue</code></p>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+</tbody></table>
