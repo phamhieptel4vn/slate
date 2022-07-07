@@ -1,1 +1,1 @@
-[![Build Status](http://113.164.246.22:8080/buildStatus/icon?job=DEV-api-document)](http://113.164.246.22:8080/job/DEV-api-document/)
+
