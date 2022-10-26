@@ -526,6 +526,28 @@
                         </div>
                       </li>
                       <li class="nav-item">
+                        <a href="#extension" class="nav-link" data-title="Extension"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="extension" data-target="#extension-nav" >Extension</a>
+                        <div class="collapse" id="extension-nav" data-parent="#page-nav">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                  <a href="#get-extensions" class="nav-link" data-title="Get Extensions" parent-id="extension-nav">Get Extensions</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#post-extension" class="nav-link" data-title="Post Extension" parent-id="extension-nav">Post Extension</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#put-extension" class="nav-link" data-title="PUT Extension" parent-id="extension-nav">PUT Extension</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#note" class="nav-link" data-title="Note*" parent-id="extension-nav">Note*</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#delete-extension" class="nav-link" data-title="Delete Extension" parent-id="extension-nav">Delete Extension</a>
+                                </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="nav-item">
                         <a href="#campaign" class="nav-link" data-title="Campaign"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="campaign" data-target="#campaign-nav" >Campaign</a>
                         <div class="collapse" id="campaign-nav" data-parent="#page-nav">
                             <ul class="nav flex-column">
@@ -2228,6 +2250,177 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
 <td>Password</td>
 </tr>
 </tbody></table>
+<h1 id='extension' class='h1 font-weight-light'>Extension</h1><h2 id='get-extensions' class='h2 font-weight-light'>Get Extensions</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v3/extension'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c405db5-9f24-4075-b261-7795eda0d4ab"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"16258396-d395-42d3-9b0d-14d3035b5e3a"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leader_Dev"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v2/extension</code></p>
+<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>Số lượng record trả về</td>
+<td>50</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>Vị trí bắt đầu khi query</td>
+<td>0</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>Giá trị</td>
+<td>101</td>
+</tr>
+</tbody></table>
+<h2 id='post-extension' class='h2 font-weight-light'>Post Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v3/extension'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "extension": "101",
+    "password": "123abc@#123",
+    "enabled": true,
+    "user_uuid": ""
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c405db5-9f24-4075-b261-7795eda0d4ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>POST https://{{API_HOST}}/v3/extension</code></p>
+<h3 id='body' class='h3 font-weight-light'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>extension</td>
+<td>Số máy nhánh</td>
+<td>x</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Mật khẩu</td>
+<td>x</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>Kích hoạt</td>
+<td>x</td>
+</tr>
+<tr>
+<td>user_uuid</td>
+<td>Map với một user trên hệ thống</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='put-extension' class='h2 font-weight-light'>PUT Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v3/extension/9c405db5-9f24-4075-b261-7795eda0d4ab'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+<span class="nt">--data-raw</span> <span class="s1">'{
+    "password": "123abc@#123",
+    "enabled": true,
+    "user_uuid": ""
+}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c405db5-9f24-4075-b261-7795eda0d4ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>PUT https://{{API_HOST}}/v3/extension/{{extension hoặc extension_uuid}}</code></p>
+<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>password</td>
+<td>Mật khẩu</td>
+<td>x</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>Kích hoạt</td>
+<td>x</td>
+</tr>
+<tr>
+<td>user_uuid</td>
+<td>Map với một user trên hệ thống</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='note' class='h2 font-weight-light'>Note*</h2>
+<p>Nếu bạn muốn giữ mật khẩu cũ vui lòng fill password với &quot;deFauLt&quot;.</p>
+<h2 id='delete-extension' class='h2 font-weight-light'>Delete Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> DELETE <span class="s1">'https://{{API_HOST}}/v3/extension/9c405db5-9f24-4075-b261-7795eda0d4ab'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c405db5-9f24-4075-b261-7795eda0d4ab"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>DELETE https://{{API_HOST}}/v3/extension</code></p>
 <h1 id='campaign' class='h1 font-weight-light'>Campaign</h1><h2 id='get-campaigns' class='h2 font-weight-light'>Get Campaigns</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
