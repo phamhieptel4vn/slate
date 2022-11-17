@@ -498,39 +498,14 @@
                         </div>
                       </li>
                       <li class="nav-item">
-                        <a href="#tenant" class="nav-link" data-title="Tenant"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="tenant" data-target="#tenant-nav" >Tenant</a>
-                        <div class="collapse" id="tenant-nav" data-parent="#page-nav">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                  <a href="#create-tenant" class="nav-link" data-title="Create Tenant" parent-id="tenant-nav">Create Tenant</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a href="#get-tenant-by-id" class="nav-link" data-title="Get Tenant By ID" parent-id="tenant-nav">Get Tenant By ID</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a href="#update-tenant" class="nav-link" data-title="Update Tenant" parent-id="tenant-nav">Update Tenant</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a href="#create-extension" class="nav-link" data-title="Create Extension" parent-id="tenant-nav">Create Extension</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a href="#get-extensions" class="nav-link" data-title="Get Extensions" parent-id="tenant-nav">Get Extensions</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a href="#get-extension-by-ext" class="nav-link" data-title="Get Extension By Ext" parent-id="tenant-nav">Get Extension By Ext</a>
-                                </li>
-                                <li class="nav-item">
-                                  <a href="#update-extension-password" class="nav-link" data-title="Update Extension Password" parent-id="tenant-nav">Update Extension Password</a>
-                                </li>
-                            </ul>
-                        </div>
-                      </li>
-                      <li class="nav-item">
                         <a href="#extension" class="nav-link" data-title="Extension"  data-toggle="collapse" role="button" aria-expanded="false" aria-controls="extension" data-target="#extension-nav" >Extension</a>
                         <div class="collapse" id="extension-nav" data-parent="#page-nav">
                             <ul class="nav flex-column">
                                 <li class="nav-item">
                                   <a href="#get-extensions" class="nav-link" data-title="Get Extensions" parent-id="extension-nav">Get Extensions</a>
+                                </li>
+                                <li class="nav-item">
+                                  <a href="#find-extension-by-id" class="nav-link" data-title="Find Extension By Id" parent-id="extension-nav">Find Extension By Id</a>
                                 </li>
                                 <li class="nav-item">
                                   <a href="#post-extension" class="nav-link" data-title="Post Extension" parent-id="extension-nav">Post Extension</a>
@@ -1981,275 +1956,6 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
 </tbody></table>
 <h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>GET https://{{API_HOST}}/v1/monitor/agent</code></p>
-<h1 id='tenant' class='h1 font-weight-light'>Tenant</h1><h2 id='create-tenant' class='h2 font-weight-light'>Create Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-  "tenant_id" : test01"
-}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test01.tel4vn.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"tenant_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{{API_HOST}}/v1/tenant/41d0f364-79f8-4abb-9834-ee803320ea8d"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"outbound_proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pbx01.tel4vn.com:50061"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50061"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"transports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"wss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://pbx01.tel4vn.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"api_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5294243b-1ace-45a9-b2ef-d66222cb1729"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcabc123321"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"938b4d25-4b25-4f32-9169-7411734ef990"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>POST https://{{API_HOST}}/v1/tenant</code></p>
-<h3 id='body' class='h3 font-weight-light'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tenant_id</td>
-<td>Tenant&#39;id</td>
-</tr>
-</tbody></table>
-<h2 id='get-tenant-by-id' class='h2 font-weight-light'>Get Tenant By ID</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"domain"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test01.tel4vn.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"tenant_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://{{API_HOST}}/v1/tenant/41d0f364-79f8-4abb-9834-ee803320ea8d"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"outbound_proxy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pbx01.tel4vn.com:50061"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"port"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50061"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"transports"</span><span class="p">:</span><span class="w"> </span><span class="s2">"both"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"wss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wss://pbx01.tel4vn.com"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='query-parameters' class='h3 font-weight-light'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tenant_id</td>
-<td>Tenant&#39;id</td>
-<td>test01</td>
-</tr>
-</tbody></table>
-<h2 id='update-tenant' class='h2 font-weight-light'>Update Tenant</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span><span class="se">\</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "enable" : false
-}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}</code></p>
-<h3 id='body-2' class='h3 font-weight-light'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>enable</td>
-<td>Active or Deactive tenant</td>
-<td>true of false</td>
-</tr>
-</tbody></table>
-<h2 id='create-extension' class='h2 font-weight-light'>Create Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "ext" : "101",
-    "pwd" : "123Abc!@#"
-}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>POST https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension</code></p>
-<h3 id='body-3' class='h3 font-weight-light'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ext</td>
-<td>Extension</td>
-</tr>
-<tr>
-<td>pwd</td>
-<td>Password</td>
-</tr>
-</tbody></table>
-<h2 id='get-extensions' class='h2 font-weight-light'>Get Extensions</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension?limit=2&amp;offset=0'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nl">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension</code></p>
-<h3 id='query-parameters-2' class='h3 font-weight-light'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tenant_id</td>
-<td>Tenant&#39;id</td>
-<td>test01</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>Số lượng record trả về</td>
-<td>50</td>
-</tr>
-<tr>
-<td>offset</td>
-<td>Vị trí bắt đầu khi lấy</td>
-<td>0</td>
-</tr>
-</tbody></table>
-<h2 id='get-extension-by-ext' class='h2 font-weight-light'>Get Extension By Ext</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"ext"</span><span class="p">:</span><span class="w"> </span><span class="s2">"104"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"pwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123Abc!@#"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-6' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>GET https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}</code></p>
-<h3 id='query-parameters-3' class='h3 font-weight-light'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tenant_id</td>
-<td>Tenant&#39;id</td>
-<td>test01</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>Extension</td>
-<td>101</td>
-</tr>
-</tbody></table>
-<h2 id='update-extension-password' class='h2 font-weight-light'>Update Extension Password</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
-<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{SECRET_TOKEN}}'</span>
-<span class="nt">--data-raw</span> <span class="s1">'{
-    "pwd" : "123Abc!@#"
-}'</span>
-</code></pre></div>
-<blockquote>
-<p>Response trả về:</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"update successfully"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-7' class='h3 font-weight-light'>HTTP Request</h3>
-<p><code>PUT https://{{API_HOST}}/v1/tenant/{{tenant_id}}/extension/{{ext}}/password</code></p>
-<h3 id='query-parameters-4' class='h3 font-weight-light'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>tenant_id</td>
-<td>Tenant&#39;id</td>
-<td>test01</td>
-</tr>
-<tr>
-<td>ext</td>
-<td>Extension</td>
-<td>101</td>
-</tr>
-</tbody></table>
-<h3 id='body-4' class='h3 font-weight-light'>Body</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>pwd</td>
-<td>Password</td>
-</tr>
-</tbody></table>
 <h1 id='extension' class='h1 font-weight-light'>Extension</h1><h2 id='get-extensions' class='h2 font-weight-light'>Get Extensions</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v3/extension'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
@@ -2267,7 +1973,8 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
           </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"follow_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
           </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125"</span><span class="p">,</span><span class="w">
@@ -2277,7 +1984,8 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
           </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"follow_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="err">...</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -2311,6 +2019,26 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
 <td>101</td>
 </tr>
 </tbody></table>
+<h2 id='find-extension-by-id' class='h2 font-weight-light'>Find Extension By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v3/extension/71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"follow_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v2/extension/{{extension_uuid or extension}}</code></p>
 <h2 id='post-extension' class='h2 font-weight-light'>Post Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v3/extension'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
@@ -2330,7 +2058,7 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v3/extension</code></p>
 <h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
@@ -2360,6 +2088,11 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
 <td>Map với một user trên hệ thống</td>
 <td></td>
 </tr>
+<tr>
+<td>follow_me</td>
+<td>Số điện thoại gọi ra khi không online</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id='put-extension' class='h2 font-weight-light'>PUT Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v3/extension/9c405db5-9f24-4075-b261-7795eda0d4ab'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -2379,7 +2112,7 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT https://{{API_HOST}}/v3/extension/{{extension hoặc extension_uuid}}</code></p>
 <h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
@@ -2404,6 +2137,11 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
 <td>Map với một user trên hệ thống</td>
 <td></td>
 </tr>
+<tr>
+<td>follow_me</td>
+<td>Số điện thoại gọi ra khi không online</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id='note' class='h2 font-weight-light'>Note*</h2>
 <p>Nếu bạn muốn giữ mật khẩu cũ vui lòng fill password với &quot;deFauLt&quot;.</p>
@@ -2419,7 +2157,7 @@ Nếu như giá trị is_encode = true thì phía client sẽ gửi phone đã �
   </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c405db5-9f24-4075-b261-7795eda0d4ab"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v3/extension</code></p>
 <h1 id='campaign' class='h1 font-weight-light'>Campaign</h1><h2 id='get-campaigns' class='h2 font-weight-light'>Get Campaigns</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v1/campaign'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>

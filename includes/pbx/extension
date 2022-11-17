@@ -15,7 +15,8 @@
           </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"follow_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
           </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125"</span><span class="p">,</span><span class="w">
@@ -25,7 +26,8 @@
           </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+          </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"follow_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="err">...</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -59,6 +61,26 @@
 <td>101</td>
 </tr>
 </tbody></table>
+<h2 id='find-extension-by-id' class='h2 font-weight-light'>Find Extension By Id</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> GET <span class="s1">'https://{{API_HOST}}/v3/extension/71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
+</code></pre></div>
+<blockquote>
+<p>Response trả về:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"71cb1d6b-e8c2-4df4-bde2-9afbbc4f0125"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"102"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"user_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"domain_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b10a2e29-9fee-4f9f-89f4-b9677bad186d"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"domain_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev.tel4vn.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"is_link_call_center"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"follow_me"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0123456789"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+<p><code>GET https://{{API_HOST}}/v2/extension/{{extension_uuid or extension}}</code></p>
 <h2 id='post-extension' class='h2 font-weight-light'>Post Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> POST <span class="s1">'https://{{API_HOST}}/v3/extension'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Authorization: Bearer {{TOKEN}}'</span>
@@ -78,7 +100,7 @@
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-2' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>POST https://{{API_HOST}}/v3/extension</code></p>
 <h3 id='body' class='h3 font-weight-light'>Body</h3>
 <table><thead>
@@ -108,6 +130,11 @@
 <td>Map với một user trên hệ thống</td>
 <td></td>
 </tr>
+<tr>
+<td>follow_me</td>
+<td>Số điện thoại gọi ra khi không online</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id='put-extension' class='h2 font-weight-light'>PUT Extension</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-L</span> <span class="nt">-X</span> PUT <span class="s1">'https://{{API_HOST}}/v3/extension/9c405db5-9f24-4075-b261-7795eda0d4ab'</span> <span class="se">\</span>
 <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
@@ -127,7 +154,7 @@
   </span><span class="nl">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>PUT https://{{API_HOST}}/v3/extension/{{extension hoặc extension_uuid}}</code></p>
 <h3 id='body-2' class='h3 font-weight-light'>Body</h3>
 <table><thead>
@@ -152,6 +179,11 @@
 <td>Map với một user trên hệ thống</td>
 <td></td>
 </tr>
+<tr>
+<td>follow_me</td>
+<td>Số điện thoại gọi ra khi không online</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id='note' class='h2 font-weight-light'>Note*</h2>
 <p>Nếu bạn muốn giữ mật khẩu cũ vui lòng fill password với &quot;deFauLt&quot;.</p>
@@ -167,5 +199,5 @@
   </span><span class="nl">"extension_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9c405db5-9f24-4075-b261-7795eda0d4ab"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"101"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4' class='h3 font-weight-light'>HTTP Request</h3>
+</span></code></pre></div><h3 id='http-request-5' class='h3 font-weight-light'>HTTP Request</h3>
 <p><code>DELETE https://{{API_HOST}}/v3/extension</code></p>
