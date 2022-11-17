@@ -18,7 +18,6 @@ includes:
   - pbx/call
   - pbx/report
   - pbx/monitor
-  - pbx/tenant
   - pbx/extension
   - pbx/campaign
   - pbx/autocall
