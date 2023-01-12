@@ -94,7 +94,7 @@ curl -L -X GET 'https://{{API_HOST}}/v1/report/call_status?end_date=2021-06-01%2
 }
 ```
 
-API dùng để lấy danh sách các call_id và sip_call_id trong khoảng thời gian.
+API dùng để lấy các trạng thái và số lượng cuộc gọi các trạng thái trong khoảng thời gian.
 
 ### HTTP Request
 
